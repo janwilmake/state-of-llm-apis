@@ -1,6 +1,6 @@
 # OpenAI Model Catalog
 
-> **Source:** [OpenAI API Pricing](https://developers.openai.com/api/docs/pricing) · [OpenAI Models](https://platform.openai.com/docs/models) · **Verified:** 2026-04-10
+> **Source:** [OpenAI API Pricing](https://developers.openai.com/api/docs/pricing) · [OpenAI Models](https://platform.openai.com/docs/models) · **Verified:** 2026-04-11
 
 ---
 
@@ -86,6 +86,18 @@ Cached input tokens are charged at **10% of standard input price** for most mode
 - **Pay-as-you-go** for teams via `codex-mini-latest` and Codex CLI (available April 2026)
 - Enterprise: new **Codex seat** type at flexible token-based pricing (announced 2026-04-02)
 - ChatGPT Business price reduced to **$20/seat/month** (down from $25) with Codex rollout
+
+## ChatGPT Subscription Tiers (Updated 2026-04-09)
+
+| Plan | Price | Key features |
+|---|---|---|
+| Free | $0 | Limited models, includes ads |
+| Go | $8/month | Includes ads, higher limits than Free |
+| Plus | $20/month | Ad-free, daily Codex usage |
+| **Pro** | **$100/month** | 5× more Codex than Plus; competes with Anthropic Max 5x |
+| Pro (high) | $200/month | Maximum usage; still available |
+
+*ChatGPT subscriptions are separate from API billing.*
 
 ## Notes for Developers
 

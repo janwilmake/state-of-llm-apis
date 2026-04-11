@@ -1,6 +1,6 @@
 # Anthropic Model Catalog
 
-> **Source:** [Anthropic API Pricing](https://platform.claude.com/docs/en/about-claude/pricing) · [Models Overview](https://platform.claude.com/docs/en/about-claude/models/overview) · **Verified:** 2026-04-10
+> **Source:** [Anthropic API Pricing](https://platform.claude.com/docs/en/about-claude/pricing) · [Models Overview](https://platform.claude.com/docs/en/about-claude/models/overview) · **Verified:** 2026-04-11
 
 ---
 
@@ -97,7 +97,8 @@ Claude models support `extended_thinking` mode, which enables multi-step chain-o
 |---|---|---|
 | Free | $0 | Limited access to Claude Sonnet |
 | Pro | $20/month | Higher limits, Claude Code access, priority |
-| Max | $100+/month | 5× or 20× more usage than Pro, persistent memory |
+| Max 5x | $100/month | 5× more usage than Pro, priority access |
+| Max 20x | $200/month | 20× more usage than Pro, priority access |
 | Team Standard | $25/user/month (annual) | SSO, admin controls, Slack/M365 integration |
 | Team Premium | $150/user/month | All Standard + Claude Code access |
 | Enterprise | Custom | SCIM, audit logs, compliance API, custom data retention |
@@ -107,6 +108,25 @@ Claude models support `extended_thinking` mode, which enables multi-step chain-o
 ## API Policy Change (April 2026)
 
 Effective **2026-04-04**, Claude Pro and Max subscriptions can **no longer be used to power third-party agent frameworks** (e.g. OpenClaw). Users must connect via direct API key with pay-as-you-go token billing. Affected subscribers received a one-time credit equal to their monthly plan cost. *Source: TechCrunch, 2026-04-04*
+
+---
+
+## Claude Mythos Preview (2026-04-07) — Gated / Not Publicly Available
+
+> ⚠️ **Not available via public API.** Access is restricted to ~50 partner organizations under **Project Glasswing** for cybersecurity use only.
+
+Anthropic's most capable model to date, described as a "step change" above Claude Opus 4.6. Excels at reasoning, coding, and — most notably — autonomous vulnerability discovery in software systems. Named internally "Capybara".
+
+| Metric | Value |
+|---|---|
+| API name | `claude-mythos-preview` (gated) |
+| Public API | ❌ No general availability |
+| Preview pricing | **~$25.00 / 1M input** · **~$125.00 / 1M output** |
+| General release date | Not announced |
+
+**Why gated:** Anthropic identified Mythos as a cybersecurity risk if broadly released. Under Project Glasswing, ~50 infrastructure partners use it solely for defensive security scanning. In internal testing, it identified thousands of zero-day vulnerabilities, many decades old.
+
+**What developers should know:** Mythos is the precursor to the next Claude generation. Its benchmark scores substantially exceed Opus 4.6 on software engineering and reasoning. No timeline for general availability has been announced. *Source: TechCrunch, Anthropic System Card — 2026-04-07*
 
 ---
 

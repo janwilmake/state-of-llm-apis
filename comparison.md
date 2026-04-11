@@ -1,6 +1,6 @@
 # LLM API Comparison Matrix
 
-> **Last updated:** 2026-04-10. Prices per 1M tokens (USD), standard tier unless noted.
+> **Last updated:** 2026-04-11. Prices per 1M tokens (USD), standard tier unless noted.
 
 ---
 
@@ -30,7 +30,7 @@
 | [Google](models/google.md) | Gemini 3 Flash Preview | 1 M | $0.50 | $3.00 | Preview; fast |
 | [Mistral](models/mistral.md) | Mistral Medium 3 | 131 K | $0.40 | $2.00 | Good for coding/RAG |
 | [Cohere](models/cohere.md) | Command A | 256 K | $2.50 | $10.00 | Enterprise RAG; citation support |
-| [Meta](models/meta.md) | Llama 4 Maverick | 1 M | ~$0.27 | ~$0.85 | Open weights; self-hostable |
+| [Meta](models/meta.md) | Llama 4 Maverick | 1 M | ~$0.15 | ~$0.60 | Open weights; self-hostable |
 
 ---
 
@@ -50,7 +50,7 @@
 | [xAI](models/xai.md) | Grok 4.1 Fast | 2 M | $0.20 | $0.50 | Near-frontier at budget price |
 | [DeepSeek](models/deepseek.md) | V3.2 Chat | 128 K | $0.27 | $1.10 | Open weights; very cheap |
 | [Cohere](models/cohere.md) | Command R7B | 128 K | $0.0375 | $0.15 | Cheapest Cohere |
-| [Meta](models/meta.md) | Llama 4 Scout | 10 M | ~$0.11 | ~$0.34 | Open weights; 10 M context |
+| [Meta](models/meta.md) | Llama 4 Scout | 10 M | ~$0.08 | ~$0.30 | Open weights; 10 M context |
 
 ---
 
@@ -98,7 +98,7 @@
 | Fine-tuning | ✅ | ❌ | ✅ (2.0 Flash) | ❌ | ❌ | ❌ | ❌ |
 | Web search (built-in) | ✅ ($10/1K) | ❌ | ✅ ($14–35/1K) | ❌ | ✅ ($2.5–5/1K) | ❌ | ❌ |
 | Computer use | ✅ (GPT-5.4) | ✅ | ✅ (Computer Use Preview) | ❌ | ❌ | ❌ | ❌ |
-| Open weights | ❌ | ❌ | ✅ (Gemma) | ✅ (some) | ❌ | ✅ | ❌ |
+| Open weights | ❌ | ❌ | ✅ (Gemma 4 – Apache 2.0) | ✅ (some) | ❌ | ✅ | ❌ |
 | Free API tier | ✅ (trial) | ❌ | ✅ | ✅ (experiment) | ❌ | ✅ (5 M tokens) | ✅ (1K calls/mo) |
 
 ---

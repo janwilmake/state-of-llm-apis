@@ -1,6 +1,6 @@
 # Google Gemini Model Catalog
 
-> **Source:** [Gemini API Pricing](https://ai.google.dev/gemini-api/docs/pricing) · [Vertex AI Pricing](https://cloud.google.com/vertex-ai/generative-ai/pricing) · [Gemini Deprecations](https://ai.google.dev/gemini-api/docs/deprecations) · **Verified:** 2026-04-10
+> **Source:** [Gemini API Pricing](https://ai.google.dev/gemini-api/docs/pricing) · [Vertex AI Pricing](https://cloud.google.com/vertex-ai/generative-ai/pricing) · [Gemini Deprecations](https://ai.google.dev/gemini-api/docs/deprecations) · **Verified:** 2026-04-11
 
 ---
 
@@ -113,9 +113,40 @@ High-volume, low-latency agentic tasks.
 
 ---
 
+## Gemma 4 (Open Weights — Released 2026-04-02)
+
+Google's latest open-weight model family. Released under **Apache 2.0** (first Gemma generation with fully permissive license). Built on Gemini 3 research.
+
+| Model | Parameters | Context | License | Best for |
+|---|---|---|---|---|
+| Gemma 4 E2B | ~2B active | 128K | Apache 2.0 | Mobile / edge devices |
+| Gemma 4 E4B | ~4B active | 128K | Apache 2.0 | Smartphones, NPUs |
+| Gemma 4 26B MoE (A4B) | 26B total / 3.8B active | 256K | Apache 2.0 | Single GPU (H100), fast inference |
+| Gemma 4 31B Dense | 31B | 256K | Apache 2.0 | Workstation, maximum quality |
+
+**Key facts:**
+- 31B: #3 on Arena AI open text leaderboard (April 2026); 26B MoE: #6
+- All variants support text, image, video, audio inputs
+- E2B/E4B also process audio input (speech recognition)
+- 140+ languages
+- Available via HuggingFace, Kaggle, Ollama, Google AI Studio
+- License change from custom Gemma license to Apache 2.0 is significant for enterprise compliance
+
+*Source: [Google Blog](https://blog.google/innovation-and-ai/technology/developers-tools/gemma-4/) — 2026-04-02*
+
+---
+
 ## Free Tier
 
-Google AI Studio usage is **completely free** in all regions — no API billing for Studio use. API free tier provides rate-limited access to most models (no credit card required).
+Google AI Studio usage is **completely free** in all regions — no API billing for Studio use.
+
+**Changes effective 2026-04-01:**
+- ⚠️ **Pro models now paid-only** on API free tier (previously free-tier accessible). Free-tier developers must use Flash or Flash-Lite models.
+- Mandatory spending caps enforced by tier: Tier 1 ($250/month), Tier 2 ($2,000/month), Tier 3 ($20K–$100K+/month)
+- New accounts may be required to use prepaid billing (buy credits upfront)
+- Existing accounts not yet affected by prepaid requirement
+
+API free tier provides rate-limited access to **Flash and Flash-Lite models only** (no credit card required for free tier).
 
 Paid API pricing starts when you exceed free-tier rate limits.
 

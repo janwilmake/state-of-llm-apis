@@ -4,6 +4,81 @@ Changes tracked by the Model Tracker agent. Most recent entries first.
 
 ---
 
+## 2026-04-11
+
+### 🔄 Pricing corrections: Meta Llama 4 provider rates
+
+**Provider:** [Meta](models/meta.md)  
+Corrected Llama 4 Scout and Maverick typical API prices based on current OpenRouter/DeepInfra rates (verified 2026-04-11):
+- **Scout:** $0.11/$0.34 → **$0.08/$0.30** per 1M tokens
+- **Maverick:** $0.27/$0.85 → **$0.15/$0.60** per 1M tokens  
+These are third-party provider rates; Meta does not operate a first-party API.
+
+---
+
+### 🆕 Meta: Muse Spark released (2026-04-08)
+
+**Provider:** [Meta](models/meta.md)  
+**New model:** Muse Spark — first model from Meta Superintelligence Labs (MSL), led by Alexandr Wang. Proprietary (closed weights), rebuilt from scratch with new infrastructure. Now powers Meta AI app and meta.ai. Rolling out to WhatsApp, Instagram, Facebook, Messenger, and Ray-Ban AI glasses in coming weeks.  
+- **Modalities:** Text, images, video, multimodal perception  
+- **Special feature:** "Contemplating mode" for multi-agent orchestration  
+- **Strengths:** Multimodal perception, reasoning, health, shopping recommendations  
+- **Gap:** Coding and long-horizon agents (Meta acknowledged)  
+- **API:** Private preview to select partners only. No public API date announced.  
+- **Pricing:** Not yet disclosed (public API not yet available)  
+- Next model codenamed "Watermelon" in development  
+*Source: [Meta blog](https://about.fb.com/news/2026/04/introducing-muse-spark-meta-superintelligence-labs/), TechCrunch, NYT — 2026-04-08*
+
+---
+
+### 🆕 Google: Gemma 4 family released (2026-04-02)
+
+**Provider:** [Google](models/google.md)  
+**New models:** Gemma 4 E2B, E4B, 26B MoE (A4B), and 31B Dense — Google's most capable open-weight models to date. Released under **Apache 2.0** license (replacing the custom Gemma license used by previous generations).  
+- 31B Dense: #3 on Arena AI open text leaderboard; 26B MoE: #6
+- All variants: multimodal (text, image, video); E2B/E4B also audio
+- Context: 128K (E2B/E4B) / 256K (26B, 31B); 140+ languages
+- Available: HuggingFace, Kaggle, Ollama, AI Studio, AI Edge Gallery  
+*Source: [Google Blog](https://blog.google/innovation-and-ai/technology/developers-tools/gemma-4/) — 2026-04-02*
+
+---
+
+### ⚠️ Google: Gemini API free tier restricted (2026-04-01)
+
+**Provider:** [Google](models/google.md)  
+Effective April 1, 2026, Google changed Gemini API free tier policies:
+- **Pro models now paid-only** on the API free tier (previously accessible to free-tier users)
+- Free tier now limited to **Flash and Flash-Lite models** only
+- Mandatory spending caps enforced by tier (Tier 1: $250/month, Tier 2: $2,000/month)
+- New accounts may require prepaid billing (buy credits upfront)  
+*Source: FindSkill.ai, Google API docs — 2026-04-01*
+
+---
+
+### 🆕 Anthropic: Claude Mythos Preview announced (2026-04-07)
+
+**Provider:** [Anthropic](models/anthropic.md)  
+**New model (gated):** Claude Mythos Preview — Anthropic's most capable model to date, described as a "step change" above Claude Opus 4.6. Available **only** to ~50 partner organizations under **Project Glasswing** for cybersecurity use.  
+- Internally codenamed "Capybara"  
+- Autonomous zero-day vulnerability discovery across large codebases  
+- Preview pricing: **~$25 / $125 per 1M input/output tokens** (gated, not public API)  
+- No general availability date announced  
+- Anthropic withheld broad release due to offensive cybersecurity risk  
+*Source: TechCrunch, [Anthropic System Card](https://www.anthropic.com/claude-mythos-preview-system-card) — 2026-04-07*
+
+---
+
+### 🆕 OpenAI: ChatGPT $100/month Pro tier launched (2026-04-09)
+
+**Provider:** [OpenAI](models/openai.md)  
+OpenAI launched a new **$100/month ChatGPT Pro** subscription tier, positioned between the existing Plus ($20/month) and Pro ($200/month) plans. Designed to compete directly with Anthropic's Claude Max 5x ($100/month).  
+- 5× more Codex usage than the Plus plan  
+- "Best for longer, high-effort Codex sessions"  
+- Total ChatGPT personal subscription tiers: Free, Go ($8), Plus ($20), Pro ($100), Pro ($200)  
+*Source: TechCrunch, CNBC — 2026-04-09*
+
+---
+
 ## 2026-04-10
 
 ### 🆕 Initial knowledge base creation
