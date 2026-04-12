@@ -1,6 +1,6 @@
 # LLM API Comparison Matrix
 
-> **Last updated:** 2026-04-11. Prices per 1M tokens (USD), standard tier unless noted.
+> **Last updated:** 2026-04-12. Prices per 1M tokens (USD), standard tier unless noted.
 
 ---
 
@@ -131,6 +131,19 @@
 | Enterprise RAG / retrieval | Cohere Command A | Built-in citation, Rerank/Embed tools |
 | Real-time X/Twitter data | Grok 4.20 | Native X integration |
 | Reasoning on a budget | o4-mini ($1.10/$4.40) or DeepSeek Reasoner ($0.55/$2.19) | Cheap chain-of-thought |
+
+---
+
+## Action Items (As of 2026-04-12)
+
+| Deadline | Action |
+|---|---|
+| **2026-04-20** ⚠️ | Migrate `claude-3-haiku-20240307` → `claude-haiku-4-5-20251001` (Claude 3 Haiku retiring in 8 days) |
+| **2026-06-01** | Migrate `gemini-2.0-flash` / `gemini-2.0-flash-lite` to 2.5 equivalents |
+| **2026-06-05** | GPT-5.2 Thinking removed from ChatGPT legacy picker |
+| **2026-06-17** | Migrate `gemini-2.5-pro` → `gemini-3.1-pro-preview`, `gemini-2.5-flash` → `gemini-3-flash-preview` |
+| **2026-07-22** | Migrate `gemini-2.5-flash-lite` → `gemini-3.1-flash-lite-preview` |
+| **Late April 2026** | 👀 Watch for **DeepSeek V4** launch — V4-Lite grey testing began early April; full model could arrive any day |
 
 ---
 

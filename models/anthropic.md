@@ -1,6 +1,6 @@
 # Anthropic Model Catalog
 
-> **Source:** [Anthropic API Pricing](https://platform.claude.com/docs/en/about-claude/pricing) · [Models Overview](https://platform.claude.com/docs/en/about-claude/models/overview) · **Verified:** 2026-04-11
+> **Source:** [Anthropic API Pricing](https://platform.claude.com/docs/en/about-claude/pricing) · [Models Overview](https://platform.claude.com/docs/en/about-claude/models/overview) · **Verified:** 2026-04-12
 
 ---
 
@@ -14,7 +14,7 @@ Anthropic's most capable model. 1 M token context at standard pricing — no lon
 |---|---|
 | API name | `claude-opus-4-6` |
 | Context window | 1,000,000 tokens |
-| Max output | — |
+| Max output | 128,000 tokens |
 | Input (≤200K) | **$5.00 / 1M** |
 | Output (≤200K) | **$25.00 / 1M** |
 | Input (>200K) | $10.00 / 1M |
@@ -138,11 +138,17 @@ Anthropic's Claude 5 generation is underway. **Sonnet 5 "Fennec"** was released 
 
 ## Legacy Models
 
-| Model | Status | Notes |
-|---|---|---|
-| Claude Opus 4.1 | Active (legacy) | $15 input / $75 output — 67% more expensive than Opus 4.6 |
-| Claude 3.5 Sonnet | Active (legacy) | Older generation; lower benchmarks |
-| Claude 3 Haiku | Active (legacy) | Superseded by Haiku 4.5 |
+| Model | Status | Retirement | Notes |
+|---|---|---|---|
+| Claude Opus 4.5 | Active (legacy) | Not before 2026-11-24 | $5/$25 input/output — same price as Opus 4.6 but older |
+| Claude Opus 4.1 | Active (legacy) | Not before 2026-08-05 | $15/$75 — 3× more expensive than Opus 4.6 |
+| Claude Sonnet 4.5 | Active (legacy) | Not before 2026-09-29 | $3/$15 — same price as Sonnet 4.6 but older |
+| Claude Sonnet 4 | Active (legacy) | Not before 2026-05-14 | $3/$15 |
+| Claude Opus 4 | Active (legacy) | Not before 2026-05-14 | $15/$75 |
+| Claude 3 Haiku | **⚠️ RETIRING 2026-04-20** | **2026-04-20** | **Migrate NOW to `claude-haiku-4-5-20251001`** |
+| Claude 3.5 Haiku | Retired 2026-02-19 | — | Use Haiku 4.5 |
+| Claude Sonnet 3.7 | Retired 2026-02-19 | — | Use Sonnet 4.6 |
+| Claude 3 Opus | Retired 2026-01-05 | — | Available to paid claude.ai subscribers by special request |
 
 *See [deprecated.md](../deprecated.md) for sunset dates.*
 

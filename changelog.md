@@ -4,6 +4,42 @@ Changes tracked by the Model Tracker agent. Most recent entries first.
 
 ---
 
+## 2026-04-12
+
+### ⚠️ URGENT: Anthropic Claude 3 Haiku retiring in 8 days (2026-04-20)
+
+**Provider:** [Anthropic](models/anthropic.md)  
+Claude 3 Haiku (`claude-3-haiku-20240307`) reaches its retirement date on **April 20, 2026**. API requests to this model will fail after that date. Migrate immediately to `claude-haiku-4-5-20251001` (Claude Haiku 4.5).  
+- **Price change on migration:** $0.25/$1.25 → $1.00/$5.00 per 1M input/output (4× more expensive, but dramatically more capable)  
+- **Note:** Claude 3.5 Haiku (`claude-3-5-haiku-20241022`) already retired 2026-02-19 — do not use  
+*Source: [Anthropic model deprecations page](https://platform.claude.com/docs/en/about-claude/model-deprecations) — verified 2026-04-12*
+
+---
+
+### 🔜 DeepSeek V4 — Grey release underway, full launch imminent
+
+**Provider:** [DeepSeek](models/deepseek.md)  
+DeepSeek V4 has not officially launched as of 2026-04-12, but is in limited grey testing on some API infrastructure nodes ("V4-Lite"), strongly signalling imminent public release.  
+**Key confirmed facts (via Reuters, The Information):**  
+- Full model expected **late April 2026** (missed prior Feb/March targets)
+- ~1 trillion parameters total, ~32–37B active per token (MoE architecture)  
+- First frontier model running on **Huawei Ascend chips** (no NVIDIA/AMD early access)
+- Multimodal: text, image, video  
+- 1M token context window widely reported but not officially confirmed  
+- Three V4 variants in development  
+**What to do:** No migration required now; current `deepseek-chat` and `deepseek-reasoner` point to V3.2. Watch official API docs for V4 model IDs.  
+*Source: Reuters 2026-04-03, Taipei Times 2026-04-11, Gizchina 2026-04-11*
+
+---
+
+### 🛠️ Anthropic: Corrected Claude Opus 4.6 max output tokens
+
+**Provider:** [Anthropic](models/anthropic.md)  
+Corrected `claude-opus-4-6` max output from "—" to **128,000 tokens**, per official Anthropic release notes. Also added Claude Sonnet 4.6 release date (2026-02-17) to legacy model table. Legacy model retirement dates added from official deprecation page.  
+*Source: [Anthropic Opus 4.6 announcement](https://www.anthropic.com/news/claude-opus-4-6), [deprecation page](https://platform.claude.com/docs/en/about-claude/model-deprecations) — 2026-04-12*
+
+---
+
 ## 2026-04-11
 
 ### 🔄 Pricing corrections: Meta Llama 4 provider rates

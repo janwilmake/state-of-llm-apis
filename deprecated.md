@@ -1,6 +1,6 @@
 # Deprecated & Sunset Models
 
-> Track sunset dates and migration paths. **Last updated:** 2026-04-11.
+> Track sunset dates and migration paths. **Last updated:** 2026-04-12.
 >
 > ⚠️ = Deprecated, still accessible. ❌ = Shut down, no longer accessible.
 
@@ -38,6 +38,16 @@ GPT-5.4 replaced GPT-5.2 Thinking in ChatGPT as of 2026-03-05. GPT-5.2 Thinking 
 
 ## Recently Deprecated (Still Accessible)
 
+### Anthropic
+
+> ⚠️ **URGENT: Claude 3 Haiku retires April 20, 2026 — 8 days away!** Migrate now.
+
+| Model | API name | Deprecated | Retirement date | Replacement |
+|---|---|---|---|---|
+| Claude 3 Haiku | `claude-3-haiku-20240307` | 2026-02-19 | **2026-04-20** | `claude-haiku-4-5-20251001` |
+
+*Source: [Anthropic model deprecations](https://platform.claude.com/docs/en/about-claude/model-deprecations) — verified 2026-04-12*
+
 ### OpenAI
 
 | Model | Deprecated | Notes |
@@ -58,6 +68,17 @@ GPT-5.4 replaced GPT-5.2 Thinking in ChatGPT as of 2026-03-05. GPT-5.2 Thinking 
 ---
 
 ## Already Shut Down
+
+### Anthropic
+
+| Model | API name | Retired | Was replaced by |
+|---|---|---|---|
+| Claude 3.5 Haiku | `claude-3-5-haiku-20241022` | **2026-02-19** | `claude-haiku-4-5-20251001` |
+| Claude Sonnet 3.7 | `claude-3-7-sonnet-20250219` | **2026-02-19** | `claude-sonnet-4-5-20250929` |
+| Claude 3 Opus | `claude-3-opus-20240229` | 2026-01-05 | `claude-opus-4-6` (preserved via special request) |
+| Claude 3.5 Sonnet | `claude-3-5-sonnet-*` | 2025-10-28 | `claude-opus-4-6` |
+
+> **Note:** Claude Opus 3 is retired but still accessible to paid claude.ai subscribers and on the API [by request](https://www.anthropic.com/research/deprecation-updates-opus-3) — special exception under Anthropic's model preservation commitments.
 
 ### Google
 
@@ -92,6 +113,13 @@ GPT-5.4 replaced GPT-5.2 Thinking in ChatGPT as of 2026-03-05. GPT-5.2 Thinking 
 **Price change:** $1.25/$10.00 → $2.00/$12.00 per 1M tokens (~1.6× increase)  
 **Capability improvement:** Better GPQA (94.3% vs ~90%), stronger coding  
 **Action:** Preview model — evaluate stability before committing to production. Use `gemini-2.5-pro` as fallback until GA.
+
+### ⚠️ Switching from `claude-3-haiku-20240307` to `claude-haiku-4-5-20251001` (Deadline: 2026-04-20)
+
+**Price change:** $0.25/$1.25 → $1.00/$5.00 per 1M tokens (4× more expensive)  
+**Capability improvement:** Extended thinking support, 64K max output (vs 4K), significantly higher quality  
+**Action required:** Update model identifier **immediately** — shutdown in 8 days. Run regression tests — Haiku 4.5 may respond differently on edge cases.  
+**Tip:** Haiku 3.5 (`claude-3-5-haiku-20241022`) is already retired (2026-02-19) — do not use.
 
 ### Switching from `gpt-4.5-preview` to `gpt-5.4` or `gpt-4.1`
 

@@ -1,6 +1,6 @@
 # DeepSeek Model Catalog
 
-> **Source:** [DeepSeek API Docs](https://api-docs.deepseek.com/quick_start/pricing) · **Verified:** 2026-04-10
+> **Source:** [DeepSeek API Docs](https://api-docs.deepseek.com/quick_start/pricing) · **Verified:** 2026-04-12
 
 ---
 
@@ -20,6 +20,25 @@ Unified model that handles both chat and reasoning at the same price. Replaces b
 **Cache hit discount:** ~90% off input price for repeated context (cache read at $0.028–$0.14 / 1M)
 
 **New users:** 5 million free tokens upon registration (no credit card required)
+
+---
+
+## DeepSeek V4 — Imminent (Not Yet Released)
+
+> ⚠️ **Not yet released as of 2026-04-12.** V4-Lite is in limited grey testing on some DeepSeek infrastructure nodes (early April 2026), suggesting full launch is close.
+
+**What we know (from Reuters/The Information, verified 2026-04-03 to 2026-04-12):**
+- Expected launch: **late April 2026** (missed at least two earlier targets)
+- Architecture: ~1 trillion total parameters, ~32–37B active per token (MoE)
+- Context window: **1 million tokens** (widely reported, not officially confirmed)
+- Modalities: Multimodal — text, images, video
+- Hardware: First frontier model trained on **Huawei Ascend chips** (no NVIDIA/AMD early access given)
+- Variants: Three V4 variants in development, each optimized for different capabilities
+- Pricing: Not announced
+
+**Impact:** If V4 delivers frontier-class performance at DeepSeek's typical aggressive pricing, it will significantly pressure the market again (similar to V3/R1's impact in January 2025).
+
+*Source: Reuters (2026-04-03), Taipei Times (2026-04-11), Gizchina (2026-04-11)*
 
 ---
 
