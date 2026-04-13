@@ -1,6 +1,6 @@
 # Cohere Model Catalog
 
-> **Source:** [Cohere Pricing](https://cohere.com/pricing) · [Cohere Docs](https://docs.cohere.com) · **Verified:** 2026-04-10
+> **Source:** [Cohere Pricing](https://cohere.com/pricing) · [Cohere Docs](https://docs.cohere.com) · **Verified:** 2026-04-13
 
 ---
 
@@ -96,6 +96,22 @@ Cohere focuses on **enterprise RAG and retrieval** use cases:
 | Command | $1.00 / 1M | $2.00 / 1M |
 | Command-Light | $0.30 / 1M | $0.60 / 1M |
 | Aya Expanse (8B/32B) | $0.50 / 1M | $1.50 / 1M |
+
+## Retired Models (no longer accessible)
+
+| Model | Retired | Replacement |
+|---|---|---|
+| `embed-english-v2.0` | **2026-04-04** | `embed-english-v3.0` or `embed-v4.0` |
+| `embed-english-light-v2.0` | **2026-04-04** | `embed-english-v3.0` |
+| `embed-multilingual-v2.0` | **2026-04-04** | `embed-multilingual-v3.0` or `embed-v4.0` |
+| `c4ai-aya-expanse-8b` | **2026-04-04** | `command-r7b-12-2024` or `command-a-03-2025` |
+| `c4ai-aya-vision-8b` | **2026-04-04** | `command-a-03-2025` |
+| `command-r-03-2024` (alias `command-r`) | 2025-09-15 | `command-r-08-2024` |
+| `command-r-plus-04-2024` (alias `command-r-plus`) | 2025-09-15 | `command-r-plus-08-2024` |
+| `command-light` | 2025-09-15 | `command-r7b-12-2024` |
+| `command` | 2025-09-15 | `command-a-03-2025` |
+
+*See [deprecated.md](../deprecated.md) for full details.*
 
 ---
 

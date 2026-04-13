@@ -1,6 +1,6 @@
 # Deprecated & Sunset Models
 
-> Track sunset dates and migration paths. **Last updated:** 2026-04-12.
+> Track sunset dates and migration paths. **Last updated:** 2026-04-13.
 >
 > ⚠️ = Deprecated, still accessible. ❌ = Shut down, no longer accessible.
 
@@ -40,7 +40,7 @@ GPT-5.4 replaced GPT-5.2 Thinking in ChatGPT as of 2026-03-05. GPT-5.2 Thinking 
 
 ### Anthropic
 
-> ⚠️ **URGENT: Claude 3 Haiku retires April 20, 2026 — 8 days away!** Migrate now.
+> ⚠️ **URGENT: Claude 3 Haiku retires April 20, 2026 — 7 days away!** Migrate now.
 
 | Model | API name | Deprecated | Retirement date | Replacement |
 |---|---|---|---|---|
@@ -68,6 +68,22 @@ GPT-5.4 replaced GPT-5.2 Thinking in ChatGPT as of 2026-03-05. GPT-5.2 Thinking 
 ---
 
 ## Already Shut Down
+
+### Cohere (2026-04-04)
+
+Effective April 4, 2026, Cohere retired the following models. API requests to these IDs now fail.
+
+| Model | Retired | Replacement |
+|---|---|---|
+| `embed-english-v2.0` | **2026-04-04** | `embed-english-v3.0` or `embed-v4.0` |
+| `embed-english-light-v2.0` | **2026-04-04** | `embed-english-v3.0` |
+| `embed-multilingual-v2.0` | **2026-04-04** | `embed-multilingual-v3.0` or `embed-v4.0` |
+| `c4ai-aya-expanse-8b` | **2026-04-04** | `command-r7b-12-2024` or `command-a-03-2025` |
+| `c4ai-aya-vision-8b` | **2026-04-04** | `command-a-03-2025` |
+
+*Source: [Cohere deprecations page](https://docs.cohere.com/docs/deprecations) — verified 2026-04-13*
+
+---
 
 ### Anthropic
 
@@ -118,7 +134,7 @@ GPT-5.4 replaced GPT-5.2 Thinking in ChatGPT as of 2026-03-05. GPT-5.2 Thinking 
 
 **Price change:** $0.25/$1.25 → $1.00/$5.00 per 1M tokens (4× more expensive)  
 **Capability improvement:** Extended thinking support, 64K max output (vs 4K), significantly higher quality  
-**Action required:** Update model identifier **immediately** — shutdown in 8 days. Run regression tests — Haiku 4.5 may respond differently on edge cases.  
+**Action required:** Update model identifier **immediately** — shutdown in 7 days. Run regression tests — Haiku 4.5 may respond differently on edge cases.  
 **Tip:** Haiku 3.5 (`claude-3-5-haiku-20241022`) is already retired (2026-02-19) — do not use.
 
 ### Switching from `gpt-4.5-preview` to `gpt-5.4` or `gpt-4.1`

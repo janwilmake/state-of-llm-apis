@@ -4,6 +4,28 @@ Changes tracked by the Model Tracker agent. Most recent entries first.
 
 ---
 
+## 2026-04-13
+
+### 🔄 DeepSeek: Pricing correction — unified $0.28/$0.42 for both chat and reasoner
+
+**Provider:** [DeepSeek](models/deepseek.md)  
+Official DeepSeek API docs (verified 2026-04-13) confirm the current pricing for both `deepseek-chat` and `deepseek-reasoner` is **$0.28 input / $0.42 output** per 1M tokens (cache miss), with a 90% cache discount ($0.028 cache hit). Both modes are now identically priced. Previous entries in this file showed inaccurate figures ($0.27/$1.10 for chat; $0.55/$2.19 for reasoner) that reflected older or third-party data.  
+- `deepseek-reasoner` context window updated to 128K (same as chat) with max output of 64K tokens  
+- Comparison matrix and decision guide updated accordingly  
+*Source: [DeepSeek API Docs](https://api-docs.deepseek.com/quick_start/pricing) — verified 2026-04-13*
+
+---
+
+### ❌ Cohere: Embed v2.0 and Aya Expanse 8B models retired (2026-04-04)
+
+**Provider:** [Cohere](models/cohere.md)  
+Effective April 4, 2026, Cohere permanently retired the following models (API requests now return errors):
+- **Embedding:** `embed-english-v2.0`, `embed-english-light-v2.0`, `embed-multilingual-v2.0` → migrate to `embed-english-v3.0`, `embed-multilingual-v3.0`, or `embed-v4.0`
+- **Chat:** `c4ai-aya-expanse-8b`, `c4ai-aya-vision-8b` → migrate to `command-r7b-12-2024` or `command-a-03-2025`  
+*Source: [Cohere deprecations page](https://docs.cohere.com/docs/deprecations) — verified 2026-04-13*
+
+---
+
 ## 2026-04-12
 
 ### ⚠️ URGENT: Anthropic Claude 3 Haiku retiring in 8 days (2026-04-20)

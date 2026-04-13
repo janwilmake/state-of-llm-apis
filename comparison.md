@@ -1,6 +1,6 @@
 # LLM API Comparison Matrix
 
-> **Last updated:** 2026-04-12. Prices per 1M tokens (USD), standard tier unless noted.
+> **Last updated:** 2026-04-13. Prices per 1M tokens (USD), standard tier unless noted.
 
 ---
 
@@ -48,7 +48,7 @@
 | [Mistral](models/mistral.md) | Mistral Small 4 | 262 K | $0.15 | $0.60 | Vision + coding + reasoning unified |
 | [Mistral](models/mistral.md) | Mistral Nemo | 128 K | $0.02 | $0.06 | Cheapest Mistral |
 | [xAI](models/xai.md) | Grok 4.1 Fast | 2 M | $0.20 | $0.50 | Near-frontier at budget price |
-| [DeepSeek](models/deepseek.md) | V3.2 Chat | 128 K | $0.27 | $1.10 | Open weights; very cheap |
+| [DeepSeek](models/deepseek.md) | V3.2 Chat | 128 K | $0.28 | $0.42 | Open weights; very cheap |
 | [Cohere](models/cohere.md) | Command R7B | 128 K | $0.0375 | $0.15 | Cheapest Cohere |
 | [Meta](models/meta.md) | Llama 4 Scout | 10 M | ~$0.08 | ~$0.30 | Open weights; 10 M context |
 
@@ -61,7 +61,7 @@
 | [OpenAI](models/openai.md) | o3 | 200 K | $10.00 | $40.00 | Deep reasoning flagship |
 | [OpenAI](models/openai.md) | o4-mini | 200 K | $1.10 | $4.40 | Best cost-efficient reasoning |
 | [xAI](models/xai.md) | Grok 4 | 256 K | $3.00 | $15.00 | Always-on reasoning |
-| [DeepSeek](models/deepseek.md) | V3.2 Reasoner | 64 K | $0.55 | $2.19 | Chain-of-thought; very cheap |
+| [DeepSeek](models/deepseek.md) | V3.2 Reasoner | 128 K | $0.28 | $0.42 | Chain-of-thought; same price as chat |
 
 ---
 
@@ -130,7 +130,7 @@
 | Cheapest open-weight option | Llama 4 Scout or DeepSeek V3.2 | Self-hostable |
 | Enterprise RAG / retrieval | Cohere Command A | Built-in citation, Rerank/Embed tools |
 | Real-time X/Twitter data | Grok 4.20 | Native X integration |
-| Reasoning on a budget | o4-mini ($1.10/$4.40) or DeepSeek Reasoner ($0.55/$2.19) | Cheap chain-of-thought |
+| Reasoning on a budget | o4-mini ($1.10/$4.40) or DeepSeek Reasoner ($0.28/$0.42) | Cheap chain-of-thought |
 
 ---
 
@@ -138,7 +138,7 @@
 
 | Deadline | Action |
 |---|---|
-| **2026-04-20** ⚠️ | Migrate `claude-3-haiku-20240307` → `claude-haiku-4-5-20251001` (Claude 3 Haiku retiring in 8 days) |
+| **2026-04-20** ⚠️ | Migrate `claude-3-haiku-20240307` → `claude-haiku-4-5-20251001` (Claude 3 Haiku retiring in **7 days** — 2026-04-20) |
 | **2026-06-01** | Migrate `gemini-2.0-flash` / `gemini-2.0-flash-lite` to 2.5 equivalents |
 | **2026-06-05** | GPT-5.2 Thinking removed from ChatGPT legacy picker |
 | **2026-06-17** | Migrate `gemini-2.5-pro` → `gemini-3.1-pro-preview`, `gemini-2.5-flash` → `gemini-3-flash-preview` |

@@ -1,6 +1,6 @@
 # DeepSeek Model Catalog
 
-> **Source:** [DeepSeek API Docs](https://api-docs.deepseek.com/quick_start/pricing) · **Verified:** 2026-04-12
+> **Source:** [DeepSeek API Docs](https://api-docs.deepseek.com/quick_start/pricing) · **Verified:** 2026-04-13
 
 ---
 
@@ -12,10 +12,10 @@ Unified model that handles both chat and reasoning at the same price. Replaces b
 
 | Mode | API name | Context | Max output | Input (cache miss) | Input (cache hit) | Output |
 |---|---|---|---|---|---|---|
-| Chat (non-thinking) | `deepseek-chat` | 128,000 tokens | 8,000 tokens | **$0.27 / 1M** | $0.028 / 1M | **$1.10 / 1M** |
-| Reasoner (thinking) | `deepseek-reasoner` | 64,000 tokens | 8,000 tokens (+ 32K CoT) | **$0.55 / 1M** | $0.14 / 1M | **$2.19 / 1M** |
+| Chat (non-thinking) | `deepseek-chat` | 128,000 tokens | 8,000 tokens | **$0.28 / 1M** | $0.028 / 1M | **$0.42 / 1M** |
+| Reasoner (thinking) | `deepseek-reasoner` | 128,000 tokens | 64,000 tokens | **$0.28 / 1M** | $0.028 / 1M | **$0.42 / 1M** |
 
-> Some third-party trackers report slightly different figures ($0.14/$0.28 for chat); the official DeepSeek API docs (verified 2026-04-10) show $0.27/$1.10 for chat and $0.55/$2.19 for reasoner. Always check the [official pricing page](https://api-docs.deepseek.com/quick_start/pricing) for current rates.
+> **Pricing update 2026-04-13:** Both `deepseek-chat` and `deepseek-reasoner` are now priced identically at **$0.28 input / $0.42 output** per 1M tokens (cache miss), with a 90% cache discount. The previous file listed differing rates ($0.27/$1.10 chat; $0.55/$2.19 reasoner) — those were inaccurate. The official DeepSeek API docs confirm the current unified rates. Always check the [official pricing page](https://api-docs.deepseek.com/quick_start/pricing) for current rates.
 
 **Cache hit discount:** ~90% off input price for repeated context (cache read at $0.028–$0.14 / 1M)
 
@@ -75,9 +75,9 @@ All DeepSeek models are released under permissive open-source licenses:
 ## Pricing Context
 
 DeepSeek V3.2 remains one of the most cost-competitive hosted models available:
-- Chat mode is ~15–20× cheaper than Claude Sonnet 4.6 ($3/$15)
-- ~10× cheaper than GPT-5.4 ($2.50/$15)
-- ~2× cheaper than Gemini 2.5 Flash ($0.30/$2.50) on output
+- Chat mode (~$0.28/$0.42) is ~10× cheaper than Claude Sonnet 4.6 ($3/$15) on input; ~35× cheaper on output
+- ~9× cheaper than GPT-5.4 ($2.50/$15) on input; ~36× cheaper on output
+- Slightly cheaper than Gemini 2.5 Flash ($0.30/$2.50) on input; ~6× cheaper on output
 - Open weights allow self-hosting to eliminate API costs entirely
 
 ---
