@@ -4,6 +4,45 @@ Changes tracked by the Model Tracker agent. Most recent entries first.
 
 ---
 
+## 2026-04-14
+
+### ⚠️ DeepSeek: Official API pricing updated — V3.1-Terminus now $0.56/$1.68 per 1M tokens
+
+**Provider:** [DeepSeek](models/deepseek.md)  
+The official DeepSeek API pricing page now shows **DeepSeek-V3.1-Terminus** behind both `deepseek-chat` and `deepseek-reasoner` endpoints, at **$0.56 input / $1.68 output** per 1M tokens (cache miss), with cache-hit input at **$0.07/1M** (~87% discount). This is a significant increase from the $0.28/$0.42 rates recorded on 2026-04-13, which appear to have reflected third-party provider or older pricing rather than the official API.
+
+- Cache-miss input: $0.28 → **$0.56** (+100%)
+- Output: $0.42 → **$1.68** (+300%)
+- Cache-hit input: $0.028 → **$0.07** (+150%)
+- Model behind endpoints: V3.2 → **V3.1-Terminus** per official docs
+
+> **Note on discrepancy:** Third-party providers (OpenRouter, Fireworks AI, Together AI) still offer DeepSeek V3.2 at $0.18–$0.28/M input — these are reseller rates for self-hosted weights, not the official API. For the official `api.deepseek.com`, use the rates above.
+
+*Source: [DeepSeek API Docs — Models & Pricing](https://api-docs.deepseek.com/quick_start/pricing) — verified 2026-04-14*
+
+---
+
+### 🆕 xAI: Grok Code Fast added to model catalog
+
+**Provider:** [xAI](models/xai.md)  
+Added `grok-code-fast-1` — xAI's coding-specialist model derived from the Grok 4.1 Fast architecture. 256K context window, **$0.20 input / $1.50 output** per 1M tokens. Higher output price than Grok 4.1 Fast ($0.50) reflects longer code generation outputs. Appears in API pricing data from CostGoat (verified via multiple sources).  
+*Source: CostGoat Grok API pricing — verified 2026-04-14*
+
+---
+
+### 🔄 DeepSeek V4: Late-April launch confirmed by founder; 3 variants confirmed in grey test UI
+
+**Provider:** [DeepSeek](models/deepseek.md)  
+DeepSeek founder **Liang Wenfeng** confirmed in internal communications (reported by ITHome, 2026-04-10) that V4 will launch in **late April 2026**. TechNode (2026-04-08) reports three variants visible in grey-scale test interface:
+- **V4 Lite** (Fast version) — ~200B parameters, already on API nodes since ~2026-03-09
+- **V4 Expert** (flagship)
+- **V4 Vision** (multimodal — confirmed)
+
+This represents the first official confirmation from DeepSeek leadership of the late April target. The model has missed at least two prior windows (mid-February, early April).  
+*Source: ITHome via Reddit r/DeepSeek (2026-04-10), TechNode (2026-04-08), Gizchina (2026-04-11)*
+
+---
+
 ## 2026-04-13
 
 ### 🔄 DeepSeek: Pricing correction — unified $0.28/$0.42 for both chat and reasoner

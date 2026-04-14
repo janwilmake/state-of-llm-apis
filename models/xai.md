@@ -69,6 +69,21 @@ xAI also offers a **characters-based pricing** option at **$4.20 / 1M characters
 
 ---
 
+### Grok Code Fast (Coding-Specialist)
+
+Coding-focused model derived from the Grok 4.1 Fast architecture, optimized for programming tasks.
+
+| Metric | Value |
+|---|---|
+| API name | `grok-code-fast-1` |
+| Context window | 256,000 tokens |
+| Input | **$0.20 / 1M** |
+| Output | **$1.50 / 1M** |
+
+**Best for:** Code generation, debugging, refactoring. Higher output price than Grok 4.1 Fast reflects longer code outputs. Vision not included.
+
+---
+
 ### Grok 3 Beta (Legacy)
 
 | Context | Input | Output |
