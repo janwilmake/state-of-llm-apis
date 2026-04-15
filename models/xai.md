@@ -1,6 +1,6 @@
 # xAI Grok Model Catalog
 
-> **Source:** [xAI Models & Pricing](https://docs.x.ai/developers/models) · [OpenRouter](https://openrouter.ai/x-ai/grok-4.20) · **Verified:** 2026-04-10
+> **Source:** [xAI Models & Pricing](https://docs.x.ai/developers/models) · [xAI API](https://x.ai/api) · [OpenRouter](https://openrouter.ai/x-ai/grok-4.20) · **Verified:** 2026-04-15
 
 ---
 
@@ -44,13 +44,15 @@ Always-on reasoning model. No `reasoning_effort` parameter — reasoning cannot 
 
 ---
 
-### Grok 4.1 Fast (Recommended for most developers)
+### Grok 4 Fast / Grok 4.1 Fast (Recommended for most developers)
 
 Near-frontier capability at a fraction of the flagship price. 2 M token context.
 
+> **API name update (2026-04-15):** xAI's official API now surfaces these as `grok-4-fast-reasoning` and `grok-4-fast-non-reasoning`. `grok-4.1-fast` remains a valid alias. Both sets of names return identical pricing.
+
 | Metric | Value |
 |---|---|
-| API name | `grok-4.1-fast` |
+| API names | `grok-4-fast-reasoning` · `grok-4-fast-non-reasoning` · `grok-4.1-fast` |
 | Context window | 2,000,000 tokens |
 | Input | **$0.20 / 1M** |
 | Cached input | $0.05 / 1M |

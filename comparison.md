@@ -1,6 +1,6 @@
 # LLM API Comparison Matrix
 
-> **Last updated:** 2026-04-14. Prices per 1M tokens (USD), standard tier unless noted.
+> **Last updated:** 2026-04-15. Prices per 1M tokens (USD), standard tier unless noted.
 
 ---
 
@@ -77,12 +77,12 @@
 | GPT-4.1, GPT-4.1 Mini, GPT-4.1 Nano | **1,000,000 tokens** |
 | Gemini 2.5 Flash, 2.0 Flash | **1,000,000 tokens** |
 | Gemini 3.1 Pro Preview | **1,000,000 tokens** |
-| Mistral Small 4 | **262,144 tokens** |
+| Mistral Large 3, Mistral Small 4, Devstral 2 | **262,144 tokens** |
 | Grok 4 | **256,000 tokens** |
 | Command A | **256,000 tokens** |
 | Claude Haiku 4.5, o3, o4-mini | **200,000 tokens** |
 | GPT-4o, GPT-4o Mini | **128,000 tokens** |
-| Mistral Large 3, Mistral Medium 3 | **131,072 tokens** |
+| Mistral Medium 3 | **131,072 tokens** |
 | DeepSeek V3.2 Chat | **128,000 tokens** |
 
 ---
@@ -135,11 +135,11 @@
 
 ---
 
-## Action Items (As of 2026-04-12)
+## Action Items (As of 2026-04-15)
 
 | Deadline | Action |
 |---|---|
-| **2026-04-20** 🚨 | Migrate `claude-3-haiku-20240307` → `claude-haiku-4-5-20251001` (Claude 3 Haiku retiring in **6 days** — 2026-04-20) |
+| **2026-04-20** 🚨 | Migrate `claude-3-haiku-20240307` → `claude-haiku-4-5-20251001` (Claude 3 Haiku retiring in **5 days** — 2026-04-20) |
 | **2026-06-01** | Migrate `gemini-2.0-flash` / `gemini-2.0-flash-lite` to 2.5 equivalents |
 | **2026-06-05** | GPT-5.2 Thinking removed from ChatGPT legacy picker |
 | **2026-06-17** | Migrate `gemini-2.5-pro` → `gemini-3.1-pro-preview`, `gemini-2.5-flash` → `gemini-3-flash-preview` |

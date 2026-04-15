@@ -1,23 +1,26 @@
 # Mistral AI Model Catalog
 
-> **Source:** [Mistral API Pricing](https://mistral.ai/pricing) · [OpenRouter](https://openrouter.ai/mistralai/mistral-small-2603) · **Verified:** 2026-04-10
+> **Source:** [Mistral API Pricing](https://mistral.ai/pricing) · [OpenRouter](https://openrouter.ai/mistralai/mistral-small-2603) · **Verified:** 2026-04-15
 
 ---
 
 ## Current Models
 
-### Mistral Large 3
+### Mistral Large 3 (Released 2025-12-01)
 
 | Metric | Value |
 |---|---|
-| API name | `mistral-large-latest` |
-| Context window | 131,072 tokens |
+| API name | `mistral-large-latest` / `mistral-large-2512` |
+| Parameters | 675B total / 41B active (MoE) |
+| Context window | 262,144 tokens |
 | Input | **$0.50 / 1M** |
-| Output | **$2.00 / 1M** |
+| Output | **$1.50 / 1M** |
+| Cached input | $0.05 / 1M |
+| License | Apache 2.0 (open weights) |
 | Speed | ~44 tok/s |
 
 **Best for:** Complex reasoning, instruction-following, multilingual tasks requiring large-model capability at low cost.  
-> Note: Mistral Large 3 is a significant price reduction from Mistral Large 2411 (which was $2.00/$6.00).
+> Note: Mistral Large 3 is a significant price reduction from Mistral Large 2411 (which was $2.00/$6.00). Output corrected from $2.00 → $1.50 per 1M tokens (verified 2026-04-15 via OpenRouter, PricePerToken, Serenities AI, Holori).
 
 ---
 
@@ -51,13 +54,15 @@ A major update that unifies Magistral (reasoning), Pixtral (vision), and Devstra
 
 ---
 
-### Devstral 2
+### Devstral 2 (Released 2025-12-01)
 
-Coding-specialist model optimized for agentic software development.
+Coding-specialist model optimized for agentic software development. 262K context, open weights.
 
-| Context | Input | Output |
-|---|---|---|
-| 128,000 tokens | **$0.40 / 1M** | **$2.00 / 1M** |
+| Context | Input | Cached | Output |
+|---|---|---|---|
+| 262,144 tokens | **$0.40 / 1M** | $0.04 / 1M | **$0.90 / 1M** |
+
+> Output price corrected from $2.00 → $0.90 per 1M tokens (verified 2026-04-15 via PricePerToken, OpenRouter).
 
 ---
 

@@ -4,6 +4,39 @@ Changes tracked by the Model Tracker agent. Most recent entries first.
 
 ---
 
+## 2026-04-15
+
+### 🔄 Mistral: Pricing corrections — Large 3 output $2.00 → $1.50, Devstral 2 output $2.00 → $0.90; Large 3 context window 131K → 262K
+
+**Provider:** [Mistral](models/mistral.md)  
+Corrected two pricing errors and one spec error found by cross-referencing multiple authoritative sources (PricePerToken, OpenRouter, Serenities AI, MarginDash, Holori — all verified 2026-04-15):
+
+- **Mistral Large 3 output price:** $2.00 → **$1.50** per 1M tokens (error in previous entry; $0.50 input is confirmed correct)
+- **Mistral Large 3 context window:** 131,072 → **262,144 tokens** (same as Small 4; also open weights under Apache 2.0, 675B total / 41B active parameters)
+- **Devstral 2 output price:** $2.00 → **$0.90** per 1M tokens (confirmed via PricePerToken `$0.400/$0.900`, OpenRouter listing)
+- **Devstral 2 context window:** 128K → **262,144 tokens**
+
+Updated: `models/mistral.md`, `comparison.md` context window table.  
+*Source: [PricePerToken Mistral Large 3 2512](https://pricepertoken.com/pricing-page/model/mistral-ai-mistral-large-2512), [OpenRouter Mistral](https://openrouter.ai/provider/mistral), [Serenities AI](https://serenitiesai.com/articles/mistral-ai-models-2026-complete-guide) — verified 2026-04-15*
+
+---
+
+### 🔄 xAI: Official API now surfaces `grok-4-fast-reasoning` and `grok-4-fast-non-reasoning` as canonical model IDs
+
+**Provider:** [xAI](models/xai.md)  
+The official xAI API page (`x.ai/api`) now lists `grok-4-fast-reasoning` and `grok-4-fast-non-reasoning` as the primary API model names for what was previously accessed via `grok-4.1-fast`. Pricing and capabilities are identical ($0.20/$0.50 per 1M tokens, 2M context). The `grok-4.1-fast` alias remains valid. Updated `models/xai.md` to document both sets of names.  
+*Source: [xAI API page](https://x.ai/api), [xAI Models & Pricing docs](https://docs.x.ai/developers/models) — verified 2026-04-15*
+
+---
+
+### ⚠️ Anthropic Claude 3 Haiku retires in 5 days (2026-04-20)
+
+**Provider:** [Anthropic](models/anthropic.md)  
+Countdown update: Claude 3 Haiku (`claude-3-haiku-20240307`) retires **April 20, 2026** — **5 days from today**. Updated urgency language across `deprecated.md`, `comparison.md`, and `models/anthropic.md`. No new information; this is a countdown tick.  
+*Migrate to `claude-haiku-4-5-20251001` immediately. Price on migration: $0.25/$1.25 → $1.00/$5.00 per 1M tokens (+4×).*
+
+---
+
 ## 2026-04-14
 
 ### ⚠️ DeepSeek: Official API pricing updated — V3.1-Terminus now $0.56/$1.68 per 1M tokens
