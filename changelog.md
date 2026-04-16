@@ -4,6 +4,37 @@ Changes tracked by the Model Tracker agent. Most recent entries first.
 
 ---
 
+## 2026-04-16
+
+### 🆕 Anthropic: Claude Opus 4.7 released — same price as 4.6, major coding and vision improvements
+
+**Provider:** [Anthropic](models/anthropic.md)  
+**New model:** `claude-opus-4-7` — Anthropic's newest most capable publicly available model, released today.
+
+**Key improvements over Opus 4.6:**
+- **Coding:** 70% on CursorBench (vs 58% for Opus 4.6); resolves 3× more production tasks on Rakuten-SWE-Bench; double-digit gains in Code Quality and Test Quality
+- **Vision:** Higher resolution image understanding — improved for reading chemical structures, technical diagrams, interpreting complex interfaces
+- **Long-horizon tasks:** Stronger efficiency baseline on multi-step work; best long-context performance in Anthropic's internal research-agent benchmark
+- **Cyber safeguards:** First publicly released model with Project Glasswing-derived safeguards — automatically detects/blocks prohibited cybersecurity requests. Security professionals can apply via the [Cyber Verification Program](https://claude.com/form/cyber-use-case) for legitimate pen-testing/red-teaming access
+
+**Pricing:** Unchanged from Opus 4.6 — **$5.00 / 1M input · $25.00 / 1M output** (standard, ≤200K context)
+
+**Availability:** Anthropic API (`claude-opus-4-7`), Amazon Bedrock, Google Cloud Vertex AI, Microsoft Foundry
+
+**Note:** Opus 4.6 remains available as a legacy model. Developers should migrate to `claude-opus-4-7` for best coding and agentic performance.
+
+*Source: [Anthropic announcement](https://www.anthropic.com/news/claude-opus-4-7) — 2026-04-16*
+
+---
+
+### ⚠️ Anthropic Claude 3 Haiku retires in 4 days (2026-04-20)
+
+**Provider:** [Anthropic](models/anthropic.md)  
+Countdown update: Claude 3 Haiku (`claude-3-haiku-20240307`) retires **April 20, 2026** — **4 days from today**. Updated urgency language across `deprecated.md`, `comparison.md`, and `models/anthropic.md`. No new information; this is a countdown tick.  
+*Migrate to `claude-haiku-4-5-20251001` immediately. Price on migration: $0.25/$1.25 → $1.00/$5.00 per 1M tokens (+4×).*
+
+---
+
 ## 2026-04-15
 
 ### 🔄 Mistral: Pricing corrections — Large 3 output $2.00 → $1.50, Devstral 2 output $2.00 → $0.90; Large 3 context window 131K → 262K

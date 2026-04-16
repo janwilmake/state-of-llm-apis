@@ -1,6 +1,6 @@
 # Deprecated & Sunset Models
 
-> Track sunset dates and migration paths. **Last updated:** 2026-04-15.
+> Track sunset dates and migration paths. **Last updated:** 2026-04-16.
 >
 > ⚠️ = Deprecated, still accessible. ❌ = Shut down, no longer accessible.
 
@@ -40,7 +40,7 @@ GPT-5.4 replaced GPT-5.2 Thinking in ChatGPT as of 2026-03-05. GPT-5.2 Thinking 
 
 ### Anthropic
 
-> 🚨 **URGENT: Claude 3 Haiku retires April 20, 2026 — 5 days away!** Migrate now.
+> 🚨 **URGENT: Claude 3 Haiku retires April 20, 2026 — 4 days away!** Migrate now.
 
 | Model | API name | Deprecated | Retirement date | Replacement |
 |---|---|---|---|---|
@@ -130,11 +130,11 @@ Effective April 4, 2026, Cohere retired the following models. API requests to th
 **Capability improvement:** Better GPQA (94.3% vs ~90%), stronger coding  
 **Action:** Preview model — evaluate stability before committing to production. Use `gemini-2.5-pro` as fallback until GA.
 
-### 🚨 Switching from `claude-3-haiku-20240307` to `claude-haiku-4-5-20251001` (Deadline: 2026-04-20 — **6 days**)
+### 🚨 Switching from `claude-3-haiku-20240307` to `claude-haiku-4-5-20251001` (Deadline: 2026-04-20 — **4 days**)
 
 **Price change:** $0.25/$1.25 → $1.00/$5.00 per 1M tokens (4× more expensive)  
 **Capability improvement:** Extended thinking support, 64K max output (vs 4K), significantly higher quality  
-**Action required:** Update model identifier **immediately** — shutdown in 5 days. Run regression tests — Haiku 4.5 may respond differently on edge cases.  
+**Action required:** Update model identifier **immediately** — shutdown in 4 days. Run regression tests — Haiku 4.5 may respond differently on edge cases.  
 **Tip:** Haiku 3.5 (`claude-3-5-haiku-20241022`) is already retired (2026-02-19) — do not use.
 
 ### Switching from `gpt-4.5-preview` to `gpt-5.4` or `gpt-4.1`

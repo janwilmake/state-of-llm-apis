@@ -1,6 +1,6 @@
 # LLM API Comparison Matrix
 
-> **Last updated:** 2026-04-15. Prices per 1M tokens (USD), standard tier unless noted.
+> **Last updated:** 2026-04-16. Prices per 1M tokens (USD), standard tier unless noted.
 
 ---
 
@@ -10,7 +10,7 @@
 |---|---|---|---|---|---|---|---|
 | [OpenAI](models/openai.md) | GPT-5.4 | 1 M | $2.50 | $15.00 | 92.8% | 57.7% | Native computer-use; tokens >272K billed at 2× |
 | [OpenAI](models/openai.md) | GPT-5.4 Pro | 1 M | $30.00 | $180.00 | — | — | Max capability |
-| [Anthropic](models/anthropic.md) | Claude Opus 4.6 | 1 M | $5.00 | $25.00 | 91.3% | 74%+ | No long-context premium |
+| [Anthropic](models/anthropic.md) | Claude Opus 4.7 🆕 | 1 M | $5.00 | $25.00 | — | 70% (CursorBench) | Released 2026-04-16; cyber safeguards; no long-context premium |
 | [Google](models/google.md) | Gemini 3.1 Pro Preview | 1 M | $2.00 | $12.00 | 94.3% | 80.6% | Preview (no GA SLA) |
 | [xAI](models/xai.md) | Grok 4.20 | 2 M | $2.00 | $6.00 | ~88% | 75% | X data integration |
 | [xAI](models/xai.md) | Grok 4 | 256 K | $3.00 | $15.00 | 87.7% | — | Always-on reasoning |
@@ -124,7 +124,7 @@
 |---|---|---|
 | Best general reasoning | Gemini 3.1 Pro Preview | Highest GPQA (94.3%) |
 | Computer use / desktop agents | GPT-5.4 | 75% OSWorld (above human baseline) |
-| Coding agents (best) | Claude Opus 4.6 / GPT-5.4 | SWE-bench 74%+ / 57.7% |
+| Coding agents (best) | Claude Opus 4.7 / GPT-5.4 | CursorBench 70% / SWE-bench 57.7%; Opus 4.7 3× more production tasks vs 4.6 |
 | Long documents (>200K tokens) | Llama 4 Scout (10 M) or Gemini 2.5 Pro (2 M) | Largest context windows |
 | Production chatbot (balanced) | Claude Sonnet 4.6 | Strong reasoning + cost |
 | High-volume cheap tasks | Gemini 2.0 Flash-Lite ($0.075) or Mistral Nemo ($0.02) | Cheapest per-token |
@@ -139,7 +139,7 @@
 
 | Deadline | Action |
 |---|---|
-| **2026-04-20** 🚨 | Migrate `claude-3-haiku-20240307` → `claude-haiku-4-5-20251001` (Claude 3 Haiku retiring in **5 days** — 2026-04-20) |
+| **2026-04-20** 🚨 | Migrate `claude-3-haiku-20240307` → `claude-haiku-4-5-20251001` (Claude 3 Haiku retiring in **4 days** — 2026-04-20) |
 | **2026-06-01** | Migrate `gemini-2.0-flash` / `gemini-2.0-flash-lite` to 2.5 equivalents |
 | **2026-06-05** | GPT-5.2 Thinking removed from ChatGPT legacy picker |
 | **2026-06-17** | Migrate `gemini-2.5-pro` → `gemini-3.1-pro-preview`, `gemini-2.5-flash` → `gemini-3-flash-preview` |

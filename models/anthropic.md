@@ -1,14 +1,37 @@
 # Anthropic Model Catalog
 
-> **Source:** [Anthropic API Pricing](https://platform.claude.com/docs/en/about-claude/pricing) · [Models Overview](https://platform.claude.com/docs/en/about-claude/models/overview) · **Verified:** 2026-04-13
+> **Source:** [Anthropic API Pricing](https://platform.claude.com/docs/en/about-claude/pricing) · [Models Overview](https://platform.claude.com/docs/en/about-claude/models/overview) · **Verified:** 2026-04-16
 
 ---
 
 ## Current Recommended Models (Claude 4.x generation)
 
+### Claude Opus 4.7 (Released 2026-04-16) 🆕 NEW
+
+Anthropic's most capable publicly available model. Notable improvements over Opus 4.6 in software engineering (70% on CursorBench vs 58%), vision (higher resolution image understanding), and long-horizon agentic tasks. First Claude model released with Project Glasswing cyber safeguards (detects and blocks high-risk cybersecurity use attempts). Available across Anthropic API, Amazon Bedrock, Google Cloud Vertex AI, and Microsoft Foundry.
+
+| Metric | Value |
+|---|---|
+| API name | `claude-opus-4-7` |
+| Context window | 1,000,000 tokens |
+| Max output | 128,000 tokens |
+| Input (≤200K) | **$5.00 / 1M** |
+| Output (≤200K) | **$25.00 / 1M** |
+| Input (>200K) | $10.00 / 1M |
+| Output (>200K) | $37.50 / 1M |
+| Cache write | $6.25 / 1M |
+| Cache read | $0.50 / 1M |
+
+**Best for:** Complex software engineering, full-codebase analysis, autonomous agents, vision tasks, scientific research.  
+**CursorBench:** 70% (vs 58% for Opus 4.6) | **Rakuten-SWE-Bench:** 3× more production tasks resolved vs Opus 4.6  
+**Cyber safeguards:** Built-in detection for prohibited cybersecurity uses; security professionals can apply to [Cyber Verification Program](https://claude.com/form/cyber-use-case)  
+*Source: [Anthropic announcement](https://www.anthropic.com/news/claude-opus-4-7) — 2026-04-16*
+
+---
+
 ### Claude Opus 4.6 (Released 2026-02-04)
 
-Anthropic's most capable model. 1 M token context at standard pricing — no long-context premium.
+Previous flagship; still active legacy. 1 M token context at standard pricing — no long-context premium.
 
 | Metric | Value |
 |---|---|
@@ -132,7 +155,7 @@ Anthropic's most capable model to date, described as a "step change" above Claud
 
 ## Claude 5 Roadmap
 
-Anthropic's Claude 5 generation is underway. **Sonnet 5 "Fennec"** was released February 2026. Claude 5 Opus is anticipated **Q2–Q3 2026** (April–August), following the typical 2–4 month lag after Sonnet releases.
+Anthropic's Claude 5 generation is underway. **Sonnet 5 "Fennec"** was released February 2026. With Opus 4.7 launching today (2026-04-16), Claude 5 Opus is now anticipated **Q3 2026** (July–September), as Anthropic appears to be iterating further on the 4.x generation before the 5.x flagship jump.
 
 ---
 
@@ -140,12 +163,13 @@ Anthropic's Claude 5 generation is underway. **Sonnet 5 "Fennec"** was released 
 
 | Model | Status | Retirement | Notes |
 |---|---|---|---|
-| Claude Opus 4.5 | Active (legacy) | Not before 2026-11-24 | $5/$25 input/output — same price as Opus 4.6 but older |
-| Claude Opus 4.1 | Active (legacy) | Not before 2026-08-05 | $15/$75 — 3× more expensive than Opus 4.6 |
+| Claude Opus 4.6 | Active (legacy) | Not before 2026-11-24 | $5/$25 input/output — same price as Opus 4.7 but one generation older |
+| Claude Opus 4.5 | Active (legacy) | Not before 2026-11-24 | $5/$25 input/output — same price as Opus 4.7 but older |
+| Claude Opus 4.1 | Active (legacy) | Not before 2026-08-05 | $15/$75 — 3× more expensive than Opus 4.7 |
 | Claude Sonnet 4.5 | Active (legacy) | Not before 2026-09-29 | $3/$15 — same price as Sonnet 4.6 but older |
 | Claude Sonnet 4 | Active (legacy) | Not before 2026-05-14 | $3/$15 |
 | Claude Opus 4 | Active (legacy) | Not before 2026-05-14 | $15/$75 |
-| Claude 3 Haiku | **⚠️ RETIRING 2026-04-20 — 5 DAYS** | **2026-04-20** | **Migrate NOW to `claude-haiku-4-5-20251001`** |
+| Claude 3 Haiku | **⚠️ RETIRING 2026-04-20 — 4 DAYS** | **2026-04-20** | **Migrate NOW to `claude-haiku-4-5-20251001`** |
 | Claude 3.5 Haiku | Retired 2026-02-19 | — | Use Haiku 4.5 |
 | Claude Sonnet 3.7 | Retired 2026-02-19 | — | Use Sonnet 4.6 |
 | Claude 3 Opus | Retired 2026-01-05 | — | Available to paid claude.ai subscribers by special request |
