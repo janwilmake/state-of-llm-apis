@@ -1,6 +1,6 @@
 # OpenAI Model Catalog
 
-> **Source:** [OpenAI API Pricing](https://developers.openai.com/api/docs/pricing) · [OpenAI Models](https://platform.openai.com/docs/models) · **Verified:** 2026-04-11
+> **Source:** [OpenAI API Pricing](https://developers.openai.com/api/docs/pricing) · [OpenAI Models](https://platform.openai.com/docs/models) · **Verified:** 2026-04-17
 
 ---
 
@@ -19,7 +19,7 @@ OpenAI's most capable general-purpose model family. First mainline model with **
 
 | Model | API name | Context | Input | Cached input | Output |
 |---|---|---|---|---|---|
-| GPT-5.4 Mini | `gpt-5.4-mini` | 1 M tokens | $0.75 | $0.075 | $4.50 |
+| GPT-5.4 Mini | `gpt-5.4-mini` | 400 K tokens | $0.75 | $0.075 | $4.50 |
 
 **GPT-5.4 Nano** (Released 2026-03-17)
 

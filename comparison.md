@@ -1,6 +1,6 @@
 # LLM API Comparison Matrix
 
-> **Last updated:** 2026-04-16. Prices per 1M tokens (USD), standard tier unless noted.
+> **Last updated:** 2026-04-17. Prices per 1M tokens (USD), standard tier unless noted.
 
 ---
 
@@ -23,7 +23,7 @@
 
 | Provider | Model | Context | Input | Output | Notes |
 |---|---|---|---|---|---|
-| [OpenAI](models/openai.md) | GPT-5.4 Mini | 1 M | $0.75 | $4.50 | 54.38% SWE-bench; 6× cheaper than flagship |
+| [OpenAI](models/openai.md) | GPT-5.4 Mini | 400 K | $0.75 | $4.50 | 54.38% SWE-bench; 6× cheaper than flagship |
 | [OpenAI](models/openai.md) | GPT-4.1 | 1 M | $2.00 | $8.00 | 1 M context at lower price |
 | [Anthropic](models/anthropic.md) | Claude Sonnet 4.6 | 1 M | $3.00 | $15.00 | Best production Claude model |
 | [Google](models/google.md) | Gemini 2.5 Pro | 2 M | $1.25 | $10.00 | ⚠️ Retiring 2026-06-17 |
@@ -73,6 +73,7 @@
 | Llama 4 Scout | **10,000,000 tokens** |
 | Grok 4.20 / Grok 4.1 Fast | **2,000,000 tokens** |
 | Gemini 2.5 Pro | **2,000,000 tokens** |
+| GPT-5.4 Mini | **400,000 tokens** |
 | GPT-5.4, Claude Opus 4.6, Claude Sonnet 4.6 | **1,000,000 tokens** |
 | GPT-4.1, GPT-4.1 Mini, GPT-4.1 Nano | **1,000,000 tokens** |
 | Gemini 2.5 Flash, 2.0 Flash | **1,000,000 tokens** |
@@ -139,7 +140,7 @@
 
 | Deadline | Action |
 |---|---|
-| **2026-04-20** 🚨 | Migrate `claude-3-haiku-20240307` → `claude-haiku-4-5-20251001` (Claude 3 Haiku retiring in **4 days** — 2026-04-20) |
+| **2026-04-20** 🚨 | Migrate `claude-3-haiku-20240307` → `claude-haiku-4-5-20251001` (Claude 3 Haiku retiring in **3 days** — 2026-04-20) |
 | **2026-06-01** | Migrate `gemini-2.0-flash` / `gemini-2.0-flash-lite` to 2.5 equivalents |
 | **2026-06-05** | GPT-5.2 Thinking removed from ChatGPT legacy picker |
 | **2026-06-17** | Migrate `gemini-2.5-pro` → `gemini-3.1-pro-preview`, `gemini-2.5-flash` → `gemini-3-flash-preview` |

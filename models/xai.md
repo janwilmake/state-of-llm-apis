@@ -1,6 +1,6 @@
 # xAI Grok Model Catalog
 
-> **Source:** [xAI Models & Pricing](https://docs.x.ai/developers/models) · [xAI API](https://x.ai/api) · [OpenRouter](https://openrouter.ai/x-ai/grok-4.20) · **Verified:** 2026-04-15
+> **Source:** [xAI Models & Pricing](https://docs.x.ai/developers/models) · [xAI API](https://x.ai/api) · [OpenRouter](https://openrouter.ai/x-ai/grok-4.20) · **Verified:** 2026-04-17
 
 ---
 
@@ -10,14 +10,17 @@
 
 xAI's newest flagship with 2 M token context, industry-leading speed, and agentic tool calling.
 
+> **API name update (2026-04-17):** The official xAI API docs now surface `grok-4.20-0309-reasoning` and `grok-4.20-0309-non-reasoning` as the canonical dated model IDs. The alias `grok-4.20` remains valid. The `-0309` suffix pins to the March 9 training checkpoint.
+
 | Metric | Value |
 |---|---|
-| API name | `grok-4.20` |
+| API names | `grok-4.20-0309-reasoning` · `grok-4.20-0309-non-reasoning` · `grok-4.20` (alias) |
 | Context window | 2,000,000 tokens |
 | Input | **$2.00 / 1M** |
+| Cached input | **$0.20 / 1M** |
 | Output | **$6.00 / 1M** |
 | Web search | $5.00 / 1K calls |
-| Knowledge cutoff | September 1, 2025 |
+| Knowledge cutoff | November 2024 |
 
 **Architecture:** 4-agent system (Grok + Harper + Benjamin + Lucas) for parallel reasoning and cross-verification. "Heavy" variant uses 16 agents for deeper analysis.
 
@@ -129,6 +132,10 @@ Coding-focused model derived from the Grok 4.1 Fast architecture, optimized for 
 Grok 5 has been delayed past the original Q1 2026 target. xAI now points to **Q2 2026** as the likely window. Training on the 1 GW Colossus 2 supercluster in Memphis. Reported 6 trillion parameters with MoE architecture.
 
 ---
+
+## Storage Billing (Effective 2026-04-20)
+
+xAI Files and Collections (used for RAG/context storage) will begin incurring storage charges starting **April 20, 2026**. Developers using the Files or Collections APIs to persist data should review storage usage before this date. Visit the [xAI Console](https://console.x.ai/team/default/files) to view and manage stored files and collections.
 
 ## New Features (2026)
 

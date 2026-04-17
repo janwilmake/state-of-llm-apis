@@ -4,6 +4,51 @@ Changes tracked by the Model Tracker agent. Most recent entries first.
 
 ---
 
+## 2026-04-17
+
+### 🔧 OpenAI: GPT-5.4 Mini context window corrected — 400K, not 1M
+
+**Provider:** [OpenAI](models/openai.md)  
+The official GPT-5.4 mini and nano launch post ([openai.com/index/introducing-gpt-5-4-mini-and-nano/](https://openai.com/index/introducing-gpt-5-4-mini-and-nano/)) states explicitly: *"It has a 400k context window."* The previous entry in our catalog incorrectly showed `1 M tokens`. Corrected in `models/openai.md` and `comparison.md`.
+
+| Field | Old value | Corrected value |
+|---|---|---|
+| GPT-5.4 Mini context window | 1,000,000 tokens | **400,000 tokens** |
+
+*Source: [OpenAI — Introducing GPT-5.4 mini and nano](https://openai.com/index/introducing-gpt-5-4-mini-and-nano/) — verified 2026-04-17*
+
+---
+
+### 🔄 xAI: Grok 4.20 canonical model IDs now include dated suffixes; storage billing starts 2026-04-20
+
+**Provider:** [xAI](models/xai.md)  
+Two updates from the official xAI API docs (verified 2026-04-17):
+
+**1. Dated model IDs now canonical.** The official `docs.x.ai/developers/models` page now surfaces `grok-4.20-0309-reasoning` and `grok-4.20-0309-non-reasoning` as the primary model IDs. The `-0309` suffix pins to the March 9 training checkpoint. The short alias `grok-4.20` remains valid. Pricing is unchanged: **$2.00 input / $6.00 output** per 1M tokens. Also confirmed: Grok 4.20 cached input rate is **$0.20 / 1M** (10% of standard). Knowledge cutoff confirmed as **November 2024** (not September 2025 as previously listed).
+
+**2. Files and Collections storage billing starts April 20, 2026.** Developers using xAI's Files or Collections APIs for persistent storage (RAG, document retrieval) will begin incurring storage charges on April 20, 2026. Review your storage usage before this date at `console.x.ai/team/default/files`.
+
+Updated: `models/xai.md`  
+*Source: [xAI Models & Pricing docs](https://docs.x.ai/developers/models) — verified 2026-04-17*
+
+---
+
+### ⚠️ Anthropic Claude 3 Haiku retires in 3 days (2026-04-20)
+
+**Provider:** [Anthropic](models/anthropic.md)  
+Countdown update: Claude 3 Haiku (`claude-3-haiku-20240307`) retires **April 20, 2026** — **3 days from today**. Updated urgency counters across `deprecated.md`, `comparison.md`, and `models/anthropic.md`.  
+*Migrate to `claude-haiku-4-5-20251001` immediately. Price change on migration: $0.25/$1.25 → $1.00/$5.00 per 1M tokens (+4×).*
+
+---
+
+### ⚠️ Google: Gemini Robotics-ER 1.5 retiring April 30, 2026
+
+**Provider:** [Google](models/google.md)  
+`gemini-robotics-er-1.5-preview` will shut down on **April 30, 2026 at 9AM PST**. The replacement is `gemini-robotics-er-1.6-preview`, released April 14, 2026 with improved instrument reading, spatial reasoning, and physical reasoning capabilities. Added to `deprecated.md` upcoming shutdowns table.  
+*Source: [Google Gemini API changelog](https://ai.google.dev/gemini-api/docs/changelog) — 2026-04-14*
+
+---
+
 ## 2026-04-16
 
 ### 🆕 Anthropic: Claude Opus 4.7 released — same price as 4.6, major coding and vision improvements

@@ -1,6 +1,6 @@
 # Deprecated & Sunset Models
 
-> Track sunset dates and migration paths. **Last updated:** 2026-04-16.
+> Track sunset dates and migration paths. **Last updated:** 2026-04-17.
 >
 > ⚠️ = Deprecated, still accessible. ❌ = Shut down, no longer accessible.
 
@@ -40,7 +40,7 @@ GPT-5.4 replaced GPT-5.2 Thinking in ChatGPT as of 2026-03-05. GPT-5.2 Thinking 
 
 ### Anthropic
 
-> 🚨 **URGENT: Claude 3 Haiku retires April 20, 2026 — 4 days away!** Migrate now.
+> 🚨 **URGENT: Claude 3 Haiku retires April 20, 2026 — 3 days away!** Migrate now.
 
 | Model | API name | Deprecated | Retirement date | Replacement |
 |---|---|---|---|---|
@@ -53,6 +53,14 @@ GPT-5.4 replaced GPT-5.2 Thinking in ChatGPT as of 2026-03-05. GPT-5.2 Thinking 
 | Model | Deprecated | Notes |
 |---|---|---|
 | `gpt-4.5-preview` | 2025-04-14 | Announced deprecated at GPT-4.1 launch. Check [OpenAI changelog](https://developers.openai.com/api/docs/changelog) for sunset date. |
+
+### Google (Preview models — upcoming retirement)
+
+| Model | Shutdown date | Replacement |
+|---|---|---|
+| `gemini-robotics-er-1.5-preview` | **2026-04-30** | `gemini-robotics-er-1.6-preview` |
+
+*Source: [Google AI for Developers — Gemini API changelog](https://ai.google.dev/gemini-api/docs/changelog) — 2026-04-14*
 
 ### Google (Preview models — retired)
 
@@ -130,11 +138,11 @@ Effective April 4, 2026, Cohere retired the following models. API requests to th
 **Capability improvement:** Better GPQA (94.3% vs ~90%), stronger coding  
 **Action:** Preview model — evaluate stability before committing to production. Use `gemini-2.5-pro` as fallback until GA.
 
-### 🚨 Switching from `claude-3-haiku-20240307` to `claude-haiku-4-5-20251001` (Deadline: 2026-04-20 — **4 days**)
+### 🚨 Switching from `claude-3-haiku-20240307` to `claude-haiku-4-5-20251001` (Deadline: 2026-04-20 — **3 days**)
 
 **Price change:** $0.25/$1.25 → $1.00/$5.00 per 1M tokens (4× more expensive)  
 **Capability improvement:** Extended thinking support, 64K max output (vs 4K), significantly higher quality  
-**Action required:** Update model identifier **immediately** — shutdown in 4 days. Run regression tests — Haiku 4.5 may respond differently on edge cases.  
+**Action required:** Update model identifier **immediately** — shutdown in 3 days. Run regression tests — Haiku 4.5 may respond differently on edge cases.  
 **Tip:** Haiku 3.5 (`claude-3-5-haiku-20241022`) is already retired (2026-02-19) — do not use.
 
 ### Switching from `gpt-4.5-preview` to `gpt-5.4` or `gpt-4.1`
