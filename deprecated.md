@@ -1,6 +1,6 @@
 # Deprecated & Sunset Models
 
-> Track sunset dates and migration paths. **Last updated:** 2026-04-17.
+> Track sunset dates and migration paths. **Last updated:** 2026-04-18.
 >
 > ⚠️ = Deprecated, still accessible. ❌ = Shut down, no longer accessible.
 
@@ -40,7 +40,7 @@ GPT-5.4 replaced GPT-5.2 Thinking in ChatGPT as of 2026-03-05. GPT-5.2 Thinking 
 
 ### Anthropic
 
-> 🚨 **URGENT: Claude 3 Haiku retires April 20, 2026 — 3 days away!** Migrate now.
+> 🚨 **URGENT: Claude 3 Haiku retires April 20, 2026 — 2 days away!** Migrate now.
 
 | Model | API name | Deprecated | Retirement date | Replacement |
 |---|---|---|---|---|

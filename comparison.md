@@ -1,6 +1,6 @@
 # LLM API Comparison Matrix
 
-> **Last updated:** 2026-04-17. Prices per 1M tokens (USD), standard tier unless noted.
+> **Last updated:** 2026-04-18. Prices per 1M tokens (USD), standard tier unless noted.
 
 ---
 
@@ -49,7 +49,7 @@
 | [Mistral](models/mistral.md) | Mistral Nemo | 128 K | $0.02 | $0.06 | Cheapest Mistral |
 | [xAI](models/xai.md) | Grok 4.1 Fast | 2 M | $0.20 | $0.50 | Near-frontier at budget price |
 | [xAI](models/xai.md) | Grok Code Fast | 256 K | $0.20 | $1.50 | Coding-specialist |
-| [DeepSeek](models/deepseek.md) | V3.1-Terminus Chat | 128 K | $0.56¹ | $1.68¹ | Open weights; ¹official API cache-miss rate |
+| [DeepSeek](models/deepseek.md) | V3.2 Chat | 128 K | $0.28¹ | $0.42¹ | Open weights; ¹official API cache-miss rate |
 | [Cohere](models/cohere.md) | Command R7B | 128 K | $0.0375 | $0.15 | Cheapest Cohere |
 | [Meta](models/meta.md) | Llama 4 Scout | 10 M | ~$0.08 | ~$0.30 | Open weights; 10 M context |
 
@@ -62,7 +62,7 @@
 | [OpenAI](models/openai.md) | o3 | 200 K | $10.00 | $40.00 | Deep reasoning flagship |
 | [OpenAI](models/openai.md) | o4-mini | 200 K | $1.10 | $4.40 | Best cost-efficient reasoning |
 | [xAI](models/xai.md) | Grok 4 | 256 K | $3.00 | $15.00 | Always-on reasoning |
-| [DeepSeek](models/deepseek.md) | V3.1-Terminus Reasoner | 128 K | $0.56¹ | $1.68¹ | Chain-of-thought; ¹official API cache-miss rate |
+| [DeepSeek](models/deepseek.md) | V3.2 Reasoner | 128 K | $0.28¹ | $0.42¹ | Chain-of-thought; ¹official API cache-miss rate |
 
 ---
 
@@ -84,7 +84,7 @@
 | Claude Haiku 4.5, o3, o4-mini | **200,000 tokens** |
 | GPT-4o, GPT-4o Mini | **128,000 tokens** |
 | Mistral Medium 3 | **131,072 tokens** |
-| DeepSeek V3.2 Chat | **128,000 tokens** |
+| DeepSeek V3.2 Chat/Reasoner | **128,000 tokens** |
 
 ---
 

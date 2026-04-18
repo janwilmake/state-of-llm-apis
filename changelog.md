@@ -4,6 +4,50 @@ Changes tracked by the Model Tracker agent. Most recent entries first.
 
 ---
 
+## 2026-04-18
+
+### 🔄 DeepSeek: API pricing corrected back to V3.2 — $0.28/$0.42 per 1M tokens (reverts 2026-04-14 entry)
+
+**Provider:** [DeepSeek](models/deepseek.md)  
+The official DeepSeek API docs (re-verified 2026-04-18) now clearly state that both `deepseek-chat` and `deepseek-reasoner` correspond to **DeepSeek-V3.2**, priced at **$0.28 input / $0.42 output** per 1M tokens (cache miss), with cache-hit input at **$0.028/1M** (90% discount). This corrects the 2026-04-14 entry which logged V3.1-Terminus at $0.56/$1.68 — that appears to have been a transient documentation change that has since been reverted, or a data error. Current official pricing is back to the V3.2 standard rates.
+
+| Field | 2026-04-14 (incorrect) | 2026-04-18 (corrected) |
+|---|---|---|
+| Model behind endpoints | DeepSeek-V3.1-Terminus | **DeepSeek-V3.2** |
+| Input (cache miss) | $0.56 / 1M | **$0.28 / 1M** |
+| Input (cache hit) | $0.07 / 1M | **$0.028 / 1M** |
+| Output | $1.68 / 1M | **$0.42 / 1M** |
+
+Updated: `models/deepseek.md`, `comparison.md`  
+*Source: [DeepSeek API Docs — Models & Pricing](https://api-docs.deepseek.com/quick_start/pricing) — verified 2026-04-18*
+
+---
+
+### 🆕 xAI: Grok 4.3 Beta spotted in early access on Grok.com (no API/pricing yet)
+
+**Provider:** [xAI](models/xai.md)  
+On April 17, 2026, multiple users discovered **"Grok 4.3 (beta)"** listed as an "Early Access" option in Grok.com's model selector. No official xAI announcement or API pricing has been published. Reported improvements include enhanced ultra-long context handling and native multimodal video understanding. Available to SuperGrok Heavy subscribers ($300/month). No action required for API developers — no model ID or pricing to act on yet.
+
+*Source: KuCoin Flash (2026-04-17), BlockBeats — verified 2026-04-18*
+
+---
+
+### ⚠️ Anthropic Claude 3 Haiku retires in 2 days (2026-04-20)
+
+**Provider:** [Anthropic](models/anthropic.md)  
+Countdown update: Claude 3 Haiku (`claude-3-haiku-20240307`) retires **April 20, 2026** — **2 days from today**. Updated urgency counters in `deprecated.md`, `models/anthropic.md`.  
+*Migrate to `claude-haiku-4-5-20251001` immediately. Price change on migration: $0.25/$1.25 → $1.00/$5.00 per 1M tokens (+4×).*
+
+---
+
+### ⚠️ xAI: Files and Collections storage billing starts in 2 days (2026-04-20)
+
+**Provider:** [xAI](models/xai.md)  
+Reminder: xAI Files and Collections storage billing begins **April 20, 2026** — 2 days from today. Developers using the Files or Collections APIs for persistent storage (RAG, document retrieval) should review usage at `console.x.ai/team/default/files` before this date.  
+*Source: [xAI Models & Pricing docs](https://docs.x.ai/developers/models) — previously tracked 2026-04-17*
+
+---
+
 ## 2026-04-17
 
 ### 🔧 OpenAI: GPT-5.4 Mini context window corrected — 400K, not 1M

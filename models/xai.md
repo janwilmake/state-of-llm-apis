@@ -1,6 +1,6 @@
 # xAI Grok Model Catalog
 
-> **Source:** [xAI Models & Pricing](https://docs.x.ai/developers/models) · [xAI API](https://x.ai/api) · [OpenRouter](https://openrouter.ai/x-ai/grok-4.20) · **Verified:** 2026-04-17
+> **Source:** [xAI Models & Pricing](https://docs.x.ai/developers/models) · [xAI API](https://x.ai/api) · [OpenRouter](https://openrouter.ai/x-ai/grok-4.20) · **Verified:** 2026-04-18
 
 ---
 
@@ -124,6 +124,22 @@ Coding-focused model derived from the Grok 4.1 Fast architecture, optimized for 
 | SuperGrok | **$30/month** | Grok 4 + 2 M context, full usage |
 | Grok Business | **$30/seat/month** | Team plan |
 | X Premium+ | $16/month | Grok access through X platform |
+
+---
+
+## Grok 4.3 Beta (Early Access — Appeared 2026-04-17)
+
+> ⚠️ **No API pricing or official announcement yet.** Consumer early access only.
+
+On April 17, 2026, users discovered that Grok.com now lists **"Grok 4.3 (beta)"** as an "Early Access" option in the model selector. This was not announced via an official xAI blog post. Reported improvements include enhanced ultra-long context handling and native video analysis capabilities. The previous web version was Grok 4.20.
+
+**What we know:**
+- Visible in Grok.com model selector as "Grok 4.3 (beta)" with an "Early Access" label
+- Expected improvements: better long-context processing, native multimodal video understanding
+- No API model ID or pricing announced
+- Available to SuperGrok Heavy ($300/month) subscribers
+
+*Source: KuCoin Flash (2026-04-17), BlockBeats, multiple user reports — verified 2026-04-18*
 
 ---
 
