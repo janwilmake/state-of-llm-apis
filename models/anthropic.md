@@ -1,6 +1,6 @@
 # Anthropic Model Catalog
 
-> **Source:** [Anthropic API Pricing](https://platform.claude.com/docs/en/about-claude/pricing) · [Models Overview](https://platform.claude.com/docs/en/about-claude/models/overview) · **Verified:** 2026-04-16
+> **Source:** [Anthropic API Pricing](https://platform.claude.com/docs/en/about-claude/pricing) · [Models Overview](https://platform.claude.com/docs/en/about-claude/models/overview) · **Verified:** 2026-05-10
 
 ---
 
@@ -128,6 +128,15 @@ Claude models support `extended_thinking` mode, which enables multi-step chain-o
 
 ---
 
+## API Rate Limit Increase (May 2026)
+
+Effective **2026-05-06**, Anthropic raised API rate limits for Claude Opus models — enabled by new compute capacity (SpaceX Colossus 1 deal: 300MW+ / 220K+ NVIDIA GPUs). Three changes effective immediately:
+1. **Claude Code 5-hour rate limits doubled** for Pro, Max, Team, and seat-based Enterprise plans
+2. **Peak hours limit reduction removed** for Claude Code on Pro and Max accounts
+3. **API rate limits raised considerably** for Claude Opus models (see [official rate limits page](https://platform.claude.com/docs/en/api/rate-limits))
+
+*Source: [Anthropic — Higher limits and SpaceX compute deal](https://www.anthropic.com/news/higher-limits-spacex) — 2026-05-06*
+
 ## API Policy Change (April 2026)
 
 Effective **2026-04-04**, Claude Pro and Max subscriptions can **no longer be used to power third-party agent frameworks** (e.g. OpenClaw). Users must connect via direct API key with pay-as-you-go token billing. Affected subscribers received a one-time credit equal to their monthly plan cost. *Source: TechCrunch, 2026-04-04*
@@ -169,7 +178,7 @@ Anthropic's Claude 5 generation is underway. **Sonnet 5 "Fennec"** was released 
 | Claude Sonnet 4.5 | Active (legacy) | Not before 2026-09-29 | $3/$15 — same price as Sonnet 4.6 but older |
 | Claude Sonnet 4 | Active (legacy) | Not before 2026-05-14 | $3/$15 |
 | Claude Opus 4 | Active (legacy) | Not before 2026-05-14 | $15/$75 |
-| Claude 3 Haiku | **🚨 RETIRING 2026-04-20 — 2 DAYS** | **2026-04-20** | **Migrate NOW to `claude-haiku-4-5-20251001`** |
+| Claude 3 Haiku | ❌ **RETIRED 2026-04-20** | **2026-04-20** | Migrate to `claude-haiku-4-5-20251001` |
 | Claude 3.5 Haiku | Retired 2026-02-19 | — | Use Haiku 4.5 |
 | Claude Sonnet 3.7 | Retired 2026-02-19 | — | Use Sonnet 4.6 |
 | Claude 3 Opus | Retired 2026-01-05 | — | Available to paid claude.ai subscribers by special request |

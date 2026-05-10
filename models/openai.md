@@ -1,14 +1,37 @@
 # OpenAI Model Catalog
 
-> **Source:** [OpenAI API Pricing](https://developers.openai.com/api/docs/pricing) · [OpenAI Models](https://platform.openai.com/docs/models) · **Verified:** 2026-04-17
+> **Source:** [OpenAI API Pricing](https://developers.openai.com/api/docs/pricing) · [OpenAI Models](https://platform.openai.com/docs/models) · **Verified:** 2026-05-10
 
 ---
 
 ## Current Recommended Models
 
-### GPT-5.4 Family (Flagship – Released 2026-03-05)
+### GPT-5.5 Family (Flagship – Released 2026-04-23) 🆕 NEW
 
-OpenAI's most capable general-purpose model family. First mainline model with **native computer-use** capabilities. Absorbs frontier coding from GPT-5.3-Codex into a single unified model.
+OpenAI's most capable model. Positioned as "a new class of intelligence for coding and professional work." More token-efficient than GPT-5.4 — OpenAI claims ~40% fewer output tokens on Codex/agentic tasks.
+
+| Model | API name | Context | Max output | Input (std) | Cached input | Output (std) | Input (long >272K) | Output (long >272K) |
+|---|---|---|---|---|---|---|---|---|
+| GPT-5.5 | `gpt-5.5` | 1,050 K tokens | 128 K | $5.00 | $0.50 | $30.00 | $10.00 | $45.00 |
+| GPT-5.5 Pro | `gpt-5.5-pro` | 1,050 K tokens | 128 K | $30.00 | — | $180.00 | $60.00 | $270.00 |
+
+**Key facts:**
+- Released in ChatGPT (Plus/Pro/Business/Enterprise) on **2026-04-23**; API access live **2026-04-24**
+- `gpt-5.5-2026-04-23` is the pinned snapshot; `gpt-5.5` alias available
+- Reasoning effort configurable: `none`, `low`, `medium` (default), `high`, `xhigh`
+- Aliases: `gpt-5.5-latest`, `grok-latest`
+- In Codex: 400K context window, includes **Fast mode** (1.5× faster, 2.5× cost)
+- **Pricing tiers:** Batch/Flex: 50% off; Priority: 2.5× standard rate
+- All tools supported: web search, file search, image generation, code interpreter, computer use, MCP
+- **Regional processing (data residency):** +10% uplift
+
+*Source: [OpenAI — Introducing GPT-5.5](https://openai.com/index/introducing-gpt-5-5/) · [OpenAI API pricing](https://developers.openai.com/api/docs/pricing) — verified 2026-05-10*
+
+---
+
+### GPT-5.4 Family (Released 2026-03-05)
+
+Strong general-purpose model. First mainline model with **native computer-use** capabilities. Absorbs frontier coding from GPT-5.3-Codex into a single unified model.
 
 | Model | API name | Context | Max output | Input (std) | Cached input | Output (std) | Input (long >272K) | Output (long >272K) |
 |---|---|---|---|---|---|---|---|---|
@@ -101,7 +124,8 @@ Cached input tokens are charged at **10% of standard input price** for most mode
 
 ## Notes for Developers
 
-- `gpt-5.4` is the best single model for agentic, computer-use, and coding tasks as of April 2026
+- `gpt-5.5` is the new top-tier model as of May 2026 — more intelligent and more token-efficient than `gpt-5.4`
+- `gpt-5.4` remains the best value for agentic and computer-use tasks (same context, half the price of 5.5)
 - `gpt-5.4-mini` is recommended for high-volume latency-sensitive workloads
 - `gpt-4.1-nano` / `gpt-5.4-nano` are the cheapest OpenAI options ($0.10–$0.20 input)
 - `o4-mini` is the best cost-to-performance reasoning choice

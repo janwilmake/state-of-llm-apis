@@ -1,16 +1,50 @@
 # xAI Grok Model Catalog
 
-> **Source:** [xAI Models & Pricing](https://docs.x.ai/developers/models) · [xAI API](https://x.ai/api) · [OpenRouter](https://openrouter.ai/x-ai/grok-4.20) · **Verified:** 2026-04-18
+> **Source:** [xAI Models & Pricing](https://docs.x.ai/developers/models) · [xAI API](https://x.ai/api) · [OpenRouter](https://openrouter.ai/x-ai/grok-4.3) · **Verified:** 2026-05-10
 
 ---
 
 ## Current Models
 
-### Grok 4.20 (Released 2026-03-31) — Current Flagship
+### Grok 4.3 (Released 2026-04-30) — Current Flagship 🆕 NEW
 
-xAI's newest flagship with 2 M token context, industry-leading speed, and agentic tool calling.
+xAI's newest and recommended flagship. ~40% price cut vs. Grok 4.20; expanded to 1M context window; native video input support; Voice API launched same day.
 
-> **API name update (2026-04-17):** The official xAI API docs now surface `grok-4.20-0309-reasoning` and `grok-4.20-0309-non-reasoning` as the canonical dated model IDs. The alias `grok-4.20` remains valid. The `-0309` suffix pins to the March 9 training checkpoint.
+> xAI explicitly states: *"We strongly recommend all API callers use grok-4.3. It is the most intelligent and fastest model we've built."*
+
+| Metric | Value |
+|---|---|
+| API names | `grok-4.3` · `grok-4.3-latest` · `grok-latest` |
+| Context window | 1,000,000 tokens |
+| Input | **$1.25 / 1M** |
+| Cached input | **$0.20 / 1M** |
+| Output | **$2.50 / 1M** |
+| Web search | $5.00 / 1K calls |
+| Code execution | $5.00 / 1K calls |
+| File attachments | $10.00 / 1K calls |
+| Safety filter violation fee | $0.05 / blocked request |
+
+**Higher context pricing** applies to requests exceeding 200K total tokens (rate TBD per region; see [xAI docs](https://docs.x.ai/developers/models/grok-4.3)).
+
+**Reasoning effort:** Configurable — `none`, `low`, `medium` (default), `high`. Reasoning tokens billed at standard completion token rate.
+
+**Key capabilities:** Vision input, tool calling/function calling, structured outputs, prompt caching, batch API, provisioned throughput.
+
+**Voice API (launched 2026-04-30):**
+- STT: **$4.20 / 1M characters** (~86% cheaper than OpenAI Whisper equivalent)
+- TTS: **$4.20 / 1M characters** (~92% cheaper than ElevenLabs equivalent)
+
+*Source: [xAI Docs — grok-4.3](https://docs.x.ai/developers/models/grok-4.3) · [OpenRouter](https://openrouter.ai/x-ai/grok-4.3) · VentureBeat (2026-05-01) — verified 2026-05-10*
+
+> ⚠️ **MIGRATION REQUIRED by 2026-05-15:** See retirement section below.
+
+---
+
+### Grok 4.20 (Released 2026-03-31)
+
+Previous flagship. 2M token context, agentic tool calling. Still available; pricing matches Grok 4.3 on the official xAI API page ($1.25/$2.50 input/output).
+
+> **Note (2026-04-17):** The canonical dated model IDs are `grok-4.20-0309-reasoning` and `grok-4.20-0309-non-reasoning`. The alias `grok-4.20` remains valid. The `-0309` suffix pins to the March 9 training checkpoint.
 
 | Metric | Value |
 |---|---|
@@ -127,19 +161,24 @@ Coding-focused model derived from the Grok 4.1 Fast architecture, optimized for 
 
 ---
 
-## Grok 4.3 Beta (Early Access — Appeared 2026-04-17)
+## ⚠️ Model Retirements — May 15, 2026
 
-> ⚠️ **No API pricing or official announcement yet.** Consumer early access only.
+**Effective 2026-05-15 at 12:00pm PT**, the following models will be retired from the xAI API:
 
-On April 17, 2026, users discovered that Grok.com now lists **"Grok 4.3 (beta)"** as an "Early Access" option in the model selector. This was not announced via an official xAI blog post. Reported improvements include enhanced ultra-long context handling and native video analysis capabilities. The previous web version was Grok 4.20.
+| Model being retired | Recommended replacement |
+|---|---|
+| `grok-4-1-fast-reasoning` | `grok-4.3` |
+| `grok-4-1-fast-non-reasoning` | `grok-4.3` (reasoning_effort: none) |
+| `grok-4-fast-reasoning` | `grok-4.3` |
+| `grok-4-fast-non-reasoning` | `grok-4.3` (reasoning_effort: none) or `grok-4.20-non-reasoning` |
+| `grok-4-0709` | `grok-4.3` |
+| `grok-code-fast-1` | `grok-4.3` |
+| `grok-3` | `grok-4.3` |
+| `grok-imagine-image-pro` | `grok-imagine-image-quality` |
 
-**What we know:**
-- Visible in Grok.com model selector as "Grok 4.3 (beta)" with an "Early Access" label
-- Expected improvements: better long-context processing, native multimodal video understanding
-- No API model ID or pricing announced
-- Available to SuperGrok Heavy ($300/month) subscribers
+After May 15, requests to retired model IDs will return errors. Update your `model` field before this date.
 
-*Source: KuCoin Flash (2026-04-17), BlockBeats, multiple user reports — verified 2026-04-18*
+*Source: [xAI Migration Guide — May 15 Retirement](https://docs.x.ai/developers/migration/may-15-retirement) — verified 2026-05-10*
 
 ---
 
