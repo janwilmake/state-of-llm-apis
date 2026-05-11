@@ -1,10 +1,34 @@
 # Mistral AI Model Catalog
 
-> **Source:** [Mistral API Pricing](https://mistral.ai/pricing) · [OpenRouter](https://openrouter.ai/mistralai/mistral-small-2603) · **Verified:** 2026-04-15
+> **Source:** [Mistral API Pricing](https://mistral.ai/pricing) · [Mistral Docs Model Cards](https://docs.mistral.ai/models/model-cards/mistral-medium-3-5-26-04) · [OpenRouter](https://openrouter.ai/mistralai/mistral-medium-3-5) · **Verified:** 2026-05-11
 
 ---
 
 ## Current Models
+
+### Mistral Medium 3.5 (Released 2026-04-29 Preview / GA 2026-05-05) 🆕 NEW
+
+Mistral's new flagship model — merges instruction-following, reasoning, coding, and vision into a single 128B dense model. Replaces Mistral Medium 3.1 and Magistral in Le Chat; replaces Devstral 2 in the Vibe coding agent. Released as open weights under a **Modified MIT** license.
+
+| Metric | Value |
+|---|---|
+| API name | `mistral-medium-3-5` |
+| Parameters | 128B (dense) |
+| Context window | 256,000 tokens |
+| Input | **$1.50 / 1M** |
+| Output | **$7.50 / 1M** |
+| License | Modified MIT (open weights) |
+
+**Capabilities:** Vision (custom encoder with variable image sizes), tool calling, configurable reasoning effort (`reasoning_effort` parameter), structured outputs, agentic tool use.  
+**Self-hosting:** Requires as few as four GPUs.  
+**Replaces:** `mistral-medium-3.1` in Le Chat and Magistral; `devstral-medium-2507` in Vibe.  
+**Benchmarks:** 77.6% SWE-Bench Verified (treat as directional; see independent evaluations before production use).
+
+> ⚠️ **Note:** Mistral Large 2.1 (`mistral-large-2411`) is deprecated — retires **2026-05-31**. Migrate to `mistral-large-latest` (Mistral Large 3).
+
+*Source: [Mistral blog](https://mistral.ai/news/vibe-remote-agents-mistral-medium-3-5) · [Official model card](https://docs.mistral.ai/models/model-cards/mistral-medium-3-5-26-04) · [OpenRouter](https://openrouter.ai/mistralai/mistral-medium-3-5) — verified 2026-05-11*
+
+---
 
 ### Mistral Large 3 (Released 2025-12-01)
 

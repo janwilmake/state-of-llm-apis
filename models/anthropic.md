@@ -1,6 +1,6 @@
 # Anthropic Model Catalog
 
-> **Source:** [Anthropic API Pricing](https://platform.claude.com/docs/en/about-claude/pricing) · [Models Overview](https://platform.claude.com/docs/en/about-claude/models/overview) · **Verified:** 2026-05-10
+> **Source:** [Anthropic API Pricing](https://platform.claude.com/docs/en/about-claude/pricing) · [Models Overview](https://platform.claude.com/docs/en/about-claude/models/overview) · **Verified:** 2026-05-11
 
 ---
 
@@ -125,6 +125,25 @@ Claude models support `extended_thinking` mode, which enables multi-step chain-o
 | Team Standard | $25/user/month (annual) | SSO, admin controls, Slack/M365 integration |
 | Team Premium | $150/user/month | All Standard + Claude Code access |
 | Enterprise | Custom | SCIM, audit logs, compliance API, custom data retention |
+
+---
+
+## Enterprise Analytics API (Released 2026-05-07)
+
+Anthropic launched the **Enterprise Analytics API** — gives Enterprise plan Primary Owners programmatic access to per-user cost and adoption data across Claude, Claude Code, Cowork, and Office agents.
+
+**Nine endpoints in two categories:**
+1. **Engagement & Adoption (5 endpoints):** Per-user activity (conversations, commits, PRs, lines of code, Cowork sessions), organization-wide DAU/WAU/MAU, seat utilization
+2. **Usage & Cost (4 endpoints, beta):** Per-user token consumption and USD spend, broken down by model, context window, inference region, or speed; cost over time; token usage over time
+
+**Key facts:**
+- Available on **Enterprise plans only**
+- Data starts January 1, 2026; 90-day history for engagement, 365 days for cost
+- 3-day engagement data delay; 4–24 hour cost data refresh; revisions possible up to 30 days
+- Rate limit: 60 req/min (customizable)
+- Does **not** include Bedrock-routed Claude Code data
+
+*Source: [Anthropic Enterprise Analytics API docs](https://support.claude.com/en/articles/13694757-get-started-with-the-claude-enterprise-analytics-api) — 2026-05-07*
 
 ---
 

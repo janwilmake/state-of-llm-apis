@@ -1,6 +1,6 @@
 # LLM API Comparison Matrix
 
-> **Last updated:** 2026-04-18. Prices per 1M tokens (USD), standard tier unless noted.
+> **Last updated:** 2026-05-11. Prices per 1M tokens (USD), standard tier unless noted.
 
 ---
 
@@ -8,14 +8,16 @@
 
 | Provider | Model | Context | Input | Output | GPQA | SWE-bench | Notes |
 |---|---|---|---|---|---|---|---|
+| [OpenAI](models/openai.md) | GPT-5.5 🆕 | 1 M | $5.00 | $30.00 | — | — | Latest flagship; ~40% fewer output tokens on agentic tasks |
 | [OpenAI](models/openai.md) | GPT-5.4 | 1 M | $2.50 | $15.00 | 92.8% | 57.7% | Native computer-use; tokens >272K billed at 2× |
-| [OpenAI](models/openai.md) | GPT-5.4 Pro | 1 M | $30.00 | $180.00 | — | — | Max capability |
-| [Anthropic](models/anthropic.md) | Claude Opus 4.7 🆕 | 1 M | $5.00 | $25.00 | — | 70% (CursorBench) | Released 2026-04-16; cyber safeguards; no long-context premium |
+| [OpenAI](models/openai.md) | GPT-5.4 Pro / GPT-5.5 Pro | 1 M | $30.00 | $180.00 | — | — | Max capability |
+| [Anthropic](models/anthropic.md) | Claude Opus 4.7 | 1 M | $5.00 | $25.00 | — | 70% (CursorBench) | Released 2026-04-16; cyber safeguards; no long-context premium |
 | [Google](models/google.md) | Gemini 3.1 Pro Preview | 1 M | $2.00 | $12.00 | 94.3% | 80.6% | Preview (no GA SLA) |
-| [xAI](models/xai.md) | Grok 4.20 | 2 M | $2.00 | $6.00 | ~88% | 75% | X data integration |
+| [xAI](models/xai.md) | Grok 4.3 🆕 | 1 M | $1.25 | $2.50 | — | — | xAI flagship; released 2026-04-30; 1M context; voice API |
+| [xAI](models/xai.md) | Grok 4.20 | 2 M | $1.25 | $2.50 | ~88% | 75% | X data integration; matched Grok 4.3 price |
 | [xAI](models/xai.md) | Grok 4 | 256 K | $3.00 | $15.00 | 87.7% | — | Always-on reasoning |
 
-**Verdict:** For best reasoning accuracy, Gemini 3.1 Pro (94.3% GPQA) is currently top. For computer-use, GPT-5.4 is unmatched. For cost-efficiency at frontier level, Grok 4.20 ($2/$6) leads.
+**Verdict:** For best reasoning accuracy, Gemini 3.1 Pro (94.3% GPQA) is currently top. For computer-use, GPT-5.4 is unmatched. For cost-efficiency at frontier level, Grok 4.3 ($1.25/$2.50) leads among flagship models. GPT-5.5 is the most capable OpenAI model but 2× the price of GPT-5.4.
 
 ---
 
@@ -28,6 +30,7 @@
 | [Anthropic](models/anthropic.md) | Claude Sonnet 4.6 | 1 M | $3.00 | $15.00 | Best production Claude model |
 | [Google](models/google.md) | Gemini 2.5 Pro | 2 M | $1.25 | $10.00 | ⚠️ Retiring 2026-06-17 |
 | [Google](models/google.md) | Gemini 3 Flash Preview | 1 M | $0.50 | $3.00 | Preview; fast |
+| [Mistral](models/mistral.md) | Mistral Medium 3.5 🆕 | 256 K | $1.50 | $7.50 | 128B dense; vision + coding + agents; GA 2026-05-05 |
 | [Mistral](models/mistral.md) | Mistral Medium 3 | 131 K | $0.40 | $2.00 | Good for coding/RAG |
 | [Cohere](models/cohere.md) | Command A | 256 K | $2.50 | $10.00 | Enterprise RAG; citation support |
 | [Meta](models/meta.md) | Llama 4 Maverick | 1 M | ~$0.15 | ~$0.60 | Open weights; self-hostable |
@@ -47,9 +50,9 @@
 | [Google](models/google.md) | Gemini 2.0 Flash-Lite | 1 M | $0.075 | $0.30 | Absolute cheapest billed option ⚠️ retires 2026-06-01 |
 | [Mistral](models/mistral.md) | Mistral Small 4 | 262 K | $0.15 | $0.60 | Vision + coding + reasoning unified |
 | [Mistral](models/mistral.md) | Mistral Nemo | 128 K | $0.02 | $0.06 | Cheapest Mistral |
-| [xAI](models/xai.md) | Grok 4.1 Fast | 2 M | $0.20 | $0.50 | Near-frontier at budget price |
-| [xAI](models/xai.md) | Grok Code Fast | 256 K | $0.20 | $1.50 | Coding-specialist |
-| [DeepSeek](models/deepseek.md) | V3.2 Chat | 128 K | $0.28¹ | $0.42¹ | Open weights; ¹official API cache-miss rate |
+| [xAI](models/xai.md) | Grok 4.1 Fast | 2 M | $0.20 | $0.50 | ⚠️ Retires 2026-05-15 → migrate to `grok-4.3` |
+| [DeepSeek](models/deepseek.md) | V4 Flash | 1 M | $0.14 | $0.28 | Open weights; cheapest frontier-class option |
+| [DeepSeek](models/deepseek.md) | V4 Pro | 1 M | $0.435¹ | $0.87¹ | ¹75% promo until 2026-05-31; list $1.74/$3.48 |
 | [Cohere](models/cohere.md) | Command R7B | 128 K | $0.0375 | $0.15 | Cheapest Cohere |
 | [Meta](models/meta.md) | Llama 4 Scout | 10 M | ~$0.08 | ~$0.30 | Open weights; 10 M context |
 

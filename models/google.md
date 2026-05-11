@@ -1,6 +1,6 @@
 # Google Gemini Model Catalog
 
-> **Source:** [Gemini API Pricing](https://ai.google.dev/gemini-api/docs/pricing) · [Vertex AI Pricing](https://cloud.google.com/vertex-ai/generative-ai/pricing) · [Gemini Deprecations](https://ai.google.dev/gemini-api/docs/deprecations) · **Verified:** 2026-04-17
+> **Source:** [Gemini API Pricing](https://ai.google.dev/gemini-api/docs/pricing) · [Vertex AI Pricing](https://cloud.google.com/vertex-ai/generative-ai/pricing) · [Gemini Deprecations](https://ai.google.dev/gemini-api/docs/deprecations) · **Verified:** 2026-05-11
 
 ---
 
@@ -95,7 +95,26 @@ Replaces `gemini-3-pro-preview` (retired 2026-03-09). Highest-capability Gemini 
 
 ---
 
+### Gemini 3.1 Flash-Lite (GA — Graduated from Preview ~2026-05-08) 🆕
+
+Graduated from preview. The stable `gemini-3.1-flash-lite` model ID is now listed alongside `gemini-3.1-flash-lite-preview` on the official pricing page (as of 2026-05-08).
+
+| Metric | Value |
+|---|---|
+| API name | `gemini-3.1-flash-lite` |
+| Input | **$0.25 / 1M** |
+| Output | **$1.50 / 1M** |
+| Free tier | ✅ (rate-limited) |
+
+**Best for:** High-volume agentic tasks, translation, simple data processing — cheapest Gemini 3.x model at GA.
+
+*Source: [Google AI Pricing page](https://ai.google.dev/gemini-api/docs/pricing) — verified 2026-05-11*
+
+---
+
 ### Gemini 3.1 Flash-Lite Preview (Released 2026-03-03)
+
+> ℹ️ Preview variant still active alongside the GA `gemini-3.1-flash-lite` model. Same pricing.
 
 | Input | Output |
 |---|---|

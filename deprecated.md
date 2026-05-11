@@ -1,6 +1,6 @@
 # Deprecated & Sunset Models
 
-> Track sunset dates and migration paths. **Last updated:** 2026-04-18.
+> Track sunset dates and migration paths. **Last updated:** 2026-05-11.
 >
 > ⚠️ = Deprecated, still accessible. ❌ = Shut down, no longer accessible.
 
@@ -26,6 +26,49 @@
 
 ---
 
+### xAI — May 15, 2026 Retirements 🚨 (in 4 days!)
+
+**Effective 2026-05-15 at 12:00 pm PT**, the following models will be retired from the xAI API. Requests to these IDs will return errors after this date.
+
+| Model being retired | Recommended replacement |
+|---|---|
+| `grok-4-1-fast-reasoning` | `grok-4.3` |
+| `grok-4-1-fast-non-reasoning` | `grok-4.3` (reasoning_effort: none) |
+| `grok-4-fast-reasoning` | `grok-4.3` |
+| `grok-4-fast-non-reasoning` | `grok-4.3` (reasoning_effort: none) |
+| `grok-4-0709` | `grok-4.3` |
+| `grok-code-fast-1` | `grok-4.3` |
+| `grok-3` | `grok-4.3` |
+| `grok-imagine-image-pro` | `grok-imagine-image-quality` |
+
+**Migration:** Update `model` field in API calls. `grok-4.3` is xAI's recommended default for all use cases.  
+**Pricing impact:** `grok-4.3` ($1.25/$2.50 per 1M input/output) vs. `grok-4-fast` ($0.20/$0.50). Cost will increase ~6× for teams migrating from Fast to `grok-4.3`. If cost is critical, evaluate `grok-4.20-non-reasoning` ($1.25/$2.50) as an alternative.  
+*Source: [xAI Migration Guide — May 15 Retirement](https://docs.x.ai/developers/migration/may-15-retirement) — verified 2026-05-11*
+
+---
+
+### Mistral Large 2.1 (`mistral-large-2411`)
+
+| Model | Deprecated | Retirement date | Replacement |
+|---|---|---|---|
+| `mistral-large-2411` | 2026-02-27 | **2026-05-31** | `mistral-large-latest` (Mistral Large 3) |
+
+*Source: [Mistral Models Overview](https://docs.mistral.ai/models/overview) — verified 2026-05-11*
+
+---
+
+### OpenAI DALL-E 2 and DALL-E 3 image models
+
+| Model | Retirement date | Replacement |
+|---|---|---|
+| `dall-e-2` | **2026-05-12** | `gpt-image-2` |
+| `dall-e-3` | **2026-05-12** | `gpt-image-2` |
+
+> ⚠️ **DALL-E 2 and DALL-E 3 retire May 12, 2026.** If you have any production integration on either model, migrate to `gpt-image-2` before that date or calls will start failing.  
+*Source: [OpenAI ChatGPT pricing & product update](https://techcrunch.com/2026/05/05/openai-releases-gpt-5-5-instant-a-new-default-model-for-chatgpt/) — verified 2026-05-11*
+
+---
+
 ### OpenAI GPT-5.2 Thinking
 
 | Model | Retirement date | Migration |
@@ -40,13 +83,12 @@ GPT-5.4 replaced GPT-5.2 Thinking in ChatGPT as of 2026-03-05. GPT-5.2 Thinking 
 
 ### Anthropic
 
-> 🚨 **URGENT: Claude 3 Haiku retires April 20, 2026 — 2 days away!** Migrate now.
-
 | Model | API name | Deprecated | Retirement date | Replacement |
 |---|---|---|---|---|
-| Claude 3 Haiku | `claude-3-haiku-20240307` | 2026-02-19 | **2026-04-20** | `claude-haiku-4-5-20251001` |
+| Claude Sonnet 4 | `claude-sonnet-4-*` | 2026-01-xx | **2026-05-14** | `claude-sonnet-4-6` |
+| Claude Opus 4 | `claude-opus-4-*` | 2026-01-xx | **2026-05-14** | `claude-opus-4-7` |
 
-*Source: [Anthropic model deprecations](https://platform.claude.com/docs/en/about-claude/model-deprecations) — verified 2026-04-12*
+*Source: [Anthropic model deprecations](https://platform.claude.com/docs/en/about-claude/model-deprecations) — verified 2026-05-11*
 
 ### OpenAI
 
@@ -97,6 +139,7 @@ Effective April 4, 2026, Cohere retired the following models. API requests to th
 
 | Model | API name | Retired | Was replaced by |
 |---|---|---|---|
+| Claude 3 Haiku | `claude-3-haiku-20240307` | **2026-04-20** | `claude-haiku-4-5-20251001` |
 | Claude 3.5 Haiku | `claude-3-5-haiku-20241022` | **2026-02-19** | `claude-haiku-4-5-20251001` |
 | Claude Sonnet 3.7 | `claude-3-7-sonnet-20250219` | **2026-02-19** | `claude-sonnet-4-5-20250929` |
 | Claude 3 Opus | `claude-3-opus-20240229` | 2026-01-05 | `claude-opus-4-6` (preserved via special request) |
