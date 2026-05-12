@@ -1,6 +1,6 @@
 # Deprecated & Sunset Models
 
-> Track sunset dates and migration paths. **Last updated:** 2026-05-11.
+> Track sunset dates and migration paths. **Last updated:** 2026-05-12.
 >
 > ⚠️ = Deprecated, still accessible. ❌ = Shut down, no longer accessible.
 
@@ -8,25 +8,19 @@
 
 ## Upcoming Shutdowns (Action Required)
 
-### Google Gemini — June 2026 deadline
+### Anthropic — May 14, 2026 🚨 (in 2 days!)
 
-| Model | Shutdown date | Migrate to |
-|---|---|---|
-| `gemini-2.0-flash` | **2026-06-01** | `gemini-2.5-flash` (or `gemini-3-flash-preview`) |
-| `gemini-2.0-flash-001` | **2026-06-01** | `gemini-2.5-flash` |
-| `gemini-2.0-flash-lite` | **2026-06-01** | `gemini-2.5-flash-lite` |
-| `gemini-2.0-flash-lite-001` | **2026-06-01** | `gemini-2.5-flash-lite` |
-| `gemini-2.5-pro` | **2026-06-17** | `gemini-3.1-pro-preview` |
-| `gemini-2.5-flash` | **2026-06-17** | `gemini-3-flash-preview` |
-| `gemini-2.5-flash-lite` | **2026-07-22** | `gemini-3.1-flash-lite-preview` |
+| Model | API name | Shutdown date | Replacement |
+|---|---|---|---|
+| Claude Sonnet 4 | `claude-sonnet-4-*` | **2026-05-14** | `claude-sonnet-4-6` |
+| Claude Opus 4 | `claude-opus-4-*` | **2026-05-14** | `claude-opus-4-7` |
 
-> ⚠️ **Note:** Gemini 3.x replacements are currently in preview stage (no GA stability guarantee). Stable GA versions expected before shutdown dates. Source: [Google Gemini Deprecations](https://ai.google.dev/gemini-api/docs/deprecations) — verified 2026-04-10.
-
-> ⚠️ **Note (Vertex AI):** As of 2026-03-06, `gemini-2.0-flash-001` and `gemini-2.0-flash-lite-001` are unavailable to **new** Vertex AI projects. Existing customers retain access until June 1, 2026.
+Migrate now — shutdown is in **2 days**. Same pricing tier ($3/$15 for Sonnet 4.6; $5/$25 for Opus 4.7).  
+*Source: [Anthropic model deprecations](https://platform.claude.com/docs/en/about-claude/model-deprecations) — verified 2026-05-12*
 
 ---
 
-### xAI — May 15, 2026 Retirements 🚨 (in 4 days!)
+### xAI — May 15, 2026 Retirements 🚨 (in 3 days!)
 
 **Effective 2026-05-15 at 12:00 pm PT**, the following models will be retired from the xAI API. Requests to these IDs will return errors after this date.
 
@@ -43,7 +37,51 @@
 
 **Migration:** Update `model` field in API calls. `grok-4.3` is xAI's recommended default for all use cases.  
 **Pricing impact:** `grok-4.3` ($1.25/$2.50 per 1M input/output) vs. `grok-4-fast` ($0.20/$0.50). Cost will increase ~6× for teams migrating from Fast to `grok-4.3`. If cost is critical, evaluate `grok-4.20-non-reasoning` ($1.25/$2.50) as an alternative.  
-*Source: [xAI Migration Guide — May 15 Retirement](https://docs.x.ai/developers/migration/may-15-retirement) — verified 2026-05-11*
+*Source: [xAI Migration Guide — May 15 Retirement](https://docs.x.ai/developers/migration/may-15-retirement) — verified 2026-05-12*
+
+---
+
+### Google Gemini — May 25, 2026
+
+| Model | Shutdown date | Migrate to |
+|---|---|---|
+| `gemini-3.1-flash-lite-preview` | **2026-05-25** | `gemini-3.1-flash-lite` (GA, identical pricing) |
+
+> Deprecated 2026-05-11. The stable GA model `gemini-3.1-flash-lite` was released 2026-05-07. Same pricing ($0.25/$1.50 per 1M tokens), same model. Just update the model ID.  
+*Source: [Google Gemini API changelog](https://ai.google.dev/gemini-api/docs/changelog) — verified 2026-05-12*
+
+---
+
+### ⚠️ Gemini Interactions API — Breaking Schema Change (May 26 / June 8, 2026)
+
+This is a **code change**, not a model retirement, but it will break integrations that use the Interactions API (v1beta).
+
+| Deadline | Event |
+|---|---|
+| **2026-05-26** | New schema becomes default; old schema still works with explicit `Api-Revision` header |
+| **2026-06-08** | Legacy schema removed entirely — integrations without SDK update will break |
+
+**What's changing:** `outputs` array → `steps` schema; `response_format` field restructured.  
+**Fix:** Upgrade Python SDK to ≥2.0.0 or JavaScript SDK to ≥2.0.0. Or add `Api-Revision: 2026-05-26` header to raw HTTP requests.  
+*Source: [Google — Interactions API: Breaking changes migration guide (May 2026)](https://ai.google.dev/gemini-api/docs/interactions-breaking-changes-may-2026) — 2026-05-06 · verified 2026-05-12*
+
+---
+
+### Google Gemini — June 2026 deadline
+
+| Model | Shutdown date | Migrate to |
+|---|---|---|
+| `gemini-2.0-flash` | **2026-06-01** | `gemini-2.5-flash` (or `gemini-3-flash-preview`) |
+| `gemini-2.0-flash-001` | **2026-06-01** | `gemini-2.5-flash` |
+| `gemini-2.0-flash-lite` | **2026-06-01** | `gemini-2.5-flash-lite` |
+| `gemini-2.0-flash-lite-001` | **2026-06-01** | `gemini-2.5-flash-lite` |
+| `gemini-2.5-pro` | **2026-06-17** | `gemini-3.1-pro-preview` |
+| `gemini-2.5-flash` | **2026-06-17** | `gemini-3-flash-preview` |
+| `gemini-2.5-flash-lite` | **2026-07-22** | `gemini-3.1-flash-lite` (now GA) |
+
+> ⚠️ **Note:** `gemini-2.5-flash-lite` replacement was updated from `gemini-3.1-flash-lite-preview` to `gemini-3.1-flash-lite` (GA as of 2026-05-07). Source: [Google Gemini Deprecations](https://ai.google.dev/gemini-api/docs/deprecations) — verified 2026-05-12.
+
+> ⚠️ **Note (Vertex AI):** As of 2026-03-06, `gemini-2.0-flash-001` and `gemini-2.0-flash-lite-001` are unavailable to **new** Vertex AI projects. Existing customers retain access until June 1, 2026.
 
 ---
 
@@ -61,11 +99,11 @@
 
 | Model | Retirement date | Replacement |
 |---|---|---|
-| `dall-e-2` | **2026-05-12** | `gpt-image-2` |
-| `dall-e-3` | **2026-05-12** | `gpt-image-2` |
+| `dall-e-2` | **2026-05-12** ❌ TODAY | `gpt-image-2` |
+| `dall-e-3` | **2026-05-12** ❌ TODAY | `gpt-image-2` |
 
-> ⚠️ **DALL-E 2 and DALL-E 3 retire May 12, 2026.** If you have any production integration on either model, migrate to `gpt-image-2` before that date or calls will start failing.  
-*Source: [OpenAI ChatGPT pricing & product update](https://techcrunch.com/2026/05/05/openai-releases-gpt-5-5-instant-a-new-default-model-for-chatgpt/) — verified 2026-05-11*
+> ❌ **DALL-E 2 and DALL-E 3 retire today (May 12, 2026).** Calls to either model are failing or will fail imminently. Migrate to `gpt-image-2` immediately.  
+*Source: [OpenAI API Pricing](https://developers.openai.com/api/docs/pricing) — verified 2026-05-12*
 
 ---
 
@@ -85,10 +123,11 @@ GPT-5.4 replaced GPT-5.2 Thinking in ChatGPT as of 2026-03-05. GPT-5.2 Thinking 
 
 | Model | API name | Deprecated | Retirement date | Replacement |
 |---|---|---|---|---|
-| Claude Sonnet 4 | `claude-sonnet-4-*` | 2026-01-xx | **2026-05-14** | `claude-sonnet-4-6` |
-| Claude Opus 4 | `claude-opus-4-*` | 2026-01-xx | **2026-05-14** | `claude-opus-4-7` |
+| Claude Sonnet 4 | `claude-sonnet-4-*` | 2026-01-xx | **2026-05-14** 🚨 2 days | `claude-sonnet-4-6` |
+| Claude Opus 4 | `claude-opus-4-*` | 2026-01-xx | **2026-05-14** 🚨 2 days | `claude-opus-4-7` |
 
-*Source: [Anthropic model deprecations](https://platform.claude.com/docs/en/about-claude/model-deprecations) — verified 2026-05-11*
+> ⚠️ Both Claude Sonnet 4 and Claude Opus 4 shut down **May 14, 2026** — 2 days from now. See Upcoming Shutdowns above.  
+*Source: [Anthropic model deprecations](https://platform.claude.com/docs/en/about-claude/model-deprecations) — verified 2026-05-12*
 
 ### OpenAI
 

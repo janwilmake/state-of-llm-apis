@@ -1,6 +1,6 @@
 # LLM API Comparison Matrix
 
-> **Last updated:** 2026-05-11. Prices per 1M tokens (USD), standard tier unless noted.
+> **Last updated:** 2026-05-12. Prices per 1M tokens (USD), standard tier unless noted.
 
 ---
 
@@ -50,7 +50,7 @@
 | [Google](models/google.md) | Gemini 2.0 Flash-Lite | 1 M | $0.075 | $0.30 | Absolute cheapest billed option ⚠️ retires 2026-06-01 |
 | [Mistral](models/mistral.md) | Mistral Small 4 | 262 K | $0.15 | $0.60 | Vision + coding + reasoning unified |
 | [Mistral](models/mistral.md) | Mistral Nemo | 128 K | $0.02 | $0.06 | Cheapest Mistral |
-| [xAI](models/xai.md) | Grok 4.1 Fast | 2 M | $0.20 | $0.50 | ⚠️ Retires 2026-05-15 → migrate to `grok-4.3` |
+| [xAI](models/xai.md) | Grok 4.1 Fast | 2 M | $0.20 | $0.50 | ❌ Retires **2026-05-15** → migrate to `grok-4.3` |
 | [DeepSeek](models/deepseek.md) | V4 Flash | 1 M | $0.14 | $0.28 | Open weights; cheapest frontier-class option |
 | [DeepSeek](models/deepseek.md) | V4 Pro | 1 M | $0.435¹ | $0.87¹ | ¹75% promo until 2026-05-31; list $1.74/$3.48 |
 | [Cohere](models/cohere.md) | Command R7B | 128 K | $0.0375 | $0.15 | Cheapest Cohere |
@@ -65,7 +65,7 @@
 | [OpenAI](models/openai.md) | o3 | 200 K | $10.00 | $40.00 | Deep reasoning flagship |
 | [OpenAI](models/openai.md) | o4-mini | 200 K | $1.10 | $4.40 | Best cost-efficient reasoning |
 | [xAI](models/xai.md) | Grok 4 | 256 K | $3.00 | $15.00 | Always-on reasoning |
-| [DeepSeek](models/deepseek.md) | V3.2 Reasoner | 128 K | $0.28¹ | $0.42¹ | Chain-of-thought; ¹official API cache-miss rate |
+| [DeepSeek](models/deepseek.md) | V4 Flash (thinking) | 1 M | $0.14 | $0.28 | Use `deepseek-v4-flash` with thinking mode enabled |
 
 ---
 
@@ -87,7 +87,7 @@
 | Claude Haiku 4.5, o3, o4-mini | **200,000 tokens** |
 | GPT-4o, GPT-4o Mini | **128,000 tokens** |
 | Mistral Medium 3 | **131,072 tokens** |
-| DeepSeek V3.2 Chat/Reasoner | **128,000 tokens** |
+| DeepSeek V4 Flash / V4 Pro | **1,000,000 tokens** |
 
 ---
 
@@ -139,16 +139,23 @@
 
 ---
 
-## Action Items (As of 2026-04-15)
+## Action Items (As of 2026-05-12)
 
 | Deadline | Action |
 |---|---|
-| **2026-04-20** 🚨 | Migrate `claude-3-haiku-20240307` → `claude-haiku-4-5-20251001` (Claude 3 Haiku retiring in **3 days** — 2026-04-20) |
+| **2026-05-12** ❌ TODAY | ❌ `dall-e-2` and `dall-e-3` **retire today** — migrate to `gpt-image-2` immediately |
+| **2026-05-14** 🚨 | Migrate `claude-sonnet-4-*` → `claude-sonnet-4-6`, `claude-opus-4-*` → `claude-opus-4-7` (Anthropic shutdowns in 2 days) |
+| **2026-05-15** 🚨 | Migrate off xAI `grok-4-fast-reasoning`, `grok-4-fast-non-reasoning`, `grok-4.1-fast`, `grok-4-0709`, `grok-code-fast-1`, `grok-3`, `grok-imagine-image-pro` — all retire at 12pm PT (in 3 days) |
+| **2026-05-25** | Migrate `gemini-3.1-flash-lite-preview` → `gemini-3.1-flash-lite` (GA, same pricing) |
+| **2026-05-26** | Opt-in to new Gemini Interactions API schema (Python ≥2.0.0 / JS ≥2.0.0 SDKs do this automatically) |
+| **2026-05-31** | ⏱️ DeepSeek V4 Pro 75%-off promo ends — prices revert to ~$1.74/$3.48 per 1M tokens |
+| **2026-05-31** | Migrate `mistral-large-2411` → `mistral-large-latest` (Mistral Large 3) |
 | **2026-06-01** | Migrate `gemini-2.0-flash` / `gemini-2.0-flash-lite` to 2.5 equivalents |
 | **2026-06-05** | GPT-5.2 Thinking removed from ChatGPT legacy picker |
+| **2026-06-08** | Gemini Interactions API legacy schema removed entirely — complete migration before this date |
 | **2026-06-17** | Migrate `gemini-2.5-pro` → `gemini-3.1-pro-preview`, `gemini-2.5-flash` → `gemini-3-flash-preview` |
-| **2026-07-22** | Migrate `gemini-2.5-flash-lite` → `gemini-3.1-flash-lite-preview` |
-| **Late April 2026** | 🔥 Watch for **DeepSeek V4** launch — Founder Liang Wenfeng confirmed late April target (2026-04-10); Vision/Expert/Lite modes confirmed in grey test UI. 3 variants: V4 Lite, V4 Expert, V4 Vision |
+| **2026-07-24** | Migrate DeepSeek `deepseek-chat` / `deepseek-reasoner` → `deepseek-v4-flash` or `deepseek-v4-pro` |
+| **2026-07-22** | Migrate `gemini-2.5-flash-lite` → `gemini-3.1-flash-lite` (now GA) |
 
 ---
 

@@ -1,6 +1,6 @@
 # Google Gemini Model Catalog
 
-> **Source:** [Gemini API Pricing](https://ai.google.dev/gemini-api/docs/pricing) · [Vertex AI Pricing](https://cloud.google.com/vertex-ai/generative-ai/pricing) · [Gemini Deprecations](https://ai.google.dev/gemini-api/docs/deprecations) · **Verified:** 2026-05-11
+> **Source:** [Gemini API Pricing](https://ai.google.dev/gemini-api/docs/pricing) · [Vertex AI Pricing](https://cloud.google.com/vertex-ai/generative-ai/pricing) · [Gemini Deprecations](https://ai.google.dev/gemini-api/docs/deprecations) · **Verified:** 2026-05-12
 
 ---
 
@@ -95,9 +95,9 @@ Replaces `gemini-3-pro-preview` (retired 2026-03-09). Highest-capability Gemini 
 
 ---
 
-### Gemini 3.1 Flash-Lite (GA — Graduated from Preview ~2026-05-08) 🆕
+### Gemini 3.1 Flash-Lite (GA — Released 2026-05-07) 🆕
 
-Graduated from preview. The stable `gemini-3.1-flash-lite` model ID is now listed alongside `gemini-3.1-flash-lite-preview` on the official pricing page (as of 2026-05-08).
+GA release. Graduated from preview on May 7, 2026.
 
 | Metric | Value |
 |---|---|
@@ -108,19 +108,17 @@ Graduated from preview. The stable `gemini-3.1-flash-lite` model ID is now liste
 
 **Best for:** High-volume agentic tasks, translation, simple data processing — cheapest Gemini 3.x model at GA.
 
-*Source: [Google AI Pricing page](https://ai.google.dev/gemini-api/docs/pricing) — verified 2026-05-11*
+*Source: [Google Gemini API changelog](https://ai.google.dev/gemini-api/docs/changelog) — verified 2026-05-12*
 
 ---
 
 ### Gemini 3.1 Flash-Lite Preview (Released 2026-03-03)
 
-> ℹ️ Preview variant still active alongside the GA `gemini-3.1-flash-lite` model. Same pricing.
+> ⚠️ **DEPRECATED 2026-05-11. Shutdown: 2026-05-25.** Migrate to `gemini-3.1-flash-lite` (GA, same pricing, same model).
 
 | Input | Output |
 |---|---|
 | $0.25 / 1M | $1.50 / 1M |
-
-High-volume, low-latency agentic tasks.
 
 ---
 
@@ -203,15 +201,36 @@ Enterprise pricing matches Google AI Studio paid tiers for most models. Vertex A
 
 ---
 
+## ⚠️ Interactions API Breaking Changes (May–June 2026)
+
+Google is changing the Interactions API (v1beta) request/response schema. Action required before **May 26, 2026**.
+
+| Change | Detail |
+|---|---|
+| `outputs` array → `steps` | Each action (user_input, thought, tool_call, model_output, etc.) becomes its own `step` object |
+| `response_format` consolidated | Image, audio, JSON schema all unified under a single `response_format` field |
+| Legacy schema default removed | **May 26, 2026**: new schema becomes default |
+| Legacy schema removed entirely | **June 8, 2026**: old schema no longer accepted |
+
+**How to migrate:**
+- **SDK users:** Upgrade to Python ≥2.0.0 or JavaScript ≥2.0.0 — SDKs automatically opt in to the new schema
+- **Raw HTTP users:** Add header `Api-Revision: 2026-05-26` to opt in before the deadline
+- Full migration guide: [Interactions API breaking changes (May 2026)](https://ai.google.dev/gemini-api/docs/interactions-breaking-changes-may-2026)
+
+*Source: [Google Gemini API changelog](https://ai.google.dev/gemini-api/docs/changelog) — 2026-05-06 · verified 2026-05-12*
+
+---
+
 ## Deprecation Summary
 
 | Model | Shutdown date | Recommended migration |
 |---|---|---|
+| `gemini-3.1-flash-lite-preview` | **2026-05-25** 🚨 | `gemini-3.1-flash-lite` (GA, same pricing) |
 | `gemini-2.0-flash` | **2026-06-01** | `gemini-2.5-flash` |
 | `gemini-2.0-flash-lite` | **2026-06-01** | `gemini-2.5-flash-lite` |
 | `gemini-2.5-pro` | **2026-06-17** | `gemini-3.1-pro-preview` |
 | `gemini-2.5-flash` | **2026-06-17** | `gemini-3-flash-preview` |
-| `gemini-2.5-flash-lite` | **2026-07-22** | `gemini-3.1-flash-lite-preview` |
+| `gemini-2.5-flash-lite` | **2026-07-22** | `gemini-3.1-flash-lite` |
 | `gemini-3-pro-preview` | Retired 2026-03-09 | `gemini-3.1-pro-preview` |
 
 *Full table: [deprecated.md](../deprecated.md)*
