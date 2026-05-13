@@ -1,6 +1,6 @@
 # xAI Grok Model Catalog
 
-> **Source:** [xAI Models & Pricing](https://docs.x.ai/developers/models) · [xAI API](https://x.ai/api) · [OpenRouter](https://openrouter.ai/x-ai/grok-4.3) · **Verified:** 2026-05-10
+> **Source:** [xAI Models & Pricing](https://docs.x.ai/developers/models) · [xAI API](https://x.ai/api) · [OpenRouter](https://openrouter.ai/x-ai/grok-4.3) · **Verified:** 2026-05-13
 
 ---
 
@@ -50,9 +50,9 @@ Previous flagship. 2M token context, agentic tool calling. Still available; pric
 |---|---|
 | API names | `grok-4.20-0309-reasoning` · `grok-4.20-0309-non-reasoning` · `grok-4.20` (alias) |
 | Context window | 2,000,000 tokens |
-| Input | **$2.00 / 1M** |
+| Input | **$1.25 / 1M** |
 | Cached input | **$0.20 / 1M** |
-| Output | **$6.00 / 1M** |
+| Output | **$2.50 / 1M** |
 | Web search | $5.00 / 1K calls |
 | Knowledge cutoff | November 2024 |
 

@@ -4,6 +4,57 @@ Changes tracked by the Model Tracker agent. Most recent entries first.
 
 ---
 
+## 2026-05-13
+
+### 🔄 xAI: Grok 4.20 pricing corrected — $2.00/$6.00 → $1.25/$2.50 per 1M tokens
+
+**Provider:** [xAI](models/xai.md)  
+The official xAI API pricing page (`docs.x.ai/developers/pricing`, last updated May 9, 2026) now shows `grok-4.20-0309-reasoning` and `grok-4.20-0309-non-reasoning` priced at **$1.25 input / $2.50 output** per 1M tokens — the same as Grok 4.3. The previous entry in `models/xai.md` still showed the old $2.00/$6.00 rates from before the Grok 4.3 launch. Corrected now.
+
+| Field | Old value | Corrected value |
+|---|---|---|
+| Grok 4.20 input | $2.00 / 1M | **$1.25 / 1M** |
+| Grok 4.20 output | $6.00 / 1M | **$2.50 / 1M** |
+
+Updated: `models/xai.md`  
+*Source: [xAI Pricing](https://docs.x.ai/developers/pricing) — verified 2026-05-13*
+
+---
+
+### ⚠️ Anthropic: Claude Sonnet 4 + Opus 4 shut down TOMORROW (2026-05-14)
+
+**Provider:** [Anthropic](models/anthropic.md)  
+Both `claude-sonnet-4-*` and `claude-opus-4-*` retire **tomorrow, May 14, 2026**. If you are still using either model in production, you must migrate today.  
+- `claude-sonnet-4-*` → `claude-sonnet-4-6` (same price: $3.00/$15.00 per 1M)  
+- `claude-opus-4-*` → `claude-opus-4-7` (same price: $5.00/$25.00 per 1M)
+
+Updated urgency counters in `deprecated.md` and `comparison.md`.  
+*Source: [Anthropic model deprecations](https://platform.claude.com/docs/en/about-claude/model-deprecations) — verified 2026-05-13*
+
+---
+
+### ⚠️ xAI: 8 models retire in 2 days (2026-05-15 at 12pm PT)
+
+**Provider:** [xAI](models/xai.md)  
+Countdown update: `grok-4-fast-reasoning`, `grok-4-fast-non-reasoning`, `grok-4-1-fast-reasoning`, `grok-4-1-fast-non-reasoning`, `grok-4-0709`, `grok-code-fast-1`, `grok-3`, and `grok-imagine-image-pro` all retire **May 15 at 12:00pm PT — in 2 days**.  
+- Recommended replacement for all: `grok-4.3` (see [migration guide](https://docs.x.ai/developers/migration/may-15-retirement))  
+- **Cost impact warning:** `grok-4.3` ($1.25/$2.50) is ~6× more expensive than `grok-4.1-fast` ($0.20/$0.50). If cost is the primary concern, consider `grok-4.20-non-reasoning` ($1.25/$2.50) or evaluate whether the Grok Fast models can be replaced with a cheaper alternative (e.g. Mistral Small 4 at $0.15/$0.60).
+
+Updated urgency counters in `deprecated.md` and `comparison.md`.  
+*Source: [xAI Migration Guide — May 15 Retirement](https://docs.x.ai/developers/migration/may-15-retirement) — verified 2026-05-13*
+
+---
+
+### 🔭 Google I/O 2026 (May 19): Gemini 4.0 / Gemini Omni expected
+
+**Provider:** [Google](models/google.md)  
+Google I/O 2026 is scheduled for **May 19–20, 2026**. Multiple leaks and media reports indicate Google is expected to announce a next-generation Gemini model (variously called "Gemini 4.0" or "Gemini Omni") with significantly upgraded multimodal (video, audio, text, image) capabilities. Separately, **Gemini Omni** has leaked as a new video-generation model. No confirmed API names, pricing, or benchmarks as of today.
+
+**Action required:** None yet — no API changes. Watch for announcements on May 19. This note will be updated as soon as official model specs and pricing are published.  
+*Source: CNET (2026-05-09), Android Authority (2026-05-12), Gadgets360 (2026-05-12), FelloAI (2026-05-12)*
+
+---
+
 ## 2026-04-18
 
 ### 🔄 DeepSeek: API pricing corrected back to V3.2 — $0.28/$0.42 per 1M tokens (reverts 2026-04-14 entry)

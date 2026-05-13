@@ -1,6 +1,6 @@
 # LLM API Comparison Matrix
 
-> **Last updated:** 2026-05-12. Prices per 1M tokens (USD), standard tier unless noted.
+> **Last updated:** 2026-05-13. Prices per 1M tokens (USD), standard tier unless noted.
 
 ---
 
@@ -139,13 +139,13 @@
 
 ---
 
-## Action Items (As of 2026-05-12)
+## Action Items (As of 2026-05-13)
 
 | Deadline | Action |
 |---|---|
-| **2026-05-12** ❌ TODAY | ❌ `dall-e-2` and `dall-e-3` **retire today** — migrate to `gpt-image-2` immediately |
-| **2026-05-14** 🚨 | Migrate `claude-sonnet-4-*` → `claude-sonnet-4-6`, `claude-opus-4-*` → `claude-opus-4-7` (Anthropic shutdowns in 2 days) |
-| **2026-05-15** 🚨 | Migrate off xAI `grok-4-fast-reasoning`, `grok-4-fast-non-reasoning`, `grok-4.1-fast`, `grok-4-0709`, `grok-code-fast-1`, `grok-3`, `grok-imagine-image-pro` — all retire at 12pm PT (in 3 days) |
+| **2026-05-12** ❌ PASSED | ❌ `dall-e-2` and `dall-e-3` **retired 2026-05-12** — calls now failing; migrate to `gpt-image-2` |
+| **2026-05-14** 🚨 TOMORROW | Migrate `claude-sonnet-4-*` → `claude-sonnet-4-6`, `claude-opus-4-*` → `claude-opus-4-7` (Anthropic shutdowns TOMORROW) |
+| **2026-05-15** 🚨 | Migrate off xAI `grok-4-fast-reasoning`, `grok-4-fast-non-reasoning`, `grok-4.1-fast`, `grok-4-0709`, `grok-code-fast-1`, `grok-3`, `grok-imagine-image-pro` — all retire at 12pm PT (in 2 days) |
 | **2026-05-25** | Migrate `gemini-3.1-flash-lite-preview` → `gemini-3.1-flash-lite` (GA, same pricing) |
 | **2026-05-26** | Opt-in to new Gemini Interactions API schema (Python ≥2.0.0 / JS ≥2.0.0 SDKs do this automatically) |
 | **2026-05-31** | ⏱️ DeepSeek V4 Pro 75%-off promo ends — prices revert to ~$1.74/$3.48 per 1M tokens |
