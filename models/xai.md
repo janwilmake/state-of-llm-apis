@@ -1,6 +1,6 @@
 # xAI Grok Model Catalog
 
-> **Source:** [xAI Models & Pricing](https://docs.x.ai/developers/models) · [xAI API](https://x.ai/api) · [OpenRouter](https://openrouter.ai/x-ai/grok-4.3) · **Verified:** 2026-05-13
+> **Source:** [xAI Models & Pricing](https://docs.x.ai/developers/models) · [xAI API](https://x.ai/api) · [OpenRouter](https://openrouter.ai/x-ai/grok-4.3) · **Verified:** 2026-05-14
 
 ---
 
@@ -36,7 +36,7 @@ xAI's newest and recommended flagship. ~40% price cut vs. Grok 4.20; expanded to
 
 *Source: [xAI Docs — grok-4.3](https://docs.x.ai/developers/models/grok-4.3) · [OpenRouter](https://openrouter.ai/x-ai/grok-4.3) · VentureBeat (2026-05-01) — verified 2026-05-10*
 
-> ⚠️ **MIGRATION REQUIRED by 2026-05-15:** See retirement section below.
+> 🚨 **MIGRATION REQUIRED TODAY (2026-05-15 at 12pm PT):** See retirement section below. Requests to retired model IDs will begin failing TODAY.
 
 ---
 
@@ -161,7 +161,7 @@ Coding-focused model derived from the Grok 4.1 Fast architecture, optimized for 
 
 ---
 
-## ⚠️ Model Retirements — May 15, 2026
+## 🚨 Model Retirements — May 15, 2026 (TOMORROW at 12pm PT)
 
 **Effective 2026-05-15 at 12:00pm PT**, the following models will be retired from the xAI API:
 
@@ -178,7 +178,7 @@ Coding-focused model derived from the Grok 4.1 Fast architecture, optimized for 
 
 After May 15, requests to retired model IDs will return errors. Update your `model` field before this date.
 
-*Source: [xAI Migration Guide — May 15 Retirement](https://docs.x.ai/developers/migration/may-15-retirement) — verified 2026-05-10*
+*Source: [xAI Migration Guide — May 15 Retirement](https://docs.x.ai/developers/migration/may-15-retirement) — verified 2026-05-14*
 
 ---
 

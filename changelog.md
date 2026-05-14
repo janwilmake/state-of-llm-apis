@@ -4,6 +4,83 @@ Changes tracked by the Model Tracker agent. Most recent entries first.
 
 ---
 
+## 2026-05-14
+
+### 🔧 Anthropic: Claude Sonnet 4 / Opus 4 retirement date CORRECTED — June 15, 2026 (not May 14)
+
+**Provider:** [Anthropic](models/anthropic.md)  
+The previous changelog entry (2026-05-13) stated that `claude-sonnet-4-*` and `claude-opus-4-*` were shutting down "TOMORROW (May 14, 2026)". This was **incorrect**. The [official Anthropic model deprecations page](https://platform.claude.com/docs/en/about-claude/model-deprecations) clearly shows:
+
+- `claude-sonnet-4-20250514` — deprecated 2026-04-14 — **retirement: June 15, 2026**
+- `claude-opus-4-20250514` — deprecated 2026-04-14 — **retirement: June 15, 2026**
+
+The error arose from misreading the "Not before 2026-05-14" language in our legacy model table, which was a minimum retention guarantee, not the actual retirement date. Corrected in `deprecated.md`, `models/anthropic.md`, and `comparison.md`.
+
+| Field | Previous (incorrect) | Corrected |
+|---|---|---|
+| Sonnet 4 retirement | 2026-05-14 | **2026-06-15** |
+| Opus 4 retirement | 2026-05-14 | **2026-06-15** |
+
+*Source: [Anthropic model deprecations](https://platform.claude.com/docs/en/about-claude/model-deprecations) — verified 2026-05-14*
+
+---
+
+### ⚠️ Anthropic: Claude Opus 4.7 — new tokenizer uses up to 35% more tokens than Opus 4.6
+
+**Provider:** [Anthropic](models/anthropic.md)  
+Per-token pricing for Opus 4.7 is **unchanged** from Opus 4.6 at $5.00/$25.00 per 1M tokens. However, Opus 4.7 ships with a new tokenizer that may use **up to 35% more tokens** for identical input text. The effective per-request cost can therefore be up to 1.35× higher than Opus 4.6 for the same content — even though the rate card looks identical.
+
+Highest impact cases:
+- **Code** — token count can be significantly higher
+- **Structured data** (JSON, XML) — longer token representations
+- **Non-English text** — tokenizer changes disproportionately affect non-Latin scripts
+
+Recommended action: after migrating to `claude-opus-4-7`, monitor actual token counts in API responses and re-benchmark costs before finalizing production budgets.
+
+Added note to `models/anthropic.md`.  
+*Source: [CloudZero — Opus 4.7 tokenizer analysis](https://www.cloudzero.com/blog/claude-opus-4-7-pricing/) — verified 2026-05-14*
+
+---
+
+### 🚨 xAI: 8 models retire TODAY (May 15, 2026 at 12pm PT)
+
+**Provider:** [xAI](models/xai.md)  
+Today is the deadline. **Effective 2026-05-15 at 12:00pm PT**, the following xAI models will return errors on all API requests:
+
+| Retiring model | Replacement |
+|---|---|
+| `grok-4-1-fast-reasoning` | `grok-4.3` |
+| `grok-4-1-fast-non-reasoning` | `grok-4.3` (reasoning_effort: none) |
+| `grok-4-fast-reasoning` | `grok-4.3` |
+| `grok-4-fast-non-reasoning` | `grok-4.3` (reasoning_effort: none) |
+| `grok-4-0709` | `grok-4.3` |
+| `grok-code-fast-1` | `grok-4.3` |
+| `grok-3` | `grok-4.3` |
+| `grok-imagine-image-pro` | `grok-imagine-image-quality` |
+
+**Cost impact reminder:** `grok-4.3` ($1.25/$2.50 per 1M) is ~6× more expensive than the retired Fast models ($0.20/$0.50). Evaluate whether you need `grok-4.3` or if a cheaper alternative (e.g. Mistral Small 4 at $0.15/$0.60) fits your use case.
+
+Updated `deprecated.md`, `models/xai.md`, and `comparison.md`.  
+*Source: [xAI Migration Guide — May 15 Retirement](https://docs.x.ai/developers/migration/may-15-retirement) — verified 2026-05-14*
+
+---
+
+### 🔭 Google I/O 2026 (May 19): Gemini 4.0 expected in 5 days
+
+**Provider:** [Google](models/google.md)  
+Google I/O 2026 is **5 days away** (May 19, 2026, 10am PT). All major tech outlets (CNET, Android Authority, Mashable, PCMag) confirm a major Gemini model update — "Gemini 4.0" or similar — is the centerpiece announcement. Additional expected announcements:
+- **Gemini 4.0 API:** New API model IDs, context window expansion, unified native multimodal (images/text/audio/video/code in one model)
+- **"Remy" agent:** Proactive agentic capability for Gemini (emails, calendar, tasks)
+- **Veo / Lyria updates**: Next-gen video and music generation
+- **Android XR smart glasses** (first consumer devices)
+- **Aluminum OS / Googlebook**: Android-based desktop OS + premium laptop category
+
+No confirmed API names, pricing, or benchmarks yet. This knowledge base will be updated immediately after official announcements on May 19.
+
+*Source: CNET (2026-05-13), Mashable (2026-05-14), Android Authority (2026-05-12), PCMag (2026-05-13)*
+
+---
+
 ## 2026-05-13
 
 ### 🔄 xAI: Grok 4.20 pricing corrected — $2.00/$6.00 → $1.25/$2.50 per 1M tokens

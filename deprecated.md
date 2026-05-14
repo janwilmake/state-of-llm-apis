@@ -1,6 +1,6 @@
 # Deprecated & Sunset Models
 
-> Track sunset dates and migration paths. **Last updated:** 2026-05-13.
+> Track sunset dates and migration paths. **Last updated:** 2026-05-14.
 >
 > ⚠️ = Deprecated, still accessible. ❌ = Shut down, no longer accessible.
 
@@ -8,19 +8,21 @@
 
 ## Upcoming Shutdowns (Action Required)
 
-### Anthropic — May 14, 2026 🚨 (TOMORROW!)
+### Anthropic — June 15, 2026 ⚠️
 
-| Model | API name | Shutdown date | Replacement |
-|---|---|---|---|
-| Claude Sonnet 4 | `claude-sonnet-4-*` | **2026-05-14** | `claude-sonnet-4-6` |
-| Claude Opus 4 | `claude-opus-4-*` | **2026-05-14** | `claude-opus-4-7` |
+| Model | API name | Deprecated | Shutdown date | Replacement |
+|---|---|---|---|---|
+| Claude Sonnet 4 | `claude-sonnet-4-20250514` | 2026-04-14 | **2026-06-15** | `claude-sonnet-4-6` |
+| Claude Opus 4 | `claude-opus-4-20250514` | 2026-04-14 | **2026-06-15** | `claude-opus-4-7` |
 
-Migrate now — shutdown is **TOMORROW** (May 14). Same pricing tier ($3/$15 for Sonnet 4.6; $5/$25 for Opus 4.7).  
-*Source: [Anthropic model deprecations](https://platform.claude.com/docs/en/about-claude/model-deprecations) — verified 2026-05-12*
+⚠️ **Correction (2026-05-14):** The actual retirement date is **June 15, 2026** — not May 14. Previous changelog entries incorrectly stated May 14 as the shutdown date. The "Not before 2026-05-14" language in the legacy model table was a minimum retention guarantee, not the retirement date. Verified against the [official Anthropic model deprecations page](https://platform.claude.com/docs/en/about-claude/model-deprecations).
+
+Migrate before June 15. Same pricing tier ($3/$15 for Sonnet 4.6; $5/$25 for Opus 4.7).  
+*Source: [Anthropic model deprecations](https://platform.claude.com/docs/en/about-claude/model-deprecations) — verified 2026-05-14*
 
 ---
 
-### xAI — May 15, 2026 Retirements 🚨 (in 2 days!)
+### xAI — May 15, 2026 Retirements 🚨 (TOMORROW!)
 
 **Effective 2026-05-15 at 12:00 pm PT**, the following models will be retired from the xAI API. Requests to these IDs will return errors after this date.
 
@@ -123,11 +125,11 @@ GPT-5.4 replaced GPT-5.2 Thinking in ChatGPT as of 2026-03-05. GPT-5.2 Thinking 
 
 | Model | API name | Deprecated | Retirement date | Replacement |
 |---|---|---|---|---|
-| Claude Sonnet 4 | `claude-sonnet-4-*` | 2026-01-xx | **2026-05-14** 🚨 TOMORROW | `claude-sonnet-4-6` |
-| Claude Opus 4 | `claude-opus-4-*` | 2026-01-xx | **2026-05-14** 🚨 TOMORROW | `claude-opus-4-7` |
+| Claude Sonnet 4 | `claude-sonnet-4-20250514` | 2026-04-14 | **2026-06-15** | `claude-sonnet-4-6` |
+| Claude Opus 4 | `claude-opus-4-20250514` | 2026-04-14 | **2026-06-15** | `claude-opus-4-7` |
 
-> ⚠️ Both Claude Sonnet 4 and Claude Opus 4 shut down **May 14, 2026** — TOMORROW. See Upcoming Shutdowns above.  
-*Source: [Anthropic model deprecations](https://platform.claude.com/docs/en/about-claude/model-deprecations) — verified 2026-05-12*
+> ⚠️ Both Claude Sonnet 4 and Claude Opus 4 retire **June 15, 2026**. See Upcoming Shutdowns above.  
+*Source: [Anthropic model deprecations](https://platform.claude.com/docs/en/about-claude/model-deprecations) — verified 2026-05-14*
 
 ### OpenAI
 

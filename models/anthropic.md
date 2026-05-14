@@ -1,6 +1,6 @@
 # Anthropic Model Catalog
 
-> **Source:** [Anthropic API Pricing](https://platform.claude.com/docs/en/about-claude/pricing) · [Models Overview](https://platform.claude.com/docs/en/about-claude/models/overview) · **Verified:** 2026-05-11
+> **Source:** [Anthropic API Pricing](https://platform.claude.com/docs/en/about-claude/pricing) · [Models Overview](https://platform.claude.com/docs/en/about-claude/models/overview) · **Verified:** 2026-05-14
 
 ---
 
@@ -24,8 +24,11 @@ Anthropic's most capable publicly available model. Notable improvements over Opu
 
 **Best for:** Complex software engineering, full-codebase analysis, autonomous agents, vision tasks, scientific research.  
 **CursorBench:** 70% (vs 58% for Opus 4.6) | **Rakuten-SWE-Bench:** 3× more production tasks resolved vs Opus 4.6  
-**Cyber safeguards:** Built-in detection for prohibited cybersecurity uses; security professionals can apply to [Cyber Verification Program](https://claude.com/form/cyber-use-case)  
-*Source: [Anthropic announcement](https://www.anthropic.com/news/claude-opus-4-7) — 2026-04-16*
+**Cyber safeguards:** Built-in detection for prohibited cybersecurity uses; security professionals can apply to [Cyber Verification Program](https://claude.com/form/cyber-use-case)
+
+> ⚠️ **Tokenizer change:** Opus 4.7 uses a new tokenizer that may use **up to 35% more tokens** for the same input text versus Opus 4.6. The per-token price is unchanged ($5/$25), but identical prompts may cost up to 1.35× more. Impact is worst on code, structured data (JSON/XML), and non-English text. Verify your actual token usage after migration.
+
+*Source: [Anthropic announcement](https://www.anthropic.com/news/claude-opus-4-7) — 2026-04-16 · [CloudZero tokenizer analysis](https://www.cloudzero.com/blog/claude-opus-4-7-pricing/) — verified 2026-05-14*
 
 ---
 
@@ -195,8 +198,8 @@ Anthropic's Claude 5 generation is underway. **Sonnet 5 "Fennec"** was released 
 | Claude Opus 4.5 | Active (legacy) | Not before 2026-11-24 | $5/$25 input/output — same price as Opus 4.7 but older |
 | Claude Opus 4.1 | Active (legacy) | Not before 2026-08-05 | $15/$75 — 3× more expensive than Opus 4.7 |
 | Claude Sonnet 4.5 | Active (legacy) | Not before 2026-09-29 | $3/$15 — same price as Sonnet 4.6 but older |
-| Claude Sonnet 4 | Active (legacy) | Not before 2026-05-14 | $3/$15 |
-| Claude Opus 4 | Active (legacy) | Not before 2026-05-14 | $15/$75 |
+| Claude Sonnet 4 | ⚠️ Deprecated | **2026-06-15** | $3/$15 — deprecated 2026-04-14; API name `claude-sonnet-4-20250514` |
+| Claude Opus 4 | ⚠️ Deprecated | **2026-06-15** | $15/$75 — deprecated 2026-04-14; API name `claude-opus-4-20250514` |
 | Claude 3 Haiku | ❌ **RETIRED 2026-04-20** | **2026-04-20** | Migrate to `claude-haiku-4-5-20251001` |
 | Claude 3.5 Haiku | Retired 2026-02-19 | — | Use Haiku 4.5 |
 | Claude Sonnet 3.7 | Retired 2026-02-19 | — | Use Sonnet 4.6 |
