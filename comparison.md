@@ -1,6 +1,6 @@
 # LLM API Comparison Matrix
 
-> **Last updated:** 2026-05-14. Prices per 1M tokens (USD), standard tier unless noted.
+> **Last updated:** 2026-05-15. Prices per 1M tokens (USD), standard tier unless noted.
 
 ---
 
@@ -50,7 +50,7 @@
 | [Google](models/google.md) | Gemini 2.0 Flash-Lite | 1 M | $0.075 | $0.30 | Absolute cheapest billed option ⚠️ retires 2026-06-01 |
 | [Mistral](models/mistral.md) | Mistral Small 4 | 262 K | $0.15 | $0.60 | Vision + coding + reasoning unified |
 | [Mistral](models/mistral.md) | Mistral Nemo | 128 K | $0.02 | $0.06 | Cheapest Mistral |
-| [xAI](models/xai.md) | Grok 4.1 Fast | 2 M | $0.20 | $0.50 | ❌ Retires **2026-05-15** → migrate to `grok-4.3` |
+| [xAI](models/xai.md) | Grok 4.3 | 1 M | $1.25 | $2.50 | ✅ Recommended xAI default; replaces all Fast/grok-4 models |
 | [DeepSeek](models/deepseek.md) | V4 Flash | 1 M | $0.14 | $0.28 | Open weights; cheapest frontier-class option |
 | [DeepSeek](models/deepseek.md) | V4 Pro | 1 M | $0.435¹ | $0.87¹ | ¹75% promo until 2026-05-31; list $1.74/$3.48 |
 | [Cohere](models/cohere.md) | Command R7B | 128 K | $0.0375 | $0.15 | Cheapest Cohere |
@@ -139,12 +139,12 @@
 
 ---
 
-## Action Items (As of 2026-05-13)
+## Action Items (As of 2026-05-15)
 
 | Deadline | Action |
 |---|---|
 | **2026-05-12** ❌ PASSED | ❌ `dall-e-2` and `dall-e-3` **retired 2026-05-12** — calls now failing; migrate to `gpt-image-2` |
-| **2026-05-15** 🚨 TODAY | Migrate off xAI `grok-4-fast-reasoning`, `grok-4-fast-non-reasoning`, `grok-4.1-fast`, `grok-4-0709`, `grok-code-fast-1`, `grok-3`, `grok-imagine-image-pro` — all retire TODAY at 12pm PT |
+| **2026-05-15** ⚠️ TODAY | xAI `grok-4-fast-reasoning`, `grok-4-fast-non-reasoning`, `grok-4.1-fast`, `grok-4-0709`, `grok-code-fast-1`, `grok-3`, `grok-imagine-image-pro` **retired TODAY at 12pm PT** — slugs now **redirect** to `grok-4.3` (not errors). Update your model field to avoid silent 6× cost increase. |
 | **2026-06-15** ⚠️ | Migrate `claude-sonnet-4-20250514` → `claude-sonnet-4-6`, `claude-opus-4-20250514` → `claude-opus-4-7` (shutdown June 15, not May 14 as previously noted — see changelog) |
 | **2026-05-25** | Migrate `gemini-3.1-flash-lite-preview` → `gemini-3.1-flash-lite` (GA, same pricing) |
 | **2026-05-26** | Opt-in to new Gemini Interactions API schema (Python ≥2.0.0 / JS ≥2.0.0 SDKs do this automatically) |

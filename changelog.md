@@ -4,6 +4,55 @@ Changes tracked by the Model Tracker agent. Most recent entries first.
 
 ---
 
+## 2026-05-15
+
+### ✅ xAI: May 15 retirements COMPLETED — slugs redirect (not error); silent 6× cost risk
+
+**Provider:** [xAI](models/xai.md)  
+The 8 model retirements announced for today (2026-05-15 at 12pm PT) are now effective. **Critical correction from prior entries:** The retired model slugs **do not return errors** — they **automatically redirect to `grok-4.3`** per the [official xAI migration guide](https://docs.x.ai/developers/migration/may-15-retirement). Previous changelog entries (2026-05-13 and 2026-05-14) incorrectly stated that "requests will no longer work" and "return errors."
+
+**What this means for developers:**
+- Code that still uses `grok-4-fast-reasoning`, `grok-4-1-fast-non-reasoning`, `grok-4-0709`, `grok-code-fast-1`, `grok-3`, etc. will **not break immediately**
+- However, those requests are now **silently billed at `grok-4.3` pricing** ($1.25 input / $2.50 output per 1M tokens)
+- If you relied on the Fast model pricing ($0.20 input / $0.50 output), you are now paying **~6× more per request** without any API error to alert you
+- `grok-imagine-image-pro` redirects to `grok-imagine-image-quality`
+
+**Action required:** Update your `model` field explicitly. Even if your code doesn't break, staying on old slugs means you lose the ability to control `reasoning_effort` and you will be over-paying.
+
+Updated: `models/xai.md`, `comparison.md`, `deprecated.md`  
+*Source: [xAI Migration Guide — May 15 Retirement](https://docs.x.ai/developers/migration/may-15-retirement) — verified 2026-05-15*
+
+---
+
+### 🔧 xAI: Voice API TTS pricing corrected — $4.20/1M chars (launch) → $15.00/1M chars (current official)
+
+**Provider:** [xAI](models/xai.md)  
+The xAI Voice API launched on **2026-04-17** with TTS priced at **$4.20 / 1M characters**. The official xAI pricing page (last updated 2026-05-09) now shows **$15.00 / 1M characters** for TTS. This is a 3.6× increase from the launch price. STT pricing is unchanged.
+
+| Mode | Launch price (2026-04-17) | Current price (2026-05-09) |
+|---|---|---|
+| TTS (Text-to-Speech) | $4.20 / 1M characters | **$15.00 / 1M characters** |
+| STT REST (batch) | $0.10 / hour | $0.10 / hour (unchanged) |
+| STT WebSocket (streaming) | $0.20 / hour | $0.20 / hour (unchanged) |
+| Voice Agent (realtime) | $0.05 / min ($3.00/hr) | $0.05 / min ($3.00/hr) (unchanged) |
+
+Even at $15.00/1M, Grok TTS is still significantly cheaper than OpenAI TTS ($30.00/1M characters via Realtime API context), Google WaveNet ($16.00/1M), Azure TTS ($16.00/1M), and ElevenLabs (~$50.00/1M). STT ($0.10/hr batch) remains the market's lowest.
+
+Updated: `models/xai.md`  
+*Source: [xAI Pricing docs](https://docs.x.ai/developers/pricing) — verified 2026-05-15*
+
+---
+
+### 🆕 xAI: `grok-4.20-multi-agent-0309` added to official pricing page
+
+**Provider:** [xAI](models/xai.md)  
+The official xAI pricing page now lists `grok-4.20-multi-agent-0309` as a distinct model ID alongside `grok-4.20-0309-reasoning` and `grok-4.20-0309-non-reasoning`. Pricing is identical: **$1.25 / 1M input · $2.50 / 1M output · $0.20 / 1M cached input**. 2M context window. This model ID explicitly exposes the multi-agent (4-agent parallel reasoning) capability that was previously available only via the standard `grok-4.20` alias.
+
+Updated: `models/xai.md`  
+*Source: [xAI Pricing docs](https://docs.x.ai/developers/pricing) — verified 2026-05-15*
+
+---
+
 ## 2026-05-14
 
 ### 🔧 Anthropic: Claude Sonnet 4 / Opus 4 retirement date CORRECTED — June 15, 2026 (not May 14)
@@ -65,10 +114,10 @@ Updated `deprecated.md`, `models/xai.md`, and `comparison.md`.
 
 ---
 
-### 🔭 Google I/O 2026 (May 19): Gemini 4.0 expected in 5 days
+### 🔭 Google I/O 2026 (May 19): Gemini 4.0 expected in 4 days
 
 **Provider:** [Google](models/google.md)  
-Google I/O 2026 is **5 days away** (May 19, 2026, 10am PT). All major tech outlets (CNET, Android Authority, Mashable, PCMag) confirm a major Gemini model update — "Gemini 4.0" or similar — is the centerpiece announcement. Additional expected announcements:
+Google I/O 2026 is **4 days away** (May 19, 2026, 10am PT). All major tech outlets (CNET, Android Authority, Mashable, PCMag) confirm a major Gemini model update — "Gemini 4.0" or similar — is the centerpiece announcement. Additional expected announcements:
 - **Gemini 4.0 API:** New API model IDs, context window expansion, unified native multimodal (images/text/audio/video/code in one model)
 - **"Remy" agent:** Proactive agentic capability for Gemini (emails, calendar, tasks)
 - **Veo / Lyria updates**: Next-gen video and music generation

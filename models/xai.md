@@ -1,6 +1,6 @@
 # xAI Grok Model Catalog
 
-> **Source:** [xAI Models & Pricing](https://docs.x.ai/developers/models) · [xAI API](https://x.ai/api) · [OpenRouter](https://openrouter.ai/x-ai/grok-4.3) · **Verified:** 2026-05-14
+> **Source:** [xAI Models & Pricing](https://docs.x.ai/developers/models) · [xAI Pricing](https://docs.x.ai/developers/pricing) · [xAI API](https://x.ai/api) · [OpenRouter](https://openrouter.ai/x-ai/grok-4.3) · **Verified:** 2026-05-15
 
 ---
 
@@ -30,13 +30,18 @@ xAI's newest and recommended flagship. ~40% price cut vs. Grok 4.20; expanded to
 
 **Key capabilities:** Vision input, tool calling/function calling, structured outputs, prompt caching, batch API, provisioned throughput.
 
-**Voice API (launched 2026-04-30):**
-- STT: **$4.20 / 1M characters** (~86% cheaper than OpenAI Whisper equivalent)
-- TTS: **$4.20 / 1M characters** (~92% cheaper than ElevenLabs equivalent)
+**Voice API (launched 2026-04-17; pricing updated 2026-05-09):**
+- Voice Agent (Realtime): **$3.00 / hour** ($0.05 / minute), WebSocket-based; up to 30 min sessions
+- TTS: **$15.00 / 1M characters** (REST + WebSocket streaming; 5 voices, 20+ languages)
+- STT: **$0.10 / hour** (REST batch) · **$0.20 / hour** (WebSocket streaming); 25+ languages, speaker diarization
+
+> ⚠️ **Pricing correction (2026-05-15):** At launch (2026-04-17), xAI TTS was priced at $4.20/1M characters. The official pricing page (last updated 2026-05-09) now shows **$15.00 / 1M characters**. STT pricing is unchanged ($0.10/hr batch, $0.20/hr streaming). Grok Voice Agent (realtime) remains $3.00/hr.
+
+*Source: [xAI Pricing docs](https://docs.x.ai/developers/pricing) — verified 2026-05-15*
 
 *Source: [xAI Docs — grok-4.3](https://docs.x.ai/developers/models/grok-4.3) · [OpenRouter](https://openrouter.ai/x-ai/grok-4.3) · VentureBeat (2026-05-01) — verified 2026-05-10*
 
-> 🚨 **MIGRATION REQUIRED TODAY (2026-05-15 at 12pm PT):** See retirement section below. Requests to retired model IDs will begin failing TODAY.
+> ✅ **Retirement completed (2026-05-15 at 12pm PT):** Old model slugs now redirect to `grok-4.3`. See retirement section below — requests will NOT error, but will be silently billed at `grok-4.3` pricing. Update your `model` field explicitly.
 
 ---
 
@@ -48,7 +53,7 @@ Previous flagship. 2M token context, agentic tool calling. Still available; pric
 
 | Metric | Value |
 |---|---|
-| API names | `grok-4.20-0309-reasoning` · `grok-4.20-0309-non-reasoning` · `grok-4.20` (alias) |
+| API names | `grok-4.20-0309-reasoning` · `grok-4.20-0309-non-reasoning` · `grok-4.20-multi-agent-0309` · `grok-4.20` (alias) |
 | Context window | 2,000,000 tokens |
 | Input | **$1.25 / 1M** |
 | Cached input | **$0.20 / 1M** |
@@ -161,24 +166,26 @@ Coding-focused model derived from the Grok 4.1 Fast architecture, optimized for 
 
 ---
 
-## 🚨 Model Retirements — May 15, 2026 (TOMORROW at 12pm PT)
+## ✅ Model Retirements — May 15, 2026 (COMPLETED TODAY)
 
-**Effective 2026-05-15 at 12:00pm PT**, the following models will be retired from the xAI API:
+**Effective 2026-05-15 at 12:00pm PT**, the following models were retired from the xAI API:
 
-| Model being retired | Recommended replacement |
-|---|---|
-| `grok-4-1-fast-reasoning` | `grok-4.3` |
-| `grok-4-1-fast-non-reasoning` | `grok-4.3` (reasoning_effort: none) |
-| `grok-4-fast-reasoning` | `grok-4.3` |
-| `grok-4-fast-non-reasoning` | `grok-4.3` (reasoning_effort: none) or `grok-4.20-non-reasoning` |
-| `grok-4-0709` | `grok-4.3` |
-| `grok-code-fast-1` | `grok-4.3` |
-| `grok-3` | `grok-4.3` |
-| `grok-imagine-image-pro` | `grok-imagine-image-quality` |
+| Model retired | Auto-redirect target | Recommended explicit action |
+|---|---|---|
+| `grok-4-1-fast-reasoning` | `grok-4.3` with `low` reasoning effort | Update to `grok-4.3` |
+| `grok-4-1-fast-non-reasoning` | `grok-4.3` with `none` reasoning effort | Update to `grok-4.3` |
+| `grok-4-fast-reasoning` | `grok-4.3` with `low` reasoning effort | Update to `grok-4.3` |
+| `grok-4-fast-non-reasoning` | `grok-4.3` with `none` reasoning effort | Update to `grok-4.3` |
+| `grok-4-0709` | `grok-4.3` with `low` reasoning effort | Update to `grok-4.3` |
+| `grok-code-fast-1` | `grok-4.3` with `low` reasoning effort | Update to `grok-4.3` |
+| `grok-3` | `grok-4.3` with `none` reasoning effort | Update to `grok-4.3` |
+| `grok-imagine-image-pro` | `grok-imagine-image-quality` | Update to `grok-imagine-image-quality` |
 
-After May 15, requests to retired model IDs will return errors. Update your `model` field before this date.
+> ✅ **Important correction (2026-05-15):** Per the official xAI migration guide, requests to retired model slugs **automatically redirect** to `grok-4.3` (previous entries said "return errors" — this was wrong). Your code will not break, but will be **silently charged at `grok-4.3` pricing** ($1.25/$2.50 per 1M) even if you were using the cheap Fast models ($0.20/$0.50). Update your `model` field explicitly to avoid unexpected cost increases.
 
-*Source: [xAI Migration Guide — May 15 Retirement](https://docs.x.ai/developers/migration/may-15-retirement) — verified 2026-05-14*
+**Pricing impact:** ~6× cost increase for teams using `grok-4-fast-*` ($0.20/$0.50) who have not yet migrated to `grok-4.3` ($1.25/$2.50).
+
+*Source: [xAI Migration Guide — May 15 Retirement](https://docs.x.ai/developers/migration/may-15-retirement) — verified 2026-05-15*
 
 ---
 

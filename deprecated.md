@@ -1,6 +1,6 @@
 # Deprecated & Sunset Models
 
-> Track sunset dates and migration paths. **Last updated:** 2026-05-14.
+> Track sunset dates and migration paths. **Last updated:** 2026-05-15.
 >
 > ⚠️ = Deprecated, still accessible. ❌ = Shut down, no longer accessible.
 
@@ -22,24 +22,24 @@ Migrate before June 15. Same pricing tier ($3/$15 for Sonnet 4.6; $5/$25 for Opu
 
 ---
 
-### xAI — May 15, 2026 Retirements 🚨 (TOMORROW!)
+### xAI — May 15, 2026 Retirements ✅ (COMPLETED TODAY)
 
-**Effective 2026-05-15 at 12:00 pm PT**, the following models will be retired from the xAI API. Requests to these IDs will return errors after this date.
+**Effective 2026-05-15 at 12:00 pm PT**, the following models were retired from the xAI API. Requests to these IDs now **automatically redirect to `grok-4.3`** (not return errors as previously noted — see correction below).
 
-| Model being retired | Recommended replacement |
-|---|---|
-| `grok-4-1-fast-reasoning` | `grok-4.3` |
-| `grok-4-1-fast-non-reasoning` | `grok-4.3` (reasoning_effort: none) |
-| `grok-4-fast-reasoning` | `grok-4.3` |
-| `grok-4-fast-non-reasoning` | `grok-4.3` (reasoning_effort: none) |
-| `grok-4-0709` | `grok-4.3` |
-| `grok-code-fast-1` | `grok-4.3` |
-| `grok-3` | `grok-4.3` |
-| `grok-imagine-image-pro` | `grok-imagine-image-quality` |
+| Model retired | Auto-redirect | Explicit replacement |
+|---|---|---|
+| `grok-4-1-fast-reasoning` | `grok-4.3` (low reasoning) | `grok-4.3` |
+| `grok-4-1-fast-non-reasoning` | `grok-4.3` (no reasoning) | `grok-4.3` |
+| `grok-4-fast-reasoning` | `grok-4.3` (low reasoning) | `grok-4.3` |
+| `grok-4-fast-non-reasoning` | `grok-4.3` (no reasoning) | `grok-4.3` |
+| `grok-4-0709` | `grok-4.3` (low reasoning) | `grok-4.3` |
+| `grok-code-fast-1` | `grok-4.3` (low reasoning) | `grok-4.3` |
+| `grok-3` | `grok-4.3` (no reasoning) | `grok-4.3` |
+| `grok-imagine-image-pro` | `grok-imagine-image-quality` | `grok-imagine-image-quality` |
 
-**Migration:** Update `model` field in API calls. `grok-4.3` is xAI's recommended default for all use cases.  
-**Pricing impact:** `grok-4.3` ($1.25/$2.50 per 1M input/output) vs. `grok-4-fast` ($0.20/$0.50). Cost will increase ~6× for teams migrating from Fast to `grok-4.3`. If cost is critical, evaluate `grok-4.20-non-reasoning` ($1.25/$2.50) as an alternative.  
-*Source: [xAI Migration Guide — May 15 Retirement](https://docs.x.ai/developers/migration/may-15-retirement) — verified 2026-05-13*
+> ⚠️ **Correction (2026-05-15):** Previous changelog entries stated retired slugs "will return errors." The actual behavior per the [official xAI migration guide](https://docs.x.ai/developers/migration/may-15-retirement) is that **slugs redirect to `grok-4.3`**. However, if you haven't explicitly updated your `model` field, you are now being **silently billed at `grok-4.3` rates** ($1.25/$2.50 per 1M) instead of Fast model rates ($0.20/$0.50) — a ~6× cost increase. Update your `model` field immediately.
+
+*Source: [xAI Migration Guide — May 15 Retirement](https://docs.x.ai/developers/migration/may-15-retirement) — verified 2026-05-15*
 
 ---
 
