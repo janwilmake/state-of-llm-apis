@@ -1,6 +1,6 @@
 # OpenAI Model Catalog
 
-> **Source:** [OpenAI API Pricing](https://developers.openai.com/api/docs/pricing) · [OpenAI Models](https://platform.openai.com/docs/models) · **Verified:** 2026-05-12
+> **Source:** [OpenAI API Pricing](https://developers.openai.com/api/docs/pricing) · [OpenAI Models](https://platform.openai.com/docs/models) · **Verified:** 2026-05-16
 
 ---
 
@@ -73,6 +73,33 @@ Long-context workhorses with 1 M token context at lower price than GPT-5.4.
 | GPT-4.1 Nano | `gpt-4.1-nano` | 1 M tokens | $0.10 | $0.025 | $0.40 |
 
 Available for fine-tuning: `gpt-4.1`, `gpt-4.1-mini`
+
+---
+
+### GPT-5.3-Codex (Released 2026-02-24)
+
+OpenAI's dedicated agentic coding model. Optimized for long-running, tool-using development workflows: debugging, deployment, and iterative product work. Combines frontier software engineering performance (GPT-5.2-Codex) with broader reasoning capabilities (GPT-5.2). The model behind Codex cloud tasks and code reviews.
+
+| Metric | Value |
+|---|---|
+| API name | `gpt-5.3-codex` |
+| Context window | 400,000 tokens |
+| Max output | 128,000 tokens |
+| Input (std) | **$1.75 / 1M** |
+| Cached input | $0.175 / 1M |
+| Output (std) | **$14.00 / 1M** |
+| Priority tier | $3.50 / $28.00 per 1M input/output |
+| Batch tier | Not available |
+| Knowledge cutoff | 2025-08-31 |
+| GPQA Diamond | 91.5% |
+
+**Key facts:**
+- Default model for Codex cloud tasks and code reviews in ChatGPT
+- `GPT-5.3-Codex-Spark` (research preview, Pro only): faster variant for day-to-day coding tasks; token pricing TBD
+- ~25% faster and more token-efficient than prior Codex models
+- Supports reasoning, tool calling, vision (image/PDF input)
+
+*Source: [OpenRouter gpt-5.3-codex](https://openrouter.ai/openai/gpt-5.3-codex) · [PricePerToken](https://pricepertoken.com/pricing-page/model/openai-gpt-5.3-codex) · [OpenAI API pricing](https://developers.openai.com/api/docs/pricing) — verified 2026-05-16*
 
 ---
 
@@ -163,6 +190,7 @@ Cached input tokens are charged at **10% of standard input price** for most mode
 - `gpt-5.4-mini` is recommended for high-volume latency-sensitive workloads (400K context)
 - `gpt-4.1-nano` / `gpt-5.4-nano` are the cheapest OpenAI options ($0.10–$0.20 input)
 - `o4-mini` is the best cost-to-performance reasoning choice
+- `gpt-5.3-codex` is the dedicated agentic coding model ($1.75/$14.00) — highest GPQA (91.5%) among OpenAI models; powers Codex cloud tasks and code reviews
 - New voice models (`gpt-realtime-2`, `gpt-realtime-translate`, `gpt-realtime-whisper`) replace `gpt-realtime-1.5` for voice applications
 - ❌ `dall-e-2` and `dall-e-3` retired **2026-05-12** — migrate to `gpt-image-2` immediately
 - All prices **per 1M tokens** (USD)

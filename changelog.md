@@ -4,6 +4,97 @@ Changes tracked by the Model Tracker agent. Most recent entries first.
 
 ---
 
+## 2026-05-16
+
+### 🆕 xAI: Grok Build coding agent launched (early beta, SuperGrok Heavy only)
+
+**Provider:** [xAI](models/xai.md)  
+xAI launched **Grok Build** on May 14, 2026 — an early beta coding agent and CLI targeting professional software engineering. Available now for **SuperGrok Heavy** subscribers ($300/month); broader availability not yet announced.
+
+**Key capabilities:**
+- Interactive TUI with plan mode (review/approve before execution)
+- Parallel subagents for complex multi-step tasks
+- Headless mode (`-p`) for scripts and CI automations
+- Agent Client Protocol (ACP) for building orchestration apps
+- Compatible with AGENTS.md, existing plugins, hooks, skills, MCP servers
+- Underlying model: `grok-4.3` (standard API pricing applies when using API key)
+
+**Developer context:** Enters a crowded market vs. Anthropic's Claude Code and OpenAI's Codex CLI, both of which have significant head starts in IDE integrations and production deployments. xAI CEO Elon Musk acknowledged in March 2026 that xAI has lagged behind competitors in coding.
+
+Updated: `models/xai.md`  
+*Source: [xAI — Introducing Grok Build Early Beta](https://x.ai/news/grok-build-cli) — 2026-05-14 · Engadget, PCMag, CIO Dive — 2026-05-15 — verified 2026-05-16*
+
+---
+
+### 🆕 OpenAI: GPT-5.3-Codex documented in catalog (released 2026-02-24)
+
+**Provider:** [OpenAI](models/openai.md)  
+Added a dedicated entry for `gpt-5.3-codex` to the OpenAI model catalog. This model was released February 24, 2026 and is the backbone of OpenAI's Codex product (cloud tasks, code reviews). Previously mentioned only as a pricing line item; now fully documented.
+
+| Field | Value |
+|---|---|
+| API name | `gpt-5.3-codex` |
+| Context window | 400,000 tokens |
+| Input | $1.75 / 1M |
+| Output | $14.00 / 1M |
+| Cached input | $0.175 / 1M |
+| Priority tier | $3.50 / $28.00 per 1M |
+| GPQA Diamond | 91.5% |
+| Knowledge cutoff | 2025-08-31 |
+
+**Note:** `GPT-5.3-Codex-Spark` (research preview, Pro only) is a faster day-to-day variant; pricing TBD.
+
+Updated: `models/openai.md`, `comparison.md`  
+*Source: [OpenRouter gpt-5.3-codex](https://openrouter.ai/openai/gpt-5.3-codex) · [PricePerToken](https://pricepertoken.com/pricing-page/model/openai-gpt-5.3-codex) · [OpenAI API pricing](https://developers.openai.com/api/docs/pricing) — verified 2026-05-16*
+
+---
+
+### ⚠️ Mistral: 4 additional models retiring May 31 & July 31, 2026
+
+**Provider:** [Mistral](models/mistral.md)  
+Added four previously-untracked Mistral deprecations to `deprecated.md` (source: [Mistral Models Overview](https://docs.mistral.ai/models/overview)):
+
+**Retiring May 31, 2026:**
+- `mistral-large-2411` → `mistral-large-latest` *(was previously tracked)*
+- `pixtral-large-2411` → `mistral-large-latest` *(new)*
+- `devstral-medium-2507` → `mistral-medium-3-5` *(new)*
+- `voxtral-mini-2507` → `voxtral-mini-transcribe-2` *(new)*
+
+**Retiring July 31, 2026:**
+- `mistral-small-2506` → `mistral-small-2603` (Mistral Small 4) *(new)*
+- `magistral-small-2509` → `mistral-small-2603` (Mistral Small 4) *(new)*
+
+Updated: `deprecated.md`, `comparison.md`  
+*Source: [Mistral Models Overview](https://docs.mistral.ai/models/overview) — verified 2026-05-16*
+
+---
+
+### 🔭 Google I/O 2026 (May 19): New Gemini model confirmed, "GPT-5.5 class" per leaks
+
+**Provider:** [Google](models/google.md)  
+Google I/O 2026 is **3 days away** (May 19, 2026). Sources close to Google (The Verge/Sources.news reporter Alex Heath, May 14) confirm a new Gemini model will be announced — described as "roughly in the class of OpenAI's recent GPT-5.5." Google is under particular internal pressure to improve coding capabilities.
+
+**Additional leaks (May 12–14):**
+- Forbes: 7 hidden Gemini Live voice models in internal testing (variants with codenames "Capybara" and "Nitrogen"); one identified itself as "Gemini 3.1 Pro" when queried
+- Chrome Unboxed / 9to5Google: **Gemini Omni** — a new video generation/editing model surfacing for select users, capable of video remixing, in-chat editing, template creation
+
+**What to do:** No API changes yet. Watch for announcements May 19. This knowledge base will update immediately after confirmed pricing/specs.
+
+*Source: [Sources.news — Alex Heath, 2026-05-14](https://sources.news/p/google-about-to-release-new-gemini) · Mashable (2026-05-14) · Forbes (2026-05-12)*
+
+---
+
+### ⏱️ Reminder: DeepSeek V4 Pro promo ends May 31 (15 days)
+
+**Provider:** [DeepSeek](models/deepseek.md)  
+The 75% promotional discount on DeepSeek V4 Pro expires **May 31, 2026 at 15:59 UTC** — 15 days from today. Post-promo prices revert to **$1.74 input / $3.48 output** per 1M tokens (from current $0.435/$0.87).
+
+If you are evaluating V4 Pro for budget planning, use the post-promo list price in your projections. The promotional window ends in 15 days.
+
+*Source: [DeepSeek API pricing](https://api-docs.deepseek.com/quick_start/pricing) — verified 2026-05-16*
+
+---
+
 ## 2026-05-15
 
 ### ✅ xAI: May 15 retirements COMPLETED — slugs redirect (not error); silent 6× cost risk

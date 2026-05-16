@@ -1,6 +1,6 @@
 # xAI Grok Model Catalog
 
-> **Source:** [xAI Models & Pricing](https://docs.x.ai/developers/models) · [xAI Pricing](https://docs.x.ai/developers/pricing) · [xAI API](https://x.ai/api) · [OpenRouter](https://openrouter.ai/x-ai/grok-4.3) · **Verified:** 2026-05-15
+> **Source:** [xAI Models & Pricing](https://docs.x.ai/developers/models) · [xAI Pricing](https://docs.x.ai/developers/pricing) · [xAI API](https://x.ai/api) · [OpenRouter](https://openrouter.ai/x-ai/grok-4.3) · **Verified:** 2026-05-16
 
 ---
 
@@ -186,6 +186,31 @@ Coding-focused model derived from the Grok 4.1 Fast architecture, optimized for 
 **Pricing impact:** ~6× cost increase for teams using `grok-4-fast-*` ($0.20/$0.50) who have not yet migrated to `grok-4.3` ($1.25/$2.50).
 
 *Source: [xAI Migration Guide — May 15 Retirement](https://docs.x.ai/developers/migration/may-15-retirement) — verified 2026-05-15*
+
+---
+
+## Grok Build (Coding Agent — Launched 2026-05-14)
+
+xAI's coding agent CLI, launched May 14, 2026 as an early beta. Competes with Anthropic's Claude Code and OpenAI's Codex CLI.
+
+**Access:** Early beta for **SuperGrok Heavy** subscribers only ($300/month). Broader availability not yet announced.
+
+**Install:**
+```bash
+curl -fsSL https://x.ai/cli/install.sh | bash
+```
+
+**Key features:**
+- Full-screen interactive TUI (terminal UI) with plan mode — review/approve plans before execution
+- Subagents that work in parallel for complex tasks
+- Headless mode (`-p` flag) for scripts and automations
+- Agent Client Protocol (ACP) support for building bots and orchestration apps
+- Works with existing AGENTS.md, plugins, hooks, skills, and MCP servers
+- Underlying model: `grok-4.3` (standard API pricing applies for API-key usage)
+
+> ⚠️ **Limitation:** Grok 4.3's 1M context is competitive, but xAI has acknowledged it has lagged behind in coding. Grok Build is early stage — Claude Code and OpenAI Codex CLI have significant head starts in IDE integrations and third-party extensions. More than 50 researchers/engineers left SpaceX AI since the Feb 2026 merger with SpaceX, including coding specialists.
+
+*Source: [xAI — Introducing Grok Build Early Beta](https://x.ai/news/grok-build-cli) · Engadget (2026-05-15) · PCMag (2026-05-14) · DevOps.com (2026-05-15)*
 
 ---
 

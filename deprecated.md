@@ -1,6 +1,6 @@
 # Deprecated & Sunset Models
 
-> Track sunset dates and migration paths. **Last updated:** 2026-05-15.
+> Track sunset dates and migration paths. **Last updated:** 2026-05-16.
 >
 > ⚠️ = Deprecated, still accessible. ❌ = Shut down, no longer accessible.
 
@@ -87,13 +87,27 @@ This is a **code change**, not a model retirement, but it will break integration
 
 ---
 
-### Mistral Large 2.1 (`mistral-large-2411`)
+### Mistral — May 31, 2026
 
-| Model | Deprecated | Retirement date | Replacement |
-|---|---|---|---|
-| `mistral-large-2411` | 2026-02-27 | **2026-05-31** | `mistral-large-latest` (Mistral Large 3) |
+| Model | API name | Deprecated | Retirement date | Replacement |
+|---|---|---|---|---|
+| Mistral Large 2.1 | `mistral-large-2411` | 2026-02-27 | **2026-05-31** | `mistral-large-latest` (Mistral Large 3) |
+| Pixtral Large | `pixtral-large-2411` | 2026-02-27 | **2026-05-31** | `mistral-large-latest` (Mistral Large 3) |
+| Devstral Medium 1.0 | `devstral-medium-2507` | 2026-02-27 | **2026-05-31** | `mistral-medium-3-5` |
+| Voxtral Mini | `voxtral-mini-2507` | 2026-02-27 | **2026-05-31** | `voxtral-mini-transcribe-2` |
 
-*Source: [Mistral Models Overview](https://docs.mistral.ai/models/overview) — verified 2026-05-11*
+*Source: [Mistral Models Overview](https://docs.mistral.ai/models/overview) — verified 2026-05-16*
+
+---
+
+### Mistral — July 31, 2026
+
+| Model | API name | Deprecated | Retirement date | Replacement |
+|---|---|---|---|---|
+| Mistral Small 3.2 | `mistral-small-2506` | 2026-04-30 | **2026-07-31** | `mistral-small-2603` (Mistral Small 4) |
+| Magistral Small 1.2 | `magistral-small-2509` | 2026-04-30 | **2026-07-31** | `mistral-small-2603` (Mistral Small 4) |
+
+*Source: [Mistral Models Overview](https://docs.mistral.ai/models/overview) — verified 2026-05-16*
 
 ---
 
