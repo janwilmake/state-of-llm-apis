@@ -4,6 +4,46 @@ Changes tracked by the Model Tracker agent. Most recent entries first.
 
 ---
 
+## 2026-05-17
+
+### ⚠️ Anthropic: Claude Agent SDK usage split into dedicated credit pool — effective June 15, 2026
+
+**Provider:** [Anthropic](models/anthropic.md)  
+Anthropic [announced](https://x.com/ClaudeDevs/status/2054610152817619388) a major billing change for Claude Code subscriptions, effective **June 15, 2026**: programmatic/autonomous Claude usage is being separated from interactive usage into its own credit pool, billed at standard API rates.
+
+**What's changing:**
+- **Human-in-the-loop usage** (Claude Code terminal, web chat, desktop app, Cowork): continues drawing from existing subscription limits as before.
+- **Autonomous / programmatic usage** (Agent SDK, `claude -p`, GitHub Actions, third-party tools like OpenClaw/Zed/Cursor): **moves to a new monthly Agent SDK credit**, billed at standard API token rates.
+
+**Agent SDK credits by plan:**
+
+| Plan | Monthly Agent SDK credit | Overage |
+|---|---|---|
+| Pro ($20/mo) | $20 in API credits | Billed at standard API rates if extra usage enabled; stops if not |
+| Max 5x ($100/mo) | $100 in API credits | Billed at standard API rates if extra usage enabled |
+| Max 20x ($200/mo) | $200 in API credits | Billed at standard API rates if extra usage enabled |
+
+**Developer impact:** Subscriptions previously subsidized autonomous agent workloads at roughly 15–30× cheaper than API rates. With the credit pool billed at API rates ($5/$25 per 1M on Opus 4.7; $3/$15 on Sonnet 4.6), heavy autonomous workflows will cost significantly more starting June 15. Users who relied on OpenClaw, Zed (via ACP), or `claude -p` pipelines for long-running agent tasks are most affected.
+
+**Context:** Anthropic's April 4 change (banning third-party agent tools from subscriptions entirely) was partly reversed — tools like OpenClaw are now re-allowed, but placed on the metered credit pool rather than the main subscription. This is a structured middle path. Note that the Zed editor, which uses ACP (Agent Client Protocol), is now in the same bucket as third-party agent frameworks for billing purposes.
+
+Updated: `models/anthropic.md`  
+*Source: [Anthropic — Use the Claude Agent SDK with your Claude plan](https://support.claude.com/en/articles/15036540-use-the-claude-agent-sdk-with-your-claude-plan) · [InfoWorld](https://www.infoworld.com/article/4171274/anthropic-puts-claude-agents-on-a-meter-across-its-subscriptions.html) · [Zed Blog](https://zed.dev/blog/anthropic-subscription-changes) — 2026-05-14 · verified 2026-05-17*
+
+---
+
+### ⏱️ Reminders: 8 days to gemini-3.1-flash-lite-preview shutdown; 14 days to DeepSeek promo end
+
+| Deadline | Action |
+|---|---|
+| **2026-05-25** (8 days) | Migrate `gemini-3.1-flash-lite-preview` → `gemini-3.1-flash-lite` (GA, same $0.25/$1.50 pricing) |
+| **2026-05-31** (14 days) | DeepSeek V4 Pro promo ends → price reverts to **$1.74/$3.48 per 1M tokens** (from $0.435/$0.87) |
+| **2026-05-31** (14 days) | Mistral retirements: `mistral-large-2411`, `pixtral-large-2411` → `mistral-large-latest`; `devstral-medium-2507` → `mistral-medium-3-5`; `voxtral-mini-2507` → `voxtral-mini-transcribe-2` |
+
+*Verified 2026-05-17*
+
+---
+
 ## 2026-05-16
 
 ### 🆕 xAI: Grok Build coding agent launched (early beta, SuperGrok Heavy only)

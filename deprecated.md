@@ -1,6 +1,6 @@
 # Deprecated & Sunset Models
 
-> Track sunset dates and migration paths. **Last updated:** 2026-05-16.
+> Track sunset dates and migration paths. **Last updated:** 2026-05-17.
 >
 > ⚠️ = Deprecated, still accessible. ❌ = Shut down, no longer accessible.
 
@@ -19,6 +19,8 @@
 
 Migrate before June 15. Same pricing tier ($3/$15 for Sonnet 4.6; $5/$25 for Opus 4.7).  
 *Source: [Anthropic model deprecations](https://platform.claude.com/docs/en/about-claude/model-deprecations) — verified 2026-05-14*
+
+> ⚠️ **Also on June 15:** Anthropic's **Agent SDK billing split** takes effect. Autonomous/programmatic Claude Code usage (Agent SDK, `claude -p`, GitHub Actions, third-party tools like OpenClaw/Zed/Cursor) moves from the shared subscription pool to a dedicated monthly credit billed at API rates. Credits: Pro = $20, Max 5x = $100, Max 20x = $200. See [anthropic.md](models/anthropic.md) for details. Announced 2026-05-14.
 
 ---
 
