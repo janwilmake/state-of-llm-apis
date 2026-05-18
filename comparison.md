@@ -1,6 +1,6 @@
 # LLM API Comparison Matrix
 
-> **Last updated:** 2026-05-17. Prices per 1M tokens (USD), standard tier unless noted.
+> **Last updated:** 2026-05-18. Prices per 1M tokens (USD), standard tier unless noted.
 
 ---
 
@@ -146,7 +146,7 @@
 |---|---|
 | **2026-05-12** ❌ PASSED | ❌ `dall-e-2` and `dall-e-3` **retired 2026-05-12** — calls now failing; migrate to `gpt-image-2` |
 | **2026-05-15** ❌ PASSED | xAI `grok-4-fast-reasoning`, `grok-4-fast-non-reasoning`, `grok-4.1-fast`, `grok-4-0709`, `grok-code-fast-1`, `grok-3`, `grok-imagine-image-pro` **retired 2026-05-15 at 12pm PT** — slugs now **redirect silently to `grok-4.3`** (not errors). If you haven't updated your `model` field, you are being billed at 6× your old Fast model rates. Fix immediately. |
-| **2026-05-19** 🔭 | Google I/O 2026 **IN 2 DAYS** — major Gemini model announcement expected (likely "Gemini 3.2"/"Gemini 4.0" class per leaks). Watch for new API model IDs, pricing, and context window details. |
+| **2026-05-19** 🔭 | Google I/O 2026 **TOMORROW** (10am PT keynote) — major Gemini model announcement confirmed. New Gemini model (variously "Gemini 3.5" or "Gemini 4.0" per leaks) expected; described as "roughly GPT-5.5 class." Watch for new API model IDs, pricing, and context window details post-keynote. |
 | **2026-05-25** ⚠️ | Migrate `gemini-3.1-flash-lite-preview` → `gemini-3.1-flash-lite` (GA, same pricing, same model) |
 | **2026-05-26** ⚠️ | Opt-in to new Gemini Interactions API schema (Python ≥2.0.0 / JS ≥2.0.0 SDKs do this automatically; raw HTTP users add `Api-Revision: 2026-05-26` header) |
 | **2026-05-31** ⚠️ | ⏱️ DeepSeek V4 Pro 75%-off promo ends — prices revert to **$1.74/$3.48 per 1M tokens** (from $0.435/$0.87) |

@@ -4,6 +4,68 @@ Changes tracked by the Model Tracker agent. Most recent entries first.
 
 ---
 
+## 2026-05-18
+
+### 🔭 Google I/O 2026 TOMORROW (May 19, 10am PT) — Gemini model announcement confirmed
+
+**Provider:** [Google](models/google.md)  
+Google I/O 2026 main keynote is **tomorrow, May 19, 2026 at 10am PT** (1pm ET). Developer keynote follows at 1:30pm PT. A new major Gemini model is confirmed as the centerpiece announcement. Reports describe it as "roughly in the class of OpenAI's recent GPT-5.5" (Sources.news/Alex Heath), or a "Gemini 4.0" (Android Authority), or "Gemini 3.5" per some outlets — the exact version numbering is unconfirmed.
+
+**Expected API changes (unconfirmed until keynote):**
+- New Gemini model IDs (likely `gemini-4.0-*` or `gemini-3.5-*` family)
+- Possible pricing changes from current `gemini-3.1-pro-preview` ($2.00/$12.00 per 1M)
+- Gemini Omni: unified text/image/video model surfaced in UI strings
+- Deep Think reasoning mode for broader access (beyond Ultra subscribers)
+- "Gemini Intelligence": new agentic AI push for Android
+
+**No API changes recorded today.** This knowledge base will update immediately after confirmed pricing and API details are published post-keynote.
+
+*Source: Android Authority (2026-05-12), Yahoo Tech (2026-05-14), AIxploria (2026-05-17), AndroidCentral live blog (2026-05-18)*
+
+---
+
+### 🆕 OpenAI: `gpt-realtime-1.5` and `gpt-realtime-mini` added to catalog
+
+**Provider:** [OpenAI](models/openai.md)  
+Two previously un-catalogued realtime voice models confirmed on the official OpenAI pricing page. Added to `models/openai.md`.
+
+| Model | Audio in | Cached audio in | Audio out | Text in | Text out | Notes |
+|---|---|---|---|---|---|---|
+| `gpt-realtime-1.5` | $32.00/1M | $0.40/1M | $64.00/1M | $4.00/1M | **$16.00/1M** | Legacy; lower text-out rate than gpt-realtime-2 ($24.00) |
+| `gpt-realtime-mini` | $10.00/1M | $0.30/1M | $20.00/1M | $0.60/1M | $2.40/1M | Budget realtime voice; ~3× cheaper than gpt-realtime-2 |
+
+`gpt-realtime-1.5` is the predecessor to `gpt-realtime-2` (launched 2026-05-07). `gpt-realtime-mini` is a budget variant for cost-sensitive voice deployments. Both remain available alongside `gpt-realtime-2`.
+
+Updated: `models/openai.md`  
+*Source: [OpenAI API pricing](https://developers.openai.com/api/docs/pricing) — verified 2026-05-18*
+
+---
+
+### ⏱️ Reminders: 7 days to gemini-3.1-flash-lite-preview shutdown; 8 days to Gemini Interactions API schema change; 13 days to DeepSeek promo end & Mistral retirements
+
+| Deadline | Days | Action |
+|---|---|---|
+| **2026-05-25** | 7 days | Migrate `gemini-3.1-flash-lite-preview` → `gemini-3.1-flash-lite` (GA, same pricing $0.25/$1.50) |
+| **2026-05-26** | 8 days | Opt-in to new Gemini Interactions API schema (Python SDK ≥2.0.0 / JS SDK ≥2.0.0 automatic; raw HTTP add `Api-Revision: 2026-05-26` header). Legacy schema disabled **June 8** |
+| **2026-05-31** | 13 days | DeepSeek V4 Pro 75% promo ends → price reverts to **$1.74/$3.48 per 1M** (from $0.435/$0.87) |
+| **2026-05-31** | 13 days | Mistral: `mistral-large-2411`, `pixtral-large-2411` → `mistral-large-latest`; `devstral-medium-2507` → `mistral-medium-3-5`; `voxtral-mini-2507` → `voxtral-mini-transcribe-2` |
+| **2026-06-15** | 28 days | Anthropic Agent SDK billing split takes effect; `claude-sonnet-4-20250514` / `claude-opus-4-20250514` retire |
+
+*Verified 2026-05-18*
+
+---
+
+### 📊 OpenAI: ChatGPT personal finance feature launched (Pro US only, May 15)
+
+**Provider:** [OpenAI](models/openai.md)  
+On May 15, 2026, OpenAI launched a **personal finance experience** in ChatGPT for Pro subscribers in the U.S. Users can connect bank accounts (via Plaid, Intuit coming soon) and get financial dashboards and AI-powered advice. This is a **ChatGPT product feature, not an API change** — no new model IDs or pricing. Built on the GPT-5.5 stack; will expand to Plus users after the Pro preview period.
+
+**Developer note:** No API changes. Financial data is user-owned, can be disconnected anytime, not used in ChatGPT Memory by default.
+
+*Source: [OpenAI — A new personal finance experience in ChatGPT](https://openai.com/index/personal-finance-chatgpt/) — 2026-05-15*
+
+---
+
 ## 2026-05-17
 
 ### ⚠️ Anthropic: Claude Agent SDK usage split into dedicated credit pool — effective June 15, 2026

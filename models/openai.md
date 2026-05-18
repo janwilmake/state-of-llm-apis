@@ -1,6 +1,6 @@
 # OpenAI Model Catalog
 
-> **Source:** [OpenAI API Pricing](https://developers.openai.com/api/docs/pricing) · [OpenAI Models](https://platform.openai.com/docs/models) · **Verified:** 2026-05-16
+> **Source:** [OpenAI API Pricing](https://developers.openai.com/api/docs/pricing) · [OpenAI Models](https://platform.openai.com/docs/models) · **Verified:** 2026-05-18
 
 ---
 
@@ -130,18 +130,23 @@ Three new audio models launched in the Realtime API for voice-enabled applicatio
 
 | Model | API name | Modality | Pricing |
 |---|---|---|---|
-| GPT-Realtime-2 | `gpt-realtime-2` | Audio + Text + Image (per token) | Audio in: **$32.00/1M** · Cached: $0.40/1M · Audio out: **$64.00/1M** · Text in: $4.00/1M · Text out: $24.00/1M |
+| GPT-Realtime-2 | `gpt-realtime-2` | Audio + Text + Image (per token) | Audio in: **$32.00/1M** · Cached: $0.40/1M · Audio out: **$64.00/1M** · Text in: $4.00/1M · Cached: $0.40/1M · Text out: $24.00/1M |
 | GPT-Realtime-Translate | `gpt-realtime-translate` | Audio translation (per minute) | **$0.034 / minute** |
 | GPT-Realtime-Whisper | `gpt-realtime-whisper` | Streaming STT (per minute) | **$0.017 / minute** |
+| GPT-Realtime-1.5 (legacy) | `gpt-realtime-1.5` | Audio + Text + Image (per token) | Audio in: $32.00/1M · Cached: $0.40/1M · Audio out: $64.00/1M · Text in: $4.00/1M · Cached: $0.40/1M · Text out: **$16.00/1M** |
+| GPT-Realtime-Mini (legacy) | `gpt-realtime-mini` | Audio + Text + Image (per token) | Audio in: $10.00/1M · Cached: $0.30/1M · Audio out: $20.00/1M · Text in: $0.60/1M · Cached: $0.06/1M · Text out: $2.40/1M |
 
 **Key facts:**
-- **GPT-Realtime-2:** First voice model with GPT-5-class reasoning; handles complex requests and maintains conversation context. Replaces `gpt-realtime-1.5`.
+- **GPT-Realtime-2:** First voice model with GPT-5-class reasoning; handles complex requests and maintains conversation context. Successor to `gpt-realtime-1.5`.
 - **GPT-Realtime-Translate:** Real-time speech translation; 70+ input languages → 13 output languages.
 - **GPT-Realtime-Whisper:** Live speech-to-text; transcribes in real-time as the speaker talks.
 - All three models are available via the [OpenAI Realtime API](https://developers.openai.com/api/docs/guides/realtime).
 - Built-in guardrails against spam, fraud, and harmful content.
 
-*Source: [OpenAI — Advancing voice intelligence with new models in the API](https://openai.com/index/advancing-voice-intelligence-with-new-models-in-the-api/) · [TechCrunch](https://techcrunch.com/2026/05/07/openai-launches-new-voice-intelligence-features-in-its-api/) — verified 2026-05-12*
+- **GPT-Realtime-1.5:** Predecessor to GPT-Realtime-2; still available. Same audio pricing as gpt-realtime-2 but lower text output rate ($16.00/1M vs $24.00/1M).
+- **GPT-Realtime-Mini:** Budget realtime voice model. ~3× cheaper audio than gpt-realtime-2. Useful for high-volume voice agent deployments where cost matters more than frontier quality.
+
+*Source: [OpenAI — Advancing voice intelligence with new models in the API](https://openai.com/index/advancing-voice-intelligence-with-new-models-in-the-api/) · [OpenAI API pricing](https://developers.openai.com/api/docs/pricing) · [TechCrunch](https://techcrunch.com/2026/05/07/openai-launches-new-voice-intelligence-features-in-its-api/) — verified 2026-05-18*
 
 ---
 
