@@ -1,6 +1,6 @@
 # LLM API Comparison Matrix
 
-> **Last updated:** 2026-05-18. Prices per 1M tokens (USD), standard tier unless noted.
+> **Last updated:** 2026-05-19. Prices per 1M tokens (USD), standard tier unless noted.
 
 ---
 
@@ -17,7 +17,7 @@
 | [xAI](models/xai.md) | Grok 4.20 | 2 M | $1.25 | $2.50 | ~88% | 75% | X data integration; matched Grok 4.3 price |
 | [xAI](models/xai.md) | Grok 4 | 256 K | $3.00 | $15.00 | 87.7% | — | Always-on reasoning |
 
-**Verdict:** For best reasoning accuracy, Gemini 3.1 Pro (94.3% GPQA) is currently top. For computer-use, GPT-5.4 is unmatched. For cost-efficiency at frontier level, Grok 4.3 ($1.25/$2.50) leads among flagship models. GPT-5.5 is the most capable OpenAI model but 2× the price of GPT-5.4.
+**Verdict:** For best reasoning accuracy, Gemini 3.1 Pro (94.3% GPQA) is currently top. For computer-use, GPT-5.4 is unmatched. For cost-efficiency at frontier level, Grok 4.3 ($1.25/$2.50) leads among flagship models. GPT-5.5 is the most capable OpenAI model but 2× the price of GPT-5.4. **New:** Gemini 3.5 Flash ($1.50/$9.00) announced 2026-05-19 targets the mid-range with ~4× output speed.
 
 ---
 
@@ -30,6 +30,7 @@
 | [OpenAI](models/openai.md) | GPT-4.1 | 1 M | $2.00 | $8.00 | 1 M context at lower price |
 | [Anthropic](models/anthropic.md) | Claude Sonnet 4.6 | 1 M | $3.00 | $15.00 | Best production Claude model |
 | [Google](models/google.md) | Gemini 2.5 Pro | 2 M | $1.25 | $10.00 | ⚠️ Retiring 2026-06-17 |
+| [Google](models/google.md) | Gemini 3.5 Flash 🆕 | 1 M | $1.50 | $9.00 | ~4× token gen speed; agentic tasks; released 2026-05-19 |
 | [Google](models/google.md) | Gemini 3 Flash Preview | 1 M | $0.50 | $3.00 | Preview; fast |
 | [Mistral](models/mistral.md) | Mistral Medium 3.5 🆕 | 256 K | $1.50 | $7.50 | 128B dense; vision + coding + agents; GA 2026-05-05 |
 | [Mistral](models/mistral.md) | Mistral Medium 3 | 131 K | $0.40 | $2.00 | Good for coding/RAG |
@@ -80,6 +81,7 @@
 | GPT-5.4 Mini | **400,000 tokens** |
 | GPT-5.4, Claude Opus 4.6, Claude Sonnet 4.6 | **1,000,000 tokens** |
 | GPT-4.1, GPT-4.1 Mini, GPT-4.1 Nano | **1,000,000 tokens** |
+| Gemini 3.5 Flash 🆕 | **1,000,000 tokens** |
 | Gemini 2.5 Flash, 2.0 Flash | **1,000,000 tokens** |
 | Gemini 3.1 Pro Preview | **1,000,000 tokens** |
 | Mistral Large 3, Mistral Small 4, Devstral 2 | **262,144 tokens** |
@@ -128,6 +130,7 @@
 | Use case | Recommended model | Rationale |
 |---|---|---|
 | Best general reasoning | Gemini 3.1 Pro Preview | Highest GPQA (94.3%) |
+| Fastest token generation | Gemini 3.5 Flash 🆕 | ~4× token gen speed vs other frontier models; $1.50/$9.00 |
 | Computer use / desktop agents | GPT-5.4 | 75% OSWorld (above human baseline) |
 | Coding agents (best) | Claude Opus 4.7 / GPT-5.3-Codex / GPT-5.4 | CursorBench 70% (Opus 4.7); GPQA 91.5% (GPT-5.3-Codex); SWE-bench 57.7% (GPT-5.4) |
 | Long documents (>200K tokens) | Llama 4 Scout (10 M) or Gemini 2.5 Pro (2 M) | Largest context windows |
@@ -146,7 +149,7 @@
 |---|---|
 | **2026-05-12** ❌ PASSED | ❌ `dall-e-2` and `dall-e-3` **retired 2026-05-12** — calls now failing; migrate to `gpt-image-2` |
 | **2026-05-15** ❌ PASSED | xAI `grok-4-fast-reasoning`, `grok-4-fast-non-reasoning`, `grok-4.1-fast`, `grok-4-0709`, `grok-code-fast-1`, `grok-3`, `grok-imagine-image-pro` **retired 2026-05-15 at 12pm PT** — slugs now **redirect silently to `grok-4.3`** (not errors). If you haven't updated your `model` field, you are being billed at 6× your old Fast model rates. Fix immediately. |
-| **2026-05-19** 🔭 | Google I/O 2026 **TOMORROW** (10am PT keynote) — major Gemini model announcement confirmed. New Gemini model (variously "Gemini 3.5" or "Gemini 4.0" per leaks) expected; described as "roughly GPT-5.5 class." Watch for new API model IDs, pricing, and context window details post-keynote. |
+| **2026-05-19** ✅ | Google I/O 2026 **TODAY** — **Gemini 3.5 Flash** launched (`gemini-3.5-flash`, $1.50/$9.00 per 1M, 1M context, ~4× token speed). See [Google models](models/google.md). Google AI Ultra plan dropped to $200/mo (was $250); new $100/mo Ultra tier added. |
 | **2026-05-25** ⚠️ | Migrate `gemini-3.1-flash-lite-preview` → `gemini-3.1-flash-lite` (GA, same pricing, same model) |
 | **2026-05-26** ⚠️ | Opt-in to new Gemini Interactions API schema (Python ≥2.0.0 / JS ≥2.0.0 SDKs do this automatically; raw HTTP users add `Api-Revision: 2026-05-26` header) |
 | **2026-05-31** ⚠️ | ⏱️ DeepSeek V4 Pro 75%-off promo ends — prices revert to **$1.74/$3.48 per 1M tokens** (from $0.435/$0.87) |

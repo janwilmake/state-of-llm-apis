@@ -4,6 +4,52 @@ Changes tracked by the Model Tracker agent. Most recent entries first.
 
 ---
 
+## 2026-05-19
+
+### 🆕 Google: Gemini 3.5 Flash launched at Google I/O 2026
+
+**Provider:** [Google](models/google.md)  
+Google announced **Gemini 3.5 Flash** at the Google I/O 2026 keynote (10am PT, May 19, 2026). CEO Sundar Pichai described it as faster than the previous Gemini 3.1 model and built for complex agentic tasks, longer workflows, and real-world developer use.
+
+**Key specs:**
+
+| Metric | Value |
+|---|---|
+| API name | `gemini-3.5-flash` |
+| Context window | 1,000,000 tokens |
+| Max output | 64,000 tokens |
+| Input (standard) | **$1.50 / 1M** tokens |
+| Output (standard) | **$9.00 / 1M** tokens |
+| Context caching | $0.15 / 1M |
+| Batch input | $0.75 / 1M |
+| Batch output | $4.50 / 1M |
+| Free tier | ✅ (rate-limited) |
+
+**Key highlights:**
+- ~4× faster output token generation than other frontier models (per Google benchmarking)
+- Built for agentic multi-step tasks and long-horizon developer workflows
+- Pricing sits between Gemini 3 Flash Preview ($0.50/$3.00) and Gemini 3.1 Pro Preview ($2.00/$12.00) — a strong mid-range speed-focused option
+- Knowledge cutoff: January 2025
+- Available as of keynote announcement (pricing confirmed on official Gemini API pricing page, last updated 2026-05-19)
+
+Updated: `models/google.md`, `comparison.md`  
+*Source: [Google I/O 2026 keynote](https://io.google/2026/) · [CNET I/O live blog](https://www.cnet.com/news-live/google-io-2026-live-news-updates/) · [Gemini API pricing](https://ai.google.dev/gemini-api/docs/pricing) — verified 2026-05-19*
+
+---
+
+### 🔄 Google: AI Ultra plan repriced — $250 → $200/month; new $100/month Ultra tier added
+
+**Provider:** [Google](models/google.md)  
+Announced at Google I/O 2026:
+- **Google AI Ultra** (premium) price reduced from **$250/month → $200/month**
+- New **Google AI Ultra** tier at **$100/month** added — provides access to Gemini 3.5 Flash and Gemini 3.1 Pro
+- Competes directly with Anthropic Max 5x ($100/month) and OpenAI Pro ($100/month)
+
+Updated: `models/google.md`  
+*Source: [CNET I/O live blog](https://www.cnet.com/news-live/google-io-2026-live-news-updates/) · [Google One](https://one.google.com/intl/en/about/google-ai-plans/) — 2026-05-19*
+
+---
+
 ## 2026-05-18
 
 ### 🔭 Google I/O 2026 TOMORROW (May 19, 10am PT) — Gemini model announcement confirmed
