@@ -1,6 +1,6 @@
 # Deprecated & Sunset Models
 
-> Track sunset dates and migration paths. **Last updated:** 2026-05-19.
+> Track sunset dates and migration paths. **Last updated:** 2026-05-20.
 >
 > ⚠️ = Deprecated, still accessible. ❌ = Shut down, no longer accessible.
 
@@ -24,7 +24,7 @@ Migrate before June 15. Same pricing tier ($3/$15 for Sonnet 4.6; $5/$25 for Opu
 
 ---
 
-### xAI — May 15, 2026 Retirements ✅ (COMPLETED TODAY)
+### xAI — May 15, 2026 Retirements ✅ COMPLETED (2026-05-15)
 
 **Effective 2026-05-15 at 12:00 pm PT**, the following models were retired from the xAI API. Requests to these IDs now **automatically redirect to `grok-4.3`** (not return errors as previously noted — see correction below).
 

@@ -4,6 +4,79 @@ Changes tracked by the Model Tracker agent. Most recent entries first.
 
 ---
 
+## 2026-05-20
+
+### ⚠️ Gemini 3.5 Flash pricing CORRECTION — $2.70/$16.20 (not $1.50/$9.00)
+
+**Provider:** [Google](models/google.md)  
+The Gemini 3.5 Flash pricing recorded on 2026-05-19 was based on pre-launch estimates and was **incorrect**. The official Google AI Developer API pricing page (last updated **2026-05-19 UTC**) shows:
+
+| Metric | Correct value | Previously recorded |
+|---|---|---|
+| Input (per 1M tokens) | **$2.70** | ~~$1.50~~ |
+| Output (per 1M tokens, incl. thinking) | **$16.20** | ~~$9.00~~ |
+| Context caching | **$0.27 / 1M** | ~~$0.15~~ |
+
+All pricing ratios are consistent: output is 6× input; caching is 10% of input. This pricing positions Gemini 3.5 Flash above Gemini 3.1 Pro Preview ($2.00/$12.00) rather than below it — which aligns with Google's positioning of 3.5 Flash as their strongest model yet.
+
+**Grounding:** 5,000 prompts/month free (shared across Gemini 3 family), then **$14 / 1,000 search queries**.
+
+Updated: `models/google.md`, `comparison.md`  
+*Source: [Google AI Developer API pricing page](https://ai.google.dev/gemini-api/docs/pricing) — last updated 2026-05-19 UTC · correction verified 2026-05-20*
+
+---
+
+### 🆕 Google: Gemini Omni Flash announced at I/O 2026 — consumer rollout only (API not yet available)
+
+**Provider:** [Google](models/google.md)  
+Google announced **Gemini Omni Flash** at Google I/O 2026 on May 19. It is an "any-to-any" model designed for video creation and editing from mixed inputs (text, audio, image, video).
+
+**Status as of 2026-05-20:**
+- ✅ Available in Gemini app, Google Flow, YouTube Shorts/Create for AI Plus/Pro/Ultra subscribers
+- ❌ **No developer API yet** — Vertex AI / Gemini API access expected "in the coming weeks"
+- No model ID, no token pricing, no quotas announced for API
+
+**Do not plan production integrations yet.** Monitor for API launch announcement.
+
+Updated: `models/google.md`  
+*Source: [VentureBeat](https://venturebeat.com/ai/google-unveils-gemini-omni-any-to-any-ai-model-what-enterprises-should-know) · [Google Cloud Blog](https://cloud.google.com/blog/products/ai-machine-learning/innovations-from-google-io-26-on-google-cloud) — verified 2026-05-20*
+
+---
+
+### 🔄 Google: AI subscription tiers confirmed (exact pricing from Mashable/Google I/O)
+
+**Provider:** [Google](models/google.md)  
+Exact pricing confirmed for revised 3-tier structure announced at Google I/O 2026:
+
+| Plan | Price | Key features |
+|---|---|---|
+| AI Plus | **$7.99/month** | Gemini 2.5 Flash + limited access |
+| AI Pro | **$19.99/month** | Gemini 3 Flash, Deep Research, Veo 3.1, Jules coding agent |
+| AI Ultra (new entry) | **$99.99/month** | 5× Pro limits, Gemini 3.5 Flash, priority Antigravity, 20 TB storage, YouTube Premium, Gemini Spark beta |
+| AI Ultra (premium) | **$199.99/month** ↓ (was $250) | All Ultra features + highest limits |
+
+Previous entry had AI Ultra at "$100/month" — corrected to $99.99/month. The premium tier drop from $250 → $200 was previously recorded; the exact new price is $199.99/month.
+
+Updated: `models/google.md`  
+*Source: [Mashable — Google I/O 2026 subscription tiers](https://mashable.com/article/google-io-2026-gemini-ultra-ai-subscription-tiers) — verified 2026-05-20*
+
+---
+
+### ⏱️ Reminders: **5 days** to gemini-3.1-flash-lite-preview shutdown; **11 days** to DeepSeek promo end & Mistral retirements
+
+| Deadline | Days | Action |
+|---|---|---|
+| **2026-05-25** | 5 days | Migrate `gemini-3.1-flash-lite-preview` → `gemini-3.1-flash-lite` (GA, same pricing $0.25/$1.50) |
+| **2026-05-26** | 6 days | Opt-in to new Gemini Interactions API schema (upgrade Python/JS SDK ≥2.0.0 or add `Api-Revision: 2026-05-26` header) — old schema disabled June 8 |
+| **2026-05-31** | 11 days | DeepSeek V4 Pro 75% promo ends → price reverts from $0.435 → **$1.74 per 1M input**, $0.87 → **$3.48 per 1M output** |
+| **2026-05-31** | 11 days | Mistral: `mistral-large-2411`, `pixtral-large-2411` retire → `mistral-large-latest`; `devstral-medium-2507` → `mistral-medium-3-5`; `voxtral-mini-2507` → `voxtral-mini-transcribe-2` |
+| **2026-06-01** | 12 days | Google: `gemini-2.0-flash`, `gemini-2.0-flash-lite` shut down |
+| **2026-06-15** | 26 days | Anthropic: `claude-sonnet-4-20250514`, `claude-opus-4-20250514` retire; Agent SDK billing split takes effect |
+
+*Verified 2026-05-20*
+
+---
+
 ## 2026-05-19
 
 ### 🆕 Google: Gemini 3.5 Flash launched at Google I/O 2026

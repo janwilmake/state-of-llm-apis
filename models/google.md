@@ -1,6 +1,6 @@
 # Google Gemini Model Catalog
 
-> **Source:** [Gemini API Pricing](https://ai.google.dev/gemini-api/docs/pricing) · [Vertex AI Pricing](https://cloud.google.com/vertex-ai/generative-ai/pricing) · [Gemini Deprecations](https://ai.google.dev/gemini-api/docs/deprecations) · **Verified:** 2026-05-19
+> **Source:** [Gemini API Pricing](https://ai.google.dev/gemini-api/docs/pricing) · [Vertex AI Pricing](https://cloud.google.com/vertex-ai/generative-ai/pricing) · [Gemini Deprecations](https://ai.google.dev/gemini-api/docs/deprecations) · **Verified:** 2026-05-20
 
 ---
 
@@ -8,30 +8,47 @@
 
 ### Gemini 3.5 Flash (Released 2026-05-19 — Google I/O 2026) 🆕 NEW
 
-Google's newest Gemini model, announced at Google I/O 2026. Optimized for **speed and complex agentic tasks**. CEO Sundar Pichai stated it generates output tokens at **~4× the speed of other frontier models**, making it the fastest Gemini model to date. Built for longer workflows, multi-agent pipelines, and real-world developer use.
+Google's newest Gemini model, announced at Google I/O 2026. Optimized for **speed and complex agentic tasks**. Outperforms Gemini 3.1 Pro on key agentic/coding benchmarks at a fraction of the cost. Now the **default model** powering the Gemini app and AI Mode in Google Search globally.
+
+> ⚠️ **Pricing correction (2026-05-20):** The pre-launch estimate of $1.50/$9.00 was incorrect. The official Google AI Developer API pricing page (last updated 2026-05-19 UTC) shows **$2.70 input / $16.20 output** per 1M tokens.
 
 | Metric | Value |
 |---|---|
 | API name | `gemini-3.5-flash` |
 | Context window | 1,000,000 tokens |
 | Max output | 64,000 tokens |
-| Input (standard) | **$1.50 / 1M** (text/image/video) |
-| Input (audio) | $3.00 / 1M |
-| Output (standard) | **$9.00 / 1M** |
-| Context caching | $0.15 / 1M |
-| Input (batch) | $0.75 / 1M |
-| Output (batch) | $4.50 / 1M |
+| Input (standard) | **$2.70 / 1M** (text/image/video) |
+| Output (standard, incl. thinking) | **$16.20 / 1M** |
+| Context caching | $0.27 / 1M |
+| Context caching (storage) | $1.00 / 1M tokens per hour |
 | Free tier | ✅ (rate-limited) |
 
 **Key facts:**
-- Announced at Google I/O 2026 keynote on **2026-05-19**
-- ~4× faster output token generation than other frontier models
-- Built for agentic tasks, long workflows, and coding
-- Standard pricing is 3× the cost of Gemini 3.1 Flash-Lite ($0.50/$3.00) but with significantly higher capability
-- Positioned between Gemini 3.1 Pro Preview ($2.00/$12.00) and Gemini 3 Flash Preview ($0.50/$3.00)
-- Knowledge cutoff: January 2025
+- Released at Google I/O 2026 keynote, **2026-05-19**; available immediately in Gemini API, Google AI Studio, Antigravity, and Vertex AI
+- Outperforms Gemini 3.1 Pro on agentic/coding benchmarks: **Terminal-Bench 2.1: 76.2%**, GDPval-AA: 1656 Elo, MCP Atlas: 83.6%, CharXiv (multimodal): 84.2%
+- ~4× faster output token generation compared to other frontier models
+- Built for long-horizon agentic tasks, complex coding, and multi-step workflows
+- Google Cloud positions it as "often at less than half the cost of comparable models" for agentic workloads
+- Replaces Gemini 3.1 Pro as the recommended API model for production agentic use
+- **Gemini 3.5 Pro**: Confirmed "coming next month" (June 2026) — currently in testing
+- Grounding with Google Search: 5,000 prompts/month free (shared across Gemini 3 family), then **$14 / 1,000 queries**
 
-*Source: [Google I/O 2026 keynote](https://io.google/2026/) · [Gemini API pricing](https://ai.google.dev/gemini-api/docs/pricing) — verified 2026-05-19*
+*Source: [Google AI Developer API pricing](https://ai.google.dev/gemini-api/docs/pricing) · [Google Cloud Blog — Google I/O 2026](https://cloud.google.com/blog/products/ai-machine-learning/innovations-from-google-io-26-on-google-cloud) · [MacRumors I/O roundup](https://www.macrumors.com/2026/05/19/google-io-2026-roundup/) — verified 2026-05-20*
+
+---
+
+### Gemini Omni Flash (Released 2026-05-19 — Consumer) 🆕 NEW
+
+Google's first "any-to-any" model: blends text, audio, image, and **video** inputs to produce video output. Designed for conversational video creation and editing. Announced at Google I/O 2026.
+
+> ⚠️ **API not yet available.** As of 2026-05-20, Gemini Omni Flash is only accessible via the **Gemini app, Google Flow, and YouTube Shorts/Create** for AI Plus/Pro/Ultra subscribers. Developer and enterprise API access via Vertex AI is expected "in the coming weeks." No model ID, token pricing, or API endpoint has been announced yet. Do not include in production planning until the API ships.
+
+**What's confirmed:**
+- Produces dynamic video by combining text, audio, image, and video inputs
+- Supports conversational editing (natural language edits on existing video)
+- Rolling out to AI Plus ($7.99/mo), AI Pro ($19.99/mo), AI Ultra ($99.99/mo) subscribers
+
+*Source: [VentureBeat — Gemini Omni enterprise breakdown](https://venturebeat.com/ai/google-unveils-gemini-omni-any-to-any-ai-model-what-enterprises-should-know) · [Google Cloud Blog](https://cloud.google.com/blog/products/ai-machine-learning/innovations-from-google-io-26-on-google-cloud) — 2026-05-19 · verified 2026-05-20*
 
 ---
 
@@ -252,7 +269,7 @@ Google is changing the Interactions API (v1beta) request/response schema. Action
 
 ---
 
-## Google AI Subscription Tiers (Updated 2026-05-19)
+## Google AI Subscription Tiers (Updated 2026-05-20)
 
 Announced at Google I/O 2026: Google dropped the top-tier Ultra price and added a mid-tier.
 
@@ -261,8 +278,8 @@ Announced at Google I/O 2026: Google dropped the top-tier Ultra price and added 
 | Free | $0 | Gemini 2.5 Flash (limited), Flash-Lite |
 | AI Plus | $7.99/month | Gemini 2.5 Flash, limited Gemini 3 |
 | AI Pro | $19.99/month | Gemini 3 Flash, Deep Research, Veo 3.1, Jules |
-| AI Ultra (new) | **$100/month** 🆕 | Gemini 3.5 Flash, Gemini 3.1 Pro, Deep Think |
-| AI Ultra (premium) | **$200/month** ↓ (was $250) | All Ultra features + highest limits |
+| AI Ultra (new) | **$99.99/month** 🆕 | 5× Pro limits, Gemini 3.5 Flash, priority Antigravity, 20 TB storage, YouTube Premium bundled, Gemini Spark (beta) |
+| AI Ultra (premium) | **$199.99/month** ↓ (was $249.99) | All Ultra features + highest limits |
 
 *Source: [Google I/O 2026 keynote](https://io.google/2026/) · [CNET live blog](https://www.cnet.com/news-live/google-io-2026-live-news-updates/) — 2026-05-19*
 
