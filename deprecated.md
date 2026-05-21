@@ -1,6 +1,6 @@
 # Deprecated & Sunset Models
 
-> Track sunset dates and migration paths. **Last updated:** 2026-05-20.
+> Track sunset dates and migration paths. **Last updated:** 2026-05-21.
 >
 > ⚠️ = Deprecated, still accessible. ❌ = Shut down, no longer accessible.
 
@@ -97,8 +97,9 @@ This is a **code change**, not a model retirement, but it will break integration
 | Pixtral Large | `pixtral-large-2411` | 2026-02-27 | **2026-05-31** | `mistral-large-latest` (Mistral Large 3) |
 | Devstral Medium 1.0 | `devstral-medium-2507` | 2026-02-27 | **2026-05-31** | `mistral-medium-3-5` |
 | Voxtral Mini | `voxtral-mini-2507` | 2026-02-27 | **2026-05-31** | `voxtral-mini-transcribe-2` |
+| Mistral OCR 2 | `mistral-ocr-2505` | 2026-02-27 | **2026-05-31** | `mistral-ocr-3` (OCR 3) |
 
-*Source: [Mistral Models Overview](https://docs.mistral.ai/models/overview) — verified 2026-05-16*
+*Source: [Mistral Models Overview](https://docs.mistral.ai/models/overview) — verified 2026-05-21*
 
 ---
 

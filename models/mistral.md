@@ -1,6 +1,6 @@
 # Mistral AI Model Catalog
 
-> **Source:** [Mistral API Pricing](https://mistral.ai/pricing) · [Mistral Docs Model Cards](https://docs.mistral.ai/models/model-cards/mistral-medium-3-5-26-04) · [OpenRouter](https://openrouter.ai/mistralai/mistral-medium-3-5) · **Verified:** 2026-05-11
+> **Source:** [Mistral API Pricing](https://mistral.ai/pricing) · [Mistral Docs Model Cards](https://docs.mistral.ai/models/model-cards/mistral-medium-3-5-26-04) · [OpenRouter](https://openrouter.ai/mistralai/mistral-medium-3-5) · **Verified:** 2026-05-21
 
 ---
 
@@ -151,6 +151,26 @@ Cheapest premium AI chat subscription among major providers (vs. $20 for ChatGPT
 ## API Free Tier
 
 "Experiment" tier: rate-limited access for testing and prototyping. Add a payment method for production workloads.
+
+---
+
+## ⚠️ Security Advisory: PyPI Supply Chain Attack — `mistralai==2.4.6` (2026-05-11)
+
+On May 11, 2026, a coordinated supply chain attack published a **malicious version** of the official Mistral Python SDK to PyPI: `mistralai==2.4.6`. This version was never released by Mistral AI.
+
+**Impact:** The malicious package contained a backdoor that fires at import time on Linux hosts. It downloads and executes a credential-stealing payload targeting API keys, cloud credentials, CI/CD tokens, and GitHub access tokens. Some variants included a destructive branch (`rm -rf /`) triggered probabilistically.
+
+**Who is affected:** Developers who ran `pip install mistralai` or `pip install mistralai==2.4.6` on Linux systems between ~May 10–12, 2026.
+
+**Action required if you were affected:**
+1. Remove the package immediately: `pip uninstall mistralai && pip install mistralai==2.4.5` (or latest legitimate version)
+2. Rotate all secrets on the affected host: API keys, cloud credentials, CI/CD tokens
+3. Check for `/tmp/transformers.pyz` on your system and outbound connections to `83.142.209.194`
+4. Follow [Mistral AI's official security advisory](https://docs.mistral.ai/resources/security-advisories) for full remediation steps
+
+**Not affected:** Raw HTTP users (no SDK import); LiteLLM users (calls the API directly via `httpx`).
+
+*Source: [LiteLLM security advisory](https://docs.litellm.ai/blog/mistral-supply-chain-attack-may-2026) · [Aikido Security — Mini Shai-Hulud](https://www.aikido.dev/blog/mini-shai-hulud-is-back-tanstack-compromised) — 2026-05-12 · verified 2026-05-21*
 
 ---
 

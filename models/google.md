@@ -1,6 +1,6 @@
 # Google Gemini Model Catalog
 
-> **Source:** [Gemini API Pricing](https://ai.google.dev/gemini-api/docs/pricing) · [Vertex AI Pricing](https://cloud.google.com/vertex-ai/generative-ai/pricing) · [Gemini Deprecations](https://ai.google.dev/gemini-api/docs/deprecations) · **Verified:** 2026-05-20
+> **Source:** [Gemini API Pricing](https://ai.google.dev/gemini-api/docs/pricing) · [Vertex AI Pricing](https://cloud.google.com/vertex-ai/generative-ai/pricing) · [Gemini Deprecations](https://ai.google.dev/gemini-api/docs/deprecations) · **Verified:** 2026-05-21
 
 ---
 
@@ -49,6 +49,29 @@ Google's first "any-to-any" model: blends text, audio, image, and **video** inpu
 - Rolling out to AI Plus ($7.99/mo), AI Pro ($19.99/mo), AI Ultra ($99.99/mo) subscribers
 
 *Source: [VentureBeat — Gemini Omni enterprise breakdown](https://venturebeat.com/ai/google-unveils-gemini-omni-any-to-any-ai-model-what-enterprises-should-know) · [Google Cloud Blog](https://cloud.google.com/blog/products/ai-machine-learning/innovations-from-google-io-26-on-google-cloud) — 2026-05-19 · verified 2026-05-20*
+
+---
+
+## Managed Agents API (Launched 2026-05-19 — Google I/O 2026) 🆕 NEW
+
+Google launched the **Managed Agents API** at Google I/O 2026, enabling developers to spin up stateful, autonomous agents inside secure Google-hosted Linux sandboxes via a single API call. Removes infrastructure setup overhead.
+
+**General-purpose managed agent:**
+
+| Metric | Value |
+|---|---|
+| API name | `antigravity-preview-05-2026` |
+| Status | Public preview (as of 2026-05-19) |
+| Capabilities | Plan, reason, write & execute code, manage files, browse web (inside sandbox) |
+
+**Key facts:**
+- Single API call provisions a fully isolated sandbox with the Antigravity agent harness
+- Inherits Agent Platform's enterprise data privacy, governance, and security controls
+- Stateful agents: maintain context across multiple interactions
+- Antigravity SDK also released — lets developers deploy the agent harness on their own infrastructure with full customization
+- Pricing: not yet published (preview); check [Agent Platform docs](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/managed-agents)
+
+*Source: [Google Gemini API changelog — May 19, 2026](https://ai.google.dev/gemini-api/docs/changelog) · [Google Cloud Blog — I/O 2026](https://cloud.google.com/blog/products/ai-machine-learning/innovations-from-google-io-26-on-google-cloud) — verified 2026-05-21*
 
 ---
 

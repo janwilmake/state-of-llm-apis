@@ -4,6 +4,76 @@ Changes tracked by the Model Tracker agent. Most recent entries first.
 
 ---
 
+## 2026-05-21
+
+### 🆕 Google: Managed Agents API launched — `antigravity-preview-05-2026` now in public preview
+
+**Provider:** [Google](models/google.md)  
+At Google I/O 2026 (May 19), Google launched the **Managed Agents API** in public preview. Developers can now spin up stateful, autonomous agents inside secure Google-hosted Linux sandboxes with a single API call — no infrastructure setup required.
+
+**Key facts:**
+- Model/agent ID: `antigravity-preview-05-2026`
+- Inherits Agent Platform enterprise data privacy and governance
+- Antigravity SDK also released for self-hosted deployments with full harness customization
+- Pricing: not yet published (preview); check [Agent Platform docs](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/managed-agents)
+- Builds on Gemini 3.5 Flash for the underlying model backend
+
+Updated: `models/google.md`  
+*Source: [Google Gemini API changelog — May 19, 2026](https://ai.google.dev/gemini-api/docs/changelog) · [Google Cloud Blog](https://cloud.google.com/blog/products/ai-machine-learning/innovations-from-google-io-26-on-google-cloud) — verified 2026-05-21*
+
+---
+
+### 🆕 Mistral: `mistral-ocr-2505` (OCR 2) retiring May 31, 2026 — migrate to `mistral-ocr-3`
+
+**Provider:** [Mistral](models/mistral.md)  
+Confirmed from the [official Mistral Models Overview deprecation table](https://docs.mistral.ai/models/overview): `mistral-ocr-2505` (Mistral OCR 2, released May 2025) was deprecated 2026-02-27 and **retires May 31, 2026**. Replacement is **`mistral-ocr-3`** (OCR 3).
+
+This retirement was not previously tracked in this knowledge base.
+
+| Model | API name | Retirement | Replace with |
+|---|---|---|---|
+| Mistral OCR 2 | `mistral-ocr-2505` | **2026-05-31** | `mistral-ocr-3` |
+
+Updated: `deprecated.md`, `comparison.md`  
+*Source: [Mistral Models Overview](https://docs.mistral.ai/models/overview) — verified 2026-05-21*
+
+---
+
+### ⚠️ Mistral: PyPI supply chain attack — `mistralai==2.4.6` was malicious (2026-05-11)
+
+**Provider:** [Mistral](models/mistral.md)  
+Security alert (not a model/API change). On May 11, 2026, attackers published `mistralai==2.4.6` to PyPI — a version Mistral AI never released. The package contained a backdoor that fires at import time on Linux, steals credentials (API keys, cloud tokens, CI/CD tokens, GitHub tokens), and in some cases triggers destructive commands.
+
+**Who is affected:** Developers who installed `mistralai` via pip between ~May 10–12, 2026 on Linux systems.
+
+**Immediate actions:**
+1. `pip uninstall mistralai && pip install mistralai==2.4.5` (or latest legitimate version)
+2. Rotate all secrets on the affected host
+3. Check for `/tmp/transformers.pyz` and outbound connections to `83.142.209.194`
+
+**Not affected:** Raw HTTP users; LiteLLM users (no `mistralai` SDK import).
+
+Added security advisory section to `models/mistral.md`.  
+*Source: [LiteLLM security advisory](https://docs.litellm.ai/blog/mistral-supply-chain-attack-may-2026) · [Aikido Security](https://www.aikido.dev/blog/mini-shai-hulud-is-back-tanstack-compromised) — 2026-05-12 · verified 2026-05-21*
+
+---
+
+### ⏱️ Reminders: **4 days** to gemini-3.1-flash-lite-preview shutdown; **10 days** to DeepSeek promo end & Mistral retirements
+
+| Deadline | Days | Action |
+|---|---|---|
+| **2026-05-25** | 4 days | Migrate `gemini-3.1-flash-lite-preview` → `gemini-3.1-flash-lite` (GA, same pricing $0.25/$1.50) |
+| **2026-05-26** | 5 days | Opt-in to new Gemini Interactions API schema — add `Api-Revision: 2026-05-26` header (raw HTTP) or upgrade Python/JS SDK ≥2.0.0. Legacy schema disabled June 8. |
+| **2026-05-31** | 10 days | DeepSeek V4 Pro 75% promo ends → price reverts from $0.435 → **$1.74 per 1M input**, $0.87 → **$3.48 per 1M output** |
+| **2026-05-31** | 10 days | Mistral retirements: `mistral-large-2411`, `pixtral-large-2411` → `mistral-large-latest`; `devstral-medium-2507` → `mistral-medium-3-5`; `voxtral-mini-2507` → `voxtral-mini-transcribe-2`; `mistral-ocr-2505` → `mistral-ocr-3` |
+| **2026-06-01** | 11 days | Google: `gemini-2.0-flash`, `gemini-2.0-flash-lite` shut down |
+| **2026-06-08** | 18 days | Gemini Interactions API legacy schema removed entirely |
+| **2026-06-15** | 25 days | Anthropic: `claude-sonnet-4-20250514`, `claude-opus-4-20250514` retire; Agent SDK billing split takes effect |
+
+*Verified 2026-05-21*
+
+---
+
 ## 2026-05-20
 
 ### ⚠️ Gemini 3.5 Flash pricing CORRECTION — $2.70/$16.20 (not $1.50/$9.00)

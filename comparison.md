@@ -1,6 +1,6 @@
 # LLM API Comparison Matrix
 
-> **Last updated:** 2026-05-20. Prices per 1M tokens (USD), standard tier unless noted.
+> **Last updated:** 2026-05-21. Prices per 1M tokens (USD), standard tier unless noted.
 
 ---
 
@@ -154,7 +154,7 @@
 | **2026-05-26** ⚠️ | Opt-in to new Gemini Interactions API schema (Python ≥2.0.0 / JS ≥2.0.0 SDKs do this automatically; raw HTTP users add `Api-Revision: 2026-05-26` header) |
 | **2026-05-31** ⚠️ | ⏱️ DeepSeek V4 Pro 75%-off promo ends — prices revert to **$1.74/$3.48 per 1M tokens** (from $0.435/$0.87) |
 | **2026-05-31** ⚠️ | Migrate `mistral-large-2411` → `mistral-large-latest` (Mistral Large 3) |
-| **2026-05-31** ⚠️ | Retire `pixtral-large-2411` → `mistral-large-latest`; `devstral-medium-2507` → `mistral-medium-3-5`; `voxtral-mini-2507` → `voxtral-mini-transcribe-2` |
+| **2026-05-31** ⚠️ | Retire `pixtral-large-2411` → `mistral-large-latest`; `devstral-medium-2507` → `mistral-medium-3-5`; `voxtral-mini-2507` → `voxtral-mini-transcribe-2`; `mistral-ocr-2505` → `mistral-ocr-3` |
 | **2026-06-01** | Migrate `gemini-2.0-flash` / `gemini-2.0-flash-lite` to 2.5 equivalents |
 | **2026-06-05** | GPT-5.2 Thinking removed from ChatGPT legacy picker |
 | **2026-06-08** | Gemini Interactions API legacy schema removed entirely — complete migration before this date |
