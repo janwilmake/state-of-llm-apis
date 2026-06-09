@@ -1,14 +1,49 @@
 # Anthropic Model Catalog
 
-> **Source:** [Anthropic API Pricing](https://platform.claude.com/docs/en/about-claude/pricing) · [Models Overview](https://platform.claude.com/docs/en/about-claude/models/overview) · **Verified:** 2026-05-14
+> **Source:** [Anthropic API Pricing](https://platform.claude.com/docs/en/about-claude/pricing) · [Models Overview](https://platform.claude.com/docs/en/about-claude/models/overview) · **Verified:** 2026-06-09
 
 ---
 
 ## Current Recommended Models (Claude 4.x generation)
 
-### Claude Opus 4.7 (Released 2026-04-16) 🆕 NEW
+### Claude Opus 4.8 (Released 2026-05-28) 🆕 NEW
 
-Anthropic's most capable publicly available model. Notable improvements over Opus 4.6 in software engineering (70% on CursorBench vs 58%), vision (higher resolution image understanding), and long-horizon agentic tasks. First Claude model released with Project Glasswing cyber safeguards (detects and blocks high-risk cybersecurity use attempts). Available across Anthropic API, Amazon Bedrock, Google Cloud Vertex AI, and Microsoft Foundry.
+Anthropic's current flagship. Builds on Opus 4.7 with stronger agentic coding, better tool triggering, and improved long-context coherence. Adds Dynamic Workflows (parallel multi-step coding), Effort Control (per-call reasoning depth), and Fast Mode now 3× cheaper than previous generations.
+
+| Metric | Value |
+|---|---|
+| API name | `claude-opus-4-8` |
+| Context window | 1,000,000 tokens (200K on Microsoft Foundry) |
+| Max output | 128,000 tokens (300K via Batch API) |
+| Input (≤200K) | **$5.00 / 1M** |
+| Output (≤200K) | **$25.00 / 1M** |
+| Input (>200K) | $10.00 / 1M |
+| Output (>200K) | $37.50 / 1M |
+| Cache write | $12.50 / 1M |
+| Cache read | $1.00 / 1M |
+| **Fast Mode input** | **$10.00 / 1M** (research preview; request via account manager) |
+| **Fast Mode output** | **$50.00 / 1M** |
+
+**Best for:** Complex software engineering, long-horizon agentic tasks, autonomous coding, multi-step reasoning, professional knowledge work.  
+**SWE-bench Pro:** 69.2% (vs 64.3% on Opus 4.7) | **Terminal-Bench:** +8.5 pts vs Opus 4.7  
+**Prompt cache minimum:** 1,024 tokens (reduced from 4,096 on Opus 4.7)
+
+**New features vs Opus 4.7:**
+- **Dynamic Workflows** (Claude Code, research preview): parallel sub-agent coordination for very large-scale coding tasks
+- **Effort Control:** per-call reasoning depth for cost management
+- **Mid-conversation system messages:** `role: "system"` messages accepted after user turns — preserves prompt cache on long agentic loops; no beta header required
+- **Fast Mode** at $10/$50 per 1M — 3× cheaper than Opus 4.7's $30/$150 (access: contact account manager)
+- **Better tool triggering:** fewer missed tool calls vs Opus 4.7
+
+**No tokenizer change:** Migrating from Opus 4.7 to 4.8 carries no additional token-count penalty. (The tokenizer warning still applies to teams migrating from Opus 4.6 → 4.8.)
+
+*Source: [Anthropic announcement](https://www.anthropic.com/news/claude-opus-4-8) · [What's new in Claude Opus 4.8](https://platform.claude.com/docs/en/about-claude/models/whats-new-claude-4-8) — 2026-05-28 · [CloudZero Opus 4.8 pricing](https://www.cloudzero.com/blog/claude-opus-4-8-pricing/) — verified 2026-06-09*
+
+---
+
+### Claude Opus 4.7 (Released 2026-04-16)
+
+Previous flagship; still active. Stronger than 4.6 on coding and vision. Fast Mode available at $30/$150 per 1M (6× standard) — compare with Opus 4.8's new $10/$50 rate.
 
 | Metric | Value |
 |---|---|
@@ -22,19 +57,18 @@ Anthropic's most capable publicly available model. Notable improvements over Opu
 | Cache write | $6.25 / 1M |
 | Cache read | $0.50 / 1M |
 
-**Best for:** Complex software engineering, full-codebase analysis, autonomous agents, vision tasks, scientific research.  
 **CursorBench:** 70% (vs 58% for Opus 4.6) | **Rakuten-SWE-Bench:** 3× more production tasks resolved vs Opus 4.6  
-**Cyber safeguards:** Built-in detection for prohibited cybersecurity uses; security professionals can apply to [Cyber Verification Program](https://claude.com/form/cyber-use-case)
+**Cyber safeguards:** Built-in detection for prohibited cybersecurity uses; apply to [Cyber Verification Program](https://claude.com/form/cyber-use-case)
 
-> ⚠️ **Tokenizer change:** Opus 4.7 uses a new tokenizer that may use **up to 35% more tokens** for the same input text versus Opus 4.6. The per-token price is unchanged ($5/$25), but identical prompts may cost up to 1.35× more. Impact is worst on code, structured data (JSON/XML), and non-English text. Verify your actual token usage after migration.
+> ⚠️ **Tokenizer change (vs Opus 4.6):** Opus 4.7 introduced a new tokenizer that may use **up to 35% more tokens** for the same input text versus Opus 4.6. Effective per-request cost can be up to 1.35× higher on code, JSON/XML, and non-English text. This warning does **not** apply to Opus 4.7 → 4.8 migrations.
 
-*Source: [Anthropic announcement](https://www.anthropic.com/news/claude-opus-4-7) — 2026-04-16 · [CloudZero tokenizer analysis](https://www.cloudzero.com/blog/claude-opus-4-7-pricing/) — verified 2026-05-14*
+*Source: [Anthropic announcement](https://www.anthropic.com/news/claude-opus-4-7) — 2026-04-16 · [CloudZero tokenizer analysis](https://www.cloudzero.com/blog/claude-opus-4-7-pricing/) — verified 2026-06-09*
 
 ---
 
 ### Claude Opus 4.6 (Released 2026-02-04)
 
-Previous flagship; still active legacy. 1 M token context at standard pricing — no long-context premium.
+Legacy; still active. 1 M token context at standard pricing — no long-context premium.
 
 | Metric | Value |
 |---|---|
@@ -208,7 +242,7 @@ Anthropic's most capable model to date, described as a "step change" above Claud
 
 ## Claude 5 Roadmap
 
-Anthropic's Claude 5 generation is underway. **Sonnet 5 "Fennec"** was released February 2026. With Opus 4.7 launching today (2026-04-16), Claude 5 Opus is now anticipated **Q3 2026** (July–September), as Anthropic appears to be iterating further on the 4.x generation before the 5.x flagship jump.
+Anthropic's Claude 5 generation is underway. **Sonnet 5 "Fennec"** was released February 2026. With Opus 4.8 as the current flagship (released 2026-05-28), Claude 5 Opus remains anticipated **Q3 2026** (July–September). Separately, Anthropic's [draft S-1 filing](https://futurumgroup.com/insights/will-anthropics-draft-s-1-ignite-a-new-phase-in-the-ai-platform-race/) (2026-06-02) reported a $965B valuation and ~$30B annualized revenue run rate.
 
 ---
 
@@ -216,9 +250,10 @@ Anthropic's Claude 5 generation is underway. **Sonnet 5 "Fennec"** was released 
 
 | Model | Status | Retirement | Notes |
 |---|---|---|---|
-| Claude Opus 4.6 | Active (legacy) | Not before 2026-11-24 | $5/$25 input/output — same price as Opus 4.7 but one generation older |
-| Claude Opus 4.5 | Active (legacy) | Not before 2026-11-24 | $5/$25 input/output — same price as Opus 4.7 but older |
-| Claude Opus 4.1 | Active (legacy) | Not before 2026-08-05 | $15/$75 — 3× more expensive than Opus 4.7 |
+| Claude Opus 4.7 | Active (legacy) | Not before 2026-11-28 | $5/$25 — previous flagship; still high quality |
+| Claude Opus 4.6 | Active (legacy) | Not before 2026-11-24 | $5/$25 — two generations behind current |
+| Claude Opus 4.5 | Active (legacy) | Not before 2026-11-24 | $5/$25 — same price as newer Opus versions |
+| Claude Opus 4.1 | Active (legacy) | Not before 2026-08-05 | $15/$75 — 3× more expensive than Opus 4.8; avoid unless required |
 | Claude Sonnet 4.5 | Active (legacy) | Not before 2026-09-29 | $3/$15 — same price as Sonnet 4.6 but older |
 | Claude Sonnet 4 | ⚠️ Deprecated | **2026-06-15** | $3/$15 — deprecated 2026-04-14; API name `claude-sonnet-4-20250514` |
 | Claude Opus 4 | ⚠️ Deprecated | **2026-06-15** | $15/$75 — deprecated 2026-04-14; API name `claude-opus-4-20250514` |

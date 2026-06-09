@@ -1,6 +1,6 @@
 # DeepSeek Model Catalog
 
-> **Source:** [DeepSeek API Docs](https://api-docs.deepseek.com/quick_start/pricing) · **Verified:** 2026-05-10
+> **Source:** [DeepSeek API Docs](https://api-docs.deepseek.com/quick_start/pricing) · **Verified:** 2026-06-09
 
 ---
 
@@ -15,9 +15,9 @@ DeepSeek's latest generation. Two variants with 1M context, both open-weight. Bo
 | Model | API name | Context | Max output | Input (cache miss) | Input (cache hit) | Output |
 |---|---|---|---|---|---|---|
 | V4 Flash | `deepseek-v4-flash` | 1,000,000 tokens | 384,000 tokens | **$0.14 / 1M** | $0.0028 / 1M | **$0.28 / 1M** |
-| V4 Pro | `deepseek-v4-pro` | 1,000,000 tokens | 384,000 tokens | **$0.435 / 1M** ¹ | $0.003625 / 1M | **$0.87 / 1M** ¹ |
+| V4 Pro | `deepseek-v4-pro` | 1,000,000 tokens | 384,000 tokens | **$0.435 / 1M** | $0.003625 / 1M | **$0.87 / 1M** |
 
-¹ **V4 Pro is offered at 75% discount until 2026-05-31 15:59 UTC.** List (post-discount) price is **$1.74 input / $3.48 output** per 1M. Verify at [official pricing page](https://api-docs.deepseek.com/quick_start/pricing) before large top-ups.
+> ✅ **V4 Pro promotional price is now permanent.** On **2026-05-24**, DeepSeek made the 75% discount permanent — the list price was lowered from $1.74/$3.48 to $0.435/$0.87. This is the ongoing price, not a promotional rate. *Source: [The Next Web](https://thenextweb.com/news/deepseek-v4-pro-75-percent-price-cut-permanent) — 2026-05-24 · [Official pricing docs](https://api-docs.deepseek.com/quick_start/pricing) confirmed $0.435/$0.87 as current price — verified 2026-06-09*
 
 **Architecture:**
 - **V4 Pro:** 1.6T total parameters / 49B active parameters — "performance rivaling the world's top closed-source models"
@@ -87,8 +87,8 @@ DeepSeek V4 Flash via official API (cache miss, at current list price):
 - V4 Flash ($0.14/$0.28) is ~21× cheaper than Claude Sonnet 4.6 ($3/$15) on input; ~54× cheaper on output
 - ~18× cheaper than GPT-5.4 ($2.50/$15) on input; ~54× cheaper on output
 - Cheaper than Gemini 2.5 Flash ($0.30/$2.50) on both input and output
-- V4 Pro at promotional price ($0.435/$0.87 until 2026-05-31) is still 7× cheaper than Claude Sonnet 4.6 on input
-- V4 Pro post-promotion list price ($1.74/$3.48) is ~60% cheaper than GPT-5.5 ($5/$30) on output
+- V4 Pro ($0.435/$0.87 — now permanent price) is 7× cheaper than Claude Sonnet 4.6 ($3/$15) on input
+- V4 Pro ($0.435/$0.87) is ~97% cheaper than GPT-5.5 ($5/$30) on output
 - **Open weights allow self-hosting** — third-party providers offer V4 Pro at ~$1.74/$3.48/M (DeepInfra, Fireworks, Together)
 - For best pricing, compare official API vs. hosted providers (OpenRouter, Fireworks, Together, DeepInfra)
 

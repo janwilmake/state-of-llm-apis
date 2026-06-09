@@ -1,39 +1,43 @@
 # Google Gemini Model Catalog
 
-> **Source:** [Gemini API Pricing](https://ai.google.dev/gemini-api/docs/pricing) · [Vertex AI Pricing](https://cloud.google.com/vertex-ai/generative-ai/pricing) · [Gemini Deprecations](https://ai.google.dev/gemini-api/docs/deprecations) · **Verified:** 2026-05-21
+> **Source:** [Gemini API Pricing](https://ai.google.dev/gemini-api/docs/pricing) · [Vertex AI Pricing](https://cloud.google.com/vertex-ai/generative-ai/pricing) · [Gemini Deprecations](https://ai.google.dev/gemini-api/docs/deprecations) · **Verified:** 2026-06-09
 
 ---
 
 ## Current Models (Gemini 3.5 — Latest Generation)
 
-### Gemini 3.5 Flash (Released 2026-05-19 — Google I/O 2026) 🆕 NEW
+### Gemini 3.5 Flash (Released 2026-05-19 — Google I/O 2026)
 
-Google's newest Gemini model, announced at Google I/O 2026. Optimized for **speed and complex agentic tasks**. Outperforms Gemini 3.1 Pro on key agentic/coding benchmarks at a fraction of the cost. Now the **default model** powering the Gemini app and AI Mode in Google Search globally.
+Google's newest Gemini model, announced at Google I/O 2026. Optimized for **speed and complex agentic tasks**. Outperforms Gemini 3.1 Pro on key agentic/coding benchmarks at ~25% lower cost. Now the **default model** powering the Gemini app and AI Mode in Google Search globally.
 
-> ⚠️ **Pricing correction (2026-05-20):** The pre-launch estimate of $1.50/$9.00 was incorrect. The official Google AI Developer API pricing page (last updated 2026-05-19 UTC) shows **$2.70 input / $16.20 output** per 1M tokens.
+> ⚠️ **Pricing note (corrected 2026-06-09):** The changelog entry from 2026-05-20 stated $2.70/$16.20 as "corrected" pricing. This was wrong — it confused **Priority tier** rates with Standard rates. The official Google AI Developer API pricing page shows **$1.50 Standard / $2.70 Priority** for input and **$9.00 Standard / $16.20 Priority** for output. Standard tier is the default.
 
 | Metric | Value |
 |---|---|
 | API name | `gemini-3.5-flash` |
 | Context window | 1,000,000 tokens |
 | Max output | 64,000 tokens |
-| Input (standard) | **$2.70 / 1M** (text/image/video) |
-| Output (standard, incl. thinking) | **$16.20 / 1M** |
-| Context caching | $0.27 / 1M |
+| Input (Standard) | **$1.50 / 1M** (text/image/video) |
+| Output (Standard, incl. thinking) | **$9.00 / 1M** |
+| Input (Priority) | $2.70 / 1M |
+| Output (Priority) | $16.20 / 1M |
+| Input (Batch/Flex) | $0.75 / 1M |
+| Output (Batch/Flex) | $4.50 / 1M |
+| Context caching | $0.15 / 1M (Standard) |
 | Context caching (storage) | $1.00 / 1M tokens per hour |
 | Free tier | ✅ (rate-limited) |
 
 **Key facts:**
 - Released at Google I/O 2026 keynote, **2026-05-19**; available immediately in Gemini API, Google AI Studio, Antigravity, and Vertex AI
 - Outperforms Gemini 3.1 Pro on agentic/coding benchmarks: **Terminal-Bench 2.1: 76.2%**, GDPval-AA: 1656 Elo, MCP Atlas: 83.6%, CharXiv (multimodal): 84.2%
+- At $1.50/$9.00 Standard, costs ~25% less than Gemini 3.1 Pro ($2.00/$12.00) while outscoring it on key benchmarks
 - ~4× faster output token generation compared to other frontier models
 - Built for long-horizon agentic tasks, complex coding, and multi-step workflows
-- Google Cloud positions it as "often at less than half the cost of comparable models" for agentic workloads
 - Replaces Gemini 3.1 Pro as the recommended API model for production agentic use
-- **Gemini 3.5 Pro**: Confirmed "coming next month" (June 2026) — currently in testing
+- **Gemini 3.5 Pro**: Confirmed "coming soon" (expected June/July 2026)
 - Grounding with Google Search: 5,000 prompts/month free (shared across Gemini 3 family), then **$14 / 1,000 queries**
 
-*Source: [Google AI Developer API pricing](https://ai.google.dev/gemini-api/docs/pricing) · [Google Cloud Blog — Google I/O 2026](https://cloud.google.com/blog/products/ai-machine-learning/innovations-from-google-io-26-on-google-cloud) · [MacRumors I/O roundup](https://www.macrumors.com/2026/05/19/google-io-2026-roundup/) — verified 2026-05-20*
+*Source: [Google AI Developer API pricing](https://ai.google.dev/gemini-api/docs/pricing) (last updated 2026-06-02) · [Google Cloud Blog — Google I/O 2026](https://cloud.google.com/blog/products/ai-machine-learning/innovations-from-google-io-26-on-google-cloud) · [Simon Willison](https://simonwillison.net/2026/May/19/gemini-35-flash/) · [OpenRouter](https://openrouter.ai/google/gemini-3.5-flash) — verified 2026-06-09*
 
 ---
 
@@ -122,27 +126,23 @@ Best reasoning model at GA. Large 2 M token context window.
 
 ---
 
-### Gemini 2.0 Flash (GA – DEPRECATED)
+### Gemini 2.0 Flash (GA – ❌ SHUT DOWN 2026-06-01)
 
-> ⚠️ **Shutdown: 2026-06-01.** Migrate to `gemini-2.5-flash`.
+> ❌ **Shut down June 1, 2026.** Requests to this model return errors. Migrate to `gemini-2.5-flash` immediately.
 
 | Input | Output | Cached input |
 |---|---|---|
-| $0.10 / 1M | $0.40 / 1M | $0.025 / 1M |
-
-Audio input: $1.00/1M. Available on both Google AI Studio (paid) and Vertex AI.
+| ~~$0.10 / 1M~~ | ~~$0.40 / 1M~~ | ~~$0.025 / 1M~~ |
 
 ---
 
-### Gemini 2.0 Flash-Lite (GA – DEPRECATED)
+### Gemini 2.0 Flash-Lite (GA – ❌ SHUT DOWN 2026-06-01)
 
-> ⚠️ **Shutdown: 2026-06-01.** Migrate to `gemini-2.5-flash-lite`.
+> ❌ **Shut down June 1, 2026.** Requests to this model return errors. Migrate to `gemini-2.5-flash-lite` immediately.
 
 | Input | Output |
 |---|---|
-| $0.075 / 1M | $0.30 / 1M |
-
-Cheapest billed model among all current-GA Gemini versions.
+| ~~$0.075 / 1M~~ | ~~$0.30 / 1M~~ |
 
 ---
 
@@ -272,23 +272,18 @@ Enterprise pricing matches Google AI Studio paid tiers for most models. Vertex A
 
 ---
 
-## ⚠️ Interactions API Breaking Changes (May–June 2026)
+## ❌ Interactions API Breaking Changes (COMPLETED — June 8, 2026)
 
-Google is changing the Interactions API (v1beta) request/response schema. Action required before **May 26, 2026**.
+Google changed the Interactions API (v1beta) request/response schema. **Both deadlines have now passed.**
 
-| Change | Detail |
+| Change | Status |
 |---|---|
-| `outputs` array → `steps` | Each action (user_input, thought, tool_call, model_output, etc.) becomes its own `step` object |
-| `response_format` consolidated | Image, audio, JSON schema all unified under a single `response_format` field |
-| Legacy schema default removed | **May 26, 2026**: new schema becomes default |
-| Legacy schema removed entirely | **June 8, 2026**: old schema no longer accepted |
+| New schema default (was May 26) | ✅ Done |
+| Legacy schema removed entirely | ✅ Done (June 8, 2026) |
 
-**How to migrate:**
-- **SDK users:** Upgrade to Python ≥2.0.0 or JavaScript ≥2.0.0 — SDKs automatically opt in to the new schema
-- **Raw HTTP users:** Add header `Api-Revision: 2026-05-26` to opt in before the deadline
-- Full migration guide: [Interactions API breaking changes (May 2026)](https://ai.google.dev/gemini-api/docs/interactions-breaking-changes-may-2026)
+**If your integration broke after June 8:** Your code is still using the old schema. Upgrade to Python SDK ≥2.0.0 or JavaScript SDK ≥2.0.0, or add header `Api-Revision: 2026-05-26` to raw HTTP requests. Full guide: [Interactions API breaking changes](https://ai.google.dev/gemini-api/docs/interactions-breaking-changes-may-2026).
 
-*Source: [Google Gemini API changelog](https://ai.google.dev/gemini-api/docs/changelog) — 2026-05-06 · verified 2026-05-12*
+*Source: [Google Gemini API changelog](https://ai.google.dev/gemini-api/docs/changelog) — 2026-05-06 · verified 2026-06-09*
 
 ---
 
@@ -312,11 +307,11 @@ Announced at Google I/O 2026: Google dropped the top-tier Ultra price and added 
 
 | Model | Shutdown date | Recommended migration |
 |---|---|---|
-| `gemini-3.1-flash-lite-preview` | **2026-05-25** 🚨 | `gemini-3.1-flash-lite` (GA, same pricing) |
-| `gemini-2.0-flash` | **2026-06-01** | `gemini-2.5-flash` |
-| `gemini-2.0-flash-lite` | **2026-06-01** | `gemini-2.5-flash-lite` |
-| `gemini-2.5-pro` | **2026-06-17** | `gemini-3.1-pro-preview` or `gemini-3.5-flash` |
-| `gemini-2.5-flash` | **2026-06-17** | `gemini-3-flash-preview` or `gemini-3.5-flash` |
+| `gemini-3.1-flash-lite-preview` | ❌ **2026-05-25** (shut down) | `gemini-3.1-flash-lite` (GA, same pricing) |
+| `gemini-2.0-flash` | ❌ **2026-06-01** (shut down) | `gemini-2.5-flash` |
+| `gemini-2.0-flash-lite` | ❌ **2026-06-01** (shut down) | `gemini-2.5-flash-lite` |
+| `gemini-2.5-pro` | **2026-06-17** ⚠️ | `gemini-3.1-pro-preview` or `gemini-3.5-flash` |
+| `gemini-2.5-flash` | **2026-06-17** ⚠️ | `gemini-3-flash-preview` or `gemini-3.5-flash` |
 | `gemini-2.5-flash-lite` | **2026-07-22** | `gemini-3.1-flash-lite` (now GA) |
 | `gemini-3-pro-preview` | Retired 2026-03-09 | `gemini-3.1-pro-preview` |
 

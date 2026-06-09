@@ -1,6 +1,6 @@
 # xAI Grok Model Catalog
 
-> **Source:** [xAI Models & Pricing](https://docs.x.ai/developers/models) · [xAI Pricing](https://docs.x.ai/developers/pricing) · [xAI API](https://x.ai/api) · [OpenRouter](https://openrouter.ai/x-ai/grok-4.3) · **Verified:** 2026-05-16
+> **Source:** [xAI Models & Pricing](https://docs.x.ai/developers/models) · [xAI Pricing](https://docs.x.ai/developers/pricing) · [xAI API](https://x.ai/api) · [OpenRouter](https://openrouter.ai/x-ai/grok-4.3) · **Verified:** 2026-06-09
 
 ---
 
@@ -189,11 +189,34 @@ Coding-focused model derived from the Grok 4.1 Fast architecture, optimized for 
 
 ---
 
-## Grok Build (Coding Agent — Launched 2026-05-14)
+## Grok Build (Coding Agent — GA on API: 2026-05-28) 🆕
 
-xAI's coding agent CLI, launched May 14, 2026 as an early beta. Competes with Anthropic's Claude Code and OpenAI's Codex CLI.
+xAI's coding agent CLI and model, powering the Grok Build CLI tool. `grok-build-0.1` entered public beta on the API on May 28, 2026. Competes with Anthropic's Claude Code and OpenAI's Codex CLI.
 
-**Access:** Early beta for **SuperGrok Heavy** subscribers only ($300/month). Broader availability not yet announced.
+### `grok-build-0.1` — Coding Model API (Public Beta)
+
+| Metric | Value |
+|---|---|
+| API name | `grok-build-0.1` |
+| Context window | — (see docs) |
+| Input | **$1.00 / 1M** |
+| Output | **$2.00 / 1M** |
+| Speed | 100+ tokens/second |
+| Also available on | OpenRouter, Vercel AI Gateway |
+
+**Key facts:**
+- Trained specifically for agentic coding: web development, debugging, MCP support
+- Same model that powers the Grok Build CLI
+- Also a fast, economical option for general-purpose agentic and tool-calling use cases
+- Recommended harnesses: Grok Build, Cursor, Hermes Agent, OpenClaw, Kilo Code, OpenCode
+
+> **Note (2026-05-15 migration update):** `grok-code-fast-1` (the previous coding model, retired May 15) redirected to `grok-4.3` by default. The official xAI migration guide now recommends migrating `grok-code-fast-1` specifically to `grok-build-0.1`.
+
+*Source: [xAI — Grok Build 0.1 on API](https://x.ai/news/grok-build-0-1) · [xAI release notes](https://docs.x.ai/developers/release-notes) — 2026-05-28 · verified 2026-06-09*
+
+### Grok Build CLI
+
+**Access:** Now available for all SuperGrok and X Premium Plus subscribers (expanded from SuperGrok Heavy only in May 2026).
 
 **Install:**
 ```bash
@@ -204,13 +227,28 @@ curl -fsSL https://x.ai/cli/install.sh | bash
 - Full-screen interactive TUI (terminal UI) with plan mode — review/approve plans before execution
 - Subagents that work in parallel for complex tasks
 - Headless mode (`-p` flag) for scripts and automations
-- Agent Client Protocol (ACP) support for building bots and orchestration apps
+- WebSocket Responses API mode for lower-latency tool-heavy agent workloads (added 2026-05-29)
 - Works with existing AGENTS.md, plugins, hooks, skills, and MCP servers
-- Underlying model: `grok-4.3` (standard API pricing applies for API-key usage)
+- Underlying model: `grok-build-0.1` (API pricing applies when using API key)
 
-> ⚠️ **Limitation:** Grok 4.3's 1M context is competitive, but xAI has acknowledged it has lagged behind in coding. Grok Build is early stage — Claude Code and OpenAI Codex CLI have significant head starts in IDE integrations and third-party extensions. More than 50 researchers/engineers left SpaceX AI since the Feb 2026 merger with SpaceX, including coding specialists.
+*Source: [xAI — Introducing Grok Build](https://x.ai/news/grok-build-cli) · [Grok Build 0.1 on API](https://x.ai/news/grok-build-0-1) — 2026-05-28*
 
-*Source: [xAI — Introducing Grok Build Early Beta](https://x.ai/news/grok-build-cli) · Engadget (2026-05-15) · PCMag (2026-05-14) · DevOps.com (2026-05-15)*
+---
+
+## `grok-imagine-video-1.5-preview` (Released 2026-06-03) 🆕
+
+Image-to-video generation model, now available via xAI API in preview.
+
+| Metric | Value |
+|---|---|
+| API name | `grok-imagine-video-1.5-preview` |
+| Input | Still image + natural-language motion prompt |
+| Max resolution | 720p |
+| Status | Preview (pricing not yet published) |
+
+**Key features:** Animates a single still image into cinematic video with natural-language motion control (camera moves, atmosphere, physics). Stays faithful to source image look and lighting.
+
+*Source: [xAI — Grok Imagine 1.5 Preview](https://x.ai/news) · [Releasebot](https://releasebot.io/updates/xai) — 2026-06-03 · verified 2026-06-09*
 
 ---
 
