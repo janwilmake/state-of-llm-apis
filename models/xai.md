@@ -1,6 +1,6 @@
 # xAI Grok Model Catalog
 
-> **Source:** [xAI Models & Pricing](https://docs.x.ai/developers/models) · [xAI Pricing](https://docs.x.ai/developers/pricing) · [xAI API](https://x.ai/api) · [OpenRouter](https://openrouter.ai/x-ai/grok-4.3) · **Verified:** 2026-06-09
+> **Source:** [xAI Models & Pricing](https://docs.x.ai/developers/models) · [xAI Pricing](https://docs.x.ai/developers/pricing) · [xAI API](https://x.ai/api) · [OpenRouter](https://openrouter.ai/x-ai/grok-4.3) · **Verified:** 2026-06-10
 
 ---
 
@@ -198,10 +198,12 @@ xAI's coding agent CLI and model, powering the Grok Build CLI tool. `grok-build-
 | Metric | Value |
 |---|---|
 | API name | `grok-build-0.1` |
-| Context window | — (see docs) |
+| Context window | **256,000 tokens** |
 | Input | **$1.00 / 1M** |
+| Cached input | $0.20 / 1M |
 | Output | **$2.00 / 1M** |
 | Speed | 100+ tokens/second |
+| Status | Public beta (API) |
 | Also available on | OpenRouter, Vercel AI Gateway |
 
 **Key facts:**

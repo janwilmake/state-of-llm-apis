@@ -1,6 +1,6 @@
 # Deprecated & Sunset Models
 
-> Track sunset dates and migration paths. **Last updated:** 2026-05-21.
+> Track sunset dates and migration paths. **Last updated:** 2026-06-10.
 >
 > ⚠️ = Deprecated, still accessible. ❌ = Shut down, no longer accessible.
 
@@ -8,7 +8,7 @@
 
 ## Upcoming Shutdowns (Action Required)
 
-### Anthropic — June 15, 2026 ⚠️
+### Anthropic — June 15, 2026 🚨 **5 DAYS**
 
 | Model | API name | Deprecated | Shutdown date | Replacement |
 |---|---|---|---|---|
@@ -103,6 +103,16 @@ This is a **code change**, not a model retirement, but it will break integration
 
 ---
 
+### Mistral — June 30, 2026
+
+| Model | API name | Deprecated | Retirement date | Replacement |
+|---|---|---|---|---|
+| Mistral Moderation v2 | `mistral-moderation-2411` | 2026-03-31 | **2026-06-30** | `mistral-moderation-2` |
+
+*Source: [Mistral Models Overview](https://docs.mistral.ai/models/overview) — verified 2026-06-10*
+
+---
+
 ### Mistral — July 31, 2026
 
 | Model | API name | Deprecated | Retirement date | Replacement |
@@ -111,6 +121,19 @@ This is a **code change**, not a model retirement, but it will break integration
 | Magistral Small 1.2 | `magistral-small-2509` | 2026-04-30 | **2026-07-31** | `mistral-small-2603` (Mistral Small 4) |
 
 *Source: [Mistral Models Overview](https://docs.mistral.ai/models/overview) — verified 2026-05-16*
+
+---
+
+### DeepSeek — July 24, 2026 ⚠️
+
+| Alias | Currently points to | Retirement date | Replacement |
+|---|---|---|---|
+| `deepseek-chat` | `deepseek-v4-flash` (non-thinking mode) | **2026-07-24 15:59 UTC** | `deepseek-v4-flash` |
+| `deepseek-reasoner` | `deepseek-v4-flash` (thinking mode) | **2026-07-24 15:59 UTC** | `deepseek-v4-flash` or `deepseek-v4-pro` |
+
+> ⚠️ **No silent redirect after July 24.** Unlike xAI's May 15 retirement, DeepSeek has stated that calls to `deepseek-chat` and `deepseek-reasoner` will **return errors** (not redirect) after the deadline. This is a hard cutoff.
+
+*Source: [DeepSeek API Docs — Models & Pricing](https://api-docs.deepseek.com/quick_start/pricing) — verified 2026-06-10*
 
 ---
 

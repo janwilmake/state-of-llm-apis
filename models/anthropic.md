@@ -1,10 +1,49 @@
 # Anthropic Model Catalog
 
-> **Source:** [Anthropic API Pricing](https://platform.claude.com/docs/en/about-claude/pricing) · [Models Overview](https://platform.claude.com/docs/en/about-claude/models/overview) · **Verified:** 2026-06-09
+> **Source:** [Anthropic API Pricing](https://platform.claude.com/docs/en/about-claude/pricing) · [Models Overview](https://platform.claude.com/docs/en/about-claude/models/overview) · **Verified:** 2026-06-10
 
 ---
 
-## Current Recommended Models (Claude 4.x generation)
+## Current Recommended Models (Fable 5 / Mythos-class)
+
+### Claude Fable 5 (Released 2026-06-09) 🆕 NEW — Mythos-class
+
+Anthropic's most capable widely available model. The first **Mythos-class** model released for general use — sits above the Opus tier. Built for the most demanding reasoning, long-horizon agentic work, large-scale coding, and complex knowledge work. Uses the same underlying model as Claude Mythos 5 but with strict safety classifiers for cybersecurity, biology, chemistry, and model distillation domains.
+
+> ⚠️ **Data retention requirement:** Claude Fable 5 requires **30-day data retention** on the Claude API — it is **not available under zero data retention**. Plan accordingly for compliance requirements.
+
+| Metric | Value |
+|---|---|
+| API name | `claude-fable-5` |
+| Context window | 1,000,000 tokens |
+| Max output | 128,000 tokens |
+| Input | **$10.00 / 1M** |
+| Output | **$50.00 / 1M** |
+| Prompt cache (read) | ~10% of input ($1.00 / 1M) |
+| Thinking mode | **Adaptive thinking — always on; cannot be disabled** |
+
+**Key facts:**
+- Released **2026-06-09** on Claude API, Amazon Bedrock, Vertex AI, Microsoft Foundry
+- **Pricing: ~2× Claude Opus 4.8** ($5/$25 → $10/$50 per 1M). Cheaper than Mythos Preview (~$25/$125)
+- **SWE-bench Pro: 80.3%** — 11 points ahead of second-best model (Claude Opus 4.8 at 69.2%)
+- **GDPval-AA: 1,932** (vs 1,890 for Opus 4.8, 1,769 for GPT-5.5, 1,314 for Gemini 3.1 Pro)
+- **GDPpdf: 29.8%** on visual document reasoning (vs 22.5% Opus 4.8, 24.9% GPT-5.5)
+- Adaptive thinking is the **only** thinking mode: `thinking: {"type": "disabled"}` is not supported (returns 400)
+- `thinking.display` defaults to `"omitted"` — set `display: "summarized"` to receive readable thinking summaries
+- Safety classifiers trigger `stop_reason: "refusal"` — not billed if refused before any output is generated
+- Optional `fallbacks` parameter: on refusal, re-runs on another Claude model (beta on Claude API and AWS)
+- **Subscription rollout:** Available on API and consumption Enterprise plans immediately. On Pro, Max, Team, and seat-based Enterprise: free access through **June 22, 2026**, then usage credits required (Anthropic aims to restore as standard part of plans ASAP)
+- Also available: **Claude Mythos 5** (`claude-mythos-5`) — same model without safety classifiers; **restricted to Project Glasswing partners only**
+
+**Supported features:** `effort` parameter, task budgets, memory tool, context editing, compaction, vision (text, image, file inputs)
+
+*Source: [Anthropic — Introducing Claude Fable 5 and Claude Mythos 5](https://www.anthropic.com/news/claude-fable-5-mythos-5) · [Claude API docs](https://platform.claude.com/docs/en/about-claude/models/introducing-claude-fable-5-and-claude-mythos-5) — 2026-06-09 · verified 2026-06-10*
+
+---
+
+## Claude 4.x Generation
+
+### Claude Opus 4.8 (Released 2026-05-28)
 
 ### Claude Opus 4.8 (Released 2026-05-28) 🆕 NEW
 
@@ -187,6 +226,18 @@ Anthropic is separating autonomous/programmatic Claude usage from interactive us
 
 ---
 
+## Claude Managed Agents — Scheduled Deployments & Vault Credentials (2026-06-09) 🆕
+
+Two new public-beta capabilities added to Claude Managed Agents on **June 9, 2026** (same day as Fable 5 launch):
+
+1. **Scheduled deployments:** Agents can now run on a cron schedule — each fire starts a new session that runs to completion. No scheduler to build or host. Use cases: nightly data syncs, weekly compliance scans, daily digests. Configurable via the platform (pause, resume, archive, trigger on demand).
+
+2. **Vault environment variables:** Vaults now support injecting environment variables (API keys) into agent sandboxes for CLIs, SDKs, and other tools. The agent never sees the actual key — it's attached at the network boundary only for approved domains. Supports: Browserbase, KERNEL, Notion, Ramp, Sentry CLIs. Browserbase and KERNEL give agents **browser capabilities** for the first time.
+
+*Source: [Anthropic — Claude Managed Agents update](https://www.anthropic.com/news/claude-managed-agents-scheduled-deployments) · [Claude Platform release notes](https://platform.claude.com/docs/en/release-notes/overview) — 2026-06-09 · verified 2026-06-10*
+
+---
+
 ## Enterprise Analytics API (Released 2026-05-07)
 
 Anthropic launched the **Enterprise Analytics API** — gives Enterprise plan Primary Owners programmatic access to per-user cost and adoption data across Claude, Claude Code, Cowork, and Office agents.
@@ -255,8 +306,8 @@ Anthropic's Claude 5 generation is underway. **Sonnet 5 "Fennec"** was released 
 | Claude Opus 4.5 | Active (legacy) | Not before 2026-11-24 | $5/$25 — same price as newer Opus versions |
 | Claude Opus 4.1 | Active (legacy) | Not before 2026-08-05 | $15/$75 — 3× more expensive than Opus 4.8; avoid unless required |
 | Claude Sonnet 4.5 | Active (legacy) | Not before 2026-09-29 | $3/$15 — same price as Sonnet 4.6 but older |
-| Claude Sonnet 4 | ⚠️ Deprecated | **2026-06-15** | $3/$15 — deprecated 2026-04-14; API name `claude-sonnet-4-20250514` |
-| Claude Opus 4 | ⚠️ Deprecated | **2026-06-15** | $15/$75 — deprecated 2026-04-14; API name `claude-opus-4-20250514` |
+| Claude Sonnet 4 | 🚨 Deprecated — **5 DAYS** | **2026-06-15** | $3/$15 — deprecated 2026-04-14; API name `claude-sonnet-4-20250514` — migrate to `claude-sonnet-4-6` |
+| Claude Opus 4 | 🚨 Deprecated — **5 DAYS** | **2026-06-15** | $15/$75 — deprecated 2026-04-14; API name `claude-opus-4-20250514` — migrate to `claude-opus-4-7` |
 | Claude 3 Haiku | ❌ **RETIRED 2026-04-20** | **2026-04-20** | Migrate to `claude-haiku-4-5-20251001` |
 | Claude 3.5 Haiku | Retired 2026-02-19 | — | Use Haiku 4.5 |
 | Claude Sonnet 3.7 | Retired 2026-02-19 | — | Use Sonnet 4.6 |
