@@ -4,6 +4,99 @@ Changes tracked by the Model Tracker agent. Most recent entries first.
 
 ---
 
+## 2026-06-11
+
+### ✅ Mistral: May 31 retirements COMPLETED — 5 models confirmed retired
+
+**Provider:** [Mistral](models/mistral.md)
+The following Mistral models reached their retirement date of **2026-05-31** and are now shut down:
+
+| Model | API name | Replacement |
+|---|---|---|
+| Mistral Large 2.1 | `mistral-large-2411` | `mistral-large-latest` (Mistral Large 3) |
+| Pixtral Large | `pixtral-large-2411` | `mistral-large-latest` (Mistral Large 3) |
+| Devstral Medium 1.0 | `devstral-medium-2507` | `mistral-medium-3-5` |
+| Voxtral Mini | `voxtral-mini-2507` | `voxtral-mini-transcribe-2` |
+| Mistral OCR 2 | `mistral-ocr-2505` | `mistral-ocr-3` |
+
+Updated: `deprecated.md`  
+*Source: [Mistral Models Overview](https://docs.mistral.ai/models/overview) — verified 2026-06-11*
+
+---
+
+### 🆕 xAI: `grok-imagine-video-1.5-preview` pricing confirmed — $0.08/sec output
+
+**Provider:** [xAI](models/xai.md)  
+The official xAI model docs page for `grok-imagine-video-1.5-preview` now lists confirmed pricing:
+
+| Item | Price |
+|---|---|
+| Output video | **$0.08 / second** |
+| Image input | $0.01 / image |
+| Video input (480p) | $0.08 / second |
+| Video input (720p) | $0.14 / second |
+| Rate limit | 60 requests per minute |
+
+**Key caveat:** The preview model currently **does not support text-to-video**. It animates still images into video using natural-language motion prompts. Text-to-video support may be added in a future update.
+
+The `grok-imagine-video-1.5-preview` model is also available via alias `grok-imagine-video-1.5-2026-05-30`.
+
+Updated: `models/xai.md`  
+*Source: [xAI model docs — grok-imagine-video-1.5-preview](https://docs.x.ai/developers/models/grok-imagine-video-1.5-preview) — verified 2026-06-11*
+
+---
+
+### 🆕 xAI: `grok-imagine-1.5` image generation model launched (2026-06-03)
+
+**Provider:** [xAI](models/xai.md)  
+xAI launched `grok-imagine-1.5` (also aliased `grok-imagine-quality` — replaces `grok-imagine-image-quality`) on **June 3, 2026**. A higher-quality image generation model replacing the previous Grok Imagine Quality model.
+
+**Key improvements:** Higher realism, stronger text rendering in generated images, better creative control.  
+**API name:** `grok-imagine-1.5` (or `grok-imagine-quality`)  
+**Pricing:** Not yet published separately — check [xAI Pricing docs](https://docs.x.ai/developers/pricing) for current rates.
+
+*Source: [xAI News — Grok Imagine 1.5 Preview](https://x.ai/news) — 2026-06-03 · verified 2026-06-11*
+
+---
+
+### 🆕 OpenAI: Container billing changed to per-minute (2026-06-02)
+
+**Provider:** [OpenAI](models/openai.md)  
+Starting **June 2, 2026**, eligible container sessions are billed per minute with a **5-minute minimum**, instead of being billed at the full 20-minute session rate. The underlying per-minute rate is unchanged.
+
+**Impact:** Shorter sessions now cost less. Previously a 6-minute session was billed as a full 20 minutes; now it's billed as 6 minutes.
+
+*Source: [OpenAI API Changelog — June 2026](https://developers.openai.com/api/docs/changelog) — verified 2026-06-11*
+
+---
+
+### 🆕 OpenAI: GPT-5.4 and GPT-5.5 now available in Amazon Bedrock (2026-06-01)
+
+**Provider:** [OpenAI](models/openai.md)  
+OpenAI models `gpt-5.4` and `gpt-5.5` are now available in **Amazon Bedrock** through an OpenAI-compatible Responses API endpoint. Supported models and features vary by AWS region. This is in addition to existing availability on OpenAI's own API.
+
+*Source: [OpenAI API Changelog — June 1, 2026](https://developers.openai.com/api/docs/changelog) — verified 2026-06-11*
+
+---
+
+### ⏱️ Countdown: **4 days** to Anthropic model retirements; **6 days** to Gemini 2.5 retirements
+
+| Deadline | Days | Action |
+|---|---|---|
+| **2026-06-15** | **4 days** 🚨 | Migrate `claude-sonnet-4-20250514` → `claude-sonnet-4-6` and `claude-opus-4-20250514` → `claude-opus-4-7` (hard shutdown) |
+| **2026-06-15** | **4 days** 🚨 | Anthropic Agent SDK billing split takes effect — autonomous `claude -p`/SDK usage moves to per-API-rate credit pool |
+| **2026-06-17** | **6 days** ⚠️ | `gemini-2.5-pro` retires → `gemini-3.1-pro-preview` or `gemini-3.5-flash` |
+| **2026-06-17** | **6 days** ⚠️ | `gemini-2.5-flash` retires → `gemini-3-flash-preview` or `gemini-3.5-flash` |
+| **2026-06-22** | 11 days | Claude Fable 5 free subscription access ends — usage credits required |
+| **2026-06-30** | 19 days | Mistral `mistral-moderation-2411` retires → `mistral-moderation-2` |
+| **2026-07-22** | 41 days | `gemini-2.5-flash-lite` retires → `gemini-3.1-flash-lite` (GA) |
+| **2026-07-24** | 43 days | DeepSeek `deepseek-chat` / `deepseek-reasoner` hard cutoff → `deepseek-v4-flash` (returns errors, no redirect) |
+| **2026-07-31** | 50 days | Mistral `mistral-small-2506`, `magistral-small-2509` → `mistral-small-2603` (Mistral Small 4) |
+
+*Verified 2026-06-11*
+
+---
+
 ## 2026-05-21
 
 ### 🆕 Google: Managed Agents API launched — `antigravity-preview-05-2026` now in public preview

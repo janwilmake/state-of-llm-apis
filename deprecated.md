@@ -1,6 +1,6 @@
 # Deprecated & Sunset Models
 
-> Track sunset dates and migration paths. **Last updated:** 2026-06-10.
+> Track sunset dates and migration paths. **Last updated:** 2026-06-11.
 >
 > ⚠️ = Deprecated, still accessible. ❌ = Shut down, no longer accessible.
 
@@ -8,7 +8,7 @@
 
 ## Upcoming Shutdowns (Action Required)
 
-### Anthropic — June 15, 2026 🚨 **5 DAYS**
+### Anthropic — June 15, 2026 🚨 **4 DAYS**
 
 | Model | API name | Deprecated | Shutdown date | Replacement |
 |---|---|---|---|---|
@@ -71,17 +71,23 @@ This is a **code change**, not a model retirement, but it will break integration
 
 ---
 
-### Google Gemini — June 2026 deadline
+### Google Gemini — June 2026 deadlines
+
+**2026-06-01** ❌ COMPLETED: `gemini-2.0-flash` and `gemini-2.0-flash-lite` shut down. See "Already Shut Down" section.
+
+**2026-06-17** — ⚠️ **6 DAYS** — `gemini-2.5-pro` and `gemini-2.5-flash` retiring:
 
 | Model | Shutdown date | Migrate to |
 |---|---|---|
-| `gemini-2.0-flash` | **2026-06-01** | `gemini-2.5-flash` (or `gemini-3-flash-preview`) |
-| `gemini-2.0-flash-001` | **2026-06-01** | `gemini-2.5-flash` |
-| `gemini-2.0-flash-lite` | **2026-06-01** | `gemini-2.5-flash-lite` |
-| `gemini-2.0-flash-lite-001` | **2026-06-01** | `gemini-2.5-flash-lite` |
-| `gemini-2.5-pro` | **2026-06-17** | `gemini-3.1-pro-preview` |
-| `gemini-2.5-flash` | **2026-06-17** | `gemini-3-flash-preview` |
+| `gemini-2.5-pro` | **2026-06-17** ⚠️ **6 DAYS** | `gemini-3.1-pro-preview` or `gemini-3.5-flash` |
+| `gemini-2.5-flash` | **2026-06-17** ⚠️ **6 DAYS** | `gemini-3-flash-preview` or `gemini-3.5-flash` |
 | `gemini-2.5-flash-lite` | **2026-07-22** | `gemini-3.1-flash-lite` (now GA) |
+
+**Migration price notes for June 17 deadlines:**
+- `gemini-2.5-pro` ($1.25/$10.00) → `gemini-3.1-pro-preview` ($2.00/$12.00): ~1.6× price increase; or → `gemini-3.5-flash` ($1.50/$9.00) for faster agentic workloads at similar cost
+- `gemini-2.5-flash` ($0.30/$2.50) → `gemini-3-flash-preview` ($0.50/$3.00): ~1.7× price increase; or → `gemini-3.5-flash` ($1.50/$9.00) for highest capability
+
+*(Previous June 1 entries moved to "Already Shut Down" section below.)*
 
 > ⚠️ **Note:** `gemini-2.5-flash-lite` replacement was updated from `gemini-3.1-flash-lite-preview` to `gemini-3.1-flash-lite` (GA as of 2026-05-07). Source: [Google Gemini Deprecations](https://ai.google.dev/gemini-api/docs/deprecations) — verified 2026-05-12.
 
@@ -89,17 +95,19 @@ This is a **code change**, not a model retirement, but it will break integration
 
 ---
 
-### Mistral — May 31, 2026
+### Mistral — May 31, 2026 ✅ COMPLETED
 
-| Model | API name | Deprecated | Retirement date | Replacement |
-|---|---|---|---|---|
-| Mistral Large 2.1 | `mistral-large-2411` | 2026-02-27 | **2026-05-31** | `mistral-large-latest` (Mistral Large 3) |
-| Pixtral Large | `pixtral-large-2411` | 2026-02-27 | **2026-05-31** | `mistral-large-latest` (Mistral Large 3) |
-| Devstral Medium 1.0 | `devstral-medium-2507` | 2026-02-27 | **2026-05-31** | `mistral-medium-3-5` |
-| Voxtral Mini | `voxtral-mini-2507` | 2026-02-27 | **2026-05-31** | `voxtral-mini-transcribe-2` |
-| Mistral OCR 2 | `mistral-ocr-2505` | 2026-02-27 | **2026-05-31** | `mistral-ocr-3` (OCR 3) |
+> ❌ **Retired 2026-05-31.** These models are no longer accessible. See "Already Shut Down" section.
 
-*Source: [Mistral Models Overview](https://docs.mistral.ai/models/overview) — verified 2026-05-21*
+| Model | API name | Retired | Replacement |
+|---|---|---|---|
+| Mistral Large 2.1 | `mistral-large-2411` | **2026-05-31** | `mistral-large-latest` (Mistral Large 3) |
+| Pixtral Large | `pixtral-large-2411` | **2026-05-31** | `mistral-large-latest` (Mistral Large 3) |
+| Devstral Medium 1.0 | `devstral-medium-2507` | **2026-05-31** | `mistral-medium-3-5` |
+| Voxtral Mini | `voxtral-mini-2507` | **2026-05-31** | `voxtral-mini-transcribe-2` |
+| Mistral OCR 2 | `mistral-ocr-2505` | **2026-05-31** | `mistral-ocr-3` (OCR 3) |
+
+*Source: [Mistral Models Overview](https://docs.mistral.ai/models/overview) — verified 2026-06-11*
 
 ---
 
@@ -137,14 +145,13 @@ This is a **code change**, not a model retirement, but it will break integration
 
 ---
 
-### OpenAI DALL-E 2 and DALL-E 3 image models
+### OpenAI DALL-E 2 and DALL-E 3 image models ❌ RETIRED 2026-05-12
 
 | Model | Retirement date | Replacement |
 |---|---|---|
-| `dall-e-2` | **2026-05-12** ❌ TODAY | `gpt-image-2` |
-| `dall-e-3` | **2026-05-12** ❌ TODAY | `gpt-image-2` |
+| `dall-e-2` | **2026-05-12** ❌ RETIRED | `gpt-image-2` |
+| `dall-e-3` | **2026-05-12** ❌ RETIRED | `gpt-image-2` |
 
-> ❌ **DALL-E 2 and DALL-E 3 retire today (May 12, 2026).** Calls to either model are failing or will fail imminently. Migrate to `gpt-image-2` immediately.  
 *Source: [OpenAI API Pricing](https://developers.openai.com/api/docs/pricing) — verified 2026-05-12*
 
 ---
@@ -200,6 +207,29 @@ GPT-5.4 replaced GPT-5.2 Thinking in ChatGPT as of 2026-03-05. GPT-5.2 Thinking 
 
 ## Already Shut Down
 
+### Mistral (2026-05-31)
+
+| Model | API name | Retired | Replacement |
+|---|---|---|---|
+| Mistral Large 2.1 | `mistral-large-2411` | **2026-05-31** | `mistral-large-latest` |
+| Pixtral Large | `pixtral-large-2411` | **2026-05-31** | `mistral-large-latest` |
+| Devstral Medium 1.0 | `devstral-medium-2507` | **2026-05-31** | `mistral-medium-3-5` |
+| Voxtral Mini | `voxtral-mini-2507` | **2026-05-31** | `voxtral-mini-transcribe-2` |
+| Mistral OCR 2 | `mistral-ocr-2505` | **2026-05-31** | `mistral-ocr-3` |
+
+*Source: [Mistral Models Overview](https://docs.mistral.ai/models/overview) — verified 2026-06-11*
+
+---
+
+### OpenAI (2026-05-12)
+
+| Model | Retired | Replacement |
+|---|---|---|
+| `dall-e-2` | **2026-05-12** | `gpt-image-2` |
+| `dall-e-3` | **2026-05-12** | `gpt-image-2` |
+
+---
+
 ### Cohere (2026-04-04)
 
 Effective April 4, 2026, Cohere retired the following models. API requests to these IDs now fail.
@@ -232,6 +262,10 @@ Effective April 4, 2026, Cohere retired the following models. API requests to th
 
 | Model | Shut down | Was replaced by |
 |---|---|---|
+| `gemini-2.0-flash` | **2026-06-01** | `gemini-2.5-flash` or `gemini-3-flash-preview` |
+| `gemini-2.0-flash-001` | **2026-06-01** | `gemini-2.5-flash` |
+| `gemini-2.0-flash-lite` | **2026-06-01** | `gemini-2.5-flash-lite` |
+| `gemini-2.0-flash-lite-001` | **2026-06-01** | `gemini-2.5-flash-lite` |
 | `gemini-1.5-pro-001` | 2025-05-24 | `gemini-2.0-flash` |
 | `gemini-1.5-pro-002` | 2025-09-24 | `gemini-2.0-flash` |
 | `gemini-1.5-flash-001` | 2025-05-24 | `gemini-2.0-flash-lite` |
