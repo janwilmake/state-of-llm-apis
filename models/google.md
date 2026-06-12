@@ -1,6 +1,6 @@
 # Google Gemini Model Catalog
 
-> **Source:** [Gemini API Pricing](https://ai.google.dev/gemini-api/docs/pricing) · [Vertex AI Pricing](https://cloud.google.com/vertex-ai/generative-ai/pricing) · [Gemini Deprecations](https://ai.google.dev/gemini-api/docs/deprecations) · **Verified:** 2026-06-09
+> **Source:** [Gemini API Pricing](https://ai.google.dev/gemini-api/docs/pricing) · [Vertex AI Pricing](https://cloud.google.com/vertex-ai/generative-ai/pricing) · [Gemini Deprecations](https://ai.google.dev/gemini-api/docs/deprecations) · **Verified:** 2026-06-12
 
 ---
 
@@ -95,7 +95,7 @@ Best reasoning model at GA. Large 2 M token context window.
 | Output (>200K) | $15.00 / 1M |
 | Cached input | $0.125 / 1M |
 | Free tier | ✅ (rate-limited) |
-| **Retirement date** | **2026-06-17** → migrate to `gemini-3-flash-preview` or `gemini-3.1-pro-preview` |
+| **Retirement date** | **2026-10-16** → migrate to `gemini-3.1-pro-preview` or `gemini-3.5-flash` *(corrected 2026-06-12; was previously listed as June 17)* |
 
 ---
 
@@ -109,7 +109,7 @@ Best reasoning model at GA. Large 2 M token context window.
 | Output | **$2.50 / 1M** |
 | Cached input | $0.03 / 1M |
 | Free tier | ✅ |
-| **Retirement date** | **2026-06-17** → migrate to `gemini-3-flash-preview` |
+| **Retirement date** | **2026-10-16** → migrate to `gemini-3.5-flash` *(corrected 2026-06-12; was previously listed as June 17)* |
 
 ---
 
@@ -122,7 +122,7 @@ Best reasoning model at GA. Large 2 M token context window.
 | Input | **$0.10 / 1M** |
 | Output | **$0.40 / 1M** |
 | Free tier | ✅ |
-| **Retirement date** | **2026-07-22** |
+| **Retirement date** | **2026-10-16** *(corrected 2026-06-12; was previously listed as July 22)* |
 
 ---
 
@@ -198,6 +198,49 @@ GA release. Graduated from preview on May 7, 2026.
 | Input | Output |
 |---|---|
 | $0.50 / 1M | $3.00 / 1M |
+
+---
+
+## Native Image Generation Models (GA — Released 2026-05-28) 🆕
+
+Google released two GA versions of its native image generation models on **May 28, 2026**. These are the "Nano Banana" models: multimodal models that accept text and image inputs and generate images natively within the Gemini ecosystem.
+
+> ⚠️ **Preview shutdowns:** `gemini-3.1-flash-image-preview` and `gemini-3-pro-image-preview` are deprecated and will shut down **June 25, 2026**. Migrate to the GA versions below.
+
+### Gemini 3.1 Flash Image (`gemini-3.1-flash-image`) — "Nano Banana 2"
+
+Optimized for **speed and cost**. Accepts text, image, and video inputs; generates images. Also supports video-to-image generation (pass video URL as context to generate thumbnails, movie posters, or infographics).
+
+| Metric | Value |
+|---|---|
+| API name | `gemini-3.1-flash-image` |
+| Shutdown date | Not before **2026-06-25** (wait—see note) |
+| **Text input** | $0.25 / 1M tokens |
+| **Text output** | $1.50 / 1M tokens |
+| **Image output — 512px** | ~$0.045 / image |
+| **Image output — 1K/2K** | ~$0.067 / image |
+| **Image output — 4K** | ~$0.101 / image (Vertex) |
+| Batch input | $0.125 / 1M tokens |
+| Batch output (text) | $0.75 / 1M tokens |
+| Free tier | ✅ |
+
+> ⚠️ **Note:** "Nano Banana 2" is the GA model. The preview `gemini-3.1-flash-image-preview` shuts down **June 25, 2026**. If you're on the preview, migrate to `gemini-3.1-flash-image` immediately.
+
+### Gemini 3 Pro Image (`gemini-3-pro-image`) — "Nano Banana Pro"
+
+Optimized for **professional design quality**. Reasoning-core for studio-quality 4K visuals, complex layouts, and precise text rendering. Text pricing matches Gemini 3.1 Pro.
+
+| Metric | Value |
+|---|---|
+| API name | `gemini-3-pro-image` |
+| **Text input** | $2.00 / 1M tokens (same as Gemini 3.1 Pro) |
+| **Text output** | $12.00 / 1M tokens |
+| **Image output — 1K/2K (~1MP/4MP)** | ~$0.134 / image |
+| **Image output — 4K (~16MP)** | ~$0.24 / image |
+| Batch output (text) | $6.00 / 1M tokens |
+| Free tier | ✅ (3 images/day) |
+
+*Source: [Google Gemini API changelog — May 28, 2026](https://ai.google.dev/gemini-api/docs/changelog) · [Google Gemini API pricing](https://ai.google.dev/gemini-api/docs/pricing) · [Vertex AI Agent Platform pricing](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing) — verified 2026-06-12*
 
 ---
 
@@ -310,9 +353,14 @@ Announced at Google I/O 2026: Google dropped the top-tier Ultra price and added 
 | `gemini-3.1-flash-lite-preview` | ❌ **2026-05-25** (shut down) | `gemini-3.1-flash-lite` (GA, same pricing) |
 | `gemini-2.0-flash` | ❌ **2026-06-01** (shut down) | `gemini-2.5-flash` |
 | `gemini-2.0-flash-lite` | ❌ **2026-06-01** (shut down) | `gemini-2.5-flash-lite` |
-| `gemini-2.5-pro` | **2026-06-17** ⚠️ | `gemini-3.1-pro-preview` or `gemini-3.5-flash` |
-| `gemini-2.5-flash` | **2026-06-17** ⚠️ | `gemini-3-flash-preview` or `gemini-3.5-flash` |
-| `gemini-2.5-flash-lite` | **2026-07-22** | `gemini-3.1-flash-lite` (now GA) |
+| `gemini-3.1-flash-image-preview` | **2026-06-25** ⚠️ | `gemini-3.1-flash-image` (GA) |
+| `gemini-3-pro-image-preview` | **2026-06-25** ⚠️ | `gemini-3-pro-image` (GA) |
+| `imagen-4.0-generate-001` | **2026-06-24** ⚠️ | `gemini-3-pro-image-preview` or `gemini-2.5-flash-image` |
+| `imagen-4.0-ultra-generate-001` | **2026-06-24** ⚠️ | `gemini-3-pro-image-preview` or `gemini-2.5-flash-image` |
+| `imagen-4.0-fast-generate-001` | **2026-06-24** ⚠️ | `gemini-3-pro-image-preview` or `gemini-2.5-flash-image` |
+| `gemini-2.5-pro` | **2026-10-16** | `gemini-3.1-pro-preview` or `gemini-3.5-flash` *(date corrected 2026-06-12)* |
+| `gemini-2.5-flash` | **2026-10-16** | `gemini-3.5-flash` *(date corrected 2026-06-12)* |
+| `gemini-2.5-flash-lite` | **2026-10-16** | `gemini-3.1-flash-lite` (GA) *(date corrected 2026-06-12)* |
 | `gemini-3-pro-preview` | Retired 2026-03-09 | `gemini-3.1-pro-preview` |
 
 *Full table: [deprecated.md](../deprecated.md)*

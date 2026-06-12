@@ -1,6 +1,6 @@
 # Deprecated & Sunset Models
 
-> Track sunset dates and migration paths. **Last updated:** 2026-06-11.
+> Track sunset dates and migration paths. **Last updated:** 2026-06-12.
 >
 > ⚠️ = Deprecated, still accessible. ❌ = Shut down, no longer accessible.
 
@@ -8,7 +8,7 @@
 
 ## Upcoming Shutdowns (Action Required)
 
-### Anthropic — June 15, 2026 🚨 **4 DAYS**
+### Anthropic — June 15, 2026 🚨 **3 DAYS**
 
 | Model | API name | Deprecated | Shutdown date | Replacement |
 |---|---|---|---|---|
@@ -75,21 +75,44 @@ This is a **code change**, not a model retirement, but it will break integration
 
 **2026-06-01** ❌ COMPLETED: `gemini-2.0-flash` and `gemini-2.0-flash-lite` shut down. See "Already Shut Down" section.
 
-**2026-06-17** — ⚠️ **6 DAYS** — `gemini-2.5-pro` and `gemini-2.5-flash` retiring:
+**2026-06-25** — ⚠️ **13 DAYS** — Google Gemini image preview models retiring:
 
 | Model | Shutdown date | Migrate to |
 |---|---|---|
-| `gemini-2.5-pro` | **2026-06-17** ⚠️ **6 DAYS** | `gemini-3.1-pro-preview` or `gemini-3.5-flash` |
-| `gemini-2.5-flash` | **2026-06-17** ⚠️ **6 DAYS** | `gemini-3-flash-preview` or `gemini-3.5-flash` |
-| `gemini-2.5-flash-lite` | **2026-07-22** | `gemini-3.1-flash-lite` (now GA) |
+| `gemini-3.1-flash-image-preview` | **2026-06-25** ⚠️ | `gemini-3.1-flash-image` (GA as of 2026-05-28) |
+| `gemini-3-pro-image-preview` | **2026-06-25** ⚠️ | `gemini-3-pro-image` (GA as of 2026-05-28) |
 
-**Migration price notes for June 17 deadlines:**
+*Source: [Google Gemini API changelog — May 28, 2026](https://ai.google.dev/gemini-api/docs/changelog) — verified 2026-06-12*
+
+---
+
+**2026-06-24** — ⚠️ **12 DAYS** — Imagen 4.0 models retiring on the Gemini Developer API:
+
+| Model | Shutdown date | Migrate to |
+|---|---|---|
+| `imagen-4.0-generate-001` | **2026-06-24** ⚠️ | `gemini-3-pro-image-preview` or `gemini-2.5-flash-image` |
+| `imagen-4.0-ultra-generate-001` | **2026-06-24** ⚠️ | `gemini-3-pro-image-preview` or `gemini-2.5-flash-image` |
+| `imagen-4.0-fast-generate-001` | **2026-06-24** ⚠️ | `gemini-3-pro-image-preview` or `gemini-2.5-flash-image` |
+
+*Source: [Google Gemini Deprecations](https://ai.google.dev/gemini-api/docs/deprecations) — verified 2026-06-12*
+
+---
+
+**2026-10-16** — `gemini-2.5-pro`, `gemini-2.5-flash`, `gemini-2.5-flash-lite` retiring:
+
+> ⚠️ **Dates corrected (2026-06-12):** The official [Google Gemini deprecations page](https://ai.google.dev/gemini-api/docs/deprecations) (last updated 2026-06-01) shows **October 16, 2026** as the shutdown date for all three models — NOT June 17 / July 22 as previously tracked. The June 17 date appeared in an earlier version of the page as "earliest possible" but has since been updated. Take no migration action before October 16.
+
+| Model | Shutdown date | Migrate to |
+|---|---|---|
+| `gemini-2.5-pro` | **2026-10-16** | `gemini-3.1-pro-preview` or `gemini-3.5-flash` |
+| `gemini-2.5-flash` | **2026-10-16** | `gemini-3.5-flash` |
+| `gemini-2.5-flash-lite` | **2026-10-16** | `gemini-3.1-flash-lite` (GA) |
+
+**Migration price notes:**
 - `gemini-2.5-pro` ($1.25/$10.00) → `gemini-3.1-pro-preview` ($2.00/$12.00): ~1.6× price increase; or → `gemini-3.5-flash` ($1.50/$9.00) for faster agentic workloads at similar cost
-- `gemini-2.5-flash` ($0.30/$2.50) → `gemini-3-flash-preview` ($0.50/$3.00): ~1.7× price increase; or → `gemini-3.5-flash` ($1.50/$9.00) for highest capability
+- `gemini-2.5-flash` ($0.30/$2.50) → `gemini-3.5-flash` ($1.50/$9.00): 5× output price increase but dramatically better benchmarks
 
 *(Previous June 1 entries moved to "Already Shut Down" section below.)*
-
-> ⚠️ **Note:** `gemini-2.5-flash-lite` replacement was updated from `gemini-3.1-flash-lite-preview` to `gemini-3.1-flash-lite` (GA as of 2026-05-07). Source: [Google Gemini Deprecations](https://ai.google.dev/gemini-api/docs/deprecations) — verified 2026-05-12.
 
 > ⚠️ **Note (Vertex AI):** As of 2026-03-06, `gemini-2.0-flash-001` and `gemini-2.0-flash-lite-001` are unavailable to **new** Vertex AI projects. Existing customers retain access until June 1, 2026.
 
