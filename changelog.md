@@ -4,6 +4,85 @@ Changes tracked by the Model Tracker agent. Most recent entries first.
 
 ---
 
+## 2026-06-13
+
+### 🚨 Anthropic: Claude Fable 5 and Mythos 5 SUSPENDED — US export control directive (2026-06-12)
+
+**Provider:** [Anthropic](models/anthropic.md)  
+The most consequential AI regulatory event of 2026 so far. On **June 12, 2026 at 5:21 PM ET**, the U.S. Commerce Department (Secretary Howard Lutnick) issued an export control directive ordering Anthropic to suspend all access to Claude Fable 5 and Claude Mythos 5 by any foreign national, whether inside or outside the United States — including Anthropic's own foreign national employees. Because ordinary service made targeted compliance impossible, Anthropic disabled both models **for all customers globally**.
+
+**Timeline:**
+- **June 9, 2026:** Claude Fable 5 (public) and Claude Mythos 5 (Glasswing partners) launched. Best-in-class coding/reasoning model; SWE-bench Pro 80.3%.
+- **June 12, 2026 at 5:21 PM ET:** U.S. government directive received. Both models taken offline for all users, no warning window.
+- **June 13, 2026:** Anthropic published [full statement](https://www.anthropic.com/news/fable-mythos-access) disputing the directive's basis.
+
+**Why:** The government's stated reason was a claimed jailbreak of Fable/Mythos that could enable cybersecurity harm. Anthropic's review found the technique demonstrated "a small number of previously known, minor vulnerabilities" and that "other publicly-available models (including OpenAI's GPT-5.5) are able to discover them as well."
+
+**Current status (2026-06-13):** Both models remain offline. Anthropic says it is "working to restore access as soon as possible." No timeline given.
+
+**Impact on developers:**
+- `claude-fable-5` and `claude-mythos-5` API calls return errors
+- All other Claude models (Opus 4.8, Sonnet 4.6, Haiku 4.5, etc.) are **unaffected**
+- Migrate to `claude-opus-4-8` ($5/$25 per 1M) for best available Anthropic performance
+- The June 22 free-subscription-access deadline is now moot until access is restored
+
+Updated: `models/anthropic.md`, `comparison.md`  
+*Source: [Anthropic statement](https://www.anthropic.com/news/fable-mythos-access) · [Anthropic @AnthropicAI on X](https://x.com/AnthropicAI/status/2065597531644743999) · [AP](https://www.santacruzsentinel.com/2026/06/12/anthropic-trump/) · [CNBC](https://www.cnbc.com/2026/06/12/anthropic-disables-access-to-fable-5-and-mythos-5-to-comply-with-government-directive.html) · [Wired](https://www.wired.com/story/anthropic-says-us-government-ordered-it-to-shut-down-mythos-models/) — verified 2026-06-13*
+
+---
+
+### 🆕 xAI: Grok Build Plugin Marketplace launched (2026-06-11)
+
+**Provider:** [xAI](models/xai.md)  
+xAI launched the **Grok Build Plugin Marketplace** on June 11, 2026 — a built-in plugin catalog for the Grok Build CLI. A plugin bundles skills, slash commands, agents, hooks, MCP servers, and LSPs into a single installable package. Users browse, install, and update plugins without leaving the terminal.
+
+**Launch partners (6 plugins):** MongoDB, Vercel, Sentry, Chrome DevTools, Cloudflare, Superpowers.  
+**Security:** Every remote plugin is pinned to a commit SHA verified at install time.  
+**Open catalog:** Submit plugins via PR to [xai-org/plugin-marketplace](https://github.com/xai-org/plugin-marketplace).  
+**Access:** `/marketplace` inside Grok Build; `grok plugin install <name> --trust` via CLI.
+
+Updated: `models/xai.md`  
+*Source: [xAI — Grok Build Plugin Marketplace](https://x.ai/news/grok-plugin-marketplace) — 2026-06-11 · verified 2026-06-13*
+
+---
+
+### 🆕 xAI: Composer 2.5 added to Grok Build (2026-06-01)
+
+**Provider:** [xAI](models/xai.md)  
+xAI added **Composer 2.5** as a second model inside the Grok Build CLI on June 1, 2026. Based on an open-source checkpoint of Moonshot's Kimi K2.5, trained with 25× more synthetic tasks than Composer 2. Optimized for long-running tasks and complex instruction-following.
+
+| Pricing | Rate |
+|---|---|
+| Input (standard) | $0.50 / 1M tokens |
+| Output (standard) | $2.50 / 1M tokens |
+| Input (fast variant) | $3.00 / 1M tokens |
+| Output (fast variant) | $15.00 / 1M tokens |
+
+**Note:** This is a third-party model (Kimi K2.5 base) integrated into Grok Build — not an xAI-trained model. Not available on the standard xAI API (`docs.x.ai/developers/models`).  
+**Access:** SuperGrok and X Premium+ subscribers via `/model` menu in Grok Build.
+
+Updated: `models/xai.md`  
+*Source: [xAI — Composer 2.5](https://x.ai/news/composer-2-5) — 2026-06-01 · verified 2026-06-13*
+
+---
+
+### ⏱️ Deadlines: **2 DAYS** to Anthropic retirements + Agent SDK billing change
+
+| Deadline | Days | Action |
+|---|---|---|
+| **2026-06-15** | **2 days** 🚨 | Migrate `claude-sonnet-4-20250514` → `claude-sonnet-4-6` and `claude-opus-4-20250514` → `claude-opus-4-7` (hard shutdown) |
+| **2026-06-15** | **2 days** 🚨 | **Anthropic Agent SDK billing split takes effect** — autonomous `claude -p`/SDK/GitHub Actions usage moves to metered API-rate credit pool |
+| **2026-06-24** | 11 days ⚠️ | Imagen 4.0 models retire on Gemini Dev API → `gemini-3-pro-image` |
+| **2026-06-25** | 12 days ⚠️ | Gemini image preview models `gemini-3.1-flash-image-preview` and `gemini-3-pro-image-preview` retire → GA versions |
+| **2026-06-30** | 17 days | Mistral `mistral-moderation-2411` → `mistral-moderation-2` |
+| **2026-07-24** | 41 days | DeepSeek `deepseek-chat` / `deepseek-reasoner` hard cutoff → `deepseek-v4-flash` (returns errors, no redirect) |
+| **2026-07-31** | 48 days | Mistral `mistral-small-2506`, `magistral-small-2509` → `mistral-small-2603` |
+| **2026-10-16** | 125 days | `gemini-2.5-pro`, `gemini-2.5-flash`, `gemini-2.5-flash-lite` retire |
+
+*Verified 2026-06-13*
+
+---
+
 ## 2026-06-11
 
 ### ✅ Mistral: May 31 retirements COMPLETED — 5 models confirmed retired

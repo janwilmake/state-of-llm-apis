@@ -1,6 +1,6 @@
 # xAI Grok Model Catalog
 
-> **Source:** [xAI Models & Pricing](https://docs.x.ai/developers/models) · [xAI Pricing](https://docs.x.ai/developers/pricing) · [xAI API](https://x.ai/api) · [OpenRouter](https://openrouter.ai/x-ai/grok-4.3) · **Verified:** 2026-06-10
+> **Source:** [xAI Models & Pricing](https://docs.x.ai/developers/models) · [xAI Pricing](https://docs.x.ai/developers/pricing) · [xAI API](https://x.ai/api) · [OpenRouter](https://openrouter.ai/x-ai/grok-4.3) · **Verified:** 2026-06-13
 
 ---
 
@@ -237,6 +237,37 @@ curl -fsSL https://x.ai/cli/install.sh | bash
 
 ---
 
+## Grok Build Plugin Marketplace (Launched 2026-06-11) 🆕
+
+xAI launched the **Grok Build Plugin Marketplace** on June 11, 2026 — a built-in catalog of plugins for the Grok Build CLI. Plugins bundle skills, slash commands, agents, hooks, MCP servers, and LSPs into a single installable package.
+
+**Access:** Type `/marketplace` inside Grok Build to browse and install; or `grok plugin install <name> --trust` via CLI.  
+**Security:** Every remote plugin is pinned to a 40-character commit SHA, verified at install time.  
+**Open catalog:** Submit plugins via PR to [xai-org/plugin-marketplace](https://github.com/xai-org/plugin-marketplace).
+
+**Launch partners:** MongoDB, Vercel, Sentry, Chrome DevTools, Cloudflare, Superpowers.
+
+*Source: [xAI — Grok Build Plugin Marketplace](https://x.ai/news/grok-plugin-marketplace) · [MarkTechPost](https://www.marktechpost.com/2026/06/11/xai-ships-grok-build-plugin-marketplace/) — 2026-06-11 · verified 2026-06-13*
+
+---
+
+## Composer 2.5 in Grok Build (Released 2026-06-01) 🆕
+
+xAI added **Composer 2.5** as a second model option inside the Grok Build CLI on June 1, 2026.
+
+**Key facts:**
+- Based on an open-source checkpoint of Moonshot's Kimi K2.5, with 25× more synthetic training tasks than Composer 2
+- Designed for long-running tasks and complex instruction-following; strengths in coding, agents, JSON, and tool use
+- **Pricing (API):** $0.50 / 1M input · $2.50 / 1M output (standard); faster variant: $3.00 / $15.00 per 1M
+- Available to **SuperGrok and X Premium+** subscribers
+- Access: select via `/model` menu inside Grok Build
+
+> **Note:** Composer 2.5 is the Grok Build CLI model — it is a third-party model (Kimi K2.5 based) integrated into the xAI ecosystem, not an xAI-trained model. It does not appear on the [xAI official API models page](https://docs.x.ai/developers/models).
+
+*Source: [xAI — Composer 2.5](https://x.ai/news/composer-2-5) · [Basenor](https://www.basenor.com/blogs/news/xai-launches-grok-composer-2-5-inside-grok-build) — 2026-06-01 · verified 2026-06-13*
+
+---
+
 ## `grok-imagine-video-1.5-preview` (Released 2026-06-03) 🆕
 
 Image-to-video generation model, now available via xAI API in preview.
@@ -246,7 +277,8 @@ Image-to-video generation model, now available via xAI API in preview.
 | API name | `grok-imagine-video-1.5-preview` |
 | Input | Still image + natural-language motion prompt |
 | Max resolution | 720p |
-| Status | Preview (pricing not yet published) |
+| Video output | **$0.05 / second** (480p/720p per [xAI models docs](https://docs.x.ai/developers/models) — verified 2026-06-13) |
+| Status | Preview |
 
 **Key features:** Animates a single still image into cinematic video with natural-language motion control (camera moves, atmosphere, physics). Stays faithful to source image look and lighting.
 

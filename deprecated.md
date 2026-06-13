@@ -1,6 +1,6 @@
 # Deprecated & Sunset Models
 
-> Track sunset dates and migration paths. **Last updated:** 2026-06-12.
+> Track sunset dates and migration paths. **Last updated:** 2026-06-13.
 >
 > ⚠️ = Deprecated, still accessible. ❌ = Shut down, no longer accessible.
 
@@ -8,7 +8,7 @@
 
 ## Upcoming Shutdowns (Action Required)
 
-### Anthropic — June 15, 2026 🚨 **3 DAYS**
+### Anthropic — June 15, 2026 🚨 **2 DAYS**
 
 | Model | API name | Deprecated | Shutdown date | Replacement |
 |---|---|---|---|---|

@@ -1,6 +1,6 @@
 # LLM API Comparison Matrix
 
-> **Last updated:** 2026-06-12. Prices per 1M tokens (USD), standard tier unless noted.
+> **Last updated:** 2026-06-13. Prices per 1M tokens (USD), standard tier unless noted.
 
 ---
 
@@ -8,7 +8,7 @@
 
 | Provider | Model | Context | Input | Output | GPQA | SWE-bench | Notes |
 |---|---|---|---|---|---|---|---|
-| [Anthropic](models/anthropic.md) | **Claude Fable 5** 🆕 | 1 M | $10.00 | $50.00 | — | **80.3%** (Pro) | NEW 2026-06-09; Mythos-class; always-on adaptive thinking; 30-day data retention req |
+| [Anthropic](models/anthropic.md) | ~~Claude Fable 5~~ ❌ SUSPENDED | 1 M | $10.00 | $50.00 | — | **80.3%** (Pro) | ❌ **SUSPENDED 2026-06-12** — US export control directive; all access disabled. Migrate to Claude Opus 4.8 ($5/$25). |
 | [OpenAI](models/openai.md) | GPT-5.5 | 1 M | $5.00 | $30.00 | — | — | Latest OpenAI flagship; ~40% fewer output tokens on agentic tasks |
 | [OpenAI](models/openai.md) | GPT-5.4 | 1 M | $2.50 | $15.00 | 92.8% | 57.7% | Native computer-use; tokens >272K billed at 2× |
 | [OpenAI](models/openai.md) | GPT-5.4 Pro / GPT-5.5 Pro | 1 M | $30.00 | $180.00 | — | — | Max capability |
@@ -18,7 +18,7 @@
 | [xAI](models/xai.md) | Grok 4.20 | 2 M | $1.25 | $2.50 | ~88% | 75% | X data integration; matched Grok 4.3 price |
 | [xAI](models/xai.md) | Grok 4 | 256 K | $3.00 | $15.00 | 87.7% | — | Always-on reasoning |
 
-**Verdict:** **Claude Fable 5** is the new overall capability leader (80.3% SWE-bench Pro, released 2026-06-09) at $10/$50 — 2× the price of Opus 4.8. For best reasoning accuracy, Gemini 3.1 Pro (94.3% GPQA) remains top. For computer-use, GPT-5.4 is unmatched. For cost-efficiency at frontier level, Grok 4.3 ($1.25/$2.50) leads. GPT-5.5 is the most capable OpenAI model but 2× the price of GPT-5.4. Gemini 3.5 Flash ($1.50/$9.00 Standard) released 2026-05-19 outperforms Gemini 3.1 Pro on coding/agents at ~4× faster output speed and ~25% lower cost.
+**Verdict:** ~~Claude Fable 5~~ **SUSPENDED as of 2026-06-12** (US export control). Until restored, **Claude Opus 4.8** ($5/$25) is the top available Anthropic model (69.2% SWE-bench Pro). For best reasoning accuracy, Gemini 3.1 Pro (94.3% GPQA) remains top. For computer-use, GPT-5.4 is unmatched. For cost-efficiency at frontier level, Grok 4.3 ($1.25/$2.50) leads. GPT-5.5 is the most capable OpenAI model at $5/$30. Gemini 3.5 Flash ($1.50/$9.00 Standard) released 2026-05-19 outperforms Gemini 3.1 Pro on coding/agents at ~4× faster output speed and ~25% lower cost.
 
 ---
 
@@ -132,7 +132,7 @@
 
 | Use case | Recommended model | Rationale |
 |---|---|---|
-| **Best overall capability** | **Claude Fable 5** 🆕 | 80.3% SWE-bench Pro (best available); Mythos-class; $10/$50 |
+| **Best overall capability** | **Claude Opus 4.8** (Fable 5 suspended) | Fable 5 ❌ suspended 2026-06-12; Opus 4.8 ($5/$25) is now best available Anthropic model; 69.2% SWE-bench Pro |
 | Best general reasoning | Gemini 3.1 Pro Preview | Highest GPQA (94.3%) |
 | Fastest token generation | Gemini 3.5 Flash | ~4× token gen speed vs other frontier models; $1.50/$9.00 Standard |
 | Computer use / desktop agents | GPT-5.4 | 75% OSWorld (above human baseline) |
@@ -158,12 +158,13 @@
 | **2026-06-01** ❌ PASSED | `gemini-2.0-flash` and `gemini-2.0-flash-lite` — shut down; migrate to `gemini-2.5-flash` / `gemini-2.5-flash-lite` |
 | **2026-06-05** ❌ PASSED | GPT-5.2 Thinking removed from ChatGPT legacy picker |
 | **2026-06-08** ❌ PASSED | Gemini Interactions API legacy schema removed entirely |
-| **2026-06-09** ✅ DONE | 🆕 **Claude Fable 5** launched — `claude-fable-5`, $10/$50 per 1M, 1M context, SWE-bench Pro 80.3%. Now the best-in-class coding/reasoning model. Subscription users: free access through June 22, then usage credits required. See [Anthropic](models/anthropic.md). |
-| **2026-06-09** ✅ DONE | 🆕 **xAI Grok Imagine 1.5 Preview** — `grok-imagine-video-1.5-preview` image-to-video model, up to 720p |
-| **2026-06-15** | 🚨 **5 DAYS** — Migrate `claude-sonnet-4-20250514` → `claude-sonnet-4-6` and `claude-opus-4-20250514` → `claude-opus-4-7` (hard shutdown June 15) |
-| **2026-06-15** | 🚨 **5 DAYS** — **Anthropic Agent SDK billing split takes effect** — autonomous `claude -p`/SDK/GitHub Actions usage moves to per-API-rate credit pool ($20/$100/$200 for Pro/Max5x/Max20x). Review your workflows. See [anthropic.md](models/anthropic.md). |
-| **2026-06-17** | Migrate `gemini-2.5-pro` → `gemini-3.1-pro-preview` or `gemini-3.5-flash`; `gemini-2.5-flash` → `gemini-3-flash-preview` or `gemini-3.5-flash` |
-| **2026-06-22** | Claude Fable 5 free access ends for subscription plan users — usage credits required |
+| **2026-06-09** ✅ DONE | 🆕 **Claude Fable 5** launched — `claude-fable-5`, $10/$50 per 1M, 1M context, SWE-bench Pro 80.3%. |
+| **2026-06-11** ✅ DONE | 🆕 **xAI Grok Build Plugin Marketplace** launched — browse/install plugins from terminal; launch partners: MongoDB, Vercel, Sentry, Chrome DevTools, Cloudflare, Superpowers. |
+| **2026-06-12** 🚨 BREAKING | ❌ **Claude Fable 5 and Claude Mythos 5 SUSPENDED** — U.S. export control directive received 5:21 PM ET. All access disabled globally. Use Claude Opus 4.8 instead. Anthropic says "misunderstanding"; working to restore. See [Anthropic](models/anthropic.md). |
+| **2026-06-15** | 🚨 **2 DAYS** — Migrate `claude-sonnet-4-20250514` → `claude-sonnet-4-6` and `claude-opus-4-20250514` → `claude-opus-4-7` (hard shutdown June 15) |
+| **2026-06-15** | 🚨 **2 DAYS** — **Anthropic Agent SDK billing split takes effect** — autonomous `claude -p`/SDK/GitHub Actions usage moves to per-API-rate credit pool ($20/$100/$200 for Pro/Max5x/Max20x). Review your workflows. See [anthropic.md](models/anthropic.md). |
+| **2026-06-24** | ⚠️ **11 DAYS** — Imagen 4.0 models retire on Gemini Dev API: `imagen-4.0-generate-001`, `imagen-4.0-ultra-generate-001`, `imagen-4.0-fast-generate-001` → `gemini-3-pro-image` or `gemini-2.5-flash-image` |
+| **2026-06-25** | ⚠️ **12 DAYS** — Gemini image preview models retire: `gemini-3.1-flash-image-preview` → `gemini-3.1-flash-image`; `gemini-3-pro-image-preview` → `gemini-3-pro-image` |
 | **2026-06-30** | Migrate Mistral `mistral-moderation-2411` → `mistral-moderation-2` |
 | **2026-07-22** | Migrate `gemini-2.5-flash-lite` → `gemini-3.1-flash-lite` (now GA) |
 | **2026-07-24** | ⚠️ Migrate DeepSeek `deepseek-chat` / `deepseek-reasoner` aliases → `deepseek-v4-flash` or `deepseek-v4-pro` (**hard cutoff — returns errors after this date, no redirect**) |

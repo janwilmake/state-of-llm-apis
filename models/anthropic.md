@@ -1,12 +1,16 @@
 # Anthropic Model Catalog
 
-> **Source:** [Anthropic API Pricing](https://platform.claude.com/docs/en/about-claude/pricing) · [Models Overview](https://platform.claude.com/docs/en/about-claude/models/overview) · **Verified:** 2026-06-10
+> **Source:** [Anthropic API Pricing](https://platform.claude.com/docs/en/about-claude/pricing) · [Models Overview](https://platform.claude.com/docs/en/about-claude/models/overview) · **Verified:** 2026-06-13
 
 ---
 
 ## Current Recommended Models (Fable 5 / Mythos-class)
 
-### Claude Fable 5 (Released 2026-06-09) 🆕 NEW — Mythos-class
+### Claude Fable 5 (Released 2026-06-09) ❌ SUSPENDED — US Export Control Directive
+
+> ❌ **SUSPENDED 2026-06-12 at 5:21 PM ET.** The U.S. government issued an export control directive ordering Anthropic to suspend all access to Fable 5 and Mythos 5 by any foreign national, whether inside or outside the United States. Anthropic complied by disabling both models for **all customers globally** as the only way to ensure compliance. Access to all other Claude models is unaffected. Anthropic has called this a "misunderstanding" and is working to restore access. No timeline given. **Do not build production workflows depending on Fable 5 until access is restored.**
+>
+> *Source: [Anthropic statement](https://www.anthropic.com/news/fable-mythos-access) · [AP](https://www.santacruzsentinel.com/2026/06/12/anthropic-trump/) — 2026-06-12 · verified 2026-06-13*
 
 Anthropic's most capable widely available model. The first **Mythos-class** model released for general use — sits above the Opus tier. Built for the most demanding reasoning, long-horizon agentic work, large-scale coding, and complex knowledge work. Uses the same underlying model as Claude Mythos 5 but with strict safety classifiers for cybersecurity, biology, chemistry, and model distillation domains.
 
@@ -24,6 +28,7 @@ Anthropic's most capable widely available model. The first **Mythos-class** mode
 
 **Key facts:**
 - Released **2026-06-09** on Claude API, Amazon Bedrock, Vertex AI, Microsoft Foundry
+- ❌ **SUSPENDED 2026-06-12** — U.S. export control directive; all access disabled for all customers globally pending resolution
 - **Pricing: ~2× Claude Opus 4.8** ($5/$25 → $10/$50 per 1M). Cheaper than Mythos Preview (~$25/$125)
 - **SWE-bench Pro: 80.3%** — 11 points ahead of second-best model (Claude Opus 4.8 at 69.2%)
 - **GDPval-AA: 1,932** (vs 1,890 for Opus 4.8, 1,769 for GPT-5.5, 1,314 for Gemini 3.1 Pro)
@@ -32,12 +37,12 @@ Anthropic's most capable widely available model. The first **Mythos-class** mode
 - `thinking.display` defaults to `"omitted"` — set `display: "summarized"` to receive readable thinking summaries
 - Safety classifiers trigger `stop_reason: "refusal"` — not billed if refused before any output is generated
 - Optional `fallbacks` parameter: on refusal, re-runs on another Claude model (beta on Claude API and AWS)
-- **Subscription rollout:** Available on API and consumption Enterprise plans immediately. On Pro, Max, Team, and seat-based Enterprise: free access through **June 22, 2026**, then usage credits required (Anthropic aims to restore as standard part of plans ASAP)
-- Also available: **Claude Mythos 5** (`claude-mythos-5`) — same model without safety classifiers; **restricted to Project Glasswing partners only**
+- **Subscription rollout (before suspension):** Free access through June 22, then usage credits. Plans to restore as standard subscription feature after capacity/regulatory resolution.
+- Also available: **Claude Mythos 5** (`claude-mythos-5`) — same model without safety classifiers; **restricted to Project Glasswing partners only** (also suspended)
 
 **Supported features:** `effort` parameter, task budgets, memory tool, context editing, compaction, vision (text, image, file inputs)
 
-*Source: [Anthropic — Introducing Claude Fable 5 and Claude Mythos 5](https://www.anthropic.com/news/claude-fable-5-mythos-5) · [Claude API docs](https://platform.claude.com/docs/en/about-claude/models/introducing-claude-fable-5-and-claude-mythos-5) — 2026-06-09 · verified 2026-06-10*
+*Source: [Anthropic — Introducing Claude Fable 5 and Claude Mythos 5](https://www.anthropic.com/news/claude-fable-5-mythos-5) · [Claude API docs](https://platform.claude.com/docs/en/about-claude/models/introducing-claude-fable-5-and-claude-mythos-5) — 2026-06-09 · [Anthropic suspension statement](https://www.anthropic.com/news/fable-mythos-access) — 2026-06-12 · verified 2026-06-13*
 
 ---
 
@@ -306,8 +311,8 @@ Anthropic's Claude 5 generation is underway. **Sonnet 5 "Fennec"** was released 
 | Claude Opus 4.5 | Active (legacy) | Not before 2026-11-24 | $5/$25 — same price as newer Opus versions |
 | Claude Opus 4.1 | Active (legacy) | Not before 2026-08-05 | $15/$75 — 3× more expensive than Opus 4.8; avoid unless required |
 | Claude Sonnet 4.5 | Active (legacy) | Not before 2026-09-29 | $3/$15 — same price as Sonnet 4.6 but older |
-| Claude Sonnet 4 | 🚨 Deprecated — **5 DAYS** | **2026-06-15** | $3/$15 — deprecated 2026-04-14; API name `claude-sonnet-4-20250514` — migrate to `claude-sonnet-4-6` |
-| Claude Opus 4 | 🚨 Deprecated — **5 DAYS** | **2026-06-15** | $15/$75 — deprecated 2026-04-14; API name `claude-opus-4-20250514` — migrate to `claude-opus-4-7` |
+| Claude Sonnet 4 | 🚨 Deprecated — **2 DAYS** | **2026-06-15** | $3/$15 — deprecated 2026-04-14; API name `claude-sonnet-4-20250514` — migrate to `claude-sonnet-4-6` |
+| Claude Opus 4 | 🚨 Deprecated — **2 DAYS** | **2026-06-15** | $15/$75 — deprecated 2026-04-14; API name `claude-opus-4-20250514` — migrate to `claude-opus-4-7` |
 | Claude 3 Haiku | ❌ **RETIRED 2026-04-20** | **2026-04-20** | Migrate to `claude-haiku-4-5-20251001` |
 | Claude 3.5 Haiku | Retired 2026-02-19 | — | Use Haiku 4.5 |
 | Claude Sonnet 3.7 | Retired 2026-02-19 | — | Use Sonnet 4.6 |
