@@ -1,6 +1,6 @@
 # LLM API Comparison Matrix
 
-> **Last updated:** 2026-06-13. Prices per 1M tokens (USD), standard tier unless noted.
+> **Last updated:** 2026-06-14. Prices per 1M tokens (USD), standard tier unless noted.
 
 ---
 
@@ -30,7 +30,7 @@
 | [OpenAI](models/openai.md) | GPT-5.4 Mini | 400 K | $0.75 | $4.50 | 54.38% SWE-bench; 6× cheaper than flagship |
 | [OpenAI](models/openai.md) | GPT-4.1 | 1 M | $2.00 | $8.00 | 1 M context at lower price |
 | [Anthropic](models/anthropic.md) | Claude Sonnet 4.6 | 1 M | $3.00 | $15.00 | Best production Claude model |
-| [Google](models/google.md) | Gemini 2.5 Pro | 2 M | $1.25 | $10.00 | ⚠️ Retiring 2026-06-17 |
+| [Google](models/google.md) | Gemini 2.5 Pro | 2 M | $1.25 | $10.00 | ⚠️ Retiring 2026-10-16 |
 | [Google](models/google.md) | Gemini 3.5 Flash | 1 M | $1.50 | $9.00 | ~4× token gen speed; strongest agentic/coding; default Gemini model; released 2026-05-19 (Priority: $2.70/$16.20) |
 | [Google](models/google.md) | Gemini 3 Flash Preview | 1 M | $0.50 | $3.00 | Preview; fast |
 | [Mistral](models/mistral.md) | Mistral Medium 3.5 🆕 | 256 K | $1.50 | $7.50 | 128B dense; vision + coding + agents; GA 2026-05-05 |
@@ -49,9 +49,9 @@
 | [OpenAI](models/openai.md) | GPT-4.1 Nano | 1 M | $0.10 | $0.40 | Very cheap; 1 M context |
 | [OpenAI](models/openai.md) | GPT-4o Mini | 128 K | $0.15 | $0.60 | Legacy; still widely used |
 | [Anthropic](models/anthropic.md) | Claude Haiku 4.5 | 200 K | $1.00 | $5.00 | Fastest Claude |
-| [Google](models/google.md) | Gemini 2.5 Flash 🏆 | 1 M | $0.30 | $2.50 | Best GA balance ⚠️ retires 2026-06-17 |
+| [Google](models/google.md) | Gemini 2.5 Flash 🏆 | 1 M | $0.30 | $2.50 | Best GA balance ⚠️ retires 2026-10-16 |
 | [Google](models/google.md) | Gemini 2.5 Flash-Lite | 1 M | $0.10 | $0.40 | ⚠️ retires 2026-07-22 |
-| [Google](models/google.md) | Gemini 2.0 Flash-Lite | 1 M | $0.075 | $0.30 | Absolute cheapest billed option ⚠️ retires 2026-06-01 |
+| [Google](models/google.md) | Gemini 2.0 Flash-Lite | 1 M | $0.075 | $0.30 | ❌ Shut down 2026-06-01 — migrate to `gemini-3.1-flash-lite` ($0.25/$1.50) |
 | [Mistral](models/mistral.md) | Mistral Small 4 | 262 K | $0.15 | $0.60 | Vision + coding + reasoning unified |
 | [Mistral](models/mistral.md) | Mistral Nemo | 128 K | $0.02 | $0.06 | Cheapest Mistral |
 | [xAI](models/xai.md) | Grok 4.3 | 1 M | $1.25 | $2.50 | ✅ Recommended xAI default; replaces all Fast/grok-4 models |

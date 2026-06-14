@@ -1,6 +1,6 @@
 # Deprecated & Sunset Models
 
-> Track sunset dates and migration paths. **Last updated:** 2026-06-13.
+> Track sunset dates and migration paths. **Last updated:** 2026-06-14.
 >
 > ⚠️ = Deprecated, still accessible. ❌ = Shut down, no longer accessible.
 
@@ -8,7 +8,7 @@
 
 ## Upcoming Shutdowns (Action Required)
 
-### Anthropic — June 15, 2026 🚨 **2 DAYS**
+### Anthropic — June 15, 2026 🚨 **TOMORROW**
 
 | Model | API name | Deprecated | Shutdown date | Replacement |
 |---|---|---|---|---|
@@ -75,7 +75,7 @@ This is a **code change**, not a model retirement, but it will break integration
 
 **2026-06-01** ❌ COMPLETED: `gemini-2.0-flash` and `gemini-2.0-flash-lite` shut down. See "Already Shut Down" section.
 
-**2026-06-25** — ⚠️ **13 DAYS** — Google Gemini image preview models retiring:
+**2026-06-25** — ⚠️ **11 DAYS** — Google Gemini image preview models retiring:
 
 | Model | Shutdown date | Migrate to |
 |---|---|---|
@@ -86,7 +86,7 @@ This is a **code change**, not a model retirement, but it will break integration
 
 ---
 
-**2026-06-24** — ⚠️ **12 DAYS** — Imagen 4.0 models retiring on the Gemini Developer API:
+**2026-06-24** — ⚠️ **10 DAYS** — Imagen 4.0 models retiring on the Gemini Developer API:
 
 | Model | Shutdown date | Migrate to |
 |---|---|---|
@@ -134,10 +134,21 @@ This is a **code change**, not a model retirement, but it will break integration
 
 ---
 
+### OpenAI — June 27, 2026 (ChatGPT only)
+
+| Model | ChatGPT retirement | Notes |
+|---|---|---|
+| GPT-4.5 | **2026-06-27** | Retiring from ChatGPT only (announced 2026-05-28). No API change. |
+
+*Source: [ChatGPT Release Notes — May 28, 2026](https://help.openai.com/en/articles/6825453-chatgpt-release-notes) — verified 2026-06-14*
+
+---
+
 ### Mistral — June 30, 2026
 
 | Model | API name | Deprecated | Retirement date | Replacement |
 |---|---|---|---|---|
+| Leanstral | `labs-leanstral-2603` | 2026-05-22 | **2026-06-30** | — (no published replacement) |
 | Mistral Moderation v2 | `mistral-moderation-2411` | 2026-03-31 | **2026-06-30** | `mistral-moderation-2` |
 
 *Source: [Mistral Models Overview](https://docs.mistral.ai/models/overview) — verified 2026-06-10*
@@ -165,6 +176,28 @@ This is a **code change**, not a model retirement, but it will break integration
 > ⚠️ **No silent redirect after July 24.** Unlike xAI's May 15 retirement, DeepSeek has stated that calls to `deepseek-chat` and `deepseek-reasoner` will **return errors** (not redirect) after the deadline. This is a hard cutoff.
 
 *Source: [DeepSeek API Docs — Models & Pricing](https://api-docs.deepseek.com/quick_start/pricing) — verified 2026-06-10*
+
+---
+
+### OpenAI — November 30, 2026
+
+| Product | Status | Replacement |
+|---|---|---|
+| Agent Builder | Deprecated 2026-06-03; **shuts down 2026-11-30** | Agents SDK or ChatGPT Workspace Agents |
+
+*Source: [OpenAI Deprecations](https://developers.openai.com/api/docs/deprecations) — verified 2026-06-14*
+
+---
+
+### OpenAI — December 1, 2026
+
+| Model | API name | Deprecated | Shutdown date | Replacement |
+|---|---|---|---|---|
+| GPT Image 1 Mini | `gpt-image-1-mini` | 2026-06-02 | **2026-12-01** | `gpt-image-2` |
+| GPT Image 1.5 | `gpt-image-1.5` | 2026-06-02 | **2026-12-01** | `gpt-image-2` |
+| ChatGPT Image Latest | `chatgpt-image-latest` | 2026-06-02 | **2026-12-01** | `gpt-image-2` |
+
+*Source: [OpenAI Deprecations](https://developers.openai.com/api/docs/deprecations) — verified 2026-06-14*
 
 ---
 

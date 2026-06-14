@@ -4,6 +4,73 @@ Changes tracked by the Model Tracker agent. Most recent entries first.
 
 ---
 
+## 2026-06-14
+
+### 🔴 OpenAI: GPT-5.2 family retired from ChatGPT (2026-06-12) — API unaffected
+
+**Provider:** [OpenAI](models/openai.md)  
+As of **June 12, 2026**, GPT-5.2 Instant, GPT-5.2 Thinking, and GPT-5.2 Pro are no longer available in ChatGPT. Existing conversations migrate automatically to corresponding GPT-5.5 models. This retirement was previously announced with the GPT-5.3 Instant release (models typically remain in ChatGPT for 90 days after a successor ships). **There are no API changes** — GPT-5.2 model IDs, if still available on the API, continue to work.
+
+*Source: [ChatGPT Release Notes — June 12, 2026](https://help.openai.com/en/articles/6825453-chatgpt-release-notes) — verified 2026-06-14*
+
+---
+
+### 🆕 OpenAI: GPT Image 1 family deprecated — retire Dec 1, 2026
+
+**Provider:** [OpenAI](models/openai.md)  
+On **June 2, 2026**, OpenAI notified developers of deprecation for three older image models. These remain accessible until December 1, 2026.
+
+| Model | API name | Shutdown date | Replacement |
+|---|---|---|---|
+| GPT Image 1 Mini | `gpt-image-1-mini` | **2026-12-01** | `gpt-image-2` |
+| GPT Image 1.5 | `gpt-image-1.5` | **2026-12-01** | `gpt-image-2` |
+| ChatGPT Image Latest | `chatgpt-image-latest` | **2026-12-01** | `gpt-image-2` |
+
+GPT Image 2 (`gpt-image-2`) was released April 21, 2026 and is the current recommended model. Supports Batch API (50% discount), token-based billing, and flexible image sizes.
+
+Updated: `deprecated.md`  
+*Source: [OpenAI Deprecations](https://developers.openai.com/api/docs/deprecations) — verified 2026-06-14*
+
+---
+
+### 🆕 OpenAI: Agent Builder deprecated — shut down Nov 30, 2026
+
+**Provider:** [OpenAI](models/openai.md)  
+On **June 3, 2026**, OpenAI announced deprecation of the **Agent Builder** product. ChatKit remains available. Migration path: move to the Agents SDK or ChatGPT Workspace Agents.
+
+| Milestone | Date |
+|---|---|
+| Deprecation announced | June 3, 2026 |
+| Shut down | **November 30, 2026** |
+
+This affects developers who built on Agent Builder's no-code/low-code interface — not the Agents SDK or Responses API, which remain active.
+
+Updated: `deprecated.md`  
+*Source: [OpenAI Deprecations](https://developers.openai.com/api/docs/deprecations) — verified 2026-06-14*
+
+---
+
+### ⏱️ Deadlines: **TOMORROW** — Anthropic June 15 retirements; Gemini image previews in 11 days
+
+| Deadline | Action |
+|---|---|
+| **2026-06-15** | 🚨 **TOMORROW** — Migrate `claude-sonnet-4-20250514` → `claude-sonnet-4-6` and `claude-opus-4-20250514` → `claude-opus-4-7` (hard shutdown) |
+| **2026-06-15** | 🚨 **TOMORROW** — Anthropic Agent SDK billing split takes effect; SDK/`claude -p`/GitHub Actions usage moves to separate credit pool (Pro=$20, Max 5x=$100, Max 20x=$200) |
+| **2026-06-25** | ⚠️ 11 days — Gemini image preview models retire: `gemini-3.1-flash-image-preview` → `gemini-3.1-flash-image`; `gemini-3-pro-image-preview` → `gemini-3-pro-image` |
+| **2026-06-27** | ⚠️ 13 days — GPT-4.5 retired from **ChatGPT** (no API change) |
+| **2026-06-24** | ⚠️ 10 days — Imagen 4.0 models retire on Gemini Developer API (`imagen-4.0-*`) → `gemini-3-pro-image` |
+| **2026-06-30** | 16 days — Mistral `labs-leanstral-2603` (Leanstral) hard shutdown |
+| **2026-07-24** | 40 days — DeepSeek `deepseek-chat` / `deepseek-reasoner` hard cutoff → use `deepseek-v4-flash` (returns errors, no redirect) |
+| **2026-07-31** | 47 days — Mistral `mistral-small-2506`, `magistral-small-2509`, `devstral-2512` → `mistral-small-2603`/`mistral-medium-3-5` |
+| **2026-08-26** | ~73 days — OpenAI o3 retired from **ChatGPT** (no API change) |
+| **2026-10-16** | ~124 days — `gemini-2.5-pro`, `gemini-2.5-flash`, `gemini-2.5-flash-lite` retire |
+| **2026-11-30** | ~169 days — OpenAI Agent Builder shut down |
+| **2026-12-01** | ~170 days — `gpt-image-1-mini`, `gpt-image-1.5`, `chatgpt-image-latest` shut down → `gpt-image-2` |
+
+*Verified 2026-06-14*
+
+---
+
 ## 2026-06-13
 
 ### 🚨 Anthropic: Claude Fable 5 and Mythos 5 SUSPENDED — US export control directive (2026-06-12)
