@@ -4,6 +4,97 @@ Changes tracked by the Model Tracker agent. Most recent entries first.
 
 ---
 
+## 2026-06-15
+
+### ✅ Anthropic: June 15 retirements COMPLETED — `claude-sonnet-4-20250514` and `claude-opus-4-20250514` shut down
+
+**Provider:** [Anthropic](models/anthropic.md)  
+As of today (**June 15, 2026**), the following models are shut down and return API errors:
+
+| Model | API name | Replacement |
+|---|---|---|
+| Claude Sonnet 4 | `claude-sonnet-4-20250514` ❌ | `claude-sonnet-4-6` ($3/$15 per 1M) |
+| Claude Opus 4 | `claude-opus-4-20250514` ❌ | `claude-opus-4-7` ($5/$25 per 1M) |
+
+If you still have calls targeting either dated model ID, they will fail immediately. Migrate to `claude-sonnet-4-6` or `claude-opus-4-7` (or newer — Opus 4.8 at the same $5/$25 pricing is also recommended).
+
+Updated: `deprecated.md`  
+*Source: [Anthropic model deprecations](https://platform.claude.com/docs/en/about-claude/model-deprecations) — confirmed 2026-06-15*
+
+---
+
+### ✅ Anthropic: Agent SDK billing split NOW LIVE (2026-06-15)
+
+**Provider:** [Anthropic](models/anthropic.md)  
+The Anthropic **Agent SDK billing split** went into effect today. Programmatic/autonomous Claude Code usage — via the Agent SDK, `claude -p` CLI flag, GitHub Actions, and third-party integrations (OpenClaw, Zed, Cursor, etc.) — now draws from a **dedicated monthly credit pool**, separate from interactive chat usage in the claude.ai interface.
+
+| Subscription plan | Autonomous agent credits/month |
+|---|---|
+| Pro ($20/month) | $20 in API-rate credits |
+| Max 5x ($100/month) | $100 in API-rate credits |
+| Max 20x ($200/month) | $200 in API-rate credits |
+
+Overflow beyond the monthly credit pool is charged at standard API rates per token. Teams with heavy automated Claude Code workloads (CI pipelines, agent loops, GitHub Actions) should monitor credit consumption immediately to avoid unexpected overage charges.
+
+*Source: [Anthropic billing announcement](https://www.anthropic.com/news/agent-sdk-billing) — announced 2026-05-14 · effective 2026-06-15*
+
+---
+
+### ⚠️ Google: Gemini CLI / Gemini Code Assist consumer shutdown — **June 18, 2026 (3 DAYS)**
+
+**Provider:** [Google](models/google.md)  
+Google's **Gemini CLI** and **Gemini Code Assist IDE extensions** stop serving all Google AI Pro, Ultra, and free Gemini Code Assist for individuals users on **June 18, 2026**. The successor is the **Antigravity CLI** (`agy` binary).
+
+> ⚠️ **Enterprise exception:** Organizations on Gemini Code Assist Standard/Enterprise licenses or paid API keys are **not** affected — this is a consumer-tier shutdown only.
+
+**What breaks on June 18 for consumer users:**
+- `gemini` CLI binary stops serving
+- Gemini Code Assist IDE extensions (VS Code, JetBrains, etc.) stop serving
+- Gemini Code Assist for GitHub: no new org installations; existing requests stop serving in the following weeks
+
+**Migration:** Install the Antigravity CLI (`agy`). Note: the migration script does not update CI/CD pipelines or automation. One known silent failure: a specific MCP `serverUrl` config field fails without an error. Test carefully before cutover.
+
+Updated: `deprecated.md`  
+*Source: [Google I/O 2026 announcement — May 19, 2026](https://cloud.google.com/blog/products/ai-machine-learning/innovations-from-google-io-26-on-google-cloud) · [Antigravity migration guide](https://www.digitalapplied.com/blog/gemini-cli-to-antigravity-cli-migration-june-18-2026-guide) — verified 2026-06-15*
+
+---
+
+### 🆕 Google: Veo 3.0 / Veo 2.0 retiring June 30, 2026 — **15 DAYS**
+
+**Provider:** [Google](models/google.md)  
+Three Veo video generation models are scheduled for retirement on **June 30, 2026**, per the official Google Cloud model lifecycle page. Replacement is Veo 3.1 (released November 2025, no announced shutdown date).
+
+| Model | API name | Retirement | Replacement |
+|---|---|---|---|
+| Veo 3.0 | `veo-3.0-generate-001` | **2026-06-30** | `veo-3.1-generate-001` |
+| Veo 3.0 Fast | `veo-3.0-fast-generate-001` | **2026-06-30** | `veo-3.1-fast-generate-001` |
+| Veo 2.0 | `veo-2.0-generate-001` | **2026-06-30** | `veo-3.1-generate-001` |
+
+Updated: `deprecated.md`  
+*Source: [Google Cloud — Model versions and lifecycle](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/model-versions) — verified 2026-06-15*
+
+---
+
+### ⏱️ Deadlines: Key upcoming cutoffs
+
+| Deadline | Days | Action |
+|---|---|---|
+| **2026-06-18** | **3 days** 🚨 | Gemini CLI + Code Assist consumer users: migrate to Antigravity CLI (`agy`) |
+| **2026-06-24** | 9 days ⚠️ | Imagen 4.0 models retire on Gemini Dev API → `gemini-3-pro-image` |
+| **2026-06-25** | 10 days ⚠️ | `gemini-3.1-flash-image-preview` and `gemini-3-pro-image-preview` → GA versions |
+| **2026-06-27** | 12 days | GPT-4.5 retired from **ChatGPT** (no API change) |
+| **2026-06-30** | 15 days ⚠️ | Mistral `labs-leanstral-2603` hard shutdown |
+| **2026-06-30** | 15 days ⚠️ | Google Veo 3.0 / Veo 2.0 retire → `veo-3.1-generate-001` |
+| **2026-07-24** | 39 days | DeepSeek `deepseek-chat` / `deepseek-reasoner` hard cutoff → `deepseek-v4-flash` (returns errors, no redirect) |
+| **2026-07-31** | 46 days | Mistral `mistral-small-2506`, `magistral-small-2509` → `mistral-small-2603` |
+| **2026-10-16** | ~123 days | `gemini-2.5-pro`, `gemini-2.5-flash`, `gemini-2.5-flash-lite` retire |
+| **2026-11-30** | ~168 days | OpenAI Agent Builder shut down |
+| **2026-12-01** | ~169 days | `gpt-image-1-mini`, `gpt-image-1.5`, `chatgpt-image-latest` shut down → `gpt-image-2` |
+
+*Verified 2026-06-15*
+
+---
+
 ## 2026-06-14
 
 ### 🔴 OpenAI: GPT-5.2 family retired from ChatGPT (2026-06-12) — API unaffected
@@ -50,12 +141,12 @@ Updated: `deprecated.md`
 
 ---
 
-### ⏱️ Deadlines: **TOMORROW** — Anthropic June 15 retirements; Gemini image previews in 11 days
+### ⏱️ Deadlines: ~~TOMORROW~~ — Anthropic June 15 retirements ✅ COMPLETED TODAY; Gemini image previews in 10 days
 
 | Deadline | Action |
 |---|---|
-| **2026-06-15** | 🚨 **TOMORROW** — Migrate `claude-sonnet-4-20250514` → `claude-sonnet-4-6` and `claude-opus-4-20250514` → `claude-opus-4-7` (hard shutdown) |
-| **2026-06-15** | 🚨 **TOMORROW** — Anthropic Agent SDK billing split takes effect; SDK/`claude -p`/GitHub Actions usage moves to separate credit pool (Pro=$20, Max 5x=$100, Max 20x=$200) |
+| **2026-06-15** | ✅ **TODAY COMPLETED** — `claude-sonnet-4-20250514` and `claude-opus-4-20250514` shut down — migrate to `claude-sonnet-4-6` / `claude-opus-4-7` |
+| **2026-06-15** | ✅ **TODAY LIVE** — Anthropic Agent SDK billing split in effect; SDK/`claude -p`/GitHub Actions usage now draws from dedicated credit pool (Pro=$20, Max 5x=$100, Max 20x=$200) |
 | **2026-06-25** | ⚠️ 11 days — Gemini image preview models retire: `gemini-3.1-flash-image-preview` → `gemini-3.1-flash-image`; `gemini-3-pro-image-preview` → `gemini-3-pro-image` |
 | **2026-06-27** | ⚠️ 13 days — GPT-4.5 retired from **ChatGPT** (no API change) |
 | **2026-06-24** | ⚠️ 10 days — Imagen 4.0 models retire on Gemini Developer API (`imagen-4.0-*`) → `gemini-3-pro-image` |

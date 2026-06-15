@@ -1,6 +1,6 @@
 # Deprecated & Sunset Models
 
-> Track sunset dates and migration paths. **Last updated:** 2026-06-14.
+> Track sunset dates and migration paths. **Last updated:** 2026-06-15.
 >
 > ⚠️ = Deprecated, still accessible. ❌ = Shut down, no longer accessible.
 
@@ -8,19 +8,36 @@
 
 ## Upcoming Shutdowns (Action Required)
 
-### Anthropic — June 15, 2026 🚨 **TOMORROW**
+### Anthropic — June 15, 2026 ✅ COMPLETED (2026-06-15)
+
+❌ **Shut down today.** The following models are no longer accessible as of 2026-06-15. API calls return errors.
 
 | Model | API name | Deprecated | Shutdown date | Replacement |
 |---|---|---|---|---|
-| Claude Sonnet 4 | `claude-sonnet-4-20250514` | 2026-04-14 | **2026-06-15** | `claude-sonnet-4-6` |
-| Claude Opus 4 | `claude-opus-4-20250514` | 2026-04-14 | **2026-06-15** | `claude-opus-4-7` |
+| Claude Sonnet 4 | `claude-sonnet-4-20250514` | 2026-04-14 | **2026-06-15** ❌ | `claude-sonnet-4-6` |
+| Claude Opus 4 | `claude-opus-4-20250514` | 2026-04-14 | **2026-06-15** ❌ | `claude-opus-4-7` |
 
-⚠️ **Correction (2026-05-14):** The actual retirement date is **June 15, 2026** — not May 14. Previous changelog entries incorrectly stated May 14 as the shutdown date. The "Not before 2026-05-14" language in the legacy model table was a minimum retention guarantee, not the retirement date. Verified against the [official Anthropic model deprecations page](https://platform.claude.com/docs/en/about-claude/model-deprecations).
+Replacement pricing is unchanged: `claude-sonnet-4-6` at $3/$15 per 1M; `claude-opus-4-7` at $5/$25 per 1M.  
+*Source: [Anthropic model deprecations](https://platform.claude.com/docs/en/about-claude/model-deprecations) — verified 2026-05-14 / confirmed retired 2026-06-15*
 
-Migrate before June 15. Same pricing tier ($3/$15 for Sonnet 4.6; $5/$25 for Opus 4.7).  
-*Source: [Anthropic model deprecations](https://platform.claude.com/docs/en/about-claude/model-deprecations) — verified 2026-05-14*
+> ✅ **Also live today (2026-06-15):** Anthropic's **Agent SDK billing split** is now in effect. Autonomous/programmatic Claude Code usage (Agent SDK, `claude -p`, GitHub Actions, third-party tools like OpenClaw/Zed/Cursor) now draws from a dedicated monthly credit pool billed at API rates. Credits: Pro = $20/month, Max 5x = $100/month, Max 20x = $200/month. Overflow charges at standard API per-token rates. See [anthropic.md](models/anthropic.md) for details.
 
-> ⚠️ **Also on June 15:** Anthropic's **Agent SDK billing split** takes effect. Autonomous/programmatic Claude Code usage (Agent SDK, `claude -p`, GitHub Actions, third-party tools like OpenClaw/Zed/Cursor) moves from the shared subscription pool to a dedicated monthly credit billed at API rates. Credits: Pro = $20, Max 5x = $100, Max 20x = $200. See [anthropic.md](models/anthropic.md) for details. Announced 2026-05-14.
+---
+
+### Google — June 18, 2026 ⚠️ **3 DAYS** — Gemini CLI / Gemini Code Assist consumer shutdown
+
+> **Announced 2026-05-19 at Google I/O.** Gemini CLI and the Gemini Code Assist IDE extensions stop serving all **Google AI Pro**, **Ultra**, and **free Gemini Code Assist for individuals** users on **June 18, 2026**. Successor is the **Antigravity CLI** (`agy`).
+
+| Product | Shutdown date | Replacement |
+|---|---|---|
+| Gemini CLI (`gemini` binary) | **2026-06-18** | Antigravity CLI (`agy`) — new binary, new config |
+| Gemini Code Assist IDE extensions (consumer) | **2026-06-18** | Antigravity CLI / IDE integration |
+| Gemini Code Assist for GitHub (new orgs) | **2026-06-18** | No new org installations permitted |
+
+> ⚠️ **Enterprise exception:** Organizations on **Gemini Code Assist Standard or Enterprise** licenses, or using paid Gemini / Gemini Enterprise Agent Platform API keys, retain uninterrupted access to Gemini CLI. This is a **consumer-tier shutdown only**.
+
+**Migration:** Install the Antigravity CLI (`agy`) binary. The config layout has changed — migration script does not update CI/CD pipelines or automation. Test before cutting over automated workflows. One known silent failure: a specific MCP `serverUrl` config field fails without throwing an error.  
+*Source: [Google I/O 2026 announcement — May 19, 2026](https://cloud.google.com/blog/products/ai-machine-learning/innovations-from-google-io-26-on-google-cloud) · [Antigravity migration guide](https://www.digitalapplied.com/blog/gemini-cli-to-antigravity-cli-migration-june-18-2026-guide) — verified 2026-06-15*
 
 ---
 
@@ -144,6 +161,18 @@ This is a **code change**, not a model retirement, but it will break integration
 
 ---
 
+### Google — June 30, 2026 ⚠️ **15 DAYS** — Veo 3.0 / Veo 2.0 retirement
+
+| Model | API name | Retirement date | Replacement |
+|---|---|---|---|
+| Veo 3.0 (standard) | `veo-3.0-generate-001` | **2026-06-30** | `veo-3.1-generate-001` |
+| Veo 3.0 Fast | `veo-3.0-fast-generate-001` | **2026-06-30** | `veo-3.1-fast-generate-001` |
+| Veo 2.0 | `veo-2.0-generate-001` | **2026-06-30** | `veo-3.1-generate-001` |
+
+*Source: [Google Cloud — Model versions and lifecycle](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/model-versions) — verified 2026-06-15*
+
+---
+
 ### Mistral — June 30, 2026
 
 | Model | API name | Deprecated | Retirement date | Replacement |
@@ -262,6 +291,17 @@ GPT-5.4 replaced GPT-5.2 Thinking in ChatGPT as of 2026-03-05. GPT-5.2 Thinking 
 ---
 
 ## Already Shut Down
+
+### Anthropic (2026-06-15)
+
+| Model | API name | Retired | Replacement |
+|---|---|---|---|
+| Claude Sonnet 4 | `claude-sonnet-4-20250514` | **2026-06-15** | `claude-sonnet-4-6` ($3/$15 per 1M) |
+| Claude Opus 4 | `claude-opus-4-20250514` | **2026-06-15** | `claude-opus-4-7` ($5/$25 per 1M) |
+
+*Source: [Anthropic model deprecations](https://platform.claude.com/docs/en/about-claude/model-deprecations) — verified 2026-06-15*
+
+---
 
 ### Mistral (2026-05-31)
 
