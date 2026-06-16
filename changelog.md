@@ -4,6 +4,76 @@ Changes tracked by the Model Tracker agent. Most recent entries first.
 
 ---
 
+## 2026-06-16
+
+### 🔄 Anthropic: Agent SDK billing split PAUSED — NOT live as of June 15
+
+**Provider:** [Anthropic](models/anthropic.md)  
+The changelog entry from 2026-06-15 stated the Agent SDK billing split "went into effect." **This was incorrect.** According to a June 16 update from Digital Applied (citing Anthropic's own actions), Anthropic **paused the change before it took effect** on June 15. The Agent SDK credit split is **not currently live**. Subscription usage continues as before — autonomous/programmatic Agent SDK, `claude -p`, GitHub Actions, and third-party integrations still draw from the regular subscription pool.
+
+Anthropic has stated it will re-announce the change with advance notice before it ships. No revised date announced.
+
+**Impact on developers:** No action needed right now. If you prepared for the June 15 change, remain prepared — but you are not being charged at API rates for autonomous workloads yet.
+
+Updated: `models/anthropic.md`  
+*Source: [Digital Applied — Claude Credit Overhaul (updated June 16, 2026)](https://www.digitalapplied.com/blog/anthropic-claude-credit-overhaul-june-15-2026) — verified 2026-06-16*
+
+---
+
+### 🆕 xAI: Agent Dashboard in Grok Build (2026-06-15)
+
+**Provider:** [xAI](models/xai.md)  
+xAI launched the **Agent Dashboard** feature inside Grok Build on June 15, 2026. The Agent Dashboard provides a visual interface for monitoring, managing, and debugging autonomous agent runs directly within the Grok Build tool.
+
+*Source: [xAI News — Agent Dashboard in Grok Build](https://x.ai/news) — 2026-06-15 · verified 2026-06-16*
+
+---
+
+### 🆕 xAI: Grok now available in Warp terminal (2026-06-15)
+
+**Provider:** [xAI](models/xai.md)  
+xAI announced that Grok models are now available inside the **Warp terminal** (warp.dev) as of June 15, 2026. Warp users can connect their **SuperGrok subscription** (OAuth-based, not an API key) to route Grok model inference through their xAI account, consuming their SuperGrok limits instead of Warp credits. When a SuperGrok subscription is connected, Warp does **not** consume any Warp credits for Grok requests.
+
+**Key details:**
+- Connection method: OAuth sign-in to xAI account (no API key required)
+- Available to Free and eligible paid Warp plans for individuals and orgs ≤ 10 employees
+- Token storage: OAuth tokens stored only on the user's device (OS keychain), never on Warp servers
+- Zero data retention: Data retention is governed by the user's xAI account terms (Warp cannot enforce ZDR for subscription-routed requests)
+
+Updated: `models/xai.md`  
+*Source: [xAI News — Use Grok in Warp](https://x.ai/news) · [Warp Docs — SuperGrok subscription](https://docs.warp.dev/agent-platform/inference/grok-subscription/) — 2026-06-15 · verified 2026-06-16*
+
+---
+
+### 🆕 xAI: Grok for PowerPoint add-in launched (2026-06-16)
+
+**Provider:** [xAI](models/xai.md)  
+xAI launched a **Microsoft PowerPoint add-in** for Grok on June 16, 2026. Grok now works natively inside PowerPoint: turn outlines into slide decks, expand existing slides, and refine narrative — all without leaving the application.
+
+*Source: [xAI News — Grok for PowerPoint](https://x.ai/news/introducing-powerpoint-addin) — 2026-06-16 · verified 2026-06-16*
+
+---
+
+### ⏱️ Deadlines: Key upcoming cutoffs (verified 2026-06-16)
+
+| Deadline | Days | Action |
+|---|---|---|
+| **2026-06-18** | **2 days** 🚨 | Gemini CLI + Code Assist consumer users: migrate to Antigravity CLI (`agy`) |
+| **2026-06-24** | 8 days ⚠️ | Imagen 4.0 models retire on Gemini Dev API (`imagen-4.0-*`) → `gemini-3-pro-image` |
+| **2026-06-25** | 9 days ⚠️ | `gemini-3.1-flash-image-preview` and `gemini-3-pro-image-preview` → GA versions |
+| **2026-06-27** | 11 days | GPT-4.5 retired from **ChatGPT** (no API change) |
+| **2026-06-30** | 14 days ⚠️ | Google Veo 3.0 / Veo 2.0 retire → `veo-3.1-generate-001` |
+| **2026-06-30** | 14 days | Mistral `labs-leanstral-2603` hard shutdown |
+| **2026-07-24** | 38 days | DeepSeek `deepseek-chat` / `deepseek-reasoner` hard cutoff → `deepseek-v4-flash` |
+| **2026-07-31** | 45 days | Mistral `mistral-small-2506`, `magistral-small-2509` → `mistral-small-2603` |
+| **2026-10-16** | ~122 days | `gemini-2.5-pro`, `gemini-2.5-flash`, `gemini-2.5-flash-lite` retire |
+| **2026-11-30** | ~167 days | OpenAI Agent Builder shut down |
+| **2026-12-01** | ~168 days | `gpt-image-1-mini`, `gpt-image-1.5`, `chatgpt-image-latest` shut down → `gpt-image-2` |
+
+*Verified 2026-06-16*
+
+---
+
 ## 2026-06-15
 
 ### ✅ Anthropic: June 15 retirements COMPLETED — `claude-sonnet-4-20250514` and `claude-opus-4-20250514` shut down
@@ -23,20 +93,17 @@ Updated: `deprecated.md`
 
 ---
 
-### ✅ Anthropic: Agent SDK billing split NOW LIVE (2026-06-15)
+### ⚠️ Anthropic: Agent SDK billing split — PAUSED before taking effect (2026-06-15)
 
 **Provider:** [Anthropic](models/anthropic.md)  
-The Anthropic **Agent SDK billing split** went into effect today. Programmatic/autonomous Claude Code usage — via the Agent SDK, `claude -p` CLI flag, GitHub Actions, and third-party integrations (OpenClaw, Zed, Cursor, etc.) — now draws from a **dedicated monthly credit pool**, separate from interactive chat usage in the claude.ai interface.
+The Anthropic **Agent SDK billing split** announced for June 15 did **NOT** go into effect. Anthropic paused the change before the deadline. See the 2026-06-16 entry for full details. Subscription usage continues as before for all users.
 
-| Subscription plan | Autonomous agent credits/month |
-|---|---|
-| Pro ($20/month) | $20 in API-rate credits |
-| Max 5x ($100/month) | $100 in API-rate credits |
-| Max 20x ($200/month) | $200 in API-rate credits |
+> ~~The following subscription credit table was announced but is not currently active:~~
+> - Pro ($20/month): $20 in API-rate credits
+> - Max 5x ($100/month): $100 in API-rate credits  
+> - Max 20x ($200/month): $200 in API-rate credits
 
-Overflow beyond the monthly credit pool is charged at standard API rates per token. Teams with heavy automated Claude Code workloads (CI pipelines, agent loops, GitHub Actions) should monitor credit consumption immediately to avoid unexpected overage charges.
-
-*Source: [Anthropic billing announcement](https://www.anthropic.com/news/agent-sdk-billing) — announced 2026-05-14 · effective 2026-06-15*
+*Source: [Anthropic billing announcement](https://www.anthropic.com/news/agent-sdk-billing) — announced 2026-05-14 · PAUSED 2026-06-15 — see 2026-06-16 correction*
 
 ---
 
@@ -91,6 +158,7 @@ Updated: `deprecated.md`
 | **2026-11-30** | ~168 days | OpenAI Agent Builder shut down |
 | **2026-12-01** | ~169 days | `gpt-image-1-mini`, `gpt-image-1.5`, `chatgpt-image-latest` shut down → `gpt-image-2` |
 
+*Note: The Anthropic Agent SDK billing split (also announced for June 15) was paused before taking effect — see 2026-06-16 correction.*  
 *Verified 2026-06-15*
 
 ---

@@ -1,6 +1,6 @@
 # Anthropic Model Catalog
 
-> **Source:** [Anthropic API Pricing](https://platform.claude.com/docs/en/about-claude/pricing) · [Models Overview](https://platform.claude.com/docs/en/about-claude/models/overview) · **Verified:** 2026-06-13
+> **Source:** [Anthropic API Pricing](https://platform.claude.com/docs/en/about-claude/pricing) · [Models Overview](https://platform.claude.com/docs/en/about-claude/models/overview) · **Verified:** 2026-06-16
 
 ---
 
@@ -209,15 +209,17 @@ Claude models support `extended_thinking` mode, which enables multi-step chain-o
 
 ---
 
-## Agent SDK Billing Split (Effective 2026-06-15) ⚠️ NEW
+## Agent SDK Billing Split — ANNOUNCED but PAUSED (Announced 2026-05-14, Paused 2026-06-15)
 
-Anthropic is separating autonomous/programmatic Claude usage from interactive usage, effective **June 15, 2026**.
+> ⚠️ **UPDATE 2026-06-16:** Anthropic **paused this change before it took effect** on June 15, 2026. The Agent SDK credit split is **not currently live**. Subscription usage (interactive and autonomous) continues drawing from the same pool as before. Anthropic has said it will re-announce the change with advance notice before it ships. No new date announced.
 
-**Two usage buckets from June 15:**
-1. **Human-in-the-loop** (interactive): terminal Claude Code, web/desktop chat, Cowork — draws from existing subscription limits as today.
-2. **Autonomous / programmatic** (agentic): Agent SDK, `claude -p`, GitHub Actions, third-party tools (OpenClaw, Zed via ACP, Cursor, etc.) — draws from a new **Agent SDK credit pool** billed at standard API rates.
+Anthropic announced plans to separate autonomous/programmatic Claude usage from interactive usage, with an original effective date of **June 15, 2026** (now paused).
 
-**Monthly Agent SDK credits included per plan:**
+**As announced, the two usage buckets would have been:**
+1. **Human-in-the-loop** (interactive): terminal Claude Code, web/desktop chat, Cowork — draws from existing subscription limits.
+2. **Autonomous / programmatic** (agentic): Agent SDK, `claude -p`, GitHub Actions, third-party tools (OpenClaw, Zed via ACP, Cursor, etc.) — would draw from a new **Agent SDK credit pool** billed at standard API rates.
+
+**Announced monthly Agent SDK credits per plan:**
 
 | Plan | Included credit (API rates) | Overage |
 |---|---|---|
@@ -225,9 +227,9 @@ Anthropic is separating autonomous/programmatic Claude usage from interactive us
 | Max 5x ($100/mo) | $100 | Billed at API rates if extra usage enabled |
 | Max 20x ($200/mo) | $200 | Billed at API rates if extra usage enabled |
 
-**Developer impact:** Subscriptions previously subsidized autonomous workloads at roughly 15–30× below API rates. The new credit pool is billed at standard API token prices ($3/$15 per 1M on Sonnet 4.6; $5/$25 on Opus 4.7). Heavy `claude -p` or OpenClaw/Zed users who treat their plan as "unlimited agentic compute" will face major cost increases. Interactive Claude Code use is unaffected.
+**Developer impact (when/if it ships):** Subscriptions previously subsidized autonomous workloads at roughly 15–30× below API rates. The credit pool is billed at standard API token prices ($3/$15 per 1M on Sonnet 4.6; $5/$25 on Opus 4.7). Heavy `claude -p` or OpenClaw/Zed users who treat their plan as "unlimited agentic compute" will face major cost increases. Interactive Claude Code use is unaffected.
 
-*Source: [Anthropic — Use the Claude Agent SDK with your Claude plan](https://support.claude.com/en/articles/15036540-use-the-claude-agent-sdk-with-your-claude-plan) · [Zed Blog](https://zed.dev/blog/anthropic-subscription-changes) · [InfoWorld](https://www.infoworld.com/article/4171274/anthropic-puts-claude-agents-on-a-meter-across-its-subscriptions.html) — 2026-05-14 · verified 2026-05-17*
+*Source: [Anthropic — Use the Claude Agent SDK with your Claude plan](https://support.claude.com/en/articles/15036540-use-the-claude-agent-sdk-with-your-claude-plan) · [Zed Blog](https://zed.dev/blog/anthropic-subscription-changes) · [InfoWorld](https://www.infoworld.com/article/4171274/anthropic-puts-claude-agents-on-a-meter-across-its-subscriptions.html) — announced 2026-05-14 · paused 2026-06-15 · [Digital Applied](https://www.digitalapplied.com/blog/anthropic-claude-credit-overhaul-june-15-2026) — verified 2026-06-16*
 
 ---
 

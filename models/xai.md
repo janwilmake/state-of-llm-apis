@@ -1,6 +1,6 @@
 # xAI Grok Model Catalog
 
-> **Source:** [xAI Models & Pricing](https://docs.x.ai/developers/models) · [xAI Pricing](https://docs.x.ai/developers/pricing) · [xAI API](https://x.ai/api) · [OpenRouter](https://openrouter.ai/x-ai/grok-4.3) · **Verified:** 2026-06-13
+> **Source:** [xAI Models & Pricing](https://docs.x.ai/developers/models) · [xAI Pricing](https://docs.x.ai/developers/pricing) · [xAI API](https://x.ai/api) · [OpenRouter](https://openrouter.ai/x-ai/grok-4.3) · **Verified:** 2026-06-16
 
 ---
 
@@ -234,6 +234,39 @@ curl -fsSL https://x.ai/cli/install.sh | bash
 - Underlying model: `grok-build-0.1` (API pricing applies when using API key)
 
 *Source: [xAI — Introducing Grok Build](https://x.ai/news/grok-build-cli) · [Grok Build 0.1 on API](https://x.ai/news/grok-build-0-1) — 2026-05-28*
+
+---
+
+## Grok for PowerPoint Add-in (Launched 2026-06-16) 🆕
+
+xAI launched a native **Microsoft PowerPoint add-in** for Grok on June 16, 2026. Grok works directly inside PowerPoint to generate slide decks from outlines, expand existing decks, and tighten narrative — without leaving the application.
+
+**Key capabilities:**
+- Generate complete slide decks from text outlines
+- Expand or restructure existing presentations
+- Refine narrative flow and speaker notes via natural language
+
+*Source: [xAI — Grok for PowerPoint](https://x.ai/news/introducing-powerpoint-addin) — 2026-06-16 · verified 2026-06-16*
+
+---
+
+## Agent Dashboard in Grok Build (Launched 2026-06-15) 🆕
+
+xAI added an **Agent Dashboard** to Grok Build on June 15, 2026. Provides a visual interface for monitoring, managing, and debugging autonomous agent runs.
+
+*Source: [xAI News — Agent Dashboard in Grok Build](https://x.ai/news) — 2026-06-15 · verified 2026-06-16*
+
+---
+
+## Grok in Warp Terminal (Available 2026-06-15) 🆕
+
+Grok models are now available inside the [Warp terminal](https://warp.dev) via **SuperGrok subscription OAuth**. Users connect their xAI account (no API key needed) and Grok inference uses their SuperGrok limits instead of Warp credits.
+
+**Access:** Warp Free and eligible paid plans for individuals and orgs ≤ 10 employees.  
+**Auth:** OAuth sign-in to xAI account — tokens stored only on device (OS keychain), not on Warp servers.  
+**ZDR note:** Data retention governed by user's xAI account terms — Warp cannot enforce zero data retention for subscription-routed requests.
+
+*Source: [xAI News — Use Grok in Warp](https://x.ai/news) · [Warp Docs — SuperGrok subscription](https://docs.warp.dev/agent-platform/inference/grok-subscription/) — 2026-06-15 · verified 2026-06-16*
 
 ---
 
