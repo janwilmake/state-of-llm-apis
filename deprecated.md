@@ -103,15 +103,17 @@ This is a **code change**, not a model retirement, but it will break integration
 
 ---
 
-**2026-06-24** — ⚠️ **10 DAYS** — Imagen 4.0 models retiring on the Gemini Developer API:
+**2026-08-17** — ~~2026-06-24~~ ✅ **DATE CORRECTED 2026-06-17** — Imagen 4.0 models retiring on the Gemini Developer API:
+
+> ⚠️ **Correction (2026-06-17):** Previous entries showed a June 24, 2026 shutdown date for Imagen 4.0 models. The [official Google deprecations page](https://ai.google.dev/gemini-api/docs/deprecations) (verified 2026-06-17) shows the actual shutdown date is **August 17, 2026**. No action required before August 17.
 
 | Model | Shutdown date | Migrate to |
 |---|---|---|
-| `imagen-4.0-generate-001` | **2026-06-24** ⚠️ | `gemini-3-pro-image-preview` or `gemini-2.5-flash-image` |
-| `imagen-4.0-ultra-generate-001` | **2026-06-24** ⚠️ | `gemini-3-pro-image-preview` or `gemini-2.5-flash-image` |
-| `imagen-4.0-fast-generate-001` | **2026-06-24** ⚠️ | `gemini-3-pro-image-preview` or `gemini-2.5-flash-image` |
+| `imagen-4.0-generate-001` | **2026-08-17** | `gemini-3.1-flash-image` (GA) |
+| `imagen-4.0-ultra-generate-001` | **2026-08-17** | `gemini-3.1-flash-image` (GA) |
+| `imagen-4.0-fast-generate-001` | **2026-08-17** | `gemini-3.1-flash-image` (GA) |
 
-*Source: [Google Gemini Deprecations](https://ai.google.dev/gemini-api/docs/deprecations) — verified 2026-06-12*
+*Source: [Google Gemini Deprecations](https://ai.google.dev/gemini-api/docs/deprecations) — corrected 2026-06-17*
 
 ---
 

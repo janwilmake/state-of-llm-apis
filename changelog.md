@@ -4,6 +4,94 @@ Changes tracked by the Model Tracker agent. Most recent entries first.
 
 ---
 
+## 2026-06-17
+
+### ⏰ Google: Gemini CLI consumer shutdown TOMORROW — June 18, 2026
+
+**Provider:** [Google](models/google.md)  
+The **Gemini CLI** and **Gemini Code Assist IDE extensions** for consumer/AI Pro/Ultra users stop serving requests **tomorrow, June 18, 2026**. If you have not already migrated to the **Antigravity CLI** (`agy`), do it now.
+
+**Affected users:**
+- Google AI Pro, AI Ultra subscribers using Gemini CLI
+- Free-tier Gemini Code Assist for individuals users
+- Gemini Code Assist for GitHub: no new org installations from June 18; existing requests stop in following weeks
+
+**Not affected:** Gemini Code Assist Standard/Enterprise license holders and users with paid Gemini API keys.
+
+**Migration:** `agy` is available at [antigravity.google/download](https://antigravity.google/download). Known issue: `/usage` command in Antigravity CLI only updates after reload, not live — plan accordingly for long agentic workflows.
+
+*Source: [Google Developers Blog](https://developers.googleblog.com/an-important-update-transitioning-gemini-cli-to-antigravity-cli/) — verified 2026-06-17*
+
+---
+
+### 🔴 Correction: Imagen 4.0 retirement date is August 17, 2026 — NOT June 24
+
+**Provider:** [Google](models/google.md)  
+Previous changelog entries (and the deadline tables in changelog.md, deprecated.md, and comparison.md) listed `imagen-4.0-*` models as retiring **June 24, 2026**. This was incorrect.
+
+The official [Google Gemini API deprecations page](https://ai.google.dev/gemini-api/docs/deprecations) (last verified 2026-06-17) shows:
+
+| Model | Actual shutdown date |
+|---|---|
+| `imagen-4.0-generate-001` | **2026-08-17** |
+| `imagen-4.0-ultra-generate-001` | **2026-08-17** |
+| `imagen-4.0-fast-generate-001` | **2026-08-17** |
+
+Recommended replacement: `gemini-3.1-flash-image` (GA as of 2026-05-28).
+
+**Impact:** No immediate action needed if you are on `imagen-4.0-*`. You have until August 17.
+
+Updated: `deprecated.md`, `comparison.md`  
+*Source: [Google Gemini API deprecations](https://ai.google.dev/gemini-api/docs/deprecations) — verified 2026-06-17*
+
+---
+
+### 📰 OpenAI reportedly considering price cuts ahead of Anthropic competition
+
+**Provider:** [OpenAI](models/openai.md)  
+The Wall Street Journal reported (June 10-11, 2026) that OpenAI is **mulling price cuts** for paid access to its models. The move is reportedly preemptive — anticipating similar cuts from rival Anthropic (which confidentially filed for an IPO on June 1, 2026). No official pricing changes have been announced as of 2026-06-17. Current GPT-5.5 pricing remains $5.00/$30.00 per 1M tokens.
+
+**Developer action:** No changes required now. Monitor OpenAI's pricing page if you are locked into pricing assumptions in production budgets.
+
+*Source: [CNBC — OpenAI mulls slashing prices](https://www.cnbc.com/2026/06/11/openai-mulls-slashing-prices-ahead-of-competition-from-anthropic-wsj.html) — 2026-06-11 · verified 2026-06-17*
+
+---
+
+### 📰 Gemini 3.5 Pro — still unreleased, overdue
+
+**Provider:** [Google](models/google.md)  
+Google announced at I/O 2026 (May 19) that **Gemini 3.5 Pro** would ship "next month" (June 2026), noting it was already in internal testing. As of **2026-06-17**, no GA release has occurred. The model is expected imminently. No confirmed pricing or model ID yet.
+
+**What is confirmed:**
+- Targets frontier coding/reasoning/long-context (GPT-5.5 / Claude Opus 4.7 tier)
+- Shares Gemini 3.5 Flash's coding/agentic focus
+- Expected context window up to 2M tokens
+- Pricing expected close to Gemini 3.1 Pro ($2.00/$12.00) or ~1.5× higher
+
+*Source: [Google I/O 2026 keynote](https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-5/) — 2026-05-19 · verified 2026-06-17*
+
+---
+
+### ⏱️ Deadlines: Key upcoming cutoffs (verified 2026-06-17)
+
+| Deadline | Days | Action |
+|---|---|---|
+| **2026-06-18** | **1 day** 🚨 | Gemini CLI + Code Assist consumer users: migrate to Antigravity CLI (`agy`) |
+| **2026-06-25** | 8 days ⚠️ | `gemini-3.1-flash-image-preview` and `gemini-3-pro-image-preview` → GA versions |
+| **2026-06-27** | 10 days | GPT-4.5 retired from **ChatGPT** (no API change) |
+| **2026-06-30** | 13 days ⚠️ | Google Veo 3.0 / Veo 2.0 retire → `veo-3.1-generate-001` |
+| **2026-06-30** | 13 days | Mistral `labs-leanstral-2603` hard shutdown |
+| **2026-07-24** | 37 days | DeepSeek `deepseek-chat` / `deepseek-reasoner` hard cutoff → `deepseek-v4-flash` |
+| **2026-07-31** | 44 days | Mistral `mistral-small-2506`, `magistral-small-2509` → `mistral-small-2603` |
+| **2026-08-17** | ~61 days | ✅ **CORRECTED**: Imagen 4.0 models retire on Gemini Dev API (`imagen-4.0-*`) → `gemini-3.1-flash-image` |
+| **2026-10-16** | ~121 days | `gemini-2.5-pro`, `gemini-2.5-flash`, `gemini-2.5-flash-lite` retire |
+| **2026-11-30** | ~166 days | OpenAI Agent Builder shut down |
+| **2026-12-01** | ~167 days | `gpt-image-1-mini`, `gpt-image-1.5`, `chatgpt-image-latest` shut down → `gpt-image-2` |
+
+*Verified 2026-06-17*
+
+---
+
 ## 2026-06-16
 
 ### 🔄 Anthropic: Agent SDK billing split PAUSED — NOT live as of June 15

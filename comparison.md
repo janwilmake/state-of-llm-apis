@@ -1,6 +1,6 @@
 # LLM API Comparison Matrix
 
-> **Last updated:** 2026-06-14. Prices per 1M tokens (USD), standard tier unless noted.
+> **Last updated:** 2026-06-17. Prices per 1M tokens (USD), standard tier unless noted.
 
 ---
 
@@ -163,7 +163,7 @@
 | **2026-06-12** 🚨 BREAKING | ❌ **Claude Fable 5 and Claude Mythos 5 SUSPENDED** — U.S. export control directive received 5:21 PM ET. All access disabled globally. Use Claude Opus 4.8 instead. Anthropic says "misunderstanding"; working to restore. See [Anthropic](models/anthropic.md). |
 | **2026-06-15** | 🚨 **2 DAYS** — Migrate `claude-sonnet-4-20250514` → `claude-sonnet-4-6` and `claude-opus-4-20250514` → `claude-opus-4-7` (hard shutdown June 15) |
 | **2026-06-15** | 🚨 **2 DAYS** — **Anthropic Agent SDK billing split takes effect** — autonomous `claude -p`/SDK/GitHub Actions usage moves to per-API-rate credit pool ($20/$100/$200 for Pro/Max5x/Max20x). Review your workflows. See [anthropic.md](models/anthropic.md). |
-| **2026-06-24** | ⚠️ **11 DAYS** — Imagen 4.0 models retire on Gemini Dev API: `imagen-4.0-generate-001`, `imagen-4.0-ultra-generate-001`, `imagen-4.0-fast-generate-001` → `gemini-3-pro-image` or `gemini-2.5-flash-image` |
+| **2026-08-17** | ✅ **CORRECTED (2026-06-17)** — Imagen 4.0 models retire on Gemini Dev API: `imagen-4.0-generate-001`, `imagen-4.0-ultra-generate-001`, `imagen-4.0-fast-generate-001` → `gemini-3.1-flash-image`. Previous entries incorrectly showed June 24. |
 | **2026-06-25** | ⚠️ **12 DAYS** — Gemini image preview models retire: `gemini-3.1-flash-image-preview` → `gemini-3.1-flash-image`; `gemini-3-pro-image-preview` → `gemini-3-pro-image` |
 | **2026-06-30** | Migrate Mistral `mistral-moderation-2411` → `mistral-moderation-2` |
 | **2026-07-22** | Migrate `gemini-2.5-flash-lite` → `gemini-3.1-flash-lite` (now GA) |
