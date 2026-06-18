@@ -1,6 +1,6 @@
 # OpenAI Model Catalog
 
-> **Source:** [OpenAI API Pricing](https://developers.openai.com/api/docs/pricing) · [OpenAI Models](https://platform.openai.com/docs/models) · **Verified:** 2026-05-18
+> **Source:** [OpenAI API Pricing](https://developers.openai.com/api/docs/pricing) · [OpenAI Models](https://platform.openai.com/docs/models) · **Verified:** 2026-06-18
 
 ---
 
@@ -150,6 +150,35 @@ Three new audio models launched in the Realtime API for voice-enabled applicatio
 
 ---
 
+## Fine-Tuning API — WINDING DOWN
+
+> ⚠️ **Announced 2026-05-07:** OpenAI is winding down the self-serve fine-tuning platform.
+
+| Milestone | Date |
+|---|---|
+| New orgs can no longer create training jobs | **2026-05-07** (effective immediately) |
+| Orgs inactive for 60+ days lose fine-tuning access | **2026-07-02** |
+| All customers lose ability to create new training jobs | **2027-01-06** |
+| Existing fine-tuned model inference | Continues until the underlying **base model is deprecated** |
+
+**Available fine-tuning models (still accessible for existing users):**
+- `o4-mini-2025-04-16`: Training $100.00/hour; Input $4.00/1M (cached $1.00); Output $16.00/1M
+- `gpt-4.1`, `gpt-4.1-mini`: Check [OpenAI deprecation docs](https://developers.openai.com/api/docs/deprecations) for inference-only end dates
+
+**Migration path:** Move to prompt engineering, RAG, or system-prompt customization with standard API models. OpenAI's GPT-5.4+ family is capable enough that fine-tuning is rarely needed for instruction-following tasks.
+
+*Source: [OpenAI fine-tuning announcement — May 8, 2026](https://openai.com/index/introducing-improvements-to-the-fine-tuning-api-and-expanding-our-custom-models-program/) · [OpenAI Deprecations](https://developers.openai.com/api/docs/deprecations) — verified 2026-06-18*
+
+---
+
+## Sora 2 API — Deprecating (Sunset 2026-09-24)
+
+> ⚠️ **Sora consumer app discontinued 2026-04-26.** Sora 2 API remains accessible but is on a deprecated track with a hard shutdown of **September 24, 2026**. No successor video product has been announced.
+
+*Source: [OpenAI Help Center — Sora discontinuation](https://help.openai.com/en/articles/20001152-what-to-know-about-the-sora-discontinuation) — verified 2026-06-18*
+
+---
+
 ## Batch API Pricing
 
 Batch processing offers **50% off** standard prices for all models (asynchronous, up to 24 h turnaround). Use the `v1/batches` endpoint.
@@ -198,6 +227,8 @@ Cached input tokens are charged at **10% of standard input price** for most mode
 - `gpt-5.3-codex` is the dedicated agentic coding model ($1.75/$14.00) — highest GPQA (91.5%) among OpenAI models; powers Codex cloud tasks and code reviews
 - New voice models (`gpt-realtime-2`, `gpt-realtime-translate`, `gpt-realtime-whisper`) replace `gpt-realtime-1.5` for voice applications
 - ❌ `dall-e-2` and `dall-e-3` retired **2026-05-12** — migrate to `gpt-image-2` immediately
+- ⚠️ Fine-tuning platform winding down — new orgs blocked since 2026-05-07; all new training jobs disabled by **2027-01-06**
+- ⚠️ Sora 2 API on deprecated track — sunset **2026-09-24**; no successor video product announced
 - All prices **per 1M tokens** (USD)
 
 ---

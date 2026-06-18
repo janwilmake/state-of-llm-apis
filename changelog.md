@@ -4,6 +4,164 @@ Changes tracked by the Model Tracker agent. Most recent entries first.
 
 ---
 
+## 2026-06-18
+
+### ✅ Google: Gemini CLI consumer shutdown COMPLETED — effective today
+
+**Provider:** [Google](models/google.md)  
+The **Gemini CLI** and **Gemini Code Assist IDE extensions** for Google AI Pro, AI Ultra, and free Gemini Code Assist for individuals users are now offline as of today, **June 18, 2026**. The Antigravity CLI (`agy`) is the replacement.
+
+**What's offline:**
+- `gemini` CLI binary — no longer serves requests
+- Gemini Code Assist IDE extensions (VS Code, JetBrains, etc.) — no longer serves requests  
+- Gemini Code Assist for GitHub: no new org installations; existing installations stop serving in the following weeks
+
+**Not affected:** Gemini Code Assist Standard/Enterprise license holders and users with paid Gemini API keys — uninterrupted access continues.
+
+**If you haven't migrated yet:** Install `agy` from [antigravity.google/download](https://antigravity.google/download). The migration script does not update CI/CD pipelines — test manually.
+
+Updated: `deprecated.md`  
+*Source: [Google Developers Blog](https://developers.googleblog.com/an-important-update-transitioning-gemini-cli-to-antigravity-cli/) — verified 2026-06-18*
+
+---
+
+### 🆕 xAI: Grok for Microsoft Word add-in launched (2026-06-18)
+
+**Provider:** [xAI](models/xai.md)  
+xAI launched a native **Microsoft Word add-in** for Grok on June 18, 2026. Available to **SuperGrok** subscribers via the Microsoft Marketplace. Grok now works directly inside Word documents — drafting, editing, summarizing, and content transformation without leaving the application.
+
+This is the third Microsoft Office integration xAI has launched: PowerPoint (June 16), Word (June 18), with Excel reportedly in development.
+
+Updated: `models/xai.md`  
+*Source: [xAI News — Grok for Word](https://x.ai/news) · [Microsoft Marketplace](https://marketplace.microsoft.com/en-us/product/office/WA200011055) — 2026-06-18 · verified 2026-06-18*
+
+---
+
+### 🆕 xAI: Grok on Databricks (2026-06-18)
+
+**Provider:** [xAI](models/xai.md)  
+Grok models are now natively available on **Databricks Agent Bricks**, announced at the Databricks 2026 Data + AI Summit (June 15–18, San Francisco). Grok connects to context stored in the Databricks Lakehouse — structured and unstructured enterprise data — enabling production AI agents without external data routing. Zero data retention: Databricks model partners (including xAI) do not retain submitted data.
+
+This follows Grok's arrival on **Amazon Bedrock** (announced June 17, 2026). Together, the two cloud integrations give enterprises a way to run Grok through their existing AWS or Databricks infrastructure, with standard data governance guarantees.
+
+Updated: `models/xai.md`  
+*Source: [xAI — Grok on Databricks](https://x.ai/news/grok-databricks) · [Basenor](https://www.basenor.com/blogs/news/xai-grok-lands-on-databricks-at-the-2026-data-ai-summit) — 2026-06-18 · verified 2026-06-18*
+
+---
+
+### ✅ xAI: Grok Imagine Video 1.5 — moved to GA (2026-06-16)
+
+**Provider:** [xAI](models/xai.md)  
+`grok-imagine-video-1.5-preview` moved from preview to **general availability** on the Grok Imagine API on **June 16, 2026**. Video 1.5 Fast also rolled out on grok.com/imagine, iOS, and Android apps.
+
+**Key GA specs (confirmed):**
+
+| Metric | Value |
+|---|---|
+| API name | `grok-imagine-video-1.5-preview` (same ID; "preview" in name is legacy) |
+| Output pricing (480p) | **$0.08 / second** |
+| Output pricing (720p) | **$0.14 / second** |
+| Image input | $0.01 / image |
+| Audio | Included, same pass as video |
+| Generation speed | ~25 sec for a 6-sec 720p clip (~40% faster than prior model) |
+| Max resolution | 720p |
+
+**Notable context:**
+- OpenAI Sora consumer app discontinued April 26, 2026; Sora 2 API on deprecated track through September 24, 2026
+- Google Veo 3.1 pricing: $9–$24/minute
+- Grok Imagine Video 1.5 pricing: $4.20/minute at 720p — significantly cheaper
+- xAI claims #1 on independent Image-to-Video Arena leaderboard by Elo (no third-party benchmark published yet)
+
+Updated: `models/xai.md`  
+*Source: [xAI — Grok Imagine Video 1.5](https://x.ai/news/grok-imagine-video-1-5) · [TechTimes](https://www.techtimes.com/articles/318635/20260618/grok-imagine-video-15-goes-live-xai-tops-ai-video-leaderboard-86-percent-below-sora.htm) — 2026-06-16 · verified 2026-06-18*
+
+---
+
+### 🆕 Google: Gemini 3.1 Flash TTS streaming now live (2026-06-17)
+
+**Provider:** [Google](models/google.md)  
+Streaming via `streamGenerateContent` (and `stream: true` in the Interactions API) is now supported for the `gemini-3.1-flash-tts-preview` text-to-speech model. Previously only non-streaming generation was available.
+
+**Developer note:** Enables real-time audio output in low-latency applications. See the [Text-to-Speech guide](https://ai.google.dev/gemini-api/docs/speech-generation) for details.
+
+*Source: [Gemini API Release Notes — June 17, 2026](https://ai.google.dev/gemini-api/docs/changelog) — verified 2026-06-18*
+
+---
+
+### 📰 Gemini 3.5 Pro — overdue, still unreleased (June 18, 2026)
+
+**Provider:** [Google](models/google.md)  
+At Google I/O (May 19, 2026), Sundar Pichai said Gemini 3.5 Pro would be available "next month." As of today — **June 18** — the model remains unreleased publicly. It is confirmed to be in internal testing and limited enterprise preview.
+
+**What is confirmed:**
+- 2M token context window
+- "Deep Think" reasoning mode
+- Targets GPT-5.5 / Claude Opus 4.8 frontier tier
+- Expected pricing: ~$15/$60 per 1M tokens (approximately 10× Gemini 3.5 Flash)
+
+The remainder of June is the last window for the stated timeline to hold. No release notes or API availability have been posted as of today.
+
+*Source: [Google Blog — Gemini 3.5](https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-5/) · [TechTimes — June 6, 2026](https://www.techtimes.com/articles/317919/20260606/) · [Gemini Deprecations page](https://ai.google.dev/gemini-api/docs/deprecations) — verified 2026-06-18*
+
+---
+
+### 🆕 Mistral: Two additional deprecations — `devstral-2512`, `open-mistral-nemo-2407` (Jul 31); `mistral-medium-2508` (Aug 31)
+
+**Provider:** [Mistral](models/mistral.md)  
+The official [Mistral Models Overview](https://docs.mistral.ai/models/overview) page (verified 2026-06-18) lists three additional models that were not previously tracked:
+
+| Model | API name | Deprecated | Retirement | Replacement |
+|---|---|---|---|---|
+| Devstral 2 | `devstral-2512` | 2026-05-22 | **2026-07-31** | `mistral-medium-3-5` |
+| Mistral NeMo 12B | `open-mistral-nemo-2407` | 2026-05-22 | **2026-07-31** | `ministral-3b-2410` (Ministral 3B 8B) |
+| Mistral Medium 3.1 | `mistral-medium-2508` | 2026-05-22 | **2026-08-31** | `mistral-medium-3-5` |
+
+Updated: `deprecated.md`  
+*Source: [Mistral Models Overview](https://docs.mistral.ai/models/overview) — verified 2026-06-18*
+
+---
+
+### 🆕 OpenAI: Sora 2 API deprecating — sunset September 24, 2026
+
+**Provider:** [OpenAI](models/openai.md)  
+OpenAI's Sora 2 API is on a deprecated track and will **shut down September 24, 2026**. The consumer Sora app was already discontinued on April 26, 2026, citing unsustainable compute economics. The API remains accessible until the September deadline, but no successor video product has been announced.
+
+| Product | Status | Shutdown |
+|---|---|---|
+| Sora consumer app | ❌ Discontinued April 26, 2026 | Gone |
+| Sora 2 API | ⚠️ Deprecated; still accessible | **2026-09-24** |
+
+**Developer impact:** Teams using Sora 2 API for video generation need to migrate by September 24. Current alternatives: Grok Imagine Video 1.5 ($0.08–$0.14/sec, GA), Google Veo 3.1 ($9–$24/min), Bytedance Seedance 2.0.
+
+Updated: `deprecated.md`  
+*Source: [OpenAI Help Center — Sora discontinuation](https://help.openai.com/en/articles/20001152-what-to-know-about-the-sora-discontinuation) — verified 2026-06-18*
+
+---
+
+### ⏱️ Deadlines: Key upcoming cutoffs (verified 2026-06-18)
+
+| Deadline | Days | Action |
+|---|---|---|
+| **2026-06-18** | **TODAY** ✅ | Gemini CLI + Code Assist consumer users: must now use Antigravity CLI (`agy`) |
+| **2026-06-25** | 7 days ⚠️ | `gemini-3.1-flash-image-preview` and `gemini-3-pro-image-preview` → GA versions |
+| **2026-06-27** | 9 days | GPT-4.5 retired from **ChatGPT** (no API change) |
+| **2026-06-30** | 12 days ⚠️ | Google Veo 3.0 / Veo 2.0 retire → `veo-3.1-generate-001` |
+| **2026-06-30** | 12 days | Mistral `labs-leanstral-2603` + `mistral-moderation-2411` hard shutdown |
+| **2026-07-24** | 36 days | DeepSeek `deepseek-chat` / `deepseek-reasoner` hard cutoff → `deepseek-v4-flash` (returns errors, no redirect) |
+| **2026-07-31** | 43 days | Mistral `mistral-small-2506`, `magistral-small-2509`, `devstral-2512`, `open-mistral-nemo-2407` retire |
+| **2026-08-17** | ~60 days | Imagen 4.0 models retire on Gemini Dev API (`imagen-4.0-*`) → `gemini-3.1-flash-image` |
+| **2026-08-26** | ~69 days | OpenAI o3 retired from **ChatGPT** (no API change) |
+| **2026-08-31** | ~74 days | Mistral `mistral-medium-2508` (Mistral Medium 3.1) → `mistral-medium-3-5` |
+| **2026-09-24** | ~98 days | OpenAI Sora 2 API shuts down — no replacement video product announced |
+| **2026-10-16** | ~120 days | `gemini-2.5-pro`, `gemini-2.5-flash`, `gemini-2.5-flash-lite` retire |
+| **2026-11-30** | ~165 days | OpenAI Agent Builder shut down |
+| **2026-12-01** | ~166 days | `gpt-image-1-mini`, `gpt-image-1.5`, `chatgpt-image-latest` shut down → `gpt-image-2` |
+| **2027-01-06** | ~202 days | OpenAI fine-tuning: last date to create new training jobs (existing fine-tuned models continue until base model deprecated) |
+
+*Verified 2026-06-18*
+
+---
+
 ## 2026-06-17
 
 ### ⏰ Google: Gemini CLI consumer shutdown TOMORROW — June 18, 2026

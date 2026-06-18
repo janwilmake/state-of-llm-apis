@@ -1,6 +1,6 @@
 # xAI Grok Model Catalog
 
-> **Source:** [xAI Models & Pricing](https://docs.x.ai/developers/models) · [xAI Pricing](https://docs.x.ai/developers/pricing) · [xAI API](https://x.ai/api) · [OpenRouter](https://openrouter.ai/x-ai/grok-4.3) · **Verified:** 2026-06-16
+> **Source:** [xAI Models & Pricing](https://docs.x.ai/developers/models) · [xAI Pricing](https://docs.x.ai/developers/pricing) · [xAI API](https://x.ai/api) · [OpenRouter](https://openrouter.ai/x-ai/grok-4.3) · **Verified:** 2026-06-18
 
 ---
 
@@ -237,6 +237,36 @@ curl -fsSL https://x.ai/cli/install.sh | bash
 
 ---
 
+## Grok for Word Add-in (Launched 2026-06-18) 🆕
+
+xAI launched a native **Microsoft Word add-in** for Grok on June 18, 2026. Available to **SuperGrok** subscribers via the [Microsoft Marketplace](https://marketplace.microsoft.com/en-us/product/office/WA200011055). Work with a Grok-powered AI agent directly inside Word documents for drafting, editing, summarizing, and transforming content without leaving the application.
+
+*Source: [xAI — Grok for Word](https://x.ai/news) · [Microsoft Marketplace](https://marketplace.microsoft.com/en-us/product/office/WA200011055) — 2026-06-18 · verified 2026-06-18*
+
+---
+
+## Grok on Databricks (Announced 2026-06-18) 🆕
+
+Grok models are now natively available on **Databricks Agent Bricks** — Databricks' developer agent platform for building AI agents that operate on large volumes of enterprise data. Announced live at the **Databricks 2026 Data + AI Summit** (June 15–18, San Francisco).
+
+**Key facts:**
+- Grok connects directly to context stored in the Databricks Lakehouse (structured + unstructured data)
+- Zero data retention: Databricks model partners, including xAI, do not retain submitted data
+- Databricks does not train foundation models on customer-submitted AI feature data
+- Joins **Grok on Amazon Bedrock** (announced 2026-06-17) as an enterprise cloud deployment path
+
+*Source: [xAI — Grok on Databricks](https://x.ai/news/grok-databricks) · [Basenor](https://www.basenor.com/blogs/news/xai-grok-lands-on-databricks-at-the-2026-data-ai-summit) — 2026-06-18 · verified 2026-06-18*
+
+---
+
+## Grok on Amazon Bedrock (Announced 2026-06-17) 🆕
+
+Grok models are now available through **Amazon Bedrock**. Enterprise teams running on AWS can deploy Grok models through Bedrock's standard API, alongside other frontier and open-source models available on the platform.
+
+*Source: [xAI — Grok on Amazon Bedrock](https://x.ai/news) — 2026-06-17 · verified 2026-06-18*
+
+---
+
 ## Grok for PowerPoint Add-in (Launched 2026-06-16) 🆕
 
 xAI launched a native **Microsoft PowerPoint add-in** for Grok on June 16, 2026. Grok works directly inside PowerPoint to generate slide decks from outlines, expand existing decks, and tighten narrative — without leaving the application.
@@ -301,21 +331,35 @@ xAI added **Composer 2.5** as a second model option inside the Grok Build CLI on
 
 ---
 
-## `grok-imagine-video-1.5-preview` (Released 2026-06-03) 🆕
+## Grok Imagine Video 1.5 (GA: 2026-06-16) 🆕
 
-Image-to-video generation model, now available via xAI API in preview.
+Image-to-video generation model, **generally available** on the Grok Imagine API and grok.com/imagine as of **June 16, 2026**. Preview launched June 3, 2026.
 
 | Metric | Value |
 |---|---|
 | API name | `grok-imagine-video-1.5-preview` |
-| Input | Still image + natural-language motion prompt |
-| Max resolution | 720p |
-| Video output | **$0.05 / second** (480p/720p per [xAI models docs](https://docs.x.ai/developers/models) — verified 2026-06-13) |
-| Status | Preview |
+| Dated alias | `grok-imagine-video-1.5-2026-05-30` |
+| Input | Image + natural-language motion prompt |
+| Max resolution | **720p** |
+| Output (480p) | **$0.08 / second** |
+| Output (720p) | **$0.14 / second** |
+| Image input | $0.01 / image |
+| Audio | Included at no extra charge |
+| Generation speed | ~25 seconds for a 6-second 720p clip (~40% faster than predecessor) |
+| Rate limit | 60 requests/minute |
+| Regions | `us-east-1`, `eu-west-1` |
+| Status | **GA** (Grok Imagine API); Video 1.5 Fast live on grok.com/imagine, iOS, Android |
 
-**Key features:** Animates a single still image into cinematic video with natural-language motion control (camera moves, atmosphere, physics). Stays faithful to source image look and lighting.
+**Key features:**
+- Audio and speech generate in the **same pass as video** (architectural improvement)
+- Animates still images with natural-language motion control (camera moves, pacing, atmosphere)
+- Stays faithful to source image look and lighting
+- Outputs can be persisted to Files API via `storage_options` parameter
+- Top-ranked on independent Image-to-Video Arena leaderboard by Elo (per xAI, Jun 2026; no independent third-party benchmark published)
 
-*Source: [xAI — Grok Imagine 1.5 Preview](https://x.ai/news) · [Releasebot](https://releasebot.io/updates/xai) — 2026-06-03 · verified 2026-06-09*
+> **Context:** OpenAI discontinued its Sora consumer app on April 26, 2026, and Sora 2 API sunsets September 24, 2026. Google Veo 3.1 is priced at $9–$24/minute. Grok Imagine Video 1.5 at $4.20/minute (720p) is significantly cheaper, though max resolution is currently 720p (Sora 2 Pro offered 1080p).
+
+*Source: [xAI — Grok Imagine Video 1.5](https://x.ai/news/grok-imagine-video-1-5) · [TechTimes](https://www.techtimes.com/articles/318635/20260618/grok-imagine-video-15-goes-live-xai-tops-ai-video-leaderboard-86-percent-below-sora.htm) · [xAI pricing docs](https://docs.x.ai/developers/pricing) — 2026-06-16 · verified 2026-06-18*
 
 ---
 

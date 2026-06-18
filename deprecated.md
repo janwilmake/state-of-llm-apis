@@ -1,6 +1,6 @@
 # Deprecated & Sunset Models
 
-> Track sunset dates and migration paths. **Last updated:** 2026-06-15.
+> Track sunset dates and migration paths. **Last updated:** 2026-06-18.
 >
 > ⚠️ = Deprecated, still accessible. ❌ = Shut down, no longer accessible.
 
@@ -24,20 +24,20 @@ Replacement pricing is unchanged: `claude-sonnet-4-6` at $3/$15 per 1M; `claude-
 
 ---
 
-### Google — June 18, 2026 ⚠️ **3 DAYS** — Gemini CLI / Gemini Code Assist consumer shutdown
+### Google — June 18, 2026 ✅ COMPLETED TODAY
 
-> **Announced 2026-05-19 at Google I/O.** Gemini CLI and the Gemini Code Assist IDE extensions stop serving all **Google AI Pro**, **Ultra**, and **free Gemini Code Assist for individuals** users on **June 18, 2026**. Successor is the **Antigravity CLI** (`agy`).
+> ❌ **Shutdown completed today, June 18, 2026.** Gemini CLI and the Gemini Code Assist IDE extensions for consumer users are now offline. If you are a **Google AI Pro**, **Ultra**, or **free Gemini Code Assist for individuals** user and have not yet migrated, switch to the **Antigravity CLI** (`agy`) immediately.
 
 | Product | Shutdown date | Replacement |
 |---|---|---|
-| Gemini CLI (`gemini` binary) | **2026-06-18** | Antigravity CLI (`agy`) — new binary, new config |
-| Gemini Code Assist IDE extensions (consumer) | **2026-06-18** | Antigravity CLI / IDE integration |
-| Gemini Code Assist for GitHub (new orgs) | **2026-06-18** | No new org installations permitted |
+| Gemini CLI (`gemini` binary) | **2026-06-18** ❌ | Antigravity CLI (`agy`) — new binary, new config |
+| Gemini Code Assist IDE extensions (consumer) | **2026-06-18** ❌ | Antigravity CLI / IDE integration |
+| Gemini Code Assist for GitHub (new orgs) | **2026-06-18** ❌ | No new org installations permitted; existing installs stop in following weeks |
 
-> ⚠️ **Enterprise exception:** Organizations on **Gemini Code Assist Standard or Enterprise** licenses, or using paid Gemini / Gemini Enterprise Agent Platform API keys, retain uninterrupted access to Gemini CLI. This is a **consumer-tier shutdown only**.
+> ✅ **Enterprise exception:** Organizations on **Gemini Code Assist Standard or Enterprise** licenses, or using paid Gemini / Gemini Enterprise Agent Platform API keys, are **not affected**. This is a consumer-tier shutdown only.
 
-**Migration:** Install the Antigravity CLI (`agy`) binary. The config layout has changed — migration script does not update CI/CD pipelines or automation. Test before cutting over automated workflows. One known silent failure: a specific MCP `serverUrl` config field fails without throwing an error.  
-*Source: [Google I/O 2026 announcement — May 19, 2026](https://cloud.google.com/blog/products/ai-machine-learning/innovations-from-google-io-26-on-google-cloud) · [Antigravity migration guide](https://www.digitalapplied.com/blog/gemini-cli-to-antigravity-cli-migration-june-18-2026-guide) — verified 2026-06-15*
+**Migration:** Install the Antigravity CLI (`agy`) from [antigravity.google/download](https://antigravity.google/download). The config layout changed — the migration script does not update CI/CD pipelines. One known silent failure: a specific MCP `serverUrl` config field fails without error. Test before cutting over automated workflows.  
+*Source: [Google I/O 2026 announcement — May 19, 2026](https://cloud.google.com/blog/products/ai-machine-learning/innovations-from-google-io-26-on-google-cloud) · [Antigravity migration guide](https://www.digitalapplied.com/blog/gemini-cli-to-antigravity-cli-migration-june-18-2026-guide) — verified 2026-06-18*
 
 ---
 
@@ -192,8 +192,20 @@ This is a **code change**, not a model retirement, but it will break integration
 |---|---|---|---|---|
 | Mistral Small 3.2 | `mistral-small-2506` | 2026-04-30 | **2026-07-31** | `mistral-small-2603` (Mistral Small 4) |
 | Magistral Small 1.2 | `magistral-small-2509` | 2026-04-30 | **2026-07-31** | `mistral-small-2603` (Mistral Small 4) |
+| Devstral 2 | `devstral-2512` | 2026-05-22 | **2026-07-31** | `mistral-medium-3-5` |
+| Mistral NeMo 12B | `open-mistral-nemo-2407` | 2026-05-22 | **2026-07-31** | `ministral-3b-2410` (Ministral 3B 8B) |
 
-*Source: [Mistral Models Overview](https://docs.mistral.ai/models/overview) — verified 2026-05-16*
+*Source: [Mistral Models Overview](https://docs.mistral.ai/models/overview) — verified 2026-06-18*
+
+---
+
+### Mistral — August 31, 2026
+
+| Model | API name | Deprecated | Retirement date | Replacement |
+|---|---|---|---|---|
+| Mistral Medium 3.1 | `mistral-medium-2508` | 2026-05-22 | **2026-08-31** | `mistral-medium-3-5` |
+
+*Source: [Mistral Models Overview](https://docs.mistral.ai/models/overview) — verified 2026-06-18*
 
 ---
 
@@ -207,6 +219,16 @@ This is a **code change**, not a model retirement, but it will break integration
 > ⚠️ **No silent redirect after July 24.** Unlike xAI's May 15 retirement, DeepSeek has stated that calls to `deepseek-chat` and `deepseek-reasoner` will **return errors** (not redirect) after the deadline. This is a hard cutoff.
 
 *Source: [DeepSeek API Docs — Models & Pricing](https://api-docs.deepseek.com/quick_start/pricing) — verified 2026-06-10*
+
+---
+
+### OpenAI — September 24, 2026
+
+| Product | Status | Notes |
+|---|---|---|
+| Sora 2 API | Deprecated; **shuts down 2026-09-24** | Sora consumer app was discontinued April 26, 2026. Sora 2 API remains on a deprecated track until September 24, 2026. No announced successor product. |
+
+*Source: [OpenAI Help Center — Sora discontinuation](https://help.openai.com/en/articles/20001152-what-to-know-about-the-sora-discontinuation) · [TechTimes](https://www.techtimes.com/articles/318635/20260618) — verified 2026-06-18*
 
 ---
 
