@@ -4,6 +4,65 @@ Changes tracked by the Model Tracker agent. Most recent entries first.
 
 ---
 
+## 2026-06-19
+
+### 🚨 Anthropic: Claude Fable 5 / Mythos 5 — still SUSPENDED (day 7)
+
+**Provider:** [Anthropic](models/anthropic.md)  
+No update from Anthropic on restoring access to Fable 5 or Mythos 5. Both models remain offline globally as of today. A Manifold prediction market (as of 2026-06-19) puts ~52% probability on full restoration by July 1. Until access is restored, `claude-opus-4-8` ($5/$25 per 1M) remains the recommended Anthropic model.
+
+**Developer note:** Keep `claude-opus-4-8` in your fallback configuration. Do not re-enable `claude-fable-5` routing without testing — restoring access after a regulatory hold may be incremental (e.g., US-only first).
+
+*Source: [Anthropic statement](https://www.anthropic.com/news/fable-mythos-access) · [Manifold market](https://manifold.markets/PhilipDowdell/will-anthropic-restore-access-to-fa) — verified 2026-06-19*
+
+---
+
+### 🔄 Google: Gemini 3.5 Pro still unreleased — 11 days left in June
+
+**Provider:** [Google](models/google.md)  
+Gemini 3.5 Pro has **not launched** as of 2026-06-19. Google I/O (May 19) promised it "next month." Only 11 days remain in June. Community consensus (Reddit r/GeminiAI, LinkedIn) expects a mid-to-late June release. No API endpoint, model ID, or pricing has been published. Until it ships, `gemini-3.5-flash` ($1.50/$9.00 Standard) is the current Gemini flagship.
+
+**Confirmed upcoming specs (from Google I/O + TechTimes 2026-06-06):**
+- Context window: ~2 M tokens
+- Reasoning: "Deep Think" mode
+- Expected pricing: ~$15/$60 per 1M (≈10× Gemini 3.5 Flash)
+- Will roll out to AI Pro ($19.99/mo) and AI Ultra ($99.99–$199.99/mo) first
+
+*Source: [Google Blog — Gemini 3.5](https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-5/) · [TechTimes — June 6, 2026](https://www.techtimes.com/articles/317919/20260606/) · [Reddit r/GeminiAI](https://www.reddit.com/r/GeminiAI/comments/1u92jri/) — verified 2026-06-19*
+
+---
+
+### ⏱️ Deadlines: Key upcoming cutoffs (verified 2026-06-19)
+
+| Deadline | Days | Action |
+|---|---|---|
+| **2026-06-25** | **6 days** 🚨 | `gemini-3.1-flash-image-preview` and `gemini-3-pro-image-preview` → GA versions (`gemini-3.1-flash-image`, `gemini-3-pro-image`) |
+| **2026-06-27** | 8 days ⚠️ | GPT-4.5 retired from **ChatGPT** (no API change) |
+| **2026-06-30** | 11 days ⚠️ | Google Veo 3.0 / Veo 2.0 retire → `veo-3.1-generate-001` |
+| **2026-06-30** | 11 days ⚠️ | Mistral `labs-leanstral-2603` + `mistral-moderation-2411` hard shutdown |
+| **2026-07-24** | 35 days | DeepSeek `deepseek-chat` / `deepseek-reasoner` hard cutoff → `deepseek-v4-flash` (returns errors, no redirect) |
+| **2026-07-31** | 42 days | Mistral `mistral-small-2506`, `magistral-small-2509`, `devstral-2512`, `open-mistral-nemo-2407` retire |
+| **2026-08-17** | ~59 days | Imagen 4.0 models retire on Gemini Dev API (`imagen-4.0-*`) → `gemini-3.1-flash-image` |
+| **2026-08-26** | ~68 days | OpenAI o3 retired from **ChatGPT** (no API change) |
+| **2026-08-31** | ~73 days | Mistral `mistral-medium-2508` (Mistral Medium 3.1) → `mistral-medium-3-5` |
+| **2026-09-24** | ~97 days | OpenAI Sora 2 API shuts down |
+| **2026-10-16** | ~119 days | `gemini-2.5-pro`, `gemini-2.5-flash`, `gemini-2.5-flash-lite` retire |
+| **2026-11-30** | ~164 days | OpenAI Agent Builder shut down |
+| **2026-12-01** | ~165 days | `gpt-image-1-mini`, `gpt-image-1.5`, `chatgpt-image-latest` shut down → `gpt-image-2` |
+| **2027-01-06** | ~201 days | OpenAI fine-tuning: last date to create new training jobs |
+
+---
+
+### 🔧 Fix: Imagen 4.0 retirement date corrected in `models/google.md`
+
+**Provider:** [Google](models/google.md)  
+The Deprecation Summary table in `models/google.md` still showed `2026-06-24` for Imagen 4.0 models. This was corrected to **2026-08-17** (the fix was applied to `deprecated.md` on 2026-06-17 but the google.md table was not updated at the same time). No developer action needed before August 17.
+
+Updated: `models/google.md`  
+*Source: [Google Gemini API deprecations](https://ai.google.dev/gemini-api/docs/deprecations) — verified 2026-06-19*
+
+---
+
 ## 2026-06-18
 
 ### ✅ Google: Gemini CLI consumer shutdown COMPLETED — effective today
