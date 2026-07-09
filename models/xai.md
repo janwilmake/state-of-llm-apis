@@ -1,12 +1,39 @@
 # xAI Grok Model Catalog
 
-> **Source:** [xAI Models & Pricing](https://docs.x.ai/developers/models) · [xAI Pricing](https://docs.x.ai/developers/pricing) · [xAI API](https://x.ai/api) · [OpenRouter](https://openrouter.ai/x-ai/grok-4.3) · **Verified:** 2026-06-18
+> **Source:** [xAI Models & Pricing](https://docs.x.ai/developers/models) · [xAI Pricing](https://docs.x.ai/developers/pricing) · [xAI API](https://x.ai/api) · [OpenRouter](https://openrouter.ai/x-ai/grok-4.5) · **Verified:** 2026-07-09
 
 ---
 
 ## Current Models
 
-### Grok 4.3 (Released 2026-04-30) — Current Flagship 🆕 NEW
+### Grok 4.5 (Released 2026-07-09) — Current Flagship 🆕 NEW
+
+xAI's newest and most capable flagship. Co-trained with Cursor, optimized for coding, agentic tasks, and knowledge work. Claimed ~2× token efficiency vs comparable leading models — xAI says it solves tasks in under half the number of steps. Default model in Grok Build. Also available in Cursor on all plans.
+
+> **Note:** EU availability expected mid-July 2026. Not yet available in any SpaceXAI products or API console in the EU.
+
+| Metric | Value |
+|---|---|
+| API names | `grok-4.5` |
+| Context window | 500,000 tokens |
+| Input | **$2.00 / 1M** |
+| Output | **$6.00 / 1M** |
+| Reasoning effort | Configurable (non-reasoning and reasoning modes) |
+
+**Capabilities:** Coding, agentic tool calling, minimal hallucinations, configurable reasoning, vision, function calling, structured outputs.
+
+**Key facts:**
+- Announced and available **2026-07-08**; public launch **2026-07-09**
+- Available via SpaceXAI console API, Grok Build CLI, and Cursor (all plans)
+- Available on Azure AI Foundry, OCI Generative AI, and Google Cloud Vertex Model Garden
+- Positioned as xAI's primary model for "code and everything else"
+- **Excel, Word, PowerPoint add-ins** available via Microsoft Marketplace
+
+*Source: [xAI — Introducing Grok 4.5](https://x.ai/news/grok-4-5) · [xAI Docs — models](https://docs.x.ai/developers/models) — 2026-07-08 · verified 2026-07-09*
+
+---
+
+### Grok 4.3 (Released 2026-04-30) — Previous Flagship
 
 xAI's newest and recommended flagship. ~40% price cut vs. Grok 4.20; expanded to 1M context window; native video input support; Voice API launched same day.
 

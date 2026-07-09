@@ -1,6 +1,6 @@
 # Mistral AI Model Catalog
 
-> **Source:** [Mistral API Pricing](https://mistral.ai/pricing) · [Mistral Docs Model Cards](https://docs.mistral.ai/models/model-cards/mistral-medium-3-5-26-04) · [OpenRouter](https://openrouter.ai/mistralai/mistral-medium-3-5) · **Verified:** 2026-05-21
+> **Source:** [Mistral API Pricing](https://mistral.ai/pricing) · [Mistral Docs Model Cards](https://docs.mistral.ai/models/model-cards/mistral-medium-3-5-26-04) · [OpenRouter](https://openrouter.ai/mistralai/mistral-medium-3-5) · **Verified:** 2026-07-09
 
 ---
 
@@ -119,6 +119,57 @@ Code completion model with FIM (fill-in-middle) support.
 | $2.00 / 1M | $6.00 / 1M |
 
 Older Mistral Large version. Largely superseded by Mistral Large 3 at a quarter of the price.
+
+---
+
+## Mistral OCR 4 (Released 2026-06-23) 🆕 NEW
+
+State-of-the-art document intelligence model. Successor to OCR 3 (`mistral-ocr-2512`, released Dec 2024). Adds **bounding boxes**, **block classification** (title, table, equation, signature, etc.), and **inline confidence scores** alongside extracted text. Deployed in a single container for self-hosted setups.
+
+| Metric | Value |
+|---|---|
+| API name | `mistral-ocr-4-0` / `mistral-ocr-latest` |
+| Languages | 170 languages across 10 language groups |
+| API pricing | **$4.00 / 1,000 pages** (Batch API: $2.00 / 1,000 pages — 50% off) |
+| Document AI pricing | $5.00 / 1,000 pages |
+| Max pages per request | 1,000 |
+| Max file size | 50 MB |
+| Self-hosting | ✅ Single container deployment |
+| Available on | Mistral API, Mistral AI Studio, Amazon SageMaker, Microsoft Foundry, Snowflake (coming soon) |
+
+**Key facts:**
+- 72% preferred over competitors in blind human evaluations (600+ documents, 12+ languages)
+- #1 on OlmOCRBench (score: 85.20)
+- `mistral-ocr-latest` alias updated to point to OCR 4 as of 2026-06-23
+- Accepts PDF, DOC, PPT, OpenDocument formats
+- `include_blocks: true` parameter returns paragraph-level bounding boxes with structural labels in reading order
+- `pages` parameter accepts comma-separated digits and ranges (e.g. `"0,2-4"`)
+
+*Source: [Mistral — OCR 4](https://mistral.ai/news/ocr-4/) · [Mistral Changelog](https://docs.mistral.ai/resources/changelogs) — 2026-06-23 · verified 2026-07-09*
+
+---
+
+## Robostral Navigate (Released 2026-07-08) 🆕 NEW
+
+Mistral's first **embodied navigation model**. An 8B model that enables robots to autonomously navigate complex environments using only a single RGB camera and plain-language instructions.
+
+| Metric | Value |
+|---|---|
+| Parameters | 8B |
+| Input | RGB image + text instruction |
+| Benchmark | 76.6% success on unseen R2R-CE benchmarks |
+| API access | **Enterprise/commercial only** — contact Mistral sales team |
+| Pricing | Not publicly listed (enterprise licensing) |
+
+**Key facts:**
+- Hardware-agnostic — works with any robot platform
+- No LiDAR or depth sensors required (single RGB camera only)
+- Trained entirely on simulated data; generalizes to real-world obstacles unseen during training
+- Combines pointing-based navigation with reinforcement learning
+- Applications: manufacturing, delivery, logistics, hospitality
+- No public hobbyist/non-commercial license announced
+
+*Source: [Mistral — Robostral Navigate](https://mistral.ai/news/robostral-navigate/) — 2026-07-08 · verified 2026-07-09*
 
 ---
 

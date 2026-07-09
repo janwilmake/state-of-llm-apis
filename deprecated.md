@@ -1,6 +1,6 @@
 # Deprecated & Sunset Models
 
-> Track sunset dates and migration paths. **Last updated:** 2026-06-18.
+> Track sunset dates and migration paths. **Last updated:** 2026-07-09.
 >
 > ⚠️ = Deprecated, still accessible. ❌ = Shut down, no longer accessible.
 
@@ -163,24 +163,24 @@ This is a **code change**, not a model retirement, but it will break integration
 
 ---
 
-### Google — June 30, 2026 ⚠️ **15 DAYS** — Veo 3.0 / Veo 2.0 retirement
+### Google — June 30, 2026 ✅ COMPLETED
 
 | Model | API name | Retirement date | Replacement |
 |---|---|---|---|
-| Veo 3.0 (standard) | `veo-3.0-generate-001` | **2026-06-30** | `veo-3.1-generate-001` |
-| Veo 3.0 Fast | `veo-3.0-fast-generate-001` | **2026-06-30** | `veo-3.1-fast-generate-001` |
-| Veo 2.0 | `veo-2.0-generate-001` | **2026-06-30** | `veo-3.1-generate-001` |
+| Veo 3.0 (standard) | `veo-3.0-generate-001` | **2026-06-30** ❌ | `veo-3.1-generate-001` |
+| Veo 3.0 Fast | `veo-3.0-fast-generate-001` | **2026-06-30** ❌ | `veo-3.1-fast-generate-001` |
+| Veo 2.0 | `veo-2.0-generate-001` | **2026-06-30** ❌ | `veo-3.1-generate-001` |
 
 *Source: [Google Cloud — Model versions and lifecycle](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/model-versions) — verified 2026-06-15*
 
 ---
 
-### Mistral — June 30, 2026
+### Mistral — June 30, 2026 ✅ COMPLETED
 
 | Model | API name | Deprecated | Retirement date | Replacement |
 |---|---|---|---|---|
-| Leanstral | `labs-leanstral-2603` | 2026-05-22 | **2026-06-30** | — (no published replacement) |
-| Mistral Moderation v2 | `mistral-moderation-2411` | 2026-03-31 | **2026-06-30** | `mistral-moderation-2` |
+| Leanstral | `labs-leanstral-2603` | 2026-05-22 | **2026-06-30** ❌ | — (no published replacement) |
+| Mistral Moderation v2 | `mistral-moderation-2411` | 2026-03-31 | **2026-06-30** ❌ | `mistral-moderation-2` |
 
 *Source: [Mistral Models Overview](https://docs.mistral.ai/models/overview) — verified 2026-06-10*
 
@@ -209,16 +209,29 @@ This is a **code change**, not a model retirement, but it will break integration
 
 ---
 
-### DeepSeek — July 24, 2026 ⚠️
+### DeepSeek — July 24, 2026 🚨 **15 DAYS** — Hard cutoff
 
 | Alias | Currently points to | Retirement date | Replacement |
 |---|---|---|---|
 | `deepseek-chat` | `deepseek-v4-flash` (non-thinking mode) | **2026-07-24 15:59 UTC** | `deepseek-v4-flash` |
 | `deepseek-reasoner` | `deepseek-v4-flash` (thinking mode) | **2026-07-24 15:59 UTC** | `deepseek-v4-flash` or `deepseek-v4-pro` |
 
-> ⚠️ **No silent redirect after July 24.** Unlike xAI's May 15 retirement, DeepSeek has stated that calls to `deepseek-chat` and `deepseek-reasoner` will **return errors** (not redirect) after the deadline. This is a hard cutoff.
+> 🚨 **URGENT — 15 DAYS REMAINING.** No silent redirect after July 24. DeepSeek has confirmed that calls to `deepseek-chat` and `deepseek-reasoner` will **return errors** (not redirect) after the deadline. This is a hard cutoff with no announced extension. **Migrate now.** Update your `model` parameter to `deepseek-v4-flash` (for chat/non-thinking workflows) or `deepseek-v4-pro` (for higher capability). Also note: DeepSeek V4 will move to stable release ~July 17, 2026, and will introduce **peak/off-peak pricing** (~2× rates during 9:00–12:00 and 14:00–18:00 Beijing Time).
 
-*Source: [DeepSeek API Docs — Models & Pricing](https://api-docs.deepseek.com/quick_start/pricing) — verified 2026-06-10*
+*Source: [DeepSeek API Docs — Models & Pricing](https://api-docs.deepseek.com/quick_start/pricing) — verified 2026-07-09*
+
+---
+
+### Anthropic — July 24, 2026 ⚠️ — Claude Opus 4.7 Fast Mode retirement
+
+Anthropic is deprecating **Fast mode for Claude Opus 4.7** on July 24, 2026. As of June 29, 2026, fast mode is also no longer available on Claude Opus 4.6 — requests to `claude-opus-4-6` with `speed: "fast"` run at standard speed and are billed at standard rates.
+
+| Feature | Retirement date | Migration |
+|---|---|---|
+| Fast mode on `claude-opus-4-7` | **2026-07-24** | Migrate to `claude-opus-4-8` Fast Mode ($10/$50 per 1M, 3× cheaper than Opus 4.7 Fast) |
+| Fast mode on `claude-opus-4-6` | **Already removed (2026-06-29)** ❌ | Use standard mode or `claude-opus-4-8` |
+
+*Source: [Anthropic API Pricing](https://platform.claude.com/docs/en/about-claude/pricing) — verified 2026-07-09*
 
 ---
 

@@ -1,6 +1,6 @@
 # LLM API Comparison Matrix
 
-> **Last updated:** 2026-06-17. Prices per 1M tokens (USD), standard tier unless noted.
+> **Last updated:** 2026-07-09. Prices per 1M tokens (USD), standard tier unless noted.
 
 ---
 
