@@ -1,6 +1,8 @@
 # xAI Grok Model Catalog
 
-> **Source:** [xAI Models & Pricing](https://docs.x.ai/developers/models) · [xAI Pricing](https://docs.x.ai/developers/pricing) · [xAI API](https://x.ai/api) · [OpenRouter](https://openrouter.ai/x-ai/grok-4.5) · **Verified:** 2026-07-09
+> **Source:** [xAI Models & Pricing](https://docs.x.ai/developers/models) · [xAI Pricing](https://docs.x.ai/developers/pricing) · [xAI API](https://x.ai/api) · [OpenRouter](https://openrouter.ai/x-ai/grok-4.5) · **Verified:** 2026-07-10
+>
+> **Note:** xAI was acquired by SpaceX and is now branded **SpaceXAI** in developer docs and API console. API endpoint (`api.x.ai`) and pricing are unchanged. Model IDs unchanged.
 
 ---
 
@@ -14,11 +16,13 @@ xAI's newest and most capable flagship. Co-trained with Cursor, optimized for co
 
 | Metric | Value |
 |---|---|
-| API names | `grok-4.5` |
-| Context window | 500,000 tokens |
+| API names | `grok-4.5` · `grok-4.5-latest` · `grok-build-latest` |
+| Context window | 500,000 tokens (higher pricing tier above 200K) |
 | Input | **$2.00 / 1M** |
+| Cached input | **$0.50 / 1M** |
 | Output | **$6.00 / 1M** |
-| Reasoning effort | Configurable (non-reasoning and reasoning modes) |
+| Speed | ~80 tokens/second |
+| Reasoning effort | Configurable: `low`, `medium`, `high` (default) |
 
 **Capabilities:** Coding, agentic tool calling, minimal hallucinations, configurable reasoning, vision, function calling, structured outputs.
 
@@ -27,7 +31,12 @@ xAI's newest and most capable flagship. Co-trained with Cursor, optimized for co
 - Available via SpaceXAI console API, Grok Build CLI, and Cursor (all plans)
 - Available on Azure AI Foundry, OCI Generative AI, and Google Cloud Vertex Model Garden
 - Positioned as xAI's primary model for "code and everything else"
+- Architecture: MoE (mixture-of-experts), co-trained with Cursor on real coding data + STEM/research material
+- ~2× token efficiency vs comparable leading models (xAI claim: solves tasks in under half the steps)
+- **Agentic tool-use**: #1 on Artificial Analysis Intelligence Index agentic tool-use leaderboard
 - **Excel, Word, PowerPoint add-ins** available via Microsoft Marketplace
+- EU availability expected mid-July 2026 (not yet available in EU at launch)
+- **Cursor pricing:** Fast variant $4 in / $18 out per 1M (priority serving, same model)
 
 *Source: [xAI — Introducing Grok 4.5](https://x.ai/news/grok-4-5) · [xAI Docs — models](https://docs.x.ai/developers/models) — 2026-07-08 · verified 2026-07-09*
 
@@ -358,7 +367,29 @@ xAI added **Composer 2.5** as a second model option inside the Grok Build CLI on
 
 ---
 
-## Grok Imagine Video 1.5 (GA: 2026-06-16) 🆕
+## Grok Imagine Video (Current — `grok-imagine-video`) 🆕 NEW
+
+New text/image/video-to-video generation model, available via the Grok Imagine API as of 2026-07-08.
+
+| Metric | Value |
+|---|---|
+| API name | `grok-imagine-video` |
+| Input | Text + Image + Video (multimodal) |
+| Output (480p) | **$0.05 / second** |
+| Output (720p) | **$0.07 / second** |
+| Media input (image) | $0.002 / image |
+| Media input (video) | $0.01 / second |
+
+**Key features:**
+- Accepts text, image, and video inputs (broader than Video 1.5's image-only input)
+- First xAI video model with text-to-video support
+- Lower cost than Video 1.5 at 480p/720p
+
+*Source: [xAI Pricing docs](https://docs.x.ai/developers/pricing) · [xAI API](https://x.ai/api) — verified 2026-07-10*
+
+---
+
+## Grok Imagine Video 1.5 (GA: 2026-06-16)
 
 Image-to-video generation model, **generally available** on the Grok Imagine API and grok.com/imagine as of **June 16, 2026**. Preview launched June 3, 2026.
 
@@ -367,9 +398,10 @@ Image-to-video generation model, **generally available** on the Grok Imagine API
 | API name | `grok-imagine-video-1.5-preview` |
 | Dated alias | `grok-imagine-video-1.5-2026-05-30` |
 | Input | Image + natural-language motion prompt |
-| Max resolution | **720p** |
+| Max resolution | **1080p** (added with GA; was 720p at preview) |
 | Output (480p) | **$0.08 / second** |
 | Output (720p) | **$0.14 / second** |
+| Output (1080p) | **$0.25 / second** |
 | Image input | $0.01 / image |
 | Audio | Included at no extra charge |
 | Generation speed | ~25 seconds for a 6-second 720p clip (~40% faster than predecessor) |
@@ -390,9 +422,9 @@ Image-to-video generation model, **generally available** on the Grok Imagine API
 
 ---
 
-## Grok 5 (Expected Q2 2026)
+## Grok 5 (Expected Q3 2026)
 
-Grok 5 has been delayed past the original Q1 2026 target. xAI now points to **Q2 2026** as the likely window. Training on the 1 GW Colossus 2 supercluster in Memphis. Reported 6 trillion parameters with MoE architecture.
+Grok 5 was delayed past Q2 2026. Next window expected Q3 2026. Training on the 1 GW Colossus 2 supercluster in Memphis. Reported 6 trillion parameters with MoE architecture.
 
 ---
 

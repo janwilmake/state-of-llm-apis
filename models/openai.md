@@ -1,12 +1,45 @@
 # OpenAI Model Catalog
 
-> **Source:** [OpenAI API Pricing](https://developers.openai.com/api/docs/pricing) · [OpenAI Models](https://platform.openai.com/docs/models) · **Verified:** 2026-06-18
+> **Source:** [OpenAI API Pricing](https://developers.openai.com/api/docs/pricing) · [OpenAI Models](https://platform.openai.com/docs/models) · **Verified:** 2026-07-10
 
 ---
 
 ## Current Recommended Models
 
-### GPT-5.5 Family (Flagship – Released 2026-04-23)
+### GPT-5.6 Family (GA – Released 2026-07-09) 🆕 NEW
+
+OpenAI's latest generation, introducing a three-tier naming system: **Sol** (flagship), **Terra** (balanced), and **Luna** (cost-efficient). This naming convention replaces the single-model-per-generation pattern — each tier can now advance independently. Launched following a limited government-review preview period (from June 26) under a new U.S. executive order requiring 30-day government review of frontier AI models.
+
+> **New caching model:** For GPT-5.6 and all future OpenAI models, cache **writes** are billed at **1.25× the uncached input rate** (previously free). Cache **reads** continue at a 90% discount. GPT-5.6 also introduces explicit cache breakpoints and a 30-minute minimum cache life.
+
+| Model | API name | Context | Input | Cache write | Cache read | Output | Notes |
+|---|---|---|---|---|---|---|---|
+| GPT-5.6 Sol | `gpt-5.6-sol` | 1 M tokens | $5.00 | $6.25 | $0.50 | $30.00 | Flagship; hard reasoning, coding, security, agentic |
+| GPT-5.6 Sol Pro | `gpt-5.6-sol-pro` | 1 M tokens | $30.00 | — | — | $180.00 | Highest capability; complex tasks, long workflows |
+| GPT-5.6 Terra | `gpt-5.6-terra` | 1 M tokens | $2.50 | $3.125 | $0.25 | $15.00 | Balanced; competitive with GPT-5.5 at 2× lower cost |
+| GPT-5.6 Luna | `gpt-5.6-luna` | 1 M tokens | $1.00 | $1.25 | $0.10 | $6.00 | Fast, affordable; high-volume and simple tasks |
+
+**Key facts:**
+- Limited preview launched **2026-06-26** (government-coordinated); GA rollout began **2026-07-09**
+- **Sol** = same price as GPT-5.5 ($5/$30) but improved capability; fewer hallucinations
+- **Terra** = performance competitive with GPT-5.5 at half the price ($2.50/$15) — 16% fewer tokens on agent tasks
+- **Luna** = new lowest-cost OpenAI tier at $1/$6 — defends against cheap competitors
+- Reasoning effort: `low`, `medium` (default), `high`, `max` (max = `ultra` in Codex; available on Sol); `max` runs with 4 parallel subagents in multi-agent mode
+- **ChatGPT routing:** Plus/Pro/Business/Enterprise access Sol via medium+ effort settings; Free/Go access Terra in ChatGPT Work and Codex; all four plans access all three tiers in Codex
+- GPT-5.5 Instant remains the default for ChatGPT fast everyday responses; Sol powers Medium/High/Extra High effort
+- **Cerebras integration (July 2026):** GPT-5.6 Sol launching on Cerebras at up to **750 tokens/second** for select customers
+- **Programmatic Tool Calling (Responses API):** GPT-5.6 can write and run programs in-memory to coordinate tools; Zero Data Retention (ZDR) compatible
+- Multi-agent beta: Responses API supports parallel subagents and synthesis for complex separable tasks
+- ARC-AGI-3 scores: Sol 7.78%, Terra 0.8%, Luna 0.18% (vs GPT-5.5 0.43%, Claude Opus 4.8 1.5%, Gemini 3.1 Pro Preview 0.42%)
+- Available across ChatGPT, Codex, and OpenAI API; Microsoft 365 Copilot using GPT-5.6 as preferred model
+
+**Pricing tiers:** Batch/Flex: 50% off; Priority: 2.5× standard rate. **Note:** Long-context pricing (>272K tokens at 2×) for GPT-5.6 not yet officially published; single flat rate in effect during launch period.
+
+*Source: [OpenAI — GPT-5.6: Frontier intelligence](https://openai.com/index/gpt-5-6/) · [OpenAI — Previewing GPT-5.6 Sol](https://openai.com/index/previewing-gpt-5-6-sol/) · [OpenAI Help Center — GPT-5.6](https://help.openai.com/en/articles/20001325-a-preview-of-gpt-56-sol-terra-and-luna) · [OpenAI API pricing](https://developers.openai.com/api/docs/pricing) — verified 2026-07-10*
+
+---
+
+### GPT-5.5 Family (Released 2026-04-23)
 
 OpenAI's most capable model. Positioned as "a new class of intelligence for coding and professional work." More token-efficient than GPT-5.4 — OpenAI claims ~40% fewer output tokens on Codex/agentic tasks. As of **2026-05-05**, GPT-5.5 Instant is the new default model for all ChatGPT users (replacing GPT-5.3 Instant). The "Instant" variant is accessible via the API as `chat-latest` — same token pricing as `gpt-5.5`.
 
@@ -219,7 +252,9 @@ Cached input tokens are charged at **10% of standard input price** for most mode
 
 ## Notes for Developers
 
-- `gpt-5.5` is the current top-tier model — more capable but 2× the price of `gpt-5.4`; `chat-latest` alias points to GPT-5.5 Instant (ChatGPT default since 2026-05-05)
+- **`gpt-5.6-sol`** is the new top-tier model (GA 2026-07-09), matching GPT-5.5 pricing ($5/$30) with improved capability. **`gpt-5.6-terra`** ($2.50/$15) is the best value at GPT-5.5-class performance for half the price. **`gpt-5.6-luna`** ($1/$6) is the cheapest capable OpenAI model.
+- ⚠️ **New caching model for GPT-5.6+:** cache writes now billed at 1.25× uncached input rate; cache reads still 10% of input. Budget accordingly.
+- `gpt-5.5` is still available and `chat-latest` alias points to GPT-5.5 Instant (ChatGPT default since 2026-05-05)
 - `gpt-5.4` remains the best value for agentic and computer-use tasks (same context, half the price of 5.5)
 - `gpt-5.4-mini` is recommended for high-volume latency-sensitive workloads (400K context)
 - `gpt-4.1-nano` / `gpt-5.4-nano` are the cheapest OpenAI options ($0.10–$0.20 input)

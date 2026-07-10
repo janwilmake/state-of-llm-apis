@@ -1,6 +1,6 @@
 # Deprecated & Sunset Models
 
-> Track sunset dates and migration paths. **Last updated:** 2026-07-09.
+> Track sunset dates and migration paths. **Last updated:** 2026-07-10.
 >
 > ⚠️ = Deprecated, still accessible. ❌ = Shut down, no longer accessible.
 
@@ -216,9 +216,19 @@ This is a **code change**, not a model retirement, but it will break integration
 | `deepseek-chat` | `deepseek-v4-flash` (non-thinking mode) | **2026-07-24 15:59 UTC** | `deepseek-v4-flash` |
 | `deepseek-reasoner` | `deepseek-v4-flash` (thinking mode) | **2026-07-24 15:59 UTC** | `deepseek-v4-flash` or `deepseek-v4-pro` |
 
-> 🚨 **URGENT — 15 DAYS REMAINING.** No silent redirect after July 24. DeepSeek has confirmed that calls to `deepseek-chat` and `deepseek-reasoner` will **return errors** (not redirect) after the deadline. This is a hard cutoff with no announced extension. **Migrate now.** Update your `model` parameter to `deepseek-v4-flash` (for chat/non-thinking workflows) or `deepseek-v4-pro` (for higher capability). Also note: DeepSeek V4 will move to stable release ~July 17, 2026, and will introduce **peak/off-peak pricing** (~2× rates during 9:00–12:00 and 14:00–18:00 Beijing Time).
+> 🚨 **URGENT — 14 DAYS REMAINING (2026-07-10).** No silent redirect after July 24. DeepSeek has confirmed that calls to `deepseek-chat` and `deepseek-reasoner` will **return errors** (not redirect) after the deadline. This is a hard cutoff with no announced extension. **Migrate now.** Update your `model` parameter to `deepseek-v4-flash` (for chat/non-thinking workflows) or `deepseek-v4-pro` (for higher capability). Also note: DeepSeek V4 will move to stable release ~July 17, 2026, and will introduce **peak/off-peak pricing** (~2× rates during 9:00–12:00 and 14:00–18:00 Beijing Time).
 
 *Source: [DeepSeek API Docs — Models & Pricing](https://api-docs.deepseek.com/quick_start/pricing) — verified 2026-07-09*
+
+---
+
+### Google — October 2, 2026
+
+| Model | API name | Deprecation | Retirement date | Replacement |
+|---|---|---|---|---|
+| Gemini 2.5 Flash Image | `gemini-2.5-flash-image` | ~2026-07 | **2026-10-02** | `gemini-3.1-flash-image` (GA) |
+
+*Source: [Google Cloud — Model versions and lifecycle](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/model-versions) — verified 2026-07-10*
 
 ---
 

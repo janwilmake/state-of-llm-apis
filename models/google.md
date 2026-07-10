@@ -34,7 +34,7 @@ Google's newest Gemini model, announced at Google I/O 2026. Optimized for **spee
 - ~4× faster output token generation compared to other frontier models
 - Built for long-horizon agentic tasks, complex coding, and multi-step workflows
 - Replaces Gemini 3.1 Pro as the recommended API model for production agentic use
-- **Gemini 3.5 Pro**: Delayed from June to July; targeting **2026-07-17** GA (third-party reports, not official commitment). As of 2026-07-09, not yet publicly available in the API. Model was rebuilt from scratch; expected: 2M context, "Deep Think" reasoning, ~$15/$60 per 1M tokens. Available in limited Vertex AI enterprise preview; apply at [Vertex AI](https://cloud.google.com/vertex-ai/generative-ai/docs/models/gemini/3-5-pro).
+- **Gemini 3.5 Pro**: Delayed from June to July; community/leak sources (not official) targeting **~2026-07-17**. As of 2026-07-10, not yet publicly available in the API. Model was rebuilt; expected: 2M context, "Deep Think" reasoning, ~$15/$60 per 1M tokens. Available in limited Vertex AI enterprise preview. Treat as **unconfirmed** — do not schedule production launches around leaked dates.
 - Grounding with Google Search: 5,000 prompts/month free (shared across Gemini 3 family), then **$14 / 1,000 queries**
 
 *Source: [Google AI Developer API pricing](https://ai.google.dev/gemini-api/docs/pricing) (last updated 2026-06-02) · [Google Cloud Blog — Google I/O 2026](https://cloud.google.com/blog/products/ai-machine-learning/innovations-from-google-io-26-on-google-cloud) · [Simon Willison](https://simonwillison.net/2026/May/19/gemini-35-flash/) · [OpenRouter](https://openrouter.ai/google/gemini-3.5-flash) — verified 2026-06-09*
@@ -361,6 +361,7 @@ Announced at Google I/O 2026: Google dropped the top-tier Ultra price and added 
 | `gemini-2.5-pro` | **2026-10-16** | `gemini-3.1-pro-preview` or `gemini-3.5-flash` *(date corrected 2026-06-12)* |
 | `gemini-2.5-flash` | **2026-10-16** | `gemini-3.5-flash` *(date corrected 2026-06-12)* |
 | `gemini-2.5-flash-lite` | **2026-10-16** | `gemini-3.1-flash-lite` (GA) *(date corrected 2026-06-12)* |
+| `gemini-2.5-flash-image` | **2026-10-02** | `gemini-3.1-flash-image` (GA) *(added 2026-07-10)* |
 | `gemini-3-pro-preview` | Retired 2026-03-09 | `gemini-3.1-pro-preview` |
 
 *Full table: [deprecated.md](../deprecated.md)*
