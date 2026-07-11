@@ -1,6 +1,6 @@
 # Google Gemini Model Catalog
 
-> **Source:** [Gemini API Pricing](https://ai.google.dev/gemini-api/docs/pricing) · [Vertex AI Pricing](https://cloud.google.com/vertex-ai/generative-ai/pricing) · [Gemini Deprecations](https://ai.google.dev/gemini-api/docs/deprecations) · **Verified:** 2026-07-09
+> **Source:** [Gemini API Pricing](https://ai.google.dev/gemini-api/docs/pricing) · [Vertex AI Pricing](https://cloud.google.com/vertex-ai/generative-ai/pricing) · [Gemini Deprecations](https://ai.google.dev/gemini-api/docs/deprecations) · **Verified:** 2026-07-11
 
 ---
 
@@ -37,22 +37,57 @@ Google's newest Gemini model, announced at Google I/O 2026. Optimized for **spee
 - **Gemini 3.5 Pro**: Delayed from June to July; community/leak sources (not official) targeting **~2026-07-17**. As of 2026-07-10, not yet publicly available in the API. Model was rebuilt; expected: 2M context, "Deep Think" reasoning, ~$15/$60 per 1M tokens. Available in limited Vertex AI enterprise preview. Treat as **unconfirmed** — do not schedule production launches around leaked dates.
 - Grounding with Google Search: 5,000 prompts/month free (shared across Gemini 3 family), then **$14 / 1,000 queries**
 
-*Source: [Google AI Developer API pricing](https://ai.google.dev/gemini-api/docs/pricing) (last updated 2026-06-02) · [Google Cloud Blog — Google I/O 2026](https://cloud.google.com/blog/products/ai-machine-learning/innovations-from-google-io-26-on-google-cloud) · [Simon Willison](https://simonwillison.net/2026/May/19/gemini-35-flash/) · [OpenRouter](https://openrouter.ai/google/gemini-3.5-flash) — verified 2026-06-09*
+**June 2026 updates to Gemini 3.5 Flash:**
+- **Computer Use** (2026-06-24): `gemini-3.5-flash` now supports computer use — can see, reason, and take action across desktop, mobile, and browser environments. Billed at standard Gemini 3.5 Flash token rates. Improves on long-horizon and enterprise automation tasks (continuous software testing, knowledge work). *(Source: [Google Blog — Computer use in Gemini 3.5 Flash](https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-computer-use-gemini-3-5-flash/) — 2026-06-24)*
+- **Gemini 3.5 Pro**: Still unreleased as of 2026-07-11. Delayed from June per Business Insider (June 24, 2026 report). Community/leak sources target ~July 17 but unconfirmed. Expected: 2M context, "Deep Think" reasoning, ~$15/$60 per 1M tokens. Available in limited Vertex AI enterprise preview only.
+
+*Source: [Google AI Developer API pricing](https://ai.google.dev/gemini-api/docs/pricing) (last updated 2026-07-09) · [Google Cloud Blog — Google I/O 2026](https://cloud.google.com/blog/products/ai-machine-learning/innovations-from-google-io-26-on-google-cloud) · [Business Insider — Gemini 3.5 Pro delay](https://www.businessinsider.com/google-3-5-pro-july-release-tokens-ai-agents-model-2026-6) — verified 2026-07-11*
 
 ---
 
-### Gemini Omni Flash (Released 2026-05-19 — Consumer) 🆕 NEW
+### Gemini Omni Flash (Developer API: 2026-06-30) 🆕 API NOW LIVE
 
-Google's first "any-to-any" model: blends text, audio, image, and **video** inputs to produce video output. Designed for conversational video creation and editing. Announced at Google I/O 2026.
+Google's first "any-to-any" model: blends text, audio, image, and **video** inputs to produce video output. Designed for conversational video creation and editing. Announced at Google I/O 2026, developer API launched **June 30, 2026**.
 
-> ⚠️ **API not yet available.** As of 2026-05-20, Gemini Omni Flash is only accessible via the **Gemini app, Google Flow, and YouTube Shorts/Create** for AI Plus/Pro/Ultra subscribers. Developer and enterprise API access via Vertex AI is expected "in the coming weeks." No model ID, token pricing, or API endpoint has been announced yet. Do not include in production planning until the API ships.
+> ✅ **Developer API now available** as of **June 30, 2026** via `gemini-omni-flash-preview`. Public preview in Google AI Studio, Gemini API, and Gemini Enterprise Agent Platform.
 
-**What's confirmed:**
-- Produces dynamic video by combining text, audio, image, and video inputs
-- Supports conversational editing (natural language edits on existing video)
-- Rolling out to AI Plus ($7.99/mo), AI Pro ($19.99/mo), AI Ultra ($99.99/mo) subscribers
+| Metric | Value |
+|---|---|
+| API name | `gemini-omni-flash-preview` |
+| Status | Public preview (as of 2026-06-30) |
+| Input | $1.50 / 1M tokens (text/image/video — same as Gemini 3.5 Flash) |
+| Video output | ~$0.10 / second (~$17.50 / 1M video output tokens; 5,792 tokens/sec at 720p) |
+| Max output length | 10 seconds per generation |
+| Output resolution | 720p |
 
-*Source: [VentureBeat — Gemini Omni enterprise breakdown](https://venturebeat.com/ai/google-unveils-gemini-omni-any-to-any-ai-model-what-enterprises-should-know) · [Google Cloud Blog](https://cloud.google.com/blog/products/ai-machine-learning/innovations-from-google-io-26-on-google-cloud) — 2026-05-19 · verified 2026-05-20*
+**Key facts:**
+- Generates 3–10 second video clips via the Interactions API from text, image, or existing video inputs
+- **Conversational video editing**: refine or edit generated video through natural-language follow-up prompts
+- Supports text-to-video, image-to-video, reference-to-video generation
+- SynthID watermarking and C2PA Content Credentials on generated content
+- Best companion for still-image generation: `gemini-3.1-flash-lite-image` (Nano Banana 2 Lite, GA June 30)
+- Consumer access: Gemini app (AI Plus/Pro/Ultra), Google Flow, YouTube Shorts/Create
+- Preview: no GA SLA; availability may vary by region and account tier
+
+*Source: [Google Blog — Nano Banana 2 Lite and Gemini Omni Flash](https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-omni-flash-nano-banana-2-lite/) · [Gemini API changelog — June 30, 2026](https://ai.google.dev/gemini-api/docs/changelog) · [Coursiv — Gemini Omni Flash pricing](https://coursiv.io/blog/gemini-omni-flash) — verified 2026-07-11*
+
+---
+
+### Gemini 3.5 Live Translate (Released 2026-06-09) 🆕 NEW
+
+Real-time speech-to-speech translation model. Automatically detects 70+ input languages while preserving the speaker's natural intonation and eliminating pauses.
+
+| Metric | Value |
+|---|---|
+| API name | `gemini-3.5-live-translate` (Gemini Live API) |
+| Status | Available in Gemini Live API, Google AI Studio, Google Translate app |
+| Input languages | 70+ (auto-detect) |
+| Output | Translated speech, near-real-time |
+| Pricing | See [Gemini API pricing](https://ai.google.dev/gemini-api/docs/pricing) — audio input/output rates |
+
+**Best for:** Multilingual voice calls, meetings, live translation workflows. Near-real-time with natural-sounding speech and no awkward pauses.
+
+*Source: [Google Blog — Gemini 3.5 Live Translate](https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-live-3-5-translate/) — 2026-06-09 · verified 2026-07-11*
 
 ---
 
@@ -206,6 +241,25 @@ GA release. Graduated from preview on May 7, 2026.
 Google released two GA versions of its native image generation models on **May 28, 2026**. These are the "Nano Banana" models: multimodal models that accept text and image inputs and generate images natively within the Gemini ecosystem.
 
 > ⚠️ **Preview shutdowns:** `gemini-3.1-flash-image-preview` and `gemini-3-pro-image-preview` are deprecated and will shut down **June 25, 2026**. Migrate to the GA versions below.
+
+### Gemini 3.1 Flash-Lite Image (`gemini-3.1-flash-lite-image`) — "Nano Banana 2 Lite" (GA 2026-06-30) 🆕
+
+Upgraded to **GA on June 30, 2026**. Google's fastest and most cost-efficient image generation model. Optimized for ultra-low latency and cost-effective image generation/editing.
+
+| Metric | Value |
+|---|---|
+| API name | `gemini-3.1-flash-lite-image` |
+| Status | **GA** (as of 2026-06-30) |
+| **Text input** | $0.125 / 1M tokens |
+| **Text output** | $0.75 / 1M tokens |
+| **Image output** | $15 / 1M image output tokens (Vertex) |
+| Free tier | ✅ |
+
+**Best for:** Ultra-high-volume image tasks; use as a preprocessing step before Gemini Omni Flash for text-to-image-to-video pipelines.
+
+*Source: [Gemini API changelog — June 30, 2026](https://ai.google.dev/gemini-api/docs/changelog) · [Google Blog — Nano Banana 2 Lite launch](https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-omni-flash-nano-banana-2-lite/) · [Google Cloud Agent Platform pricing](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing) — verified 2026-07-11*
+
+---
 
 ### Gemini 3.1 Flash Image (`gemini-3.1-flash-image`) — "Nano Banana 2"
 
@@ -362,6 +416,8 @@ Announced at Google I/O 2026: Google dropped the top-tier Ultra price and added 
 | `gemini-2.5-flash` | **2026-10-16** | `gemini-3.5-flash` *(date corrected 2026-06-12)* |
 | `gemini-2.5-flash-lite` | **2026-10-16** | `gemini-3.1-flash-lite` (GA) *(date corrected 2026-06-12)* |
 | `gemini-2.5-flash-image` | **2026-10-02** | `gemini-3.1-flash-image` (GA) *(added 2026-07-10)* |
+| `gemini-embedding-001` | 🚨 **2026-07-14** | `gemini-embedding-2` *(added 2026-07-11 — 3 days)* |
+| `embedding-2-preview` | **2026-08-10** | `gemini-embedding-2` *(added 2026-07-11)* |
 | `gemini-3-pro-preview` | Retired 2026-03-09 | `gemini-3.1-pro-preview` |
 
 *Full table: [deprecated.md](../deprecated.md)*

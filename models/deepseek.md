@@ -1,6 +1,6 @@
 # DeepSeek Model Catalog
 
-> **Source:** [DeepSeek API Docs](https://api-docs.deepseek.com/quick_start/pricing) · **Verified:** 2026-06-09
+> **Source:** [DeepSeek API Docs](https://api-docs.deepseek.com/quick_start/pricing) · **Verified:** 2026-07-11
 
 ---
 
@@ -17,7 +17,16 @@ DeepSeek's latest generation. Two variants with 1M context, both open-weight. Bo
 | V4 Flash | `deepseek-v4-flash` | 1,000,000 tokens | 384,000 tokens | **$0.14 / 1M** | $0.0028 / 1M | **$0.28 / 1M** |
 | V4 Pro | `deepseek-v4-pro` | 1,000,000 tokens | 384,000 tokens | **$0.435 / 1M** | $0.003625 / 1M | **$0.87 / 1M** |
 
-> ✅ **V4 Pro promotional price is now permanent.** On **2026-05-24**, DeepSeek made the 75% discount permanent — the list price was lowered from $1.74/$3.48 to $0.435/$0.87. This is the ongoing price, not a promotional rate. *Source: [The Next Web](https://thenextweb.com/news/deepseek-v4-pro-75-percent-price-cut-permanent) — 2026-05-24 · [Official pricing docs](https://api-docs.deepseek.com/quick_start/pricing) confirmed $0.435/$0.87 as current price — verified 2026-06-09*
+> ✅ **V4 Pro promotional price is now permanent.** On **2026-05-24**, DeepSeek made the 75% discount permanent — the list price was lowered from $1.74/$3.48 to $0.435/$0.87. This is the ongoing price, not a promotional rate. *Source: [The Next Web](https://thenextweb.com/news/deepseek-v4-pro-75-percent-price-cut-permanent) — 2026-05-24 · [Official pricing docs](https://api-docs.deepseek.com/quick_start/pricing) confirmed $0.435/$0.87 as current price — verified 2026-07-11*
+
+> ⚠️ **UPCOMING: Peak/off-peak pricing arriving with V4 stable release (mid-July 2026).** DeepSeek announced (2026-06-29) that the stable V4 release will introduce **time-of-day pricing** — approximately 2× rates during peak hours:
+>
+> | Period | Hours (Beijing Time, UTC+8) | V4 Flash input | V4 Flash output | V4 Pro input | V4 Pro output |
+> |---|---|---|---|---|---|
+> | Off-peak (regular) | All other hours | $0.14 / 1M | $0.28 / 1M | $0.435 / 1M | $0.87 / 1M |
+> | Peak | 09:00–12:00 & 14:00–18:00 | ~$0.29 / 1M | ~$0.59 / 1M | ~$0.88 / 1M | ~$1.76 / 1M |
+>
+> A 24-hour advance notice will be sent before the change takes effect. Continued API usage after the notice = acceptance of new pricing. Opt-out (with refund) available before the change. Cache hit rates also double during peak hours. This is the first time DeepSeek has introduced time-based surcharging. *Source: [Reddit r/DeepSeek](https://www.reddit.com/r/DeepSeek/comments/1uio6yf/) · [Tech Buzz China on X](https://x.com/TechBuzzChina/status/2071745549917688075) — 2026-06-29 · verified 2026-07-11*
 
 **Architecture:**
 - **V4 Pro:** 1.6T total parameters / 49B active parameters — "performance rivaling the world's top closed-source models"

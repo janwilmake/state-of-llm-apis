@@ -1,6 +1,6 @@
 # xAI Grok Model Catalog
 
-> **Source:** [xAI Models & Pricing](https://docs.x.ai/developers/models) · [xAI Pricing](https://docs.x.ai/developers/pricing) · [xAI API](https://x.ai/api) · [OpenRouter](https://openrouter.ai/x-ai/grok-4.5) · **Verified:** 2026-07-10
+> **Source:** [xAI Models & Pricing](https://docs.x.ai/developers/models) · [xAI Pricing](https://docs.x.ai/developers/pricing) · [xAI API](https://x.ai/api) · [OpenRouter](https://openrouter.ai/x-ai/grok-4.5) · **Verified:** 2026-07-11
 >
 > **Note:** xAI was acquired by SpaceX and is now branded **SpaceXAI** in developer docs and API console. API endpoint (`api.x.ai`) and pricing are unchanged. Model IDs unchanged.
 
@@ -66,10 +66,11 @@ xAI's newest and recommended flagship. ~40% price cut vs. Grok 4.20; expanded to
 
 **Key capabilities:** Vision input, tool calling/function calling, structured outputs, prompt caching, batch API, provisioned throughput.
 
-**Voice API (launched 2026-04-17; pricing updated 2026-05-09):**
+**Voice API (launched 2026-04-17; pricing updated 2026-05-09; 21 new voices added 2026-07-06):**
 - Voice Agent (Realtime): **$3.00 / hour** ($0.05 / minute), WebSocket-based; up to 30 min sessions
-- TTS: **$15.00 / 1M characters** (REST + WebSocket streaming; 5 voices, 20+ languages)
+- TTS: **$15.00 / 1M characters** (REST + WebSocket streaming; **26 voices**, 25+ languages; voice cloning supported)
 - STT: **$0.10 / hour** (REST batch) · **$0.20 / hour** (WebSocket streaming); 25+ languages, speaker diarization
+- Speech tags (`[pause]`, `<emphasis>`) for delivery control
 
 > ⚠️ **Pricing correction (2026-05-15):** At launch (2026-04-17), xAI TTS was priced at $4.20/1M characters. The official pricing page (last updated 2026-05-09) now shows **$15.00 / 1M characters**. STT pricing is unchanged ($0.10/hr batch, $0.20/hr streaming). Grok Voice Agent (realtime) remains $3.00/hr.
 
@@ -270,6 +271,26 @@ curl -fsSL https://x.ai/cli/install.sh | bash
 - Underlying model: `grok-build-0.1` (API pricing applies when using API key)
 
 *Source: [xAI — Introducing Grok Build](https://x.ai/news/grok-build-cli) · [Grok Build 0.1 on API](https://x.ai/news/grok-build-0-1) — 2026-05-28*
+
+---
+
+## 21 New Grok Voice Voices (Released 2026-07-06) 🆕 NEW
+
+xAI released **21 new flagship voices** for Grok Voice on July 6, 2026, joining the original five (Ara, Eve, Leo, Rex, Sal). All 26 voices are natively multilingual across Grok Voice's 25+ languages.
+
+**What's new:**
+- 21 new voices, each designed for a specific use case: support, characters, commentary, advertising, education
+- **Speech tags** (`[pause]`, `<emphasis>`, etc.) for delivery control
+- **Voice cloning** support
+- Retrained and improved **naturalness for the original 5 voices** (Ara, Eve, Leo, Rex, Sal) — better pacing, phrasing, and emphasis
+- Available immediately in: realtime Voice Agent API, Text to Speech API, Grok Voice Agent Builder
+
+**Pricing (unchanged):**
+- Voice Agent (Realtime): $3.00 / hour
+- TTS: $15.00 / 1M characters
+- STT Batch: $0.10 / hour · STT Streaming: $0.20 / hour
+
+*Source: [xAI — 21 New Flagship Grok Voices](https://x.ai/news) · [Releasebot xAI Jul 6, 2026](https://releasebot.io/updates/xai) — 2026-07-06 · verified 2026-07-11*
 
 ---
 
