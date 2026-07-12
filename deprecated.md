@@ -1,6 +1,6 @@
 # Deprecated & Sunset Models
 
-> Track sunset dates and migration paths. **Last updated:** 2026-07-11.
+> Track sunset dates and migration paths. **Last updated:** 2026-07-12.
 >
 > ⚠️ = Deprecated, still accessible. ❌ = Shut down, no longer accessible.
 
@@ -209,6 +209,18 @@ This is a **code change**, not a model retirement, but it will break integration
 
 ---
 
+### Mistral — September 30, 2026
+
+| Model | API name | Released | Retirement date | Replacement |
+|---|---|---|---|---|
+| Leanstral 1.5 | `labs-leanstral-1-5` | 2026-06-30 | **2026-09-30** | TBD |
+
+This is a Labs (experimental) model for Lean 4 formal proof engineering. Not a general-purpose LLM.
+
+*Source: [Mistral Changelog — June 30, 2026](https://docs.mistral.ai/resources/changelogs) — verified 2026-07-12*
+
+---
+
 ### DeepSeek — July 24, 2026 🚨 **15 DAYS** — Hard cutoff
 
 | Alias | Currently points to | Retirement date | Replacement |
@@ -216,7 +228,7 @@ This is a **code change**, not a model retirement, but it will break integration
 | `deepseek-chat` | `deepseek-v4-flash` (non-thinking mode) | **2026-07-24 15:59 UTC** | `deepseek-v4-flash` |
 | `deepseek-reasoner` | `deepseek-v4-flash` (thinking mode) | **2026-07-24 15:59 UTC** | `deepseek-v4-flash` or `deepseek-v4-pro` |
 
-> 🚨 **URGENT — 13 DAYS REMAINING (2026-07-11).** No silent redirect after July 24. DeepSeek has confirmed that calls to `deepseek-chat` and `deepseek-reasoner` will **return errors** (not redirect) after the deadline. This is a hard cutoff with no announced extension. **Migrate now.** Update your `model` parameter to `deepseek-v4-flash` (for chat/non-thinking workflows) or `deepseek-v4-pro` (for higher capability).
+> 🚨 **URGENT — 12 DAYS REMAINING (2026-07-12).** No silent redirect after July 24. DeepSeek has confirmed that calls to `deepseek-chat` and `deepseek-reasoner` will **return errors** (not redirect) after the deadline. This is a hard cutoff with no announced extension. **Migrate now.** Update your `model` parameter to `deepseek-v4-flash` (for chat/non-thinking workflows) or `deepseek-v4-pro` (for higher capability).
 >
 > **Also note:** DeepSeek V4 stable release is arriving mid-July, and will introduce **peak/off-peak pricing** (~2× during 09:00–12:00 & 14:00–18:00 Beijing Time UTC+8). You will receive 24-hour advance notice before it takes effect. Cache hit rates also double during peak. See [models/deepseek.md](models/deepseek.md) for rate tables.
 
@@ -226,7 +238,7 @@ This is a **code change**, not a model retirement, but it will break integration
 
 ### Google — July 14, 2026 🚨 **3 DAYS** — Gemini Embedding 001
 
-> 🚨 **URGENT — 3 DAYS REMAINING (2026-07-11).** The `gemini-embedding-001` embedding model retires **July 14, 2026**. Calls after that date will fail. Migrate to `gemini-embedding-2` immediately. This is a hard cutoff per the [official Gemini API deprecations page](https://ai.google.dev/gemini-api/docs/deprecations).
+> 🚨 **URGENT — 2 DAYS REMAINING (2026-07-12).** The `gemini-embedding-001` embedding model retires **July 14, 2026**. Calls after that date will fail. Migrate to `gemini-embedding-2` immediately. This is a hard cutoff per the [official Gemini API deprecations page](https://ai.google.dev/gemini-api/docs/deprecations).
 
 | Model | API name | Release date | Shutdown date | Replacement |
 |---|---|---|---|---|

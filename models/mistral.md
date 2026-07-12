@@ -1,6 +1,6 @@
 # Mistral AI Model Catalog
 
-> **Source:** [Mistral API Pricing](https://mistral.ai/pricing) · [Mistral Docs Model Cards](https://docs.mistral.ai/models/model-cards/mistral-medium-3-5-26-04) · [OpenRouter](https://openrouter.ai/mistralai/mistral-medium-3-5) · **Verified:** 2026-07-09
+> **Source:** [Mistral API Pricing](https://mistral.ai/pricing) · [Mistral Docs Model Cards](https://docs.mistral.ai/models/model-cards/mistral-medium-3-5-26-04) · [OpenRouter](https://openrouter.ai/mistralai/mistral-medium-3-5) · **Verified:** 2026-07-12
 
 ---
 
@@ -170,6 +170,24 @@ Mistral's first **embodied navigation model**. An 8B model that enables robots t
 - No public hobbyist/non-commercial license announced
 
 *Source: [Mistral — Robostral Navigate](https://mistral.ai/news/robostral-navigate/) — 2026-07-08 · verified 2026-07-09*
+
+---
+
+## Leanstral 1.5 (Released 2026-06-30) 🆕 NEW — Retires 2026-09-30
+
+Updated Lean 4 formal proof engineering model. Successor to Leanstral (`labs-leanstral-2603`, retired June 30). Not a general-purpose LLM — specialized for theorem proving and formal verification in Lean 4.
+
+| Metric | Value |
+|---|---|
+| API name | `labs-leanstral-1-5` |
+| Category | Labs (experimental) |
+| Release date | 2026-06-30 |
+| Retirement date | **2026-09-30** |
+| Improvements | Better SFT mixture quality; extended long-context reasoning |
+
+**Developer note:** Only relevant for teams using Lean 4 for formal verification or theorem proving. Not a general instruction model.
+
+*Source: [Mistral Changelog — June 30, 2026](https://docs.mistral.ai/resources/changelogs) — verified 2026-07-12*
 
 ---
 

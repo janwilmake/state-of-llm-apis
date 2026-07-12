@@ -4,6 +4,113 @@ Changes tracked by the Model Tracker agent. Most recent entries first.
 
 ---
 
+## 2026-07-12
+
+### 🚨 Anthropic: Claude Fable 5 free subscription access ends TODAY (2026-07-12 at 11:59 PM PT)
+
+**Provider:** [Anthropic](models/anthropic.md)  
+The promotional window for **Claude Fable 5** on paid plans expires **tonight at 11:59 PM PT**. After this deadline, access to Fable 5 moves to **usage credits** billed at $10/$50 per 1M tokens (standard API pricing). This is not a deprecation — the model remains available; you simply need usage credits enabled to continue using it.
+
+**Affected plans:** Pro ($20/mo), Max 5x ($100/mo), Max 20x ($200/mo), Team Standard, Team Premium, and select Enterprise plans.
+
+**Timeline recap:**
+- **2026-06-09:** Fable 5 launched; free access through June 22 announced.
+- **2026-06-12:** US export controls suspended access globally (wiped out most of the original free window).
+- **2026-07-01:** Access restored globally after export controls lifted June 30.
+- **2026-07-07:** Extended deadline (originally July 7 → July 12) announced on X.
+- **2026-07-12 11:59 PM PT:** ← **TODAY** — free window closes; usage credits required going forward.
+
+**Developer action:** If you're using Fable 5 via subscription on an API key or `claude.ai` + tools, check whether usage credits are enabled on your account. To continue API access after tonight, usage credits must be funded. Interactive Claude.ai access and Claude Code may still surface Fable 5 to subscriptions at reduced limits — confirm via [Anthropic's pricing page](https://platform.claude.com/docs/en/about-claude/pricing). Fallback: `claude-opus-4-8` at $5/$25 per 1M.
+
+*Source: [Anthropic — Redeploying Fable 5](https://www.anthropic.com/news/redeploying-fable-5) · [@claudeai on X](https://x.com/claudeai/status/2074548242386178258) · [Softonic — Extension confirmed Jul 8](https://en.softonic.com/articles/anthropic-extends-free-claude-fable-5-access-through-july-12) — verified 2026-07-12*
+
+---
+
+### 🆕 Mistral: Robostral Navigate released (2026-07-08)
+
+**Provider:** [Mistral](models/mistral.md)  
+Mistral released **Robostral Navigate** on July 8, 2026 — their first model built for **embodied robotic navigation**. The model steers robots using a single RGB camera and plain-language instructions, with no additional sensors required.
+
+| Metric | Value |
+|---|---|
+| API name | (not published for public API — La Plateforme enterprise only) |
+| Parameters | 8B |
+| Training | Simulated environments; token-efficient synthetic data pipeline |
+| Navigation benchmark | **76.6% success on R2R-CE** (unseen environments) |
+| Robot types | Generalizes across multiple robot form factors |
+
+**Key facts:**
+- Outperforms multi-sensor approaches on the R2R-CE benchmark at 8B parameters
+- Trained entirely in simulation; adapts to real-world obstacles unseen during training
+- Developer/enterprise access via Mistral enterprise inquiry; not available on standard La Plateforme API as of launch
+
+**Developer note:** This is a specialized embodied AI model, not a text/reasoning model. Not relevant for typical LLM API use cases. Flagged here for completeness.
+
+*Source: [Mistral News — Robostral Navigate](https://mistral.ai/news/) · [Releasebot Mistral — Jul 2026](https://releasebot.io/updates/mistral) — 2026-07-08 · verified 2026-07-12*
+
+---
+
+### 🆕 Mistral: OCR 4 released (2026-06-23)
+
+**Provider:** [Mistral](models/mistral.md)  
+Mistral released **Mistral OCR 4** on June 23, 2026 — their most capable document intelligence model to date. Replaces OCR 3 (`mistral-ocr-3`).
+
+| Metric | Value |
+|---|---|
+| API name | `mistral-ocr-4` |
+| Predecessor | `mistral-ocr-3` |
+| Release date | 2026-06-23 |
+| Status | GA |
+
+**Key facts:**
+- Described by Mistral as "state of the art document intelligence" — improvements in accuracy and structured output extraction over OCR 3
+- Handles complex layouts, tables, forms, and mixed-language documents
+
+*Source: [Mistral News — Mistral OCR 4](https://mistral.ai/news/) — 2026-06-23 · verified 2026-07-12*
+
+---
+
+### 🆕 Mistral: Leanstral 1.5 released (2026-06-30) — retires 2026-09-30
+
+**Provider:** [Mistral](models/mistral.md)  
+Mistral released **Leanstral 1.5** (`labs-leanstral-1-5`) on June 30, 2026 — an updated Lean 4 formal proof engineering model with improved training mix and extended long-context reasoning. Successor to `labs-leanstral-2603` (Leanstral 1.0, retired June 30).
+
+| Metric | Value |
+|---|---|
+| API name | `labs-leanstral-1-5` |
+| Retirement date | **2026-09-30** |
+| Category | Labs model (experimental) |
+| Use case | Lean 4 formal proof engineering |
+
+**Developer note:** This is a specialized formal-methods model, not a general-purpose LLM. Relevant to teams doing theorem proving or formal verification in Lean 4.
+
+*Source: [Mistral Changelog — June 30, 2026](https://docs.mistral.ai/resources/changelogs) · [Releasebot Mistral — Jul 2026](https://releasebot.io/updates/mistral) — 2026-06-30 · verified 2026-07-12*
+
+---
+
+### ⏱️ Deadlines: Key upcoming cutoffs (verified 2026-07-12)
+
+| Deadline | Days | Action |
+|---|---|---|
+| **2026-07-12 11:59 PM PT** | **TODAY** 🚨 | Claude Fable 5 free subscription window closes — ensure usage credits are enabled if you rely on Fable 5 in production |
+| **2026-07-14** | **2 DAYS** 🚨 | `gemini-embedding-001` **hard cutoff** — API calls will fail. Migrate to `gemini-embedding-2` immediately. |
+| **2026-07-24** | **12 DAYS** 🚨 | DeepSeek `deepseek-chat` + `deepseek-reasoner` hard cutoff — returns errors (no redirect). Migrate to `deepseek-v4-flash` / `deepseek-v4-pro` NOW. |
+| **2026-07-24** | **12 DAYS** ⚠️ | Anthropic Claude Opus 4.7 Fast Mode retires → migrate to `claude-opus-4-8` Fast Mode ($10/$50 per 1M, 3× cheaper). |
+| **2026-07-31** | **19 DAYS** ⚠️ | Mistral retirements: `mistral-small-2506`, `magistral-small-2509`, `devstral-2512`, `open-mistral-nemo-2407` → `mistral-small-2603` or `mistral-medium-3-5` |
+| **2026-08-17** | ~36 days | Imagen 4.0 models retire on Gemini Dev API: `imagen-4.0-*` → `gemini-3.1-flash-image` |
+| **2026-08-31** | ~50 days | Mistral `mistral-medium-2508` (Medium 3.1) → `mistral-medium-3-5` |
+| **2026-09-24** | ~74 days | OpenAI Sora 2 API shuts down — no announced replacement |
+| **2026-09-30** | ~80 days | Mistral `labs-leanstral-1-5` retires |
+| **2026-10-02** | ~82 days | Gemini `gemini-2.5-flash-image` retires → `gemini-3.1-flash-image` |
+| **2026-10-16** | ~96 days | `gemini-2.5-pro`, `gemini-2.5-flash`, `gemini-2.5-flash-lite` retire |
+| **2026-11-30** | ~141 days | OpenAI Agent Builder shuts down → Agents SDK or ChatGPT Workspace Agents |
+| **2026-12-01** | ~142 days | `gpt-image-1-mini`, `gpt-image-1.5`, `chatgpt-image-latest` → `gpt-image-2` |
+| **2027-01-06** | ~178 days | OpenAI fine-tuning: last date to create new training jobs |
+
+*Verified 2026-07-12*
+
+---
+
 ## 2026-06-19
 
 ### 🚨 Anthropic: Claude Fable 5 / Mythos 5 — still SUSPENDED (day 7)
