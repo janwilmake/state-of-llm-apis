@@ -1,6 +1,6 @@
 # Google Gemini Model Catalog
 
-> **Source:** [Gemini API Pricing](https://ai.google.dev/gemini-api/docs/pricing) · [Vertex AI Pricing](https://cloud.google.com/vertex-ai/generative-ai/pricing) · [Gemini Deprecations](https://ai.google.dev/gemini-api/docs/deprecations) · **Verified:** 2026-07-11
+> **Source:** [Gemini API Pricing](https://ai.google.dev/gemini-api/docs/pricing) · [Vertex AI Pricing](https://cloud.google.com/vertex-ai/generative-ai/pricing) · [Gemini Deprecations](https://ai.google.dev/gemini-api/docs/deprecations) · **Verified:** 2026-07-13
 
 ---
 
@@ -34,12 +34,12 @@ Google's newest Gemini model, announced at Google I/O 2026. Optimized for **spee
 - ~4× faster output token generation compared to other frontier models
 - Built for long-horizon agentic tasks, complex coding, and multi-step workflows
 - Replaces Gemini 3.1 Pro as the recommended API model for production agentic use
-- **Gemini 3.5 Pro**: Delayed from June to July; community/leak sources (not official) targeting **~2026-07-17**. As of 2026-07-10, not yet publicly available in the API. Model was rebuilt; expected: 2M context, "Deep Think" reasoning, ~$15/$60 per 1M tokens. Available in limited Vertex AI enterprise preview. Treat as **unconfirmed** — do not schedule production launches around leaked dates.
+- **Gemini 3.5 Pro**: Still unreleased as of **2026-07-13**. Model was rebuilt following delayed June window. Community discussion (r/GeminiAI, July 2026) suggests the delay is partly driven by competitive pressure from GPT-5.6 and Grok 4.5. No official release date given. Expected: 2M context, "Deep Think" reasoning, ~$15/$60 per 1M tokens. Limited Vertex AI enterprise preview only. Do not plan production integrations around leaked dates.
 - Grounding with Google Search: 5,000 prompts/month free (shared across Gemini 3 family), then **$14 / 1,000 queries**
 
 **June 2026 updates to Gemini 3.5 Flash:**
 - **Computer Use** (2026-06-24): `gemini-3.5-flash` now supports computer use — can see, reason, and take action across desktop, mobile, and browser environments. Billed at standard Gemini 3.5 Flash token rates. Improves on long-horizon and enterprise automation tasks (continuous software testing, knowledge work). *(Source: [Google Blog — Computer use in Gemini 3.5 Flash](https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-computer-use-gemini-3-5-flash/) — 2026-06-24)*
-- **Gemini 3.5 Pro**: Still unreleased as of 2026-07-11. Delayed from June per Business Insider (June 24, 2026 report). Community/leak sources target ~July 17 but unconfirmed. Expected: 2M context, "Deep Think" reasoning, ~$15/$60 per 1M tokens. Available in limited Vertex AI enterprise preview only.
+- **Gemini 3.5 Pro**: Still unreleased as of **2026-07-13**. Delayed from June. Community discussion (r/GeminiAI, July 2026) attributes delay to competitive pressure from GPT-5.6 and Grok 4.5 — "they simply don't have a model that's ready to compete." Expected: 2M context, "Deep Think" reasoning, ~$15/$60 per 1M tokens. Available in limited Vertex AI enterprise preview only.
 
 *Source: [Google AI Developer API pricing](https://ai.google.dev/gemini-api/docs/pricing) (last updated 2026-07-09) · [Google Cloud Blog — Google I/O 2026](https://cloud.google.com/blog/products/ai-machine-learning/innovations-from-google-io-26-on-google-cloud) · [Business Insider — Gemini 3.5 Pro delay](https://www.businessinsider.com/google-3-5-pro-july-release-tokens-ai-agents-model-2026-6) — verified 2026-07-11*
 
@@ -109,6 +109,22 @@ Google launched the **Managed Agents API** at Google I/O 2026, enabling develope
 - Stateful agents: maintain context across multiple interactions
 - Antigravity SDK also released — lets developers deploy the agent harness on their own infrastructure with full customization
 - Pricing: not yet published (preview); check [Agent Platform docs](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/managed-agents)
+
+### Managed Agents API — Expanded Capabilities (2026-07-07) 🆕
+
+On July 7, 2026, Google announced four new capabilities for Managed Agents in the Gemini API, addressing developer feedback for production-ready deployments:
+
+1. **Background execution:** Agents now run asynchronously in the background — dispatch a task and poll or receive a webhook when complete. No need to keep a connection open for long-running agent tasks.
+2. **Remote MCP server integration:** Agents can call any remote MCP (Model Context Protocol) server as a tool, enabling integration with third-party services and custom APIs without embedding them in the sandbox.
+3. **Custom function calling:** Define and expose custom tools/functions to the agent at runtime, in addition to built-in tools like code execution and web search.
+4. **Refreshing credentials across interactions:** Agents can now refresh API credentials (OAuth tokens, etc.) mid-session, enabling longer-running agents that span credential expiry windows.
+
+**API name:** `antigravity-preview-05-2026` (same identifier; capabilities expanded in-place)  
+**Access:** Gemini API (via [ai.google.dev/gemini-api/docs/agents](https://ai.google.dev/gemini-api/docs/agents)) and Gemini Enterprise Agent Platform
+
+*Source: [Google Blog — Expanding Managed Agents in Gemini API](https://blog.google/innovation-and-ai/technology/developers-tools/expanding-managed-agents-gemini-api/) — 2026-07-07 · verified 2026-07-13*
+
+---
 
 *Source: [Google Gemini API changelog — May 19, 2026](https://ai.google.dev/gemini-api/docs/changelog) · [Google Cloud Blog — I/O 2026](https://cloud.google.com/blog/products/ai-machine-learning/innovations-from-google-io-26-on-google-cloud) — verified 2026-05-21*
 

@@ -1,6 +1,6 @@
 # Anthropic Model Catalog
 
-> **Source:** [Anthropic API Pricing](https://platform.claude.com/docs/en/about-claude/pricing) · [Models Overview](https://platform.claude.com/docs/en/about-claude/models/overview) · **Verified:** 2026-07-12
+> **Source:** [Anthropic API Pricing](https://platform.claude.com/docs/en/about-claude/pricing) · [Models Overview](https://platform.claude.com/docs/en/about-claude/models/overview) · **Verified:** 2026-07-13
 
 ---
 
@@ -10,11 +10,11 @@
 
 > ✅ **ACCESS RESTORED 2026-07-01.** Export controls on Fable 5 were lifted on June 30, 2026. Fable 5 returned globally on July 1 across Claude Platform, claude.ai, Claude Code, and Claude Cowork. AWS, Google Cloud, and Microsoft Foundry access is being restored as quickly as possible.
 >
-> 🚨 **FREE WINDOW ENDS 2026-07-12 at 11:59 PM PT (TODAY).** For Pro, Max, Team, and select Enterprise plans, Fable 5 was included for up to 50% of weekly usage limits through July 12. After tonight, access moves to **usage credits** at $10/$50 per 1M tokens. Ensure usage credits are enabled if you rely on Fable 5 in production. Fallback: `claude-opus-4-8` ($5/$25 per 1M).
+> ✅ **FREE WINDOW CLOSED 2026-07-12 at 11:59 PM PT.** The promotional free-access window for Pro, Max, Team, and select Enterprise plans has now ended. As of July 13, 2026, access to Fable 5 requires **usage credits** billed at $10/$50 per 1M tokens. If you have not enabled usage credits and are calling `claude-fable-5`, requests will fail. Enable usage credits in the [Claude Console](https://platform.claude.com/settings/billing) or fall back to `claude-opus-4-8` ($5/$25 per 1M).
 >
 > ⚠️ **Data retention requirement:** Claude Fable 5 requires 30-day data retention — not available under zero data retention. | **Caution:** Keep `claude-opus-4-8` in fallback configuration for production systems.
 >
-> *Source: [Anthropic — Redeploying Fable 5](https://www.anthropic.com/news/redeploying-fable-5) — 2026-06-30 · [@claudeai on X — Jul 7, 2026](https://x.com/claudeai/status/2074548242386178258) · verified 2026-07-12*
+> *Source: [Anthropic — Redeploying Fable 5](https://www.anthropic.com/news/redeploying-fable-5) — 2026-06-30 · [@claudeai on X — Jul 7, 2026](https://x.com/claudeai/status/2074548242386178258) · verified 2026-07-13*
 
 Anthropic's most capable widely available model. The first **Mythos-class** model released for general use — sits above the Opus tier. Built for the most demanding reasoning, long-horizon agentic work, large-scale coding, and complex knowledge work. Uses the same underlying model as Claude Mythos 5 but with strict safety classifiers for cybersecurity, biology, chemistry, and model distillation domains.
 
@@ -41,7 +41,7 @@ Anthropic's most capable widely available model. The first **Mythos-class** mode
 - `thinking.display` defaults to `"omitted"` — set `display: "summarized"` to receive readable thinking summaries
 - Safety classifiers trigger `stop_reason: "refusal"` — not billed if refused before any output is generated
 - Optional `fallbacks` parameter: on refusal, re-runs on another Claude model (beta on Claude API and AWS)
-- **Subscription rollout:** Pro, Max, Team, and select Enterprise plans got Fable 5 included for up to 50% of weekly usage limits through **July 12, 2026 at 11:59 PM PT** (TODAY). After tonight, requires usage credits ($10/$50 per 1M). AWS, Google Cloud, and Microsoft Foundry access being restored as quickly as possible.
+- **Subscription rollout:** Pro, Max, Team, and select Enterprise plans had Fable 5 included for up to 50% of weekly usage limits through **July 12, 2026 at 11:59 PM PT** (now closed). As of July 13, usage credits are required ($10/$50 per 1M). AWS, Google Cloud, and Microsoft Foundry access is restored.
 - Also available: **Claude Mythos 5** (`claude-mythos-5`) — same model without safety classifiers; restricted to **approved U.S. organizations** (Project Glasswing) as of 2026-07-01 restoration
 
 **Supported features:** `effort` parameter, task budgets, memory tool, context editing, compaction, vision (text, image, file inputs)

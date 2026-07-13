@@ -1,6 +1,6 @@
 # Mistral AI Model Catalog
 
-> **Source:** [Mistral API Pricing](https://mistral.ai/pricing) · [Mistral Docs Model Cards](https://docs.mistral.ai/models/model-cards/mistral-medium-3-5-26-04) · [OpenRouter](https://openrouter.ai/mistralai/mistral-medium-3-5) · **Verified:** 2026-07-12
+> **Source:** [Mistral API Pricing](https://mistral.ai/pricing) · [Mistral Docs Model Cards](https://docs.mistral.ai/models/model-cards/mistral-medium-3-5-26-04) · [OpenRouter](https://openrouter.ai/mistralai/mistral-medium-3-5) · **Verified:** 2026-07-13
 
 ---
 
@@ -200,6 +200,25 @@ Open source text-to-speech model for enterprise voice agents.
 - Competing with ElevenLabs, Deepgram, OpenAI TTS
 - Open source — self-hostable
 - API pricing: TBD on la Plateforme
+
+---
+
+## Mistral Studio (Launched 2026-07-09) 🆕 NEW
+
+Mistral launched **Studio** on July 9, 2026 — a prompt and skills management system for teams building AI applications. Described as "a system of record" for prompts and skills: versioned, owned, and traceable.
+
+**Key capabilities:**
+- **Version control for prompts and skills:** Full edit history, rollback, and diff view
+- **Ownership and traceability:** Track who created or modified each prompt/skill, with timestamps
+- **Integration with La Plateforme:** Connect directly to your running models; test prompt changes in-place without re-deploying
+- **Team collaboration:** Share and fork prompts across workspaces
+- **MCP connector integration:** Reuse prompt skills as MCP tools via the built-in and custom MCP connectors shipped in May 2026
+
+**Access:** Available on Pro, Team, and Enterprise Le Chat plans. Also accessible via the API as prompt templates.
+
+**Developer note:** Particularly useful for production prompt engineering workflows — replaces ad-hoc prompt version tracking in notebooks or git. Works alongside the Mistral Vibe coding agent and Mistral Search Toolkit (launched May 28, 2026).
+
+*Source: [Mistral — Studio launch](https://mistral.ai/news/) — 2026-07-09 · verified 2026-07-13*
 
 ---
 

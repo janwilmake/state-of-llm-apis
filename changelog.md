@@ -4,6 +4,109 @@ Changes tracked by the Model Tracker agent. Most recent entries first.
 
 ---
 
+## 2026-07-13
+
+### ✅ Anthropic: Claude Fable 5 free subscription window CLOSED — usage credits now required
+
+**Provider:** [Anthropic](models/anthropic.md)  
+The promotional free-access window for **Claude Fable 5** on paid subscription plans closed as of **July 12, 2026 at 11:59 PM PT**. As of today, July 13, access to `claude-fable-5` requires **usage credits** funded in the [Claude Console](https://platform.claude.com/settings/billing), billed at standard API rates:
+
+| Model | Input | Output |
+|---|---|---|
+| `claude-fable-5` | $10.00 / 1M | $50.00 / 1M |
+| Fallback: `claude-opus-4-8` | $5.00 / 1M | $25.00 / 1M |
+
+**Action required:** If you are using `claude-fable-5` on a Pro, Max, Team, or Enterprise plan without API keys, verify that usage credits are enabled in your console. If credits are not funded, API calls will return auth/billing errors. Interactive claude.ai access may continue to surface Fable 5 at reduced limits depending on your plan — check [Anthropic's pricing page](https://platform.claude.com/docs/en/about-claude/pricing) for current plan entitlements. Production API usage requires explicit usage credits enabled.
+
+**Why Fable 5?** Despite being 2× the price of Opus 4.8, Fable 5 delivers substantially better agentic coding performance: SWE-bench Pro 80.3% vs. 69.2% for Opus 4.8. If you're running autonomous software agents, the output quality gain likely justifies the cost.
+
+*Source: [Anthropic — Redeploying Fable 5](https://www.anthropic.com/news/redeploying-fable-5) · [Anthropic Pricing](https://platform.claude.com/docs/en/about-claude/pricing) — verified 2026-07-13*
+
+---
+
+### 🆕 Google: Managed Agents API expanded — background tasks, remote MCP, custom functions (2026-07-07)
+
+**Provider:** [Google](models/google.md)  
+Google announced four new capabilities for Managed Agents in the Gemini API on **July 7, 2026**, making them more viable for production workloads:
+
+| New capability | What it enables |
+|---|---|
+| **Background execution** | Fire-and-forget agent tasks — no need to keep connection open; poll or receive webhook on completion |
+| **Remote MCP server integration** | Agents can call any remote MCP (Model Context Protocol) server as a tool — extend without rebuilding sandbox |
+| **Custom function calling** | Define and expose custom tools/functions to the agent at runtime, beyond built-in tools |
+| **Credential refresh** | OAuth tokens and API credentials can be refreshed mid-session — enables agents that run longer than token expiry windows |
+
+**API identifier:** `antigravity-preview-05-2026` (same; capabilities expanded in-place)  
+**Access:** [Gemini API docs](https://ai.google.dev/gemini-api/docs/agents) and Gemini Enterprise Agent Platform
+
+**Developer note:** Background execution is the most impactful addition for production pipelines — previously, managed agent tasks required an open WebSocket or HTTP connection for the duration of execution. Remote MCP integration directly addresses the feedback that sandboxed agents couldn't reach custom tooling without baking it in.
+
+*Source: [Google Blog — Expanding Managed Agents in Gemini API](https://blog.google/innovation-and-ai/technology/developers-tools/expanding-managed-agents-gemini-api/) — 2026-07-07 · verified 2026-07-13*
+
+---
+
+### 🆕 Mistral: Studio launched (2026-07-09)
+
+**Provider:** [Mistral](models/mistral.md)  
+Mistral launched **Studio** on July 9, 2026 — a prompt and skills management platform for production AI teams. Positioned as "a system of record for AI prompts and skills — versioned, owned, and traceable."
+
+**What it adds:**
+- Version control for prompts and skills (edit history, rollback, diffs)
+- Ownership and audit trail — who created or changed each prompt/skill, and when
+- Live integration with La Plateforme — test prompt changes in-place without re-deploying
+- MCP connector integration — reuse prompt skills as tools via built-in/custom MCP connectors
+- Team collaboration: share, fork, and comment on prompts across workspaces
+
+**Access:** Pro, Team, and Enterprise Le Chat plans. Prompts also accessible as API templates.
+
+**Developer note:** Fills a gap that most teams handle with ad-hoc version tracking in git or notebooks. Particularly useful for teams using Mistral Vibe or the Search Toolkit (both launched May 28, 2026) where prompt evolution across agent tasks has been hard to trace.
+
+Updated: `models/mistral.md`  
+*Source: [Mistral — Studio launch announcement](https://mistral.ai/news/) — 2026-07-09 · verified 2026-07-13*
+
+---
+
+### 📰 Google: Gemini 3.5 Pro still unreleased — delay attributed to GPT-5.6 / Grok 4.5 competition (2026-07-13)
+
+**Provider:** [Google](models/google.md)  
+**Gemini 3.5 Pro** remains unreleased as of today (July 13, 2026). The model was announced at Google I/O (May 19) for "next month" release, delayed past June, and now past mid-July. No official release date has been given.
+
+Community discussion on r/GeminiAI (July 2026) suggests the extended delay is competitive — Google needs a model that can genuinely compete with GPT-5.6 Sol and Grok 4.5, both of which launched this week. The current Gemini 3.5 Flash ($1.50/$9.00) remains the strongest available Gemini model for API use.
+
+**What is confirmed when it does ship:**
+- Context window: ~2M tokens  
+- Reasoning: "Deep Think" mode  
+- Expected pricing: ~$15/$60 per 1M tokens  
+- Available in limited Vertex AI enterprise preview
+
+**Developer action:** Do not plan production integrations that depend on Gemini 3.5 Pro. Use `gemini-3.5-flash` ($1.50/$9.00) or `gemini-3.1-pro-preview` ($2.00/$12.00, 94.3% GPQA) in the interim.
+
+*Source: [r/GeminiAI — Real reason why Gemini 3.5 Pro Delayed](https://www.reddit.com/r/GeminiAI/comments/1uteemo/) · [Business Insider — Gemini 3.5 Pro delay](https://www.businessinsider.com/google-3-5-pro-july-release-tokens-ai-agents-model-2026-6) — verified 2026-07-13*
+
+---
+
+### ⏱️ Deadlines: Key upcoming cutoffs (verified 2026-07-13)
+
+| Deadline | Days | Action |
+|---|---|---|
+| **2026-07-14** | **TOMORROW** 🚨 | `gemini-embedding-001` **hard cutoff** — API calls will fail. Migrate to `gemini-embedding-2` immediately. |
+| **2026-07-24** | **11 DAYS** 🚨 | DeepSeek `deepseek-chat` + `deepseek-reasoner` hard cutoff — returns errors (no redirect). Migrate to `deepseek-v4-flash` / `deepseek-v4-pro` NOW. |
+| **2026-07-24** | **11 DAYS** ⚠️ | Anthropic Claude Opus 4.7 Fast Mode retires → migrate to `claude-opus-4-8` Fast Mode ($10/$50 per 1M, 3× cheaper). |
+| **2026-07-31** | **18 DAYS** ⚠️ | Mistral retirements: `mistral-small-2506`, `magistral-small-2509`, `devstral-2512`, `open-mistral-nemo-2407` → `mistral-small-2603` or `mistral-medium-3-5` |
+| **2026-08-17** | ~35 days | Imagen 4.0 models retire on Gemini Dev API: `imagen-4.0-*` → `gemini-3.1-flash-image` |
+| **2026-08-31** | ~49 days | Mistral `mistral-medium-2508` (Medium 3.1) → `mistral-medium-3-5` |
+| **2026-09-24** | ~73 days | OpenAI Sora 2 API shuts down — no announced replacement |
+| **2026-09-30** | ~79 days | Mistral `labs-leanstral-1-5` retires |
+| **2026-10-02** | ~81 days | Gemini `gemini-2.5-flash-image` retires → `gemini-3.1-flash-image` |
+| **2026-10-16** | ~95 days | `gemini-2.5-pro`, `gemini-2.5-flash`, `gemini-2.5-flash-lite` retire |
+| **2026-11-30** | ~140 days | OpenAI Agent Builder shuts down → Agents SDK or ChatGPT Workspace Agents |
+| **2026-12-01** | ~141 days | `gpt-image-1-mini`, `gpt-image-1.5`, `chatgpt-image-latest` → `gpt-image-2` |
+| **2027-01-06** | ~177 days | OpenAI fine-tuning: last date to create new training jobs |
+
+*Verified 2026-07-13*
+
+---
+
 ## 2026-07-12
 
 ### 🚨 Anthropic: Claude Fable 5 free subscription access ends TODAY (2026-07-12 at 11:59 PM PT)

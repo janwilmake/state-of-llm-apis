@@ -1,6 +1,6 @@
 # LLM API Comparison Matrix
 
-> **Last updated:** 2026-07-12. Prices per 1M tokens (USD), standard tier unless noted.
+> **Last updated:** 2026-07-13. Prices per 1M tokens (USD), standard tier unless noted.
 
 ---
 
@@ -168,10 +168,10 @@
 | **2026-07-06** ✅ DONE | 🆕 **xAI: 21 new Grok Voice voices** — multilingual, across Voice Agent API, TTS API, and Voice Agent Builder. Speech tags ([pause], etc.) and voice cloning added. |
 | **2026-07-08** ✅ DONE | 🆕 **Grok 4.5 launched** — xAI's new flagship at $2/$6 per 1M, $0.50 cached input, 500K context. #1 agentic tool-use. MoE co-trained with Cursor. Now default in Grok Build. |
 | **2026-07-09** ✅ DONE | 🆕 **GPT-5.6 Sol, Terra, Luna GA** — OpenAI's new generation: Sol $5/$30, Terra $2.50/$15, Luna $1/$6. New caching: writes at 1.25× input, reads at 10%. Available in ChatGPT, Codex, API. |
-| **2026-07-12 11:59 PM PT** | 🚨 **TODAY** — Claude Fable 5 free subscription window closes — usage credits required after tonight ($10/$50 per 1M). |
-| **2026-07-14** | 🚨 **2 DAYS** — `gemini-embedding-001` **retires** — hard cutoff; calls fail. Migrate to `gemini-embedding-2` immediately. |
-| **2026-07-24** | 🚨 **12 DAYS** — DeepSeek `deepseek-chat` / `deepseek-reasoner` **hard cutoff** — returns errors (no redirect). Migrate to `deepseek-v4-flash` or `deepseek-v4-pro` NOW. Note: DeepSeek V4 stable release (mid-July) will bring **peak/off-peak pricing** (~2× during 09:00–12:00 & 14:00–18:00 Beijing Time). |
-| **2026-07-24** | ⚠️ **12 DAYS** — Anthropic **Claude Opus 4.7 Fast Mode** retires. Migrate to Claude Opus 4.8 Fast Mode ($10/$50, 3× cheaper). |
+| **2026-07-12 11:59 PM PT** | ✅ **CLOSED** — Claude Fable 5 free subscription window closed. Usage credits now required ($10/$50 per 1M). Check your console billing settings if Fable 5 calls are failing. |
+| **2026-07-14** | 🚨 **TOMORROW** — `gemini-embedding-001` **retires** — hard cutoff; calls fail. Migrate to `gemini-embedding-2` immediately. |
+| **2026-07-24** | 🚨 **11 DAYS** — DeepSeek `deepseek-chat` / `deepseek-reasoner` **hard cutoff** — returns errors (no redirect). Migrate to `deepseek-v4-flash` or `deepseek-v4-pro` NOW. Note: DeepSeek V4 stable release (mid-July) will bring **peak/off-peak pricing** (~2× during 09:00–12:00 & 14:00–18:00 Beijing Time). |
+| **2026-07-24** | ⚠️ **11 DAYS** — Anthropic **Claude Opus 4.7 Fast Mode** retires. Migrate to Claude Opus 4.8 Fast Mode ($10/$50, 3× cheaper). |
 | **2026-07-31** | ⚠️ **21 DAYS** — Mistral retirements: `mistral-small-2506`, `magistral-small-2509`, `devstral-2512`, `open-mistral-nemo-2407` → `mistral-small-2603` or `mistral-medium-3-5` |
 | **2026-08-17** | Imagen 4.0 models retire on Gemini Dev API: `imagen-4.0-*` → `gemini-3.1-flash-image` |
 | **2026-08-31** | Mistral `mistral-medium-2508` (Medium 3.1) → `mistral-medium-3-5` |
