@@ -1,6 +1,6 @@
 # LLM API Comparison Matrix
 
-> **Last updated:** 2026-07-13. Prices per 1M tokens (USD), standard tier unless noted.
+> **Last updated:** 2026-07-14. Prices per 1M tokens (USD), standard tier unless noted.
 
 ---
 
@@ -34,7 +34,7 @@
 | [OpenAI](models/openai.md) | GPT-4.1 | 1 M | $2.00 | $8.00 | 1 M context at lower price |
 | [Anthropic](models/anthropic.md) | Claude Sonnet 4.6 | 1 M | $3.00 | $15.00 | Best production Claude model |
 | [Google](models/google.md) | Gemini 2.5 Pro | 2 M | $1.25 | $10.00 | ⚠️ Retiring 2026-10-16 |
-| [Google](models/google.md) | Gemini 3.5 Flash | 1 M | $1.50 | $9.00 | ~4× token gen speed; strongest agentic/coding; default Gemini model; released 2026-05-19 (Priority: $2.70/$16.20) |
+| [Google](models/google.md) | Gemini 3.5 Flash 🆕 | 1 M | **$0.75** | **$4.50** | 🆕 **50% price cut (2026-07-14)** — was $1.50/$9.00; ~4× token gen speed; strongest agentic/coding; default Gemini model |
 | [Google](models/google.md) | Gemini 3 Flash Preview | 1 M | $0.50 | $3.00 | Preview; fast |
 | [Mistral](models/mistral.md) | Mistral Medium 3.5 🆕 | 256 K | $1.50 | $7.50 | 128B dense; vision + coding + agents; GA 2026-05-05 |
 | [Mistral](models/mistral.md) | Mistral Medium 3 | 131 K | $0.40 | $2.00 | Good for coding/RAG |
@@ -53,9 +53,11 @@
 | [OpenAI](models/openai.md) | GPT-4.1 Nano | 1 M | $0.10 | $0.40 | Very cheap; 1 M context |
 | [OpenAI](models/openai.md) | GPT-4o Mini | 128 K | $0.15 | $0.60 | Legacy; still widely used |
 | [Anthropic](models/anthropic.md) | Claude Haiku 4.5 | 200 K | $1.00 | $5.00 | Fastest Claude |
-| [Google](models/google.md) | Gemini 2.5 Flash 🏆 | 1 M | $0.30 | $2.50 | Best GA balance ⚠️ retires 2026-10-16 |
+| [Google](models/google.md) | Gemini 3.5 Flash 🏆 | 1 M | $0.75 | $4.50 | **New best balance** — 50% price cut 2026-07-14; beats 3.1 Pro on coding at far lower cost |
+| [Google](models/google.md) | Gemini 3.1 Flash-Lite | 1 M | $0.125 | $0.75 | 🆕 50% price cut 2026-07-14 (was $0.25/$1.50); cheapest Gemini 3.x |
+| [Google](models/google.md) | Gemini 2.5 Flash | 1 M | $0.30 | $2.50 | ⚠️ retires 2026-10-16; migrate to Gemini 3.5 Flash |
 | [Google](models/google.md) | Gemini 2.5 Flash-Lite | 1 M | $0.10 | $0.40 | ⚠️ retires 2026-10-16 |
-| [Google](models/google.md) | Gemini 2.0 Flash-Lite | 1 M | $0.075 | $0.30 | ❌ Shut down 2026-06-01 — migrate to `gemini-3.1-flash-lite` ($0.25/$1.50) |
+| [Google](models/google.md) | Gemini 2.0 Flash-Lite | 1 M | $0.075 | $0.30 | ❌ Shut down 2026-06-01 — migrate to `gemini-3.1-flash-lite` ($0.125/$0.75) |
 | [Mistral](models/mistral.md) | Mistral Small 4 | 262 K | $0.15 | $0.60 | Vision + coding + reasoning unified |
 | [Mistral](models/mistral.md) | Mistral Nemo | 128 K | $0.02 | $0.06 | Cheapest Mistral |
 | [xAI](models/xai.md) | Grok 4.3 | 1 M | $1.25 | $2.50 | ✅ Recommended xAI default; replaces all Fast/grok-4 models |
@@ -138,14 +140,14 @@
 |---|---|---|
 | **Best overall capability** | **Claude Fable 5** ✅ (restored Jul 1) | SWE-bench Pro 80.3%; $10/$50; requires 30-day data retention; fallback: Opus 4.8 ($5/$25) |
 | Best general reasoning | Gemini 3.1 Pro Preview | Highest GPQA (94.3%) |
-| Fastest token generation | Gemini 3.5 Flash | ~4× token gen speed vs other frontier models; $1.50/$9.00 Standard |
+| Fastest token generation | Gemini 3.5 Flash | ~4× token gen speed vs other frontier models; **$0.75/$4.50 Standard** (50% price cut 2026-07-14) |
 | Computer use / desktop agents | GPT-5.4 | 75% OSWorld (above human baseline) |
 | Coding agents (best, frontier) | Claude Fable 5 / Grok 4.5 | SWE-bench Pro 80.3% (Fable 5); Grok 4.5 #1 agentic tool-use; both strong |
 | Coding agents (cost-efficient) | GPT-5.3-Codex / Grok Build 0.1 / GPT-5.6 Terra | GPQA 91.5% (Codex); $1.00/$2.00 (Grok Build); $2.50/$15.00 (Terra) |
 | Best value frontier (new) | **GPT-5.6 Terra** | GPT-5.5 performance at half the price ($2.50/$15); GA July 9 |
 | Long documents (>200K tokens) | Llama 4 Scout (10 M) or Gemini 3.1 Pro Preview (1 M) | Largest context windows |
 | Production chatbot (balanced) | Claude Sonnet 5 (intro) / Sonnet 4.6 | Sonnet 5 intro $2/$10 through Aug 31; Sonnet 4.6 $3/$15 |
-| High-volume cheap tasks | Gemini 3.1 Flash-Lite ($0.25/$1.50) or Mistral Nemo ($0.02/$0.06) | Cheapest current options |
+| High-volume cheap tasks | Gemini 3.1 Flash-Lite ($0.125/$0.75) or Mistral Nemo ($0.02/$0.06) | Cheapest current options; Flash-Lite halved in price 2026-07-14 |
 | Cheapest frontier (open weight) | DeepSeek V4 Flash ($0.14/$0.28) | Open weights, 1M context, extremely cheap |
 | Enterprise RAG / retrieval | Cohere Command A | Built-in citation, Rerank/Embed tools |
 | Real-time X/Twitter data | Grok 4.5 + X Search | Native X integration; new flagship |
@@ -169,7 +171,8 @@
 | **2026-07-08** ✅ DONE | 🆕 **Grok 4.5 launched** — xAI's new flagship at $2/$6 per 1M, $0.50 cached input, 500K context. #1 agentic tool-use. MoE co-trained with Cursor. Now default in Grok Build. |
 | **2026-07-09** ✅ DONE | 🆕 **GPT-5.6 Sol, Terra, Luna GA** — OpenAI's new generation: Sol $5/$30, Terra $2.50/$15, Luna $1/$6. New caching: writes at 1.25× input, reads at 10%. Available in ChatGPT, Codex, API. |
 | **2026-07-12 11:59 PM PT** | ✅ **CLOSED** — Claude Fable 5 free subscription window closed. Usage credits now required ($10/$50 per 1M). Check your console billing settings if Fable 5 calls are failing. |
-| **2026-07-14** | 🚨 **TOMORROW** — `gemini-embedding-001` **retires** — hard cutoff; calls fail. Migrate to `gemini-embedding-2` immediately. |
+| **2026-07-14** | ✅ **TODAY** — `gemini-embedding-001` **retired** — hard cutoff; calls now failing. Migrate to `gemini-embedding-2` immediately. |
+| **2026-07-14** | 🆕 **Google: Gemini 3.5 Flash price cut 50%** — Standard rate dropped from $1.50/$9.00 to **$0.75/$4.50**. Gemini 3.1 Flash-Lite also halved: $0.25/$1.50 → **$0.125/$0.75**. |
 | **2026-07-24** | 🚨 **11 DAYS** — DeepSeek `deepseek-chat` / `deepseek-reasoner` **hard cutoff** — returns errors (no redirect). Migrate to `deepseek-v4-flash` or `deepseek-v4-pro` NOW. Note: DeepSeek V4 stable release (mid-July) will bring **peak/off-peak pricing** (~2× during 09:00–12:00 & 14:00–18:00 Beijing Time). |
 | **2026-07-24** | ⚠️ **11 DAYS** — Anthropic **Claude Opus 4.7 Fast Mode** retires. Migrate to Claude Opus 4.8 Fast Mode ($10/$50, 3× cheaper). |
 | **2026-07-31** | ⚠️ **21 DAYS** — Mistral retirements: `mistral-small-2506`, `magistral-small-2509`, `devstral-2512`, `open-mistral-nemo-2407` → `mistral-small-2603` or `mistral-medium-3-5` |

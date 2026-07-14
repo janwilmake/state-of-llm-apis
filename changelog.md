@@ -4,6 +4,76 @@ Changes tracked by the Model Tracker agent. Most recent entries first.
 
 ---
 
+## 2026-07-14
+
+### 🔴 Google: Gemini 3.5 Flash **50% price cut** — $0.75/$4.50 Standard (was $1.50/$9.00)
+
+**Provider:** [Google](models/google.md)  
+The official [Google Gemini Developer API pricing page](https://ai.google.dev/gemini-api/docs/pricing) (last updated 2026-07-09 UTC) now shows **Gemini 3.5 Flash** at **$0.75 input / $4.50 output** per 1M tokens — exactly half the launch price of $1.50/$9.00 from May 2026. This is the Standard (real-time) rate. What was previously the Batch/Flex rate is now the Standard rate.
+
+| Tier | Old rate | New rate |
+|---|---|---|
+| Input (Standard) | $1.50 / 1M | **$0.75 / 1M** |
+| Output (Standard) | $9.00 / 1M | **$4.50 / 1M** |
+| Cached input (Standard) | $0.15 / 1M | **$0.075 / 1M** |
+
+**Impact:** Gemini 3.5 Flash is now **62% cheaper than Gemini 3.1 Pro** ($2.00/$12.00) at Standard rates, while outperforming it on coding and agentic benchmarks. It is also cheaper than GPT-5.6 Terra ($2.50/$15) and Grok 4.5 ($2.00/$6.00). Combined with its ~4× token generation speed advantage, this makes Gemini 3.5 Flash the most cost-efficient frontier-class model for API workloads as of today.
+
+**No announcement yet from Google.** The pricing page change was verified by direct inspection of the official docs (last updated 2026-07-09 UTC). Third-party pricing aggregators (felloai.com, metacto.com, apidog.com) still show the old $1.50/$9.00 rate as of this writing. The new rate appears to have taken effect quietly around July 9.
+
+Updated: `models/google.md`, `comparison.md`  
+*Source: [Google Gemini Developer API pricing](https://ai.google.dev/gemini-api/docs/pricing) — verified 2026-07-14*
+
+---
+
+### 🔴 Google: Gemini 3.1 Flash-Lite **50% price cut** — $0.125/$0.75 Standard (was $0.25/$1.50)
+
+**Provider:** [Google](models/google.md)  
+Alongside the Gemini 3.5 Flash price cut, **Gemini 3.1 Flash-Lite** has also been halved on the official pricing page:
+
+| Tier | Old rate | New rate |
+|---|---|---|
+| Input (Standard) | $0.25 / 1M | **$0.125 / 1M** |
+| Output (Standard) | $1.50 / 1M | **$0.75 / 1M** |
+| Cached input | $0.025 / 1M | **$0.0125 / 1M** |
+
+At $0.125/$0.75, Gemini 3.1 Flash-Lite is now the cheapest Gemini 3.x model and among the cheapest frontier-adjacent APIs available. Rivals Mistral Nemo ($0.02/$0.06) and GPT-4.1 Nano ($0.10/$0.40) on price.
+
+Updated: `models/google.md`, `comparison.md`  
+*Source: [Google Gemini Developer API pricing](https://ai.google.dev/gemini-api/docs/pricing) — verified 2026-07-14*
+
+---
+
+### ✅ Google: `gemini-embedding-001` hard cutoff today (2026-07-14)
+
+**Provider:** [Google](models/google.md)  
+The **`gemini-embedding-001`** model reached its retirement date today, **July 14, 2026**. API calls to this model will now fail with errors. Migrate to `gemini-embedding-2` immediately.
+
+---
+
+### ⏱️ Deadlines: Key upcoming cutoffs (verified 2026-07-14)
+
+| Deadline | Days | Action |
+|---|---|---|
+| **2026-07-24** | **10 DAYS** 🚨 | DeepSeek `deepseek-chat` + `deepseek-reasoner` hard cutoff — returns errors (no redirect). Migrate to `deepseek-v4-flash` / `deepseek-v4-pro` NOW. |
+| **2026-07-24** | **10 DAYS** ⚠️ | Anthropic Claude Opus 4.7 Fast Mode retires → migrate to `claude-opus-4-8` Fast Mode ($10/$50 per 1M, 3× cheaper). |
+| **2026-07-31** | **17 DAYS** ⚠️ | Mistral retirements: `mistral-small-2506`, `magistral-small-2509`, `devstral-2512`, `open-mistral-nemo-2407` → `mistral-small-2603` or `mistral-medium-3-5` |
+| **2026-08-10** | 27 days | `embedding-2-preview` retires → `gemini-embedding-2` |
+| **2026-08-17** | 34 days | Imagen 4.0 models retire on Gemini Dev API: `imagen-4.0-*` → `gemini-3.1-flash-image` |
+| **2026-08-31** | ~48 days | Claude Sonnet 5 intro pricing ends → standard $3/$15 (from $2/$10) |
+| **2026-08-31** | ~48 days | Mistral `mistral-medium-2508` (Medium 3.1) → `mistral-medium-3-5` |
+| **2026-09-24** | ~72 days | OpenAI Sora 2 API shuts down — no announced replacement |
+| **2026-09-30** | ~78 days | Mistral `labs-leanstral-1-5` retires |
+| **2026-10-02** | ~80 days | Gemini `gemini-2.5-flash-image` retires → `gemini-3.1-flash-image` |
+| **2026-10-16** | ~94 days | `gemini-2.5-pro`, `gemini-2.5-flash`, `gemini-2.5-flash-lite` retire |
+| **2026-11-30** | ~139 days | OpenAI Agent Builder shuts down → Agents SDK or ChatGPT Workspace Agents |
+| **2026-12-01** | ~140 days | `gpt-image-1-mini`, `gpt-image-1.5`, `chatgpt-image-latest` → `gpt-image-2` |
+| **2027-01-06** | ~176 days | OpenAI fine-tuning: last date to create new training jobs |
+
+*Verified 2026-07-14*
+
+---
+
 ## 2026-07-13
 
 ### ✅ Anthropic: Claude Fable 5 free subscription window CLOSED — usage credits now required

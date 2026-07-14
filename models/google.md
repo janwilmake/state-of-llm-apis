@@ -1,6 +1,6 @@
 # Google Gemini Model Catalog
 
-> **Source:** [Gemini API Pricing](https://ai.google.dev/gemini-api/docs/pricing) · [Vertex AI Pricing](https://cloud.google.com/vertex-ai/generative-ai/pricing) · [Gemini Deprecations](https://ai.google.dev/gemini-api/docs/deprecations) · **Verified:** 2026-07-13
+> **Source:** [Gemini API Pricing](https://ai.google.dev/gemini-api/docs/pricing) · [Vertex AI Pricing](https://cloud.google.com/vertex-ai/generative-ai/pricing) · [Gemini Deprecations](https://ai.google.dev/gemini-api/docs/deprecations) · **Verified:** 2026-07-14
 
 ---
 
@@ -16,21 +16,22 @@ Google's newest Gemini model, announced at Google I/O 2026. Optimized for **spee
 |---|---|
 | API name | `gemini-3.5-flash` |
 | Context window | 1,000,000 tokens |
-| Max output | 64,000 tokens |
-| Input (Standard) | **$1.50 / 1M** (text/image/video) |
-| Output (Standard, incl. thinking) | **$9.00 / 1M** |
-| Input (Priority) | $2.70 / 1M |
-| Output (Priority) | $16.20 / 1M |
-| Input (Batch/Flex) | $0.75 / 1M |
-| Output (Batch/Flex) | $4.50 / 1M |
-| Context caching | $0.15 / 1M (Standard) |
+| Max output | 64,000 tokens (65,535) |
+| Input (Standard) | **$0.75 / 1M** (text/image/video) 🆕 **PRICE CUT** (was $1.50) |
+| Output (Standard, incl. thinking) | **$4.50 / 1M** 🆕 **PRICE CUT** (was $9.00) |
+| Input (Priority) | $1.35 / 1M |
+| Output (Priority) | $8.10 / 1M |
+| Input (Batch/Flex) | $0.375 / 1M |
+| Output (Batch/Flex) | $2.25 / 1M |
+| Context caching | $0.075 / 1M (Standard) |
 | Context caching (storage) | $1.00 / 1M tokens per hour |
 | Free tier | ✅ (rate-limited) |
 
 **Key facts:**
 - Released at Google I/O 2026 keynote, **2026-05-19**; available immediately in Gemini API, Google AI Studio, Antigravity, and Vertex AI
+- **🆕 Price cut 2026-07-14:** Standard rate halved from $1.50/$9.00 to **$0.75/$4.50** per 1M input/output. This matches what was previously the Batch/Flex price, making it now the default Standard rate.
 - Outperforms Gemini 3.1 Pro on agentic/coding benchmarks: **Terminal-Bench 2.1: 76.2%**, GDPval-AA: 1656 Elo, MCP Atlas: 83.6%, CharXiv (multimodal): 84.2%
-- At $1.50/$9.00 Standard, costs ~25% less than Gemini 3.1 Pro ($2.00/$12.00) while outscoring it on key benchmarks
+- At $0.75/$4.50 Standard, now costs ~62% less than Gemini 3.1 Pro ($2.00/$12.00) while outscoring it on key benchmarks
 - ~4× faster output token generation compared to other frontier models
 - Built for long-horizon agentic tasks, complex coding, and multi-step workflows
 - Replaces Gemini 3.1 Pro as the recommended API model for production agentic use
@@ -41,7 +42,7 @@ Google's newest Gemini model, announced at Google I/O 2026. Optimized for **spee
 - **Computer Use** (2026-06-24): `gemini-3.5-flash` now supports computer use — can see, reason, and take action across desktop, mobile, and browser environments. Billed at standard Gemini 3.5 Flash token rates. Improves on long-horizon and enterprise automation tasks (continuous software testing, knowledge work). *(Source: [Google Blog — Computer use in Gemini 3.5 Flash](https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-computer-use-gemini-3-5-flash/) — 2026-06-24)*
 - **Gemini 3.5 Pro**: Still unreleased as of **2026-07-13**. Delayed from June. Community discussion (r/GeminiAI, July 2026) attributes delay to competitive pressure from GPT-5.6 and Grok 4.5 — "they simply don't have a model that's ready to compete." Expected: 2M context, "Deep Think" reasoning, ~$15/$60 per 1M tokens. Available in limited Vertex AI enterprise preview only.
 
-*Source: [Google AI Developer API pricing](https://ai.google.dev/gemini-api/docs/pricing) (last updated 2026-07-09) · [Google Cloud Blog — Google I/O 2026](https://cloud.google.com/blog/products/ai-machine-learning/innovations-from-google-io-26-on-google-cloud) · [Business Insider — Gemini 3.5 Pro delay](https://www.businessinsider.com/google-3-5-pro-july-release-tokens-ai-agents-model-2026-6) — verified 2026-07-11*
+*Source: [Google AI Developer API pricing](https://ai.google.dev/gemini-api/docs/pricing) (last updated 2026-07-09 UTC) · [Google Cloud Blog — Google I/O 2026](https://cloud.google.com/blog/products/ai-machine-learning/innovations-from-google-io-26-on-google-cloud) · [Business Insider — Gemini 3.5 Pro delay](https://www.businessinsider.com/google-3-5-pro-july-release-tokens-ai-agents-model-2026-6) — **pricing verified 2026-07-14***
 
 ---
 
@@ -217,20 +218,23 @@ Replaces `gemini-3-pro-preview` (retired 2026-03-09). Highest-capability Gemini 
 
 ---
 
-### Gemini 3.1 Flash-Lite (GA — Released 2026-05-07) 🆕
+### Gemini 3.1 Flash-Lite (GA — Released 2026-05-07)
 
 GA release. Graduated from preview on May 7, 2026.
+
+> 🆕 **Price cut 2026-07-14:** Standard rate halved from $0.25/$1.50 to **$0.125/$0.75** per 1M input/output. Verified on [official Google Gemini API pricing page](https://ai.google.dev/gemini-api/docs/pricing) (last updated 2026-07-09 UTC).
 
 | Metric | Value |
 |---|---|
 | API name | `gemini-3.1-flash-lite` |
-| Input | **$0.25 / 1M** |
-| Output | **$1.50 / 1M** |
+| Input | **$0.125 / 1M** 🆕 (was $0.25) |
+| Output | **$0.75 / 1M** 🆕 (was $1.50) |
+| Cached input | $0.0125 / 1M |
 | Free tier | ✅ (rate-limited) |
 
 **Best for:** High-volume agentic tasks, translation, simple data processing — cheapest Gemini 3.x model at GA.
 
-*Source: [Google Gemini API changelog](https://ai.google.dev/gemini-api/docs/changelog) — verified 2026-05-12*
+*Source: [Google Gemini API pricing](https://ai.google.dev/gemini-api/docs/pricing) — pricing verified 2026-07-14*
 
 ---
 

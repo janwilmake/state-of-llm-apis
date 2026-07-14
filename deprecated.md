@@ -1,6 +1,6 @@
 # Deprecated & Sunset Models
 
-> Track sunset dates and migration paths. **Last updated:** 2026-07-13.
+> Track sunset dates and migration paths. **Last updated:** 2026-07-14.
 >
 > ⚠️ = Deprecated, still accessible. ❌ = Shut down, no longer accessible.
 
@@ -221,7 +221,7 @@ This is a Labs (experimental) model for Lean 4 formal proof engineering. Not a g
 
 ---
 
-### DeepSeek — July 24, 2026 🚨 **15 DAYS** — Hard cutoff
+### DeepSeek — July 24, 2026 🚨 **10 DAYS** — Hard cutoff
 
 | Alias | Currently points to | Retirement date | Replacement |
 |---|---|---|---|
@@ -236,9 +236,9 @@ This is a Labs (experimental) model for Lean 4 formal proof engineering. Not a g
 
 ---
 
-### Google — July 14, 2026 🚨 **TOMORROW** — Gemini Embedding 001
+### Google — July 14, 2026 ✅ COMPLETED TODAY — Gemini Embedding 001
 
-> 🚨 **URGENT — 1 DAY REMAINING (2026-07-13).** The `gemini-embedding-001` embedding model retires **TOMORROW, July 14, 2026**. Calls after that date will fail. Migrate to `gemini-embedding-2` immediately. This is a hard cutoff per the [official Gemini API deprecations page](https://ai.google.dev/gemini-api/docs/deprecations).
+> ❌ **Shut down 2026-07-14.** `gemini-embedding-001` is now retired. API calls to this model return errors. Migrate to `gemini-embedding-2` immediately.
 
 | Model | API name | Release date | Shutdown date | Replacement |
 |---|---|---|---|---|
@@ -246,7 +246,7 @@ This is a Labs (experimental) model for Lean 4 formal proof engineering. Not a g
 
 **Migration:** Replace `gemini-embedding-001` with `gemini-embedding-2` in your API calls. No base URL change needed. Verify embedding dimensions match your vector store schema before cutting over.
 
-*Source: [Google Gemini API deprecations](https://ai.google.dev/gemini-api/docs/deprecations) — verified 2026-07-11*
+*Source: [Google Gemini API deprecations](https://ai.google.dev/gemini-api/docs/deprecations) — verified 2026-07-14*
 
 ---
 
