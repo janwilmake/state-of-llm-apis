@@ -40,7 +40,8 @@
 | [Mistral](models/mistral.md) | Mistral Medium 3 | 131 K | $0.40 | $2.00 | Good for coding/RAG |
 | [xAI](models/xai.md) | Grok 4.5 🆕 | 500 K | $2.00 | $6.00 | NEW 2026-07-08; #1 agentic tool-use; $0.50 cached |
 | [xAI](models/xai.md) | Grok Build 0.1 | 256 K | $1.00 | $2.00 | Agentic coding; powers Grok Build CLI |
-| [Cohere](models/cohere.md) | Command A | 256 K | $2.50 | $10.00 | Enterprise RAG; citation support |
+| [Cohere](models/cohere.md) | Command A+ 🆕 | 128 K | $2.50 | $10.00 | **NEW 2026-05-20** — Apache 2.0 MoE (218B/25B active); vision, 48 langs; requires sales for prod API |
+| [Cohere](models/cohere.md) | Command A | 256 K | $2.50 | $10.00 | Self-serve flagship; enterprise RAG; citation support |
 | [Meta](models/meta.md) | Llama 4 Maverick | 1 M | ~$0.15 | ~$0.60 | Open weights; self-hostable |
 
 ---
@@ -95,6 +96,7 @@
 | Gemini 3.1 Pro Preview | **1,000,000 tokens** |
 | Mistral Large 3, Mistral Small 4, Devstral 2 | **262,144 tokens** |
 | Grok 4 | **256,000 tokens** |
+| Command A+ 🆕 | **128,000 tokens** |
 | Command A | **256,000 tokens** |
 | Claude Haiku 4.5, o3, o4-mini | **200,000 tokens** |
 | GPT-4o, GPT-4o Mini | **128,000 tokens** |
@@ -107,7 +109,7 @@
 
 | Feature | OpenAI | Anthropic | Google | Mistral | xAI | DeepSeek | Cohere |
 |---|---|---|---|---|---|---|---|
-| Vision/Multimodal | ✅ | ✅ | ✅ | ✅ (Small 4) | ✅ | ❌ | ❌ |
+| Vision/Multimodal | ✅ | ✅ | ✅ | ✅ (Small 4) | ✅ | ❌ | ✅ (A+ only) |
 | Function calling / tools | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | Prompt caching | ✅ | ✅ | ✅ | ❌ | ✅ | ✅ | ❌ |
 | Batch API (50% off) | ✅ | ✅ | ✅ | ❌ | ✅ | ❌ | ❌ |

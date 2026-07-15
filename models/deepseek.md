@@ -19,7 +19,7 @@ DeepSeek's latest generation. Two variants with 1M context, both open-weight. Bo
 
 > ✅ **V4 Pro promotional price is now permanent.** On **2026-05-24**, DeepSeek made the 75% discount permanent — the list price was lowered from $1.74/$3.48 to $0.435/$0.87. This is the ongoing price, not a promotional rate. *Source: [The Next Web](https://thenextweb.com/news/deepseek-v4-pro-75-percent-price-cut-permanent) — 2026-05-24 · [Official pricing docs](https://api-docs.deepseek.com/quick_start/pricing) confirmed $0.435/$0.87 as current price — verified 2026-07-11*
 
-> ⚠️ **UPCOMING: Peak/off-peak pricing arriving with V4 stable release (mid-July 2026).** DeepSeek announced (2026-06-29) that the stable V4 release will introduce **time-of-day pricing** — approximately 2× rates during peak hours:
+> 🚨 **IMMINENT: Peak/off-peak pricing arrives with V4 stable release — expected any day (mid-July 2026 = NOW).** DeepSeek announced (2026-06-29) that the stable V4 release (officially "mid-July") will introduce **time-of-day pricing** — approximately 2× rates during peak hours. As of 2026-07-15, the pricing page still shows flat rates. A 24-hour advance notice email will be sent before the change activates. **Watch your email.** Here are the announced rates:
 >
 > | Period | Hours (Beijing Time, UTC+8) | V4 Flash input | V4 Flash output | V4 Pro input | V4 Pro output |
 > |---|---|---|---|---|---|

@@ -1,6 +1,6 @@
 # Deprecated & Sunset Models
 
-> Track sunset dates and migration paths. **Last updated:** 2026-07-14.
+> Track sunset dates and migration paths. **Last updated:** 2026-07-15.
 >
 > ⚠️ = Deprecated, still accessible. ❌ = Shut down, no longer accessible.
 
@@ -221,14 +221,14 @@ This is a Labs (experimental) model for Lean 4 formal proof engineering. Not a g
 
 ---
 
-### DeepSeek — July 24, 2026 🚨 **10 DAYS** — Hard cutoff
+### DeepSeek — July 24, 2026 🚨 **9 DAYS** — Hard cutoff
 
 | Alias | Currently points to | Retirement date | Replacement |
 |---|---|---|---|
 | `deepseek-chat` | `deepseek-v4-flash` (non-thinking mode) | **2026-07-24 15:59 UTC** | `deepseek-v4-flash` |
 | `deepseek-reasoner` | `deepseek-v4-flash` (thinking mode) | **2026-07-24 15:59 UTC** | `deepseek-v4-flash` or `deepseek-v4-pro` |
 
-> 🚨 **URGENT — 11 DAYS REMAINING (2026-07-13).** No silent redirect after July 24. DeepSeek has confirmed that calls to `deepseek-chat` and `deepseek-reasoner` will **return errors** (not redirect) after the deadline. This is a hard cutoff with no announced extension. **Migrate now.** Update your `model` parameter to `deepseek-v4-flash` (for chat/non-thinking workflows) or `deepseek-v4-pro` (for higher capability).
+> 🚨 **URGENT — 9 DAYS REMAINING (2026-07-15).** No silent redirect after July 24. DeepSeek has confirmed that calls to `deepseek-chat` and `deepseek-reasoner` will **return errors** (not redirect) after the deadline. This is a hard cutoff with no announced extension. **Migrate now.** Update your `model` parameter to `deepseek-v4-flash` (for chat/non-thinking workflows) or `deepseek-v4-pro` (for higher capability).
 >
 > **Also note:** DeepSeek V4 stable release is arriving mid-July, and will introduce **peak/off-peak pricing** (~2× during 09:00–12:00 & 14:00–18:00 Beijing Time UTC+8). You will receive 24-hour advance notice before it takes effect. Cache hit rates also double during peak. See [models/deepseek.md](models/deepseek.md) for rate tables.
 

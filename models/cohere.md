@@ -1,12 +1,44 @@
 # Cohere Model Catalog
 
-> **Source:** [Cohere Pricing](https://cohere.com/pricing) · [Cohere Docs](https://docs.cohere.com) · **Verified:** 2026-04-13
+> **Source:** [Cohere Pricing](https://cohere.com/pricing) · [Cohere Docs](https://docs.cohere.com) · **Verified:** 2026-07-15
 
 ---
 
 ## Generative Models (Command Series)
 
-### Command A (Released 2025-03-13) — Current Flagship
+### Command A+ (Released 2026-05-20) — Flagship Open-Weight MoE 🆕 NEW
+
+Cohere's newest and most capable model. First Mixture-of-Experts architecture in the Command family. Released as open weights under **Apache 2.0**. Combines vision, multimodal agentic tasks, and strong multilingual support (48 languages including all EU official languages). Designed for sovereign AI deployment — runs on as little as 2× H100s.
+
+> ⚠️ **Production API keys require contacting sales.** Trial keys (20 req/min) work for evaluation. Use `command-a-plus-05-2026` as the API name. Production deployment via [Model Vault](https://dashboard.cohere.com/) or self-host from [HuggingFace](https://huggingface.co/CohereLabs/command-a-plus-05-2026-w4a4).
+
+| Metric | Value |
+|---|---|
+| API name | `command-a-plus-05-2026` |
+| Architecture | Sparse MoE: 218B total / 25B active parameters |
+| Context window | 128,000 tokens input; 64,000 tokens max output |
+| Input | **$2.50 / 1M** (Model Vault; same as Command A) |
+| Output | **$10.00 / 1M** |
+| License | **Apache 2.0** (open weights) |
+| Hardware minimum | 1× NVIDIA B200 (W4A4) or 2× H100s (W4A4) |
+| Supported languages | 48 (all EU official languages + more) |
+| Input modalities | Text, image |
+| Output modalities | Text, reasoning, tool use |
+
+**Key facts:**
+- Excels at agentic tasks, multimodal reasoning, RAG, and multilingual workflows
+- Outperforms Command A on reasoning, image processing, and agentic benchmarks
+- Thinking mode supported (enable/disable via token budget; see [Reasoning guide](https://docs.cohere.com/docs/reasoning))
+- Available on HuggingFace in BF16, FP8, and W4A4 quantizations with imperceptible quality loss
+- Production API requires sales contact (`sales@cohere.com`); trial keys limited to 20 req/min
+- Model Vault managed deployment available for dedicated inference
+- **Not yet on self-serve production keys** — contact sales for production use
+
+*Source: [Cohere — Introducing Command A+](https://cohere.com/blog/command-a-plus) — 2026-05-20 · [Cohere docs — command-a-plus](https://docs.cohere.com/docs/command-a-plus) · [HuggingFace](https://huggingface.co/CohereLabs/command-a-plus-05-2026-w4a4) · [models.dev](https://models.dev/models/cohere/command-a-plus-05-2026) — verified 2026-07-15*
+
+---
+
+### Command A (Released 2025-03-13) — Self-Serve Flagship
 
 | Metric | Value |
 |---|---|
@@ -83,7 +115,7 @@ Cohere focuses on **enterprise RAG and retrieval** use cases:
 - Rerank models improve search quality significantly at low cost
 - Model Vault offers private, dedicated deployment with SLA guarantees
 
-**Honest benchmark note:** Command A benchmarks (GPQA 52.7%) trail Claude Opus 4.6 (91.3%) and GPT-5.4 considerably. Cohere's value is enterprise RAG tooling and specialized retrieval features, not frontier reasoning.
+**Honest benchmark note:** Command A benchmarks (GPQA 52.7%) trail Claude Opus 4.6 (91.3%) and GPT-5.4 considerably. Command A+ improves on these significantly but production access requires sales contact. Cohere's value is enterprise RAG tooling, sovereign AI deployment, and specialized retrieval features, not frontier reasoning at consumer scales.
 
 ---
 
