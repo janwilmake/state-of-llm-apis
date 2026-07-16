@@ -4,6 +4,68 @@ Changes tracked by the Model Tracker agent. Most recent entries first.
 
 ---
 
+## 2026-07-16
+
+### ⏱️ DeepSeek V4 stable release imminent — peak/off-peak pricing NOT yet activated (verified 2026-07-16)
+
+**Provider:** [DeepSeek](models/deepseek.md)  
+The official [DeepSeek API pricing page](https://api-docs.deepseek.com/quick_start/pricing) still shows **flat-rate pricing** as of today, July 16:
+
+| Model | Cache miss input | Cache hit input | Output |
+|---|---|---|---|
+| `deepseek-v4-flash` | $0.14 / 1M | $0.0028 / 1M | $0.28 / 1M |
+| `deepseek-v4-pro` | $0.435 / 1M | $0.003625 / 1M | $0.87 / 1M |
+
+The peak/off-peak pricing mechanism announced June 29 (approximately **2× rates** during 09:00–12:00 and 14:00–18:00 Beijing Time / UTC+8) has **not yet taken effect**. DeepSeek committed to send a **24-hour advance notice email** before the change activates. As of this writing, no such notice has been sent.
+
+**What to expect when it activates:**
+
+| Period | V4 Flash input | V4 Flash output | V4 Pro input | V4 Pro output |
+|---|---|---|---|---|
+| Off-peak (regular) | $0.14 / 1M | $0.28 / 1M | $0.435 / 1M | $0.87 / 1M |
+| Peak (9–12 & 14–18 BT) | ~$0.29 / 1M | ~$0.59 / 1M | ~$0.88 / 1M | ~$1.76 / 1M |
+
+**Developer action:**
+- **Monitor email** for the 24-hour advance notice from DeepSeek
+- **Migrate immediately from `deepseek-chat` / `deepseek-reasoner`** — these aliases hard-retire in **8 days** on **2026-07-24 at 15:59 UTC** with no fallback (calls return errors, not redirects)
+- If peak pricing impacts your budget, consider batching non-urgent workloads to off-peak hours once the window is known
+
+*Source: [DeepSeek API Docs](https://api-docs.deepseek.com/quick_start/pricing) — verified 2026-07-16 · [r/DeepSeek — peak pricing announcement](https://www.reddit.com/r/DeepSeek/comments/1uio6yf/) — 2026-06-29*
+
+---
+
+### ✅ Anthropic: Legacy model table corrected — Claude Sonnet 4 + Opus 4 marked RETIRED
+
+**Provider:** [Anthropic](models/anthropic.md)  
+The legacy model table in `models/anthropic.md` had stale "🚨 Deprecated — 2 DAYS" labels for `claude-sonnet-4-20250514` and `claude-opus-4-20250514`. These models **shut down on June 15, 2026** and have been returning API errors since. Labels corrected to ❌ RETIRED.
+
+Updated: `models/anthropic.md`
+
+---
+
+### ⏱️ Deadlines: Key upcoming cutoffs (verified 2026-07-16)
+
+| Deadline | Days | Action |
+|---|---|---|
+| **2026-07-24** | **8 DAYS** 🚨 | DeepSeek `deepseek-chat` + `deepseek-reasoner` **hard cutoff** — returns errors (no redirect). Migrate to `deepseek-v4-flash` / `deepseek-v4-pro` NOW. |
+| **2026-07-24** | **8 DAYS** ⚠️ | Anthropic Claude Opus 4.7 **Fast Mode** retires → migrate to `claude-opus-4-8` Fast Mode ($10/$50, 3× cheaper). |
+| **2026-07-31** | **15 DAYS** ⚠️ | Mistral retirements: `mistral-small-2506`, `magistral-small-2509`, `devstral-2512`, `open-mistral-nemo-2407` → `mistral-small-2603` or `mistral-medium-3-5` |
+| **2026-08-10** | 25 days | `embedding-2-preview` retires → `gemini-embedding-2` |
+| **2026-08-17** | 32 days | Imagen 4.0 models retire on Gemini Dev API: `imagen-4.0-*` → `gemini-3.1-flash-image` |
+| **2026-08-31** | 46 days | Claude Sonnet 5 intro pricing ends → standard $3/$15 (from $2/$10) |
+| **2026-08-31** | 46 days | Mistral `mistral-medium-2508` (Medium 3.1) → `mistral-medium-3-5` |
+| **2026-09-24** | 70 days | OpenAI Sora 2 API shuts down — no announced replacement |
+| **2026-09-30** | 76 days | Mistral `labs-leanstral-1-5` retires |
+| **2026-10-02** | 78 days | Gemini `gemini-2.5-flash-image` retires → `gemini-3.1-flash-image` |
+| **2026-10-16** | 92 days | `gemini-2.5-pro`, `gemini-2.5-flash`, `gemini-2.5-flash-lite` retire |
+| **2026-11-30** | 137 days | OpenAI Agent Builder shuts down → Agents SDK or ChatGPT Workspace Agents |
+| **2026-12-01** | 138 days | `gpt-image-1-mini`, `gpt-image-1.5`, `chatgpt-image-latest` → `gpt-image-2` |
+| **2027-01-06** | 174 days | OpenAI fine-tuning: last date to create new training jobs |
+
+*Verified 2026-07-16*
+
+---
+
 ## 2026-07-14
 
 ### 🔴 Google: Gemini 3.5 Flash **50% price cut** — $0.75/$4.50 Standard (was $1.50/$9.00)

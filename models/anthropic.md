@@ -1,6 +1,6 @@
 # Anthropic Model Catalog
 
-> **Source:** [Anthropic API Pricing](https://platform.claude.com/docs/en/about-claude/pricing) · [Models Overview](https://platform.claude.com/docs/en/about-claude/models/overview) · **Verified:** 2026-07-13
+> **Source:** [Anthropic API Pricing](https://platform.claude.com/docs/en/about-claude/pricing) · [Models Overview](https://platform.claude.com/docs/en/about-claude/models/overview) · **Verified:** 2026-07-16
 
 ---
 
@@ -354,8 +354,8 @@ Anthropic's Claude 5 generation is underway. **Sonnet 5 "Fennec"** was released 
 | Claude Opus 4.5 | Active (legacy) | Not before 2026-11-24 | $5/$25 — same price as newer Opus versions |
 | Claude Opus 4.1 | Active (legacy) | Not before 2026-08-05 | $15/$75 — 3× more expensive than Opus 4.8; avoid unless required |
 | Claude Sonnet 4.5 | Active (legacy) | Not before 2026-09-29 | $3/$15 — same price as Sonnet 4.6 but older |
-| Claude Sonnet 4 | 🚨 Deprecated — **2 DAYS** | **2026-06-15** | $3/$15 — deprecated 2026-04-14; API name `claude-sonnet-4-20250514` — migrate to `claude-sonnet-4-6` |
-| Claude Opus 4 | 🚨 Deprecated — **2 DAYS** | **2026-06-15** | $15/$75 — deprecated 2026-04-14; API name `claude-opus-4-20250514` — migrate to `claude-opus-4-7` |
+| Claude Sonnet 4 | ❌ **RETIRED 2026-06-15** | — | API name `claude-sonnet-4-20250514` — calls return errors; migrate to `claude-sonnet-4-6` |
+| Claude Opus 4 | ❌ **RETIRED 2026-06-15** | — | API name `claude-opus-4-20250514` — calls return errors; migrate to `claude-opus-4-7` or `claude-opus-4-8` |
 | Claude 3 Haiku | ❌ **RETIRED 2026-04-20** | **2026-04-20** | Migrate to `claude-haiku-4-5-20251001` |
 | Claude 3.5 Haiku | Retired 2026-02-19 | — | Use Haiku 4.5 |
 | Claude Sonnet 3.7 | Retired 2026-02-19 | — | Use Sonnet 4.6 |

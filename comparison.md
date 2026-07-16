@@ -1,6 +1,6 @@
 # LLM API Comparison Matrix
 
-> **Last updated:** 2026-07-14. Prices per 1M tokens (USD), standard tier unless noted.
+> **Last updated:** 2026-07-16. Prices per 1M tokens (USD), standard tier unless noted.
 
 ---
 
@@ -175,9 +175,9 @@
 | **2026-07-12 11:59 PM PT** | ✅ **CLOSED** — Claude Fable 5 free subscription window closed. Usage credits now required ($10/$50 per 1M). Check your console billing settings if Fable 5 calls are failing. |
 | **2026-07-14** | ✅ **TODAY** — `gemini-embedding-001` **retired** — hard cutoff; calls now failing. Migrate to `gemini-embedding-2` immediately. |
 | **2026-07-14** | 🆕 **Google: Gemini 3.5 Flash price cut 50%** — Standard rate dropped from $1.50/$9.00 to **$0.75/$4.50**. Gemini 3.1 Flash-Lite also halved: $0.25/$1.50 → **$0.125/$0.75**. |
-| **2026-07-24** | 🚨 **11 DAYS** — DeepSeek `deepseek-chat` / `deepseek-reasoner` **hard cutoff** — returns errors (no redirect). Migrate to `deepseek-v4-flash` or `deepseek-v4-pro` NOW. Note: DeepSeek V4 stable release (mid-July) will bring **peak/off-peak pricing** (~2× during 09:00–12:00 & 14:00–18:00 Beijing Time). |
-| **2026-07-24** | ⚠️ **11 DAYS** — Anthropic **Claude Opus 4.7 Fast Mode** retires. Migrate to Claude Opus 4.8 Fast Mode ($10/$50, 3× cheaper). |
-| **2026-07-31** | ⚠️ **21 DAYS** — Mistral retirements: `mistral-small-2506`, `magistral-small-2509`, `devstral-2512`, `open-mistral-nemo-2407` → `mistral-small-2603` or `mistral-medium-3-5` |
+| **2026-07-24** | 🚨 **8 DAYS** — DeepSeek `deepseek-chat` / `deepseek-reasoner` **hard cutoff** — returns errors (no redirect). Migrate to `deepseek-v4-flash` or `deepseek-v4-pro` NOW. ⚠️ DeepSeek V4 stable release (imminently) will introduce **peak/off-peak pricing** (~2× during 09:00–12:00 & 14:00–18:00 Beijing Time). Watch your email for the 24-hour advance notice. |
+| **2026-07-24** | ⚠️ **8 DAYS** — Anthropic **Claude Opus 4.7 Fast Mode** retires. Migrate to Claude Opus 4.8 Fast Mode ($10/$50, 3× cheaper). |
+| **2026-07-31** | ⚠️ **15 DAYS** — Mistral retirements: `mistral-small-2506`, `magistral-small-2509`, `devstral-2512`, `open-mistral-nemo-2407` → `mistral-small-2603` or `mistral-medium-3-5` |
 | **2026-08-17** | Imagen 4.0 models retire on Gemini Dev API: `imagen-4.0-*` → `gemini-3.1-flash-image` |
 | **2026-08-31** | Mistral `mistral-medium-2508` (Medium 3.1) → `mistral-medium-3-5` |
 | **2026-09-24** | OpenAI Sora 2 API shuts down — no announced replacement |
