@@ -1,6 +1,6 @@
 # LLM API Comparison Matrix
 
-> **Last updated:** 2026-07-16. Prices per 1M tokens (USD), standard tier unless noted.
+> **Last updated:** 2026-07-17. Prices per 1M tokens (USD), standard tier unless noted.
 
 ---
 
@@ -9,9 +9,9 @@
 | Provider | Model | Context | Input | Output | GPQA | SWE-bench | Notes |
 |---|---|---|---|---|---|---|---|
 | [Anthropic](models/anthropic.md) | Claude Fable 5 ✅ | 1 M | $10.00 | $50.00 | — | **80.3%** (Pro) | ✅ **RESTORED 2026-07-01** — suspended Jun 12–Jul 1; now globally available. Requires 30-day data retention. |
-| [OpenAI](models/openai.md) | GPT-5.6 Sol 🆕 | 1 M | $5.00 | $30.00 | — | — | **NEW GA 2026-07-09** — Next-gen flagship; fewer hallucinations; 750 t/s on Cerebras |
-| [OpenAI](models/openai.md) | GPT-5.6 Terra 🆕 | 1 M | $2.50 | $15.00 | — | — | **NEW GA 2026-07-09** — GPT-5.5 performance at 2× lower cost |
-| [OpenAI](models/openai.md) | GPT-5.6 Luna 🆕 | 1 M | $1.00 | $6.00 | — | — | **NEW GA 2026-07-09** — Cheapest capable OpenAI model |
+| [OpenAI](models/openai.md) | GPT-5.6 Sol 🆕 | 1 M | $5.00 | $30.00 | — | — | **NEW GA 2026-07-09** — Next-gen flagship; fewer hallucinations; 750 t/s on Cerebras. Long context >272K: $10/$45 |
+| [OpenAI](models/openai.md) | GPT-5.6 Terra 🆕 | 1 M | $2.50 | $15.00 | — | — | **NEW GA 2026-07-09** — GPT-5.5 performance at 2× lower cost. Long context >272K: $5/$22.50 |
+| [OpenAI](models/openai.md) | GPT-5.6 Luna 🆕 | 1 M | $1.00 | $6.00 | — | — | **NEW GA 2026-07-09** — Cheapest capable OpenAI model. Long context >272K: $2/$9 |
 | [OpenAI](models/openai.md) | GPT-5.5 | 1 M | $5.00 | $30.00 | — | — | Previous flagship; still available; `chat-latest` alias |
 | [OpenAI](models/openai.md) | GPT-5.4 | 1 M | $2.50 | $15.00 | 92.8% | 57.7% | Native computer-use; tokens >272K billed at 2× |
 | [OpenAI](models/openai.md) | GPT-5.4 Pro / GPT-5.5 Pro / GPT-5.6 Sol Pro | 1 M | $30.00 | $180.00 | — | — | Max capability |
@@ -21,7 +21,7 @@
 | [xAI](models/xai.md) | Grok 4.3 | 1 M | $1.25 | $2.50 | — | — | Previous xAI flagship; 1M context; voice API |
 | [xAI](models/xai.md) | Grok 4 | 256 K | $3.00 | $15.00 | 87.7% | — | Always-on reasoning |
 
-**Verdict:** **Claude Fable 5** ($10/$50) restored July 1, 2026 — best SWE-bench Pro (80.3%) but requires 30-day data retention. **GPT-5.6 Sol** ($5/$30) and **Terra** ($2.50/$15) launched July 9 — Terra delivers GPT-5.5 class performance at half the price. **Grok 4.5** ($2/$6) launched July 8 — #1 agentic tool-use, best cost/efficiency ratio among frontier models. For best reasoning accuracy, Gemini 3.1 Pro (94.3% GPQA) is top. For computer-use, GPT-5.4 is unmatched at 75% OSWorld. Gemini 3.5 Flash ($1.50/$9.00) remains fastest token generation (~4× competitors).
+**Verdict:** **Claude Fable 5** ($10/$50) restored July 1, 2026 — best SWE-bench Pro (80.3%) but requires 30-day data retention. **GPT-5.6 Sol** ($5/$30) and **Terra** ($2.50/$15) launched July 9 — Terra delivers GPT-5.5 class performance at half the price; confirmed long-context pricing: Sol $10/$45, Terra $5/$22.50, Luna $2/$9 (>272K tokens). **Grok 4.5** ($2/$6) launched July 8 — #1 agentic tool-use, best cost/efficiency ratio among frontier models. For best reasoning accuracy, Gemini 3.1 Pro (94.3% GPQA) is top. For computer-use, GPT-5.4 is unmatched at 75% OSWorld. **Gemini 3.5 Flash** ($0.75/$4.50 after 50% price cut July 14) is now the fastest and most cost-efficient frontier-class model (~4× token gen speed vs competitors).
 
 ---
 

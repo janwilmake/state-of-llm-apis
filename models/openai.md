@@ -1,6 +1,6 @@
 # OpenAI Model Catalog
 
-> **Source:** [OpenAI API Pricing](https://developers.openai.com/api/docs/pricing) · [OpenAI Models](https://platform.openai.com/docs/models) · **Verified:** 2026-07-10
+> **Source:** [OpenAI API Pricing](https://developers.openai.com/api/docs/pricing) · [OpenAI Models](https://platform.openai.com/docs/models) · **Verified:** 2026-07-17
 
 ---
 
@@ -12,12 +12,12 @@ OpenAI's latest generation, introducing a three-tier naming system: **Sol** (fla
 
 > **New caching model:** For GPT-5.6 and all future OpenAI models, cache **writes** are billed at **1.25× the uncached input rate** (previously free). Cache **reads** continue at a 90% discount. GPT-5.6 also introduces explicit cache breakpoints and a 30-minute minimum cache life.
 
-| Model | API name | Context | Input | Cache write | Cache read | Output | Notes |
-|---|---|---|---|---|---|---|---|
-| GPT-5.6 Sol | `gpt-5.6-sol` | 1 M tokens | $5.00 | $6.25 | $0.50 | $30.00 | Flagship; hard reasoning, coding, security, agentic |
-| GPT-5.6 Sol Pro | `gpt-5.6-sol-pro` | 1 M tokens | $30.00 | — | — | $180.00 | Highest capability; complex tasks, long workflows |
-| GPT-5.6 Terra | `gpt-5.6-terra` | 1 M tokens | $2.50 | $3.125 | $0.25 | $15.00 | Balanced; competitive with GPT-5.5 at 2× lower cost |
-| GPT-5.6 Luna | `gpt-5.6-luna` | 1 M tokens | $1.00 | $1.25 | $0.10 | $6.00 | Fast, affordable; high-volume and simple tasks |
+| Model | API name | Context | Input | Cache write | Cache read | Output | Input (long >272K) | Output (long >272K) | Notes |
+|---|---|---|---|---|---|---|---|---|---|
+| GPT-5.6 Sol | `gpt-5.6-sol` | 1 M tokens | $5.00 | $6.25 | $0.50 | $30.00 | $10.00 | $45.00 | Flagship; hard reasoning, coding, security, agentic |
+| GPT-5.6 Sol Pro | `gpt-5.6-sol-pro` | 1 M tokens | $30.00 | — | — | $180.00 | $60.00 | $270.00 | Highest capability; complex tasks, long workflows |
+| GPT-5.6 Terra | `gpt-5.6-terra` | 1 M tokens | $2.50 | $3.125 | $0.25 | $15.00 | $5.00 | $22.50 | Balanced; competitive with GPT-5.5 at 2× lower cost |
+| GPT-5.6 Luna | `gpt-5.6-luna` | 1 M tokens | $1.00 | $1.25 | $0.10 | $6.00 | $2.00 | $9.00 | Fast, affordable; high-volume and simple tasks |
 
 **Key facts:**
 - Limited preview launched **2026-06-26** (government-coordinated); GA rollout began **2026-07-09**
@@ -33,7 +33,7 @@ OpenAI's latest generation, introducing a three-tier naming system: **Sol** (fla
 - ARC-AGI-3 scores: Sol 7.78%, Terra 0.8%, Luna 0.18% (vs GPT-5.5 0.43%, Claude Opus 4.8 1.5%, Gemini 3.1 Pro Preview 0.42%)
 - Available across ChatGPT, Codex, and OpenAI API; Microsoft 365 Copilot using GPT-5.6 as preferred model
 
-**Pricing tiers:** Batch/Flex: 50% off; Priority: 2.5× standard rate. **Note:** Long-context pricing (>272K tokens at 2×) for GPT-5.6 not yet officially published; single flat rate in effect during launch period.
+**Pricing tiers:** Batch/Flex: 50% off; Priority: 2.5× standard rate. **Long-context pricing (>272K tokens):** Input doubles (2×), output rate also rises — see table above. Confirmed on official pricing page 2026-07-17.
 
 *Source: [OpenAI — GPT-5.6: Frontier intelligence](https://openai.com/index/gpt-5-6/) · [OpenAI — Previewing GPT-5.6 Sol](https://openai.com/index/previewing-gpt-5-6-sol/) · [OpenAI Help Center — GPT-5.6](https://help.openai.com/en/articles/20001325-a-preview-of-gpt-56-sol-terra-and-luna) · [OpenAI API pricing](https://developers.openai.com/api/docs/pricing) — verified 2026-07-10*
 
@@ -157,29 +157,31 @@ OpenAI's dedicated agentic coding model. Optimized for long-running, tool-using 
 
 ---
 
-## Realtime Voice Models (New — Released 2026-05-07)
+## Realtime Voice Models
 
-Three new audio models launched in the Realtime API for voice-enabled applications.
+Current realtime models (verified on official pricing page 2026-07-17). `gpt-realtime-2.1` and `gpt-realtime-2.1-mini` are the current production versions; they supersede `gpt-realtime-2` and `gpt-realtime-mini` respectively.
 
-| Model | API name | Modality | Pricing |
-|---|---|---|---|
-| GPT-Realtime-2 | `gpt-realtime-2` | Audio + Text + Image (per token) | Audio in: **$32.00/1M** · Cached: $0.40/1M · Audio out: **$64.00/1M** · Text in: $4.00/1M · Cached: $0.40/1M · Text out: $24.00/1M |
-| GPT-Realtime-Translate | `gpt-realtime-translate` | Audio translation (per minute) | **$0.034 / minute** |
-| GPT-Realtime-Whisper | `gpt-realtime-whisper` | Streaming STT (per minute) | **$0.017 / minute** |
-| GPT-Realtime-1.5 (legacy) | `gpt-realtime-1.5` | Audio + Text + Image (per token) | Audio in: $32.00/1M · Cached: $0.40/1M · Audio out: $64.00/1M · Text in: $4.00/1M · Cached: $0.40/1M · Text out: **$16.00/1M** |
-| GPT-Realtime-Mini (legacy) | `gpt-realtime-mini` | Audio + Text + Image (per token) | Audio in: $10.00/1M · Cached: $0.30/1M · Audio out: $20.00/1M · Text in: $0.60/1M · Cached: $0.06/1M · Text out: $2.40/1M |
+| Model | API name | Modality | Input | Cached input | Output |
+|---|---|---|---|---|---|
+| GPT-Realtime-2.1 | `gpt-realtime-2.1` | Audio | $32.00/1M | $0.40/1M | $64.00/1M |
+| | | Text | $4.00/1M | $0.40/1M | $24.00/1M |
+| | | Image | $5.00/1M | $0.50/1M | — |
+| GPT-Realtime-2.1 Mini | `gpt-realtime-2.1-mini` | Audio | $10.00/1M | $0.30/1M | $20.00/1M |
+| | | Text | $0.60/1M | $0.06/1M | $2.40/1M |
+| | | Image | $0.80/1M | $0.08/1M | — |
+| GPT-Realtime-Translate | `gpt-realtime-translate` | Audio translation | — | — | **$0.034 / minute** |
+| GPT-Realtime-Whisper | `gpt-realtime-whisper` | Streaming STT | — | — | **$0.017 / minute** |
+| GPT-Realtime-2 (prev) | `gpt-realtime-2` | Audio + Text + Image | Same as 2.1 | Same | Same |
+| GPT-Realtime-1.5 (legacy) | `gpt-realtime-1.5` | Audio + Text + Image | Audio: $32.00/1M | $0.40/1M | Text out: **$16.00/1M** |
+| GPT-Realtime-Mini (legacy) | `gpt-realtime-mini` | Audio + Text + Image | Audio: $10.00/1M | $0.30/1M | Audio out: $20.00/1M |
 
 **Key facts:**
-- **GPT-Realtime-2:** First voice model with GPT-5-class reasoning; handles complex requests and maintains conversation context. Successor to `gpt-realtime-1.5`.
+- **GPT-Realtime-2.1 / 2.1-mini:** Current production versions per official pricing page (2026-07-17). Same price structure as their 2.x predecessors; the `.1` bump reflects capability/stability improvements.
 - **GPT-Realtime-Translate:** Real-time speech translation; 70+ input languages → 13 output languages.
 - **GPT-Realtime-Whisper:** Live speech-to-text; transcribes in real-time as the speaker talks.
-- All three models are available via the [OpenAI Realtime API](https://developers.openai.com/api/docs/guides/realtime).
-- Built-in guardrails against spam, fraud, and harmful content.
+- All models available via the [OpenAI Realtime API](https://developers.openai.com/api/docs/guides/realtime).
 
-- **GPT-Realtime-1.5:** Predecessor to GPT-Realtime-2; still available. Same audio pricing as gpt-realtime-2 but lower text output rate ($16.00/1M vs $24.00/1M).
-- **GPT-Realtime-Mini:** Budget realtime voice model. ~3× cheaper audio than gpt-realtime-2. Useful for high-volume voice agent deployments where cost matters more than frontier quality.
-
-*Source: [OpenAI — Advancing voice intelligence with new models in the API](https://openai.com/index/advancing-voice-intelligence-with-new-models-in-the-api/) · [OpenAI API pricing](https://developers.openai.com/api/docs/pricing) · [TechCrunch](https://techcrunch.com/2026/05/07/openai-launches-new-voice-intelligence-features-in-its-api/) — verified 2026-05-18*
+*Source: [OpenAI API pricing](https://developers.openai.com/api/docs/pricing) — verified 2026-07-17*
 
 ---
 

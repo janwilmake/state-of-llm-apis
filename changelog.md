@@ -4,6 +4,88 @@ Changes tracked by the Model Tracker agent. Most recent entries first.
 
 ---
 
+## 2026-07-17
+
+### ✅ OpenAI: GPT-5.6 long-context pricing now officially published (verified 2026-07-17)
+
+**Provider:** [OpenAI](models/openai.md)  
+The official OpenAI API pricing page (`developers.openai.com/api/docs/pricing`, last verified 2026-07-17) now shows explicit long-context rates for all GPT-5.6 models. The July 10 entry noted this as "not yet officially published; single flat rate in effect during launch period." That caveat is now resolved.
+
+**Long-context rates (tokens >272K in a request):**
+
+| Model | Input (short) | Input (long >272K) | Output (short) | Output (long >272K) |
+|---|---|---|---|---|
+| `gpt-5.6-sol` | $5.00 | $10.00 | $30.00 | $45.00 |
+| `gpt-5.6-sol-pro` | $30.00 | $60.00 | $180.00 | $270.00 |
+| `gpt-5.6-terra` | $2.50 | $5.00 | $15.00 | $22.50 |
+| `gpt-5.6-luna` | $1.00 | $2.00 | $6.00 | $9.00 |
+
+These match the pattern established for GPT-5.5 (2× input and output above the 272K threshold). The cache-write column is not yet broken out separately for long-context; cache-read rates are assumed proportional.
+
+**Developer action:** If you're building long-context agents or document-processing pipelines on GPT-5.6, re-model your cost estimates with the 2× uplift for any prompt exceeding 272K tokens.
+
+Updated: `models/openai.md`  
+*Source: [OpenAI API pricing](https://developers.openai.com/api/docs/pricing) — verified 2026-07-17*
+
+---
+
+### ✅ OpenAI Realtime: `gpt-realtime-2.1` and `gpt-realtime-2.1-mini` now listed on official pricing page (verified 2026-07-17)
+
+**Provider:** [OpenAI](models/openai.md)  
+The official OpenAI API pricing page now lists `gpt-realtime-2.1` and `gpt-realtime-2.1-mini` as the current production realtime voice models. The previous entries (`gpt-realtime-2`, `gpt-realtime-mini`) are still accessible but the `.1` variants are now the listed default.
+
+Pricing is structurally unchanged from the 2.x generation — same per-token audio, text, and image rates. The `.1` designation reflects a capability/stability bump, not a pricing change.
+
+| Model | Audio input | Text input | Image input | Audio output | Text output |
+|---|---|---|---|---|---|
+| `gpt-realtime-2.1` | $32.00/1M | $4.00/1M | $5.00/1M | $64.00/1M | $24.00/1M |
+| `gpt-realtime-2.1-mini` | $10.00/1M | $0.60/1M | $0.80/1M | $20.00/1M | $2.40/1M |
+
+Updated: `models/openai.md`  
+*Source: [OpenAI API pricing](https://developers.openai.com/api/docs/pricing) — verified 2026-07-17*
+
+---
+
+### ⏱️ DeepSeek V4 peak pricing: still NOT activated as of 2026-07-17
+
+**Provider:** [DeepSeek](models/deepseek.md)  
+The official DeepSeek API pricing page still shows **flat rates only** as of today, July 17. The `deepseek-chat` and `deepseek-reasoner` hard retirement is now **7 days away** (2026-07-24 15:59 UTC).
+
+No 24-hour advance notice email for peak pricing has been sent as of this writing. Flat rates remain in effect for all time windows.
+
+**Critical action (7 days remaining):** Migrate from `deepseek-chat` and `deepseek-reasoner` to explicit V4 model IDs:
+- `deepseek-chat` → `deepseek-v4-flash` (non-thinking)
+- `deepseek-reasoner` → `deepseek-v4-flash` with thinking enabled
+
+After July 24 15:59 UTC, calls to the legacy aliases will return **errors** (not silent redirects).
+
+*Source: [DeepSeek API Docs](https://api-docs.deepseek.com/quick_start/pricing) — verified 2026-07-17 · [BenchLM DeepSeek pricing](https://benchlm.ai/deepseek/api-pricing) — verified 2026-07-17*
+
+---
+
+### ⏱️ Deadlines: Key upcoming cutoffs (verified 2026-07-17)
+
+| Deadline | Days | Action |
+|---|---|---|
+| **2026-07-24** | **7 DAYS** 🚨 | DeepSeek `deepseek-chat` + `deepseek-reasoner` **hard cutoff** — returns errors (no redirect). Migrate to `deepseek-v4-flash` / `deepseek-v4-pro` NOW. |
+| **2026-07-24** | **7 DAYS** ⚠️ | Anthropic Claude Opus 4.7 **Fast Mode** retires → migrate to `claude-opus-4-8` Fast Mode ($10/$50, 3× cheaper). |
+| **2026-07-31** | **14 DAYS** ⚠️ | Mistral retirements: `mistral-small-2506`, `magistral-small-2509`, `devstral-2512`, `open-mistral-nemo-2407` → `mistral-small-2603` or `mistral-medium-3-5` |
+| **2026-08-10** | 24 days | `embedding-2-preview` retires → `gemini-embedding-2` |
+| **2026-08-17** | 31 days | Imagen 4.0 models retire on Gemini Dev API: `imagen-4.0-*` → `gemini-3.1-flash-image` |
+| **2026-08-31** | 45 days | Claude Sonnet 5 intro pricing ends → standard $3/$15 (from $2/$10) |
+| **2026-08-31** | 45 days | Mistral `mistral-medium-2508` (Medium 3.1) → `mistral-medium-3-5` |
+| **2026-09-24** | 69 days | OpenAI Sora 2 API shuts down — no announced replacement |
+| **2026-09-30** | 75 days | Mistral `labs-leanstral-1-5` retires |
+| **2026-10-02** | 77 days | Gemini `gemini-2.5-flash-image` retires → `gemini-3.1-flash-image` |
+| **2026-10-16** | 91 days | `gemini-2.5-pro`, `gemini-2.5-flash`, `gemini-2.5-flash-lite` retire |
+| **2026-11-30** | 136 days | OpenAI Agent Builder shuts down → Agents SDK or ChatGPT Workspace Agents |
+| **2026-12-01** | 137 days | `gpt-image-1-mini`, `gpt-image-1.5`, `chatgpt-image-latest` → `gpt-image-2` |
+| **2027-01-06** | 173 days | OpenAI fine-tuning: last date to create new training jobs |
+
+*Verified 2026-07-17*
+
+---
+
 ## 2026-07-16
 
 ### ⏱️ DeepSeek V4 stable release imminent — peak/off-peak pricing NOT yet activated (verified 2026-07-16)
