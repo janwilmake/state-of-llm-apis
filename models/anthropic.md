@@ -1,6 +1,6 @@
 # Anthropic Model Catalog
 
-> **Source:** [Anthropic API Pricing](https://platform.claude.com/docs/en/about-claude/pricing) · [Models Overview](https://platform.claude.com/docs/en/about-claude/models/overview) · **Verified:** 2026-07-16
+> **Source:** [Anthropic API Pricing](https://platform.claude.com/docs/en/about-claude/pricing) · [Models Overview](https://platform.claude.com/docs/en/about-claude/models/overview) · **Verified:** 2026-07-25
 
 ---
 
@@ -87,13 +87,59 @@ Anthropic's most agentic Sonnet model. Closes the gap with Opus 4.8 on agentic t
 
 ---
 
+## Claude 5 Opus Generation
+
+### Claude Opus 5 (Released 2026-07-24) 🆕 NEW
+
+Anthropic's current Opus-tier flagship — a step-change upgrade over Opus 4.8 for deep reasoning, long-horizon agentic coding, and test-time compute scaling. Delivers near-Fable-5 performance at roughly half the cost (Fable 5 is $10/$50). New default model on Claude Max; strongest model available on Claude Pro.
+
+| Metric | Value |
+|---|---|
+| API name | `claude-opus-5` |
+| AWS Bedrock ID | `anthropic.claude-opus-53` |
+| Google Cloud ID | `claude-opus-5` |
+| Context window | 1,000,000 tokens (1M is both default and maximum; no smaller variant) |
+| Max output | 128,000 tokens |
+| Input (≤200K) | **$5.00 / 1M** |
+| Output (≤200K) | **$25.00 / 1M** |
+| Input (>200K) | $10.00 / 1M |
+| Output (>200K) | $37.50 / 1M |
+| Batch input / output (50% off) | $2.50 / $12.50 per 1M |
+| **Fast Mode input** | **$10.00 / 1M** (2.5× default speed, 2× price) |
+| **Fast Mode output** | **$50.00 / 1M** |
+| Thinking | **Adaptive thinking — on by default; cannot be disabled** (manual `thinking` budget removed, returns 400) |
+| Effort parameter | Supports `low`, `medium`, `high`, and the new **`max`** level |
+| Bash tool system prompt | Adds 325 input tokens (same as Opus 4.8 / 4.7) |
+| Training data cutoff | May 2026 |
+| Knowledge cutoff (reliable) | January 2026 |
+
+**Best for:** Complex agentic coding, long-horizon multi-step tasks, deep multi-step reasoning, professional knowledge work, scientific research. Same price as Opus 4.8 with materially stronger capability.
+
+**Key facts:**
+- Released **2026-07-24** on Claude API, Amazon Bedrock, Google Cloud Vertex AI, Microsoft Foundry
+- **Same price as Opus 4.8** ($5/$25) — drop-in capability upgrade
+- **Frontier-Bench v0.1:** more than doubled Opus 4.8's score at lower cost per completed task
+- **CursorBench 3.2** (max effort): within 0.5% of Fable 5's peak at ~half the cost per task
+- **ARC-AGI 3:** 3× the next-best model's score
+- **OSWorld 2.0:** better than Fable 5's peak at just over one-third of the cost
+- **New `max` reasoning effort** — converts extra compute into better results (test-time scaling)
+- `low`/`medium` effort produce strong quality at a fraction of the tokens/latency of higher settings
+- Strong code review / bug-finding: high true-positive rate, few false positives, accurate at low effort
+- Mid-conversation tool changes supported; improved vision (charts, docs, diagrams, UI replication) and 1M long-context instruction following
+- **Cyber posture:** close to Mythos 5 at finding vulnerabilities, but not trained on cyber tasks; "substantially behind" Mythos 5 on exploitation — generally available (no Glasswing gating)
+- No tokenizer-penalty caveat relative to Opus 4.8 (uses the same Opus-4.7+ tokenizer family)
+
+**Migration from Opus 4.8:** Update `model` to `claude-opus-5`. Pricing identical. If you used manual `thinking: {type: "enabled", budget_tokens: N}`, switch to adaptive thinking with the `effort` parameter (returns 400 otherwise). Opus 4.8 remains available as a fallback.
+
+*Source: [Anthropic — Introducing Claude Opus 5](https://www.anthropic.com/news/claude-opus-5) · [What's new in Claude Opus 5](https://platform.claude.com/docs/en/about-claude/models/whats-new-opus-5) · [Anthropic API pricing](https://platform.claude.com/docs/en/about-claude/pricing) · [Models overview](https://platform.claude.com/docs/en/about-claude/models/overview) — verified 2026-07-25*
+
+---
+
 ## Claude 4.x Generation
 
 ### Claude Opus 4.8 (Released 2026-05-28)
 
-### Claude Opus 4.8 (Released 2026-05-28) 🆕 NEW
-
-Anthropic's current flagship. Builds on Opus 4.7 with stronger agentic coding, better tool triggering, and improved long-context coherence. Adds Dynamic Workflows (parallel multi-step coding), Effort Control (per-call reasoning depth), and Fast Mode now 3× cheaper than previous generations.
+Anthropic's previous Opus flagship (superseded by Opus 5 on 2026-07-24 at the same price — see above). Builds on Opus 4.7 with stronger agentic coding, better tool triggering, and improved long-context coherence. Adds Dynamic Workflows (parallel multi-step coding), Effort Control (per-call reasoning depth), and Fast Mode now 3× cheaper than previous generations.
 
 | Metric | Value |
 |---|---|
@@ -341,7 +387,7 @@ Anthropic's most capable model to date, described as a "step change" above Claud
 
 ## Claude 5 Roadmap
 
-Anthropic's Claude 5 generation is underway. **Sonnet 5 "Fennec"** was released February 2026. With Opus 4.8 as the current flagship (released 2026-05-28), Claude 5 Opus remains anticipated **Q3 2026** (July–September). Separately, Anthropic's [draft S-1 filing](https://futurumgroup.com/insights/will-anthropics-draft-s-1-ignite-a-new-phase-in-the-ai-platform-race/) (2026-06-02) reported a $965B valuation and ~$30B annualized revenue run rate.
+Anthropic's Claude 5 generation is now substantially shipped. **Claude Opus 5** (`claude-opus-5`) was released **2026-07-24** — fulfilling the previously-anticipated Q3 2026 Opus milestone. **Sonnet 5** was released 2026-06-30 (intro pricing $2/$10 through Aug 31, then $3/$15). Above the Opus tier, the **Mythos-class** tier was introduced with **Claude Fable 5** (GA 2026-06-09, restored globally 2026-07-01). The current frontier is Fable 5 / Mythos 5. Separately, Anthropic's [draft S-1 filing](https://futurumgroup.com/insights/will-anthropics-draft-s-1-ignite-a-new-phase-in-the-ai-platform-race/) (2026-06-02) reported a $965B valuation and ~$30B annualized revenue run rate.
 
 ---
 

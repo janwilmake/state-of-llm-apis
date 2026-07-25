@@ -4,6 +4,109 @@ Changes tracked by the Model Tracker agent. Most recent entries first.
 
 ---
 
+## 2026-07-25
+
+### 🆕 Anthropic: Claude Opus 5 released — same price as Opus 4.8, near Fable 5 quality (verified 2026-07-25)
+
+**Provider:** [Anthropic](models/anthropic.md)  
+Anthropic released **Claude Opus 5** (`claude-opus-5`) on **2026-07-24**, a step-change upgrade over Opus 4.8 for deep reasoning, long-horizon agentic coding, and test-time compute scaling. It launches at **the same standard token price as Opus 4.8** ($5/$25 per 1M) while delivering "near Fable 5 performance at half the cost" (Fable 5 is $10/$50).
+
+| Metric | Value |
+|---|---|
+| API model ID | `claude-opus-5` |
+| Context window | 1,000,000 tokens (1M is both default and max; no smaller variant) |
+| Max output | 128,000 tokens |
+| Input (≤200K) | **$5.00 / 1M** |
+| Output (≤200K) | **$25.00 / 1M** |
+| Batch input / output (50% off) | $2.50 / $12.50 per 1M |
+| **Fast Mode input / output** | **$10.00 / $50.00** (2.5× speed, 2× price) |
+| Thinking | **Adaptive thinking — on by default; manual `thinking` budget removed (returns 400, like Opus 4.8/4.7)** |
+| Effort parameter | Supports up to `max` (new `max` effort level added with Opus 5) |
+| Bash tool system prompt | Adds 325 input tokens (same as Opus 4.8 / 4.7) |
+| Training data cutoff | May 2026 |
+| Knowledge cutoff (reliable) | January 2026 |
+
+**Availability:** Claude API, Amazon Bedrock (`anthropic.claude-opus-53`), Google Cloud Vertex AI (`claude-opus-5`), Microsoft Foundry. It is the **new default model on Claude Max** and the **strongest model available on Claude Pro**.
+
+**What's new vs Opus 4.8 (vendor-reported):**
+- **Frontier-Bench v0.1:** more than doubled Opus 4.8's score while lowering cost per completed task
+- **CursorBench 3.2** (max effort): within 0.5% of Fable 5's peak at ~half the cost per task
+- **ARC-AGI 3:** 3× the next-best model's score
+- **Zapier AutomationBench:** ~1.5× the next-best pass rate at the same task cost
+- **OSWorld 2.0:** better than Fable 5's peak at just over one-third of the cost
+- Better bug-finding/code review (high true-positive rate, few false positives, accurate at `low`/`medium` effort)
+- Mid-conversation tool changes supported; vision and long-context (1M) instruction following improved
+
+**Cyber posture:** Close to Mythos 5 at finding vulnerabilities, but was **not trained on cyber tasks** and remains "substantially behind" Mythos 5 on exploitation. No Glasswing gating required — generally available.
+
+**Developer action:** If you are on `claude-opus-4-8` ($5/$25), Opus 5 is a drop-in capability upgrade at the same price — update the `model` field to `claude-opus-5`. Note that manual extended thinking (`thinking: {type: "enabled", budget_tokens: N}`) is **removed** (returns 400); use adaptive thinking with the `effort` parameter instead. Opus 4.8 remains available as a fallback. This is the "Claude 5 Opus" milestone previously anticipated for Q3 2026.
+
+Updated: `models/anthropic.md`, `comparison.md`  
+*Source: [Anthropic — Introducing Claude Opus 5](https://www.anthropic.com/news/claude-opus-5) · [What's new in Claude Opus 5](https://platform.claude.com/docs/en/about-claude/models/whats-new-opus-5) · [Anthropic API pricing](https://platform.claude.com/docs/en/about-claude/pricing) · [Models overview](https://platform.claude.com/docs/en/about-claude/models/overview) — verified 2026-07-25*
+
+---
+
+### 🔴 DeepSeek: `deepseek-chat` and `deepseek-reasoner` now RETIRED (2026-07-24 15:59 UTC) — calls return errors
+
+**Provider:** [DeepSeek](models/deepseek.md)  
+The legacy model-name aliases **`deepseek-chat`** and **`deepseek-reasoner`** reached their hard cutoff on **2026-07-24 at 15:59 UTC**. As DeepSeek confirmed, API calls using these aliases now **return errors** — there is **no silent redirect and no grace period**. Only two production model IDs remain: `deepseek-v4-flash` and `deepseek-v4-pro`.
+
+**Migration (one-line code change):**
+
+| Old alias | Was routing to | Use now |
+|---|---|---|
+| `deepseek-chat` | V4-Flash non-thinking | `deepseek-v4-flash` (non-thinking) |
+| `deepseek-reasoner` | V4-Flash thinking | `deepseek-v4-flash` (thinking enabled) — **or `deepseek-v4-pro`** for stronger reasoning |
+
+> ⚠️ **Gotcha:** `deepseek-reasoner` previously routed to **V4-Flash**, not Pro. If you relied on it for heavy reasoning and want equivalent-or-stronger capability, explicitly switch to `deepseek-v4-pro` — the alias will not upgrade you. Benchmark before assuming Flash-tier thinking is sufficient.
+
+**Pricing (unchanged, flat-rate — verified 2026-07-24):**
+
+| Model | Input (cache miss) | Input (cache hit) | Output | Context | Max output |
+|---|---|---|---|---|---|
+| `deepseek-v4-flash` | $0.14 / 1M | $0.0028 / 1M | $0.28 / 1M | 1M | 384K |
+| `deepseek-v4-pro` | $0.435 / 1M | $0.003625 / 1M | $0.87 / 1M | 1M | 384K |
+
+**Peak/off-peak pricing: still NOT activated.** The official pricing page (verified 2026-07-24) still shows **flat rates only**. The time-of-day surcharge announced 2026-06-29 (~2× during 09:00–12:00 & 14:00–18:00 Beijing Time) has still not taken effect; DeepSeek committed to a 24-hour advance-notice email before it activates, and no such notice has been sent. Third-party aggregators note V4-Pro's flat rate is itself a −75% promo against the $1.74/$3.48 standard list price — confirm end dates on the official page.
+
+**Developer action:** Audit your codebase for any remaining `deepseek-chat` / `deepseek-reasoner` strings (including in third-party routing tools, Claude Code via the Anthropic-compatible `api.deepseek.com/anthropic` endpoint, and OpenRouter fallback configs). Calls will be failing as of July 24 15:59 UTC.
+
+Updated: `models/deepseek.md`, `deprecated.md`, `comparison.md`  
+*Source: [DeepSeek API Docs — Models & Pricing](https://api-docs.deepseek.com/quick_start/pricing) · [DeepSeek Change Log](https://api-docs.deepseek.com/updates) — verified 2026-07-24 · [deepseek.ai pricing](https://deepseek.ai/pricing) — verified 2026-07-24 · [TECHi — retirement explainer](https://www.techi.com/deepseek-chat-reasoner-retirement-v4-migration/) — 2026-07-24*
+
+---
+
+### ✅ Anthropic: Claude Opus 4.7 Fast Mode retired (2026-07-24)
+
+**Provider:** [Anthropic](models/anthropic.md)  
+As scheduled, **Fast mode on `claude-opus-4-7`** retired on 2026-07-24. (Fast mode on `claude-opus-4-6` was already removed on 2026-06-29 — requests there run at standard speed and standard billing.) Migrate any remaining Fast-mode usage on Opus 4.7 to **`claude-opus-5` Fast Mode** ($10/$50, 2.5× speed) or `claude-opus-4-8` Fast Mode ($10/$50, 3× cheaper than the old Opus 4.7 Fast rate of $30/$150).
+
+Updated: `deprecated.md`  
+*Source: [Anthropic API Pricing](https://platform.claude.com/docs/en/about-claude/pricing) — verified 2026-07-25*
+
+---
+
+### ⏱️ Deadlines: Key upcoming cutoffs (verified 2026-07-25)
+
+| Deadline | Days | Action |
+|---|---|---|
+| **2026-07-31** | **6 DAYS** ⚠️ | Mistral retirements: `mistral-small-2506`, `magistral-small-2509`, `devstral-2512`, `open-mistral-nemo-2407` → `mistral-small-2603` or `mistral-medium-3-5` |
+| **2026-08-10** | 16 days | `embedding-2-preview` retires → `gemini-embedding-2` |
+| **2026-08-17** | 23 days | Imagen 4.0 models retire on Gemini Dev API: `imagen-4.0-*` → `gemini-3.1-flash-image` |
+| **2026-08-31** | 37 days | Claude Sonnet 5 intro pricing ends → standard $3/$15 (from $2/$10) |
+| **2026-08-31** | 37 days | Mistral `mistral-medium-2508` (Medium 3.1) → `mistral-medium-3-5` |
+| **2026-09-24** | 61 days | OpenAI Sora 2 API shuts down — no announced replacement |
+| **2026-09-30** | 67 days | Mistral `labs-leanstral-1-5` retires |
+| **2026-10-02** | 69 days | Gemini `gemini-2.5-flash-image` retires → `gemini-3.1-flash-image` |
+| **2026-10-16** | 83 days | `gemini-2.5-pro`, `gemini-2.5-flash`, `gemini-2.5-flash-lite` retire |
+| **2026-11-30** | 128 days | OpenAI Agent Builder shuts down → Agents SDK or ChatGPT Workspace Agents |
+| **2026-12-01** | 129 days | `gpt-image-1-mini`, `gpt-image-1.5`, `chatgpt-image-latest` → `gpt-image-2` |
+| **2027-01-06** | 165 days | OpenAI fine-tuning: last date to create new training jobs |
+
+*Verified 2026-07-25*
+
+---
+
 ## 2026-07-17
 
 ### ✅ OpenAI: GPT-5.6 long-context pricing now officially published (verified 2026-07-17)

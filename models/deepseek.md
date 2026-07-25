@@ -1,16 +1,16 @@
 # DeepSeek Model Catalog
 
-> **Source:** [DeepSeek API Docs](https://api-docs.deepseek.com/quick_start/pricing) · **Verified:** 2026-07-11
+> **Source:** [DeepSeek API Docs](https://api-docs.deepseek.com/quick_start/pricing) · **Verified:** 2026-07-25
 
 ---
 
 ## Current Models
 
-### DeepSeek V4 (Released 2026-04-24) 🆕 NEW
+### DeepSeek V4 (Released 2026-04-24) 🆕
 
 DeepSeek's latest generation. Two variants with 1M context, both open-weight. Both support OpenAI-compatible and Anthropic-compatible APIs. Both support thinking mode and non-thinking mode.
 
-> ⚠️ **`deepseek-chat` and `deepseek-reasoner` will be retired on 2026-07-24 15:59 UTC.** They currently route to `deepseek-v4-flash` (non-thinking and thinking respectively). Migrate explicitly to V4 model IDs.
+> ❌ **`deepseek-chat` and `deepseek-reasoner` were RETIRED on 2026-07-24 15:59 UTC.** API calls using these aliases now **return errors** — there is no silent redirect and no grace period. Only `deepseek-v4-flash` and `deepseek-v4-pro` remain. Update your `model` field now. (Note: `deepseek-reasoner` previously routed to V4-Flash, not Pro — explicitly switch to `deepseek-v4-pro` if you need stronger reasoning.)
 
 | Model | API name | Context | Max output | Input (cache miss) | Input (cache hit) | Output |
 |---|---|---|---|---|---|---|
@@ -19,7 +19,7 @@ DeepSeek's latest generation. Two variants with 1M context, both open-weight. Bo
 
 > ✅ **V4 Pro promotional price is now permanent.** On **2026-05-24**, DeepSeek made the 75% discount permanent — the list price was lowered from $1.74/$3.48 to $0.435/$0.87. This is the ongoing price, not a promotional rate. *Source: [The Next Web](https://thenextweb.com/news/deepseek-v4-pro-75-percent-price-cut-permanent) — 2026-05-24 · [Official pricing docs](https://api-docs.deepseek.com/quick_start/pricing) confirmed $0.435/$0.87 as current price — verified 2026-07-11*
 
-> 🚨 **IMMINENT: Peak/off-peak pricing arrives with V4 stable release — expected any day (mid-July 2026 = NOW).** DeepSeek announced (2026-06-29) that the stable V4 release (officially "mid-July") will introduce **time-of-day pricing** — approximately 2× rates during peak hours. As of 2026-07-15, the pricing page still shows flat rates. A 24-hour advance notice email will be sent before the change activates. **Watch your email.** Here are the announced rates:
+> 🚨 **Peak/off-peak pricing still NOT activated (verified 2026-07-24).** DeepSeek announced (2026-06-29) that the stable V4 release would introduce **time-of-day pricing** — approximately 2× rates during peak hours. As of 2026-07-24, the pricing page still shows flat rates. A 24-hour advance notice email will be sent before the change activates; no such notice has been sent. **Watch your email.** Announced rates:
 >
 > | Period | Hours (Beijing Time, UTC+8) | V4 Flash input | V4 Flash output | V4 Pro input | V4 Pro output |
 > |---|---|---|---|---|---|
@@ -40,14 +40,16 @@ DeepSeek's latest generation. Two variants with 1M context, both open-weight. Bo
 
 ---
 
-### DeepSeek V3.2 (Legacy — Now Routed to V4 Flash via `deepseek-chat`)
+### DeepSeek V3.2 (Legacy Aliases — ❌ RETIRED 2026-07-24)
+
+> ❌ **RETIRED.** As of 2026-07-24 15:59 UTC, calls to `deepseek-chat` and `deepseek-reasoner` return errors (no redirect). The only supported IDs are `deepseek-v4-flash` and `deepseek-v4-pro`.
 
 | Mode | API name | Context | Max output | Input (cache miss) | Input (cache hit) | Output |
 |---|---|---|---|---|---|---|
-| Chat (non-thinking) | `deepseek-chat` ⚠️ | 128,000 tokens | 8,000 tokens | **$0.14 / 1M** ² | $0.0028 / 1M ² | **$0.28 / 1M** ² |
-| Reasoner (thinking) | `deepseek-reasoner` ⚠️ | 128,000 tokens | 64,000 tokens | **$0.14 / 1M** ² | $0.0028 / 1M ² | **$0.28 / 1M** ² |
+| Chat (non-thinking) | `deepseek-chat` ❌ RETIRED | 128,000 tokens | 8,000 tokens | — | — | — |
+| Reasoner (thinking) | `deepseek-reasoner` ❌ RETIRED | 128,000 tokens | 64,000 tokens | — | — | — |
 
-² Since 2026-04-24, `deepseek-chat` routes to **V4 Flash non-thinking** and `deepseek-reasoner` routes to **V4 Flash thinking** mode. Billed at V4 Flash rates. These aliases retire **2026-07-24 15:59 UTC**.
+² Until 2026-07-24 15:59 UTC, `deepseek-chat` routed to **V4 Flash non-thinking** and `deepseek-reasoner` routed to **V4 Flash thinking** mode, billed at V4 Flash rates. These aliases are now gone.
 
 **New users:** 5 million free tokens upon registration (no credit card required)
 
@@ -71,10 +73,10 @@ All DeepSeek models are released under permissive open-source licenses:
 
 - `deepseek-v4-flash` = DeepSeek-V4-Flash, non-thinking by default (switch via API param); fast, general-purpose
 - `deepseek-v4-pro` = DeepSeek-V4-Pro, higher capability, thinking by default
-- `deepseek-chat` = currently routes to V4-Flash non-thinking mode (legacy alias, retires 2026-07-24)
-- `deepseek-reasoner` = currently routes to V4-Flash thinking mode (legacy alias, retires 2026-07-24)
-- FIM (fill-in-middle) completion available on `deepseek-chat` (beta)
-- JSON output supported on both modes; function calling on `deepseek-chat` only (if tools param sent to `deepseek-reasoner`, request routes to `deepseek-chat` internally)
+- `deepseek-chat` = ❌ **RETIRED 2026-07-24** (was V4-Flash non-thinking alias; calls now error)
+- `deepseek-reasoner` = ❌ **RETIRED 2026-07-24** (was V4-Flash thinking alias; calls now error)
+- FIM (fill-in-middle) completion available on `deepseek-v4-flash` (beta; previously on `deepseek-chat`)
+- JSON output supported on both modes; function calling on non-thinking mode (if tools param sent to thinking mode, request routes to non-thinking internally)
 - Context caching is automatic
 
 ---

@@ -1,6 +1,6 @@
 # LLM API Comparison Matrix
 
-> **Last updated:** 2026-07-17. Prices per 1M tokens (USD), standard tier unless noted.
+> **Last updated:** 2026-07-25. Prices per 1M tokens (USD), standard tier unless noted.
 
 ---
 
@@ -9,19 +9,20 @@
 | Provider | Model | Context | Input | Output | GPQA | SWE-bench | Notes |
 |---|---|---|---|---|---|---|---|
 | [Anthropic](models/anthropic.md) | Claude Fable 5 ✅ | 1 M | $10.00 | $50.00 | — | **80.3%** (Pro) | ✅ **RESTORED 2026-07-01** — suspended Jun 12–Jul 1; now globally available. Requires 30-day data retention. |
+| [Anthropic](models/anthropic.md) | Claude Opus 5 🆕 | 1 M | $5.00 | $25.00 | — | near Fable 5 (CursorBench within 0.5%) | **NEW GA 2026-07-24** — step-change over Opus 4.8 at same price; default on Claude Max. Fast Mode $10/$50. |
 | [OpenAI](models/openai.md) | GPT-5.6 Sol 🆕 | 1 M | $5.00 | $30.00 | — | — | **NEW GA 2026-07-09** — Next-gen flagship; fewer hallucinations; 750 t/s on Cerebras. Long context >272K: $10/$45 |
 | [OpenAI](models/openai.md) | GPT-5.6 Terra 🆕 | 1 M | $2.50 | $15.00 | — | — | **NEW GA 2026-07-09** — GPT-5.5 performance at 2× lower cost. Long context >272K: $5/$22.50 |
 | [OpenAI](models/openai.md) | GPT-5.6 Luna 🆕 | 1 M | $1.00 | $6.00 | — | — | **NEW GA 2026-07-09** — Cheapest capable OpenAI model. Long context >272K: $2/$9 |
 | [OpenAI](models/openai.md) | GPT-5.5 | 1 M | $5.00 | $30.00 | — | — | Previous flagship; still available; `chat-latest` alias |
 | [OpenAI](models/openai.md) | GPT-5.4 | 1 M | $2.50 | $15.00 | 92.8% | 57.7% | Native computer-use; tokens >272K billed at 2× |
 | [OpenAI](models/openai.md) | GPT-5.4 Pro / GPT-5.5 Pro / GPT-5.6 Sol Pro | 1 M | $30.00 | $180.00 | — | — | Max capability |
-| [Anthropic](models/anthropic.md) | Claude Opus 4.8 | 1 M | $5.00 | $25.00 | — | 69.2% (SWE-bench Pro) | Released 2026-05-28; Dynamic Workflows; Fast Mode $10/$50 |
+| [Anthropic](models/anthropic.md) | Claude Opus 4.8 | 1 M | $5.00 | $25.00 | — | 69.2% (SWE-bench Pro) | Released 2026-05-28; superseded by Opus 5 (same price). Fast Mode $10/$50 |
 | [Google](models/google.md) | Gemini 3.1 Pro Preview | 1 M | $2.00 | $12.00 | 94.3% | 80.6% | Preview (no GA SLA) |
 | [xAI](models/xai.md) | Grok 4.5 🆕 | 500 K | $2.00 | $6.00 | — | — | **NEW 2026-07-08** — #1 agentic tool-use; MoE, co-trained w/ Cursor; $0.50 cached |
 | [xAI](models/xai.md) | Grok 4.3 | 1 M | $1.25 | $2.50 | — | — | Previous xAI flagship; 1M context; voice API |
 | [xAI](models/xai.md) | Grok 4 | 256 K | $3.00 | $15.00 | 87.7% | — | Always-on reasoning |
 
-**Verdict:** **Claude Fable 5** ($10/$50) restored July 1, 2026 — best SWE-bench Pro (80.3%) but requires 30-day data retention. **GPT-5.6 Sol** ($5/$30) and **Terra** ($2.50/$15) launched July 9 — Terra delivers GPT-5.5 class performance at half the price; confirmed long-context pricing: Sol $10/$45, Terra $5/$22.50, Luna $2/$9 (>272K tokens). **Grok 4.5** ($2/$6) launched July 8 — #1 agentic tool-use, best cost/efficiency ratio among frontier models. For best reasoning accuracy, Gemini 3.1 Pro (94.3% GPQA) is top. For computer-use, GPT-5.4 is unmatched at 75% OSWorld. **Gemini 3.5 Flash** ($0.75/$4.50 after 50% price cut July 14) is now the fastest and most cost-efficient frontier-class model (~4× token gen speed vs competitors).
+**Verdict:** **Claude Fable 5** ($10/$50) restored July 1, 2026 — best SWE-bench Pro (80.3%) but requires 30-day data retention. **Claude Opus 5** ($5/$25) launched July 24 — near-Fable-5 quality at half the cost, same price as Opus 4.8 (drop-in upgrade), new default on Claude Max. **GPT-5.6 Sol** ($5/$30) and **Terra** ($2.50/$15) launched July 9 — Terra delivers GPT-5.5 class performance at half the price; confirmed long-context pricing: Sol $10/$45, Terra $5/$22.50, Luna $2/$9 (>272K tokens). **Grok 4.5** ($2/$6) launched July 8 — #1 agentic tool-use, best cost/efficiency ratio among frontier models. For best reasoning accuracy, Gemini 3.1 Pro (94.3% GPQA) is top. For computer-use, GPT-5.4 is unmatched at 75% OSWorld. **Gemini 3.5 Flash** ($0.75/$4.50 after 50% price cut July 14) is now the fastest and most cost-efficient frontier-class model (~4× token gen speed vs competitors).
 
 ---
 
@@ -140,11 +141,12 @@
 
 | Use case | Recommended model | Rationale |
 |---|---|---|
-| **Best overall capability** | **Claude Fable 5** ✅ (restored Jul 1) | SWE-bench Pro 80.3%; $10/$50; requires 30-day data retention; fallback: Opus 4.8 ($5/$25) |
+| **Best overall capability** | **Claude Fable 5** ✅ (restored Jul 1) | SWE-bench Pro 80.3%; $10/$50; requires 30-day data retention; fallback: Opus 5 ($5/$25) |
+| **Frontier coding at $5/$25** | **Claude Opus 5** 🆕 | Near-Fable-5 quality at half the cost; same price as Opus 4.8 (drop-in upgrade); default on Claude Max |
 | Best general reasoning | Gemini 3.1 Pro Preview | Highest GPQA (94.3%) |
 | Fastest token generation | Gemini 3.5 Flash | ~4× token gen speed vs other frontier models; **$0.75/$4.50 Standard** (50% price cut 2026-07-14) |
 | Computer use / desktop agents | GPT-5.4 | 75% OSWorld (above human baseline) |
-| Coding agents (best, frontier) | Claude Fable 5 / Grok 4.5 | SWE-bench Pro 80.3% (Fable 5); Grok 4.5 #1 agentic tool-use; both strong |
+| Coding agents (best, frontier) | Claude Fable 5 / Opus 5 / Grok 4.5 | SWE-bench Pro 80.3% (Fable 5); Opus 5 near-Fable-5 at $5/$25; Grok 4.5 #1 agentic tool-use |
 | Coding agents (cost-efficient) | GPT-5.3-Codex / Grok Build 0.1 / GPT-5.6 Terra | GPQA 91.5% (Codex); $1.00/$2.00 (Grok Build); $2.50/$15.00 (Terra) |
 | Best value frontier (new) | **GPT-5.6 Terra** | GPT-5.5 performance at half the price ($2.50/$15); GA July 9 |
 | Long documents (>200K tokens) | Llama 4 Scout (10 M) or Gemini 3.1 Pro Preview (1 M) | Largest context windows |
@@ -157,7 +159,7 @@
 
 ---
 
-## Action Items (As of 2026-07-10)
+## Action Items (As of 2026-07-25)
 
 | Deadline | Action |
 |---|---|
@@ -172,12 +174,13 @@
 | **2026-07-06** ✅ DONE | 🆕 **xAI: 21 new Grok Voice voices** — multilingual, across Voice Agent API, TTS API, and Voice Agent Builder. Speech tags ([pause], etc.) and voice cloning added. |
 | **2026-07-08** ✅ DONE | 🆕 **Grok 4.5 launched** — xAI's new flagship at $2/$6 per 1M, $0.50 cached input, 500K context. #1 agentic tool-use. MoE co-trained with Cursor. Now default in Grok Build. |
 | **2026-07-09** ✅ DONE | 🆕 **GPT-5.6 Sol, Terra, Luna GA** — OpenAI's new generation: Sol $5/$30, Terra $2.50/$15, Luna $1/$6. New caching: writes at 1.25× input, reads at 10%. Available in ChatGPT, Codex, API. |
-| **2026-07-12 11:59 PM PT** | ✅ **CLOSED** — Claude Fable 5 free subscription window closed. Usage credits now required ($10/$50 per 1M). Check your console billing settings if Fable 5 calls are failing. |
-| **2026-07-14** | ✅ **TODAY** — `gemini-embedding-001` **retired** — hard cutoff; calls now failing. Migrate to `gemini-embedding-2` immediately. |
-| **2026-07-14** | 🆕 **Google: Gemini 3.5 Flash price cut 50%** — Standard rate dropped from $1.50/$9.00 to **$0.75/$4.50**. Gemini 3.1 Flash-Lite also halved: $0.25/$1.50 → **$0.125/$0.75**. |
-| **2026-07-24** | 🚨 **8 DAYS** — DeepSeek `deepseek-chat` / `deepseek-reasoner` **hard cutoff** — returns errors (no redirect). Migrate to `deepseek-v4-flash` or `deepseek-v4-pro` NOW. ⚠️ DeepSeek V4 stable release (imminently) will introduce **peak/off-peak pricing** (~2× during 09:00–12:00 & 14:00–18:00 Beijing Time). Watch your email for the 24-hour advance notice. |
-| **2026-07-24** | ⚠️ **8 DAYS** — Anthropic **Claude Opus 4.7 Fast Mode** retires. Migrate to Claude Opus 4.8 Fast Mode ($10/$50, 3× cheaper). |
-| **2026-07-31** | ⚠️ **15 DAYS** — Mistral retirements: `mistral-small-2506`, `magistral-small-2509`, `devstral-2512`, `open-mistral-nemo-2407` → `mistral-small-2603` or `mistral-medium-3-5` |
+| **2026-07-12 11:59 PM PT** ✅ DONE | ✅ **CLOSED** — Claude Fable 5 free subscription window closed. Usage credits now required ($10/$50 per 1M). Check your console billing settings if Fable 5 calls are failing. |
+| **2026-07-14** ✅ DONE | ✅ `gemini-embedding-001` **retired** — hard cutoff; calls now failing. Migrate to `gemini-embedding-2` immediately. |
+| **2026-07-14** ✅ DONE | 🆕 **Google: Gemini 3.5 Flash price cut 50%** — Standard rate dropped from $1.50/$9.00 to **$0.75/$4.50**. Gemini 3.1 Flash-Lite also halved: $0.25/$1.50 → **$0.125/$0.75**. |
+| **2026-07-24** ✅ DONE | 🆕 **Claude Opus 5 released** (`claude-opus-5`, $5/$25, Fast Mode $10/$50) — step-change over Opus 4.8 at the same price; near-Fable-5 quality at half the cost; new default on Claude Max. Drop-in upgrade from `claude-opus-4-8`. |
+| **2026-07-24 15:59 UTC** ✅ DONE | ❌ **DeepSeek `deepseek-chat` / `deepseek-reasoner` RETIRED** — hard cutoff reached; calls now return errors (no redirect). Only `deepseek-v4-flash` and `deepseek-v4-pro` remain. Note: `deepseek-reasoner` mapped to V4-Flash, not Pro — switch to `deepseek-v4-pro` if you need stronger reasoning. Peak/off-peak pricing still NOT activated (verified 2026-07-24). |
+| **2026-07-24** ✅ DONE | ✅ **Anthropic Claude Opus 4.7 Fast Mode retired** — migrate to `claude-opus-5` Fast Mode or `claude-opus-4-8` Fast Mode ($10/$50 per 1M). |
+| **2026-07-31** | ⚠️ **6 DAYS** — Mistral retirements: `mistral-small-2506`, `magistral-small-2509`, `devstral-2512`, `open-mistral-nemo-2407` → `mistral-small-2603` or `mistral-medium-3-5` |
 | **2026-08-17** | Imagen 4.0 models retire on Gemini Dev API: `imagen-4.0-*` → `gemini-3.1-flash-image` |
 | **2026-08-31** | Mistral `mistral-medium-2508` (Medium 3.1) → `mistral-medium-3-5` |
 | **2026-09-24** | OpenAI Sora 2 API shuts down — no announced replacement |
