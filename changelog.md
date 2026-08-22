@@ -4,6 +4,96 @@ Changes tracked by the Model Tracker agent. Most recent entries first.
 
 ---
 
+## 2026-08-22
+
+### 💲 Anthropic: Claude Sonnet 5 intro pricing made PERMANENT at $2/$10 — September 1 step-up to $3/$15 CANCELLED (2026-08-10)
+
+**Provider:** [Anthropic](models/anthropic.md)  
+On **2026-08-10**, Anthropic announced that [Claude Sonnet 5](models/anthropic.md)'s introductory pricing — **$2 per million input tokens / $10 per million output tokens** — is now the **permanent standard price**. The previously scheduled increase to **$3 / $15** (the Sonnet 4.6 rate) on **September 1, 2026 will not occur**. Anthropic's pricing docs now read: *"The $2/$10 per million input/output token pricing for Claude Sonnet 5, announced at launch as introductory pricing through August 31, 2026, is now the standard price."*
+
+| Rate | Price per 1M tokens |
+|---|---|
+| Input | **$2.00** |
+| Output | **$10.00** |
+| 5-min cache write | $2.50 |
+| 1-hr cache write | $4.00 |
+| Cache read (hit) | $0.20 |
+| Batch input (50% off) | $1.00 |
+| Batch output (50% off) | $5.00 |
+
+> ⚠️ **Supersedes prior deadline.** This catalog (and most July-era pricing tables) listed a **2026-08-31** cutoff after which Sonnet 5 would rise to $3/$15. That step-up is cancelled — treat any table still describing the $3/$15 increase as "upcoming" or "after August 31" as pre-August-10 and **50% too high**. The full 1M-token context window continues to bill at the same per-token price (no long-context surcharge); US-only inference (`inference_geo: "us"`) adds a 1.1× multiplier.
+
+> 📝 **Tokenizer caveat still applies.** Sonnet 5 (and the Opus 4.7+ family) uses a newer tokenizer that produces ~30% more tokens for the same input text vs Sonnet 4.6. At the now-permanent $2/$10, Sonnet 5 is still cheaper than Sonnet 4.6 ($3/$15) for most workloads, but the gap is narrower than the headline rates suggest — run a token audit on your own traffic.
+
+**Developer action:** No code change. If you built Q4 budgets on the $3/$15 figures, lower them by 33% (input) / 33% (output). Sonnet 5 remains the default model for Free and Pro Claude plans and the recommended balanced production workhorse (`claude-sonnet-5`).
+
+Updated: `models/anthropic.md`, `comparison.md`  
+*Source: [Anthropic — Introducing Claude Sonnet 5 (changelog edit, Aug 10, 2026)](https://www.anthropic.com/news/claude-sonnet-5) · [Anthropic API pricing](https://platform.claude.com/docs/en/about-claude/pricing) — verified 2026-08-22*
+
+---
+
+### 🆕 Anthropic: Computer use, browser use tool, Skills API, Files API now GA on the Claude Platform (2026-08-20)
+
+**Provider:** [Anthropic](models/anthropic.md)  
+On **2026-08-20**, Anthropic moved four Claude Platform building blocks to **general availability**: the updated **computer use** tool, the new **browser use** tool, the **Skills API**, and the **Files API**. Together they form one official path for production agents that operate software, apply reusable procedures, and read/write files.
+
+| Capability | What's GA / new |
+|---|---|
+| **Computer use** (`computer_toolset_20260801`) | GA, no beta header. Claude now takes **several actions per turn** (batch actions) instead of one per model call — fewer calls, lower latency. Now **HIPAA-eligible** under Anthropic's BAA. Toolset definition adds ~4,500 input tokens (~4,590 on Sonnet 5). |
+| **Browser use tool** | New (within computer use). Reads page structure alongside the screenshot and acts on specific fields/buttons rather than pixel positions — more reliable web automation. |
+| **Skills API** (`/v1/skills`) | GA — `skills-2025-10-02` beta header no longer required (still accepted). Upload and version your own skills; run in Claude's code-execution sandbox (nothing to host). |
+| **Files API** | GA — upload once, reference by `file_id` later. Adds **automatic file expiration**, **5× higher rate limits**, and **1 TB storage per organization**. |
+
+**Availability:** Skills API and Files API also on **Microsoft Foundry**; updated computer use + browser use tools coming soon to **Google Cloud Vertex AI**. Existing beta integrations keep working during migration. Computer use follows standard tool-use pricing (token-based, no separate fee).
+
+**Developer action:** Migrate off the beta computer-use toolsets (which still require beta headers) to `computer_toolset_20260801` for production. Relevant to teams building desktop/web agents on Claude — distinct from model selection.
+
+Updated: `models/anthropic.md`  
+*Source: [Anthropic — Build production agents with computer use, the Skills API, and the Files API](https://claude.com/blog/computer-use-skills-api-files-api) · [Computer use tool docs](https://platform.claude.com/docs/en/agents-and-tools/tool-use/computer-use-tool) — verified 2026-08-22*
+
+---
+
+### 🆕 Anthropic: Claude Mythos 5 now in Claude Security for all Enterprise customers (2026-08-21) — packaged cyber scans, billed as standard token usage
+
+**Provider:** [Anthropic](models/anthropic.md)  
+On **2026-08-21**, Anthropic moved **Claude Mythos 5** — its most capable, most restricted cyber model — into **Claude Security** (public beta) for **all Claude Enterprise customers**. Previously Mythos 5 was limited to the vetted **Project Glasswing** consortium (~50 partners: AWS, Apple, Broadcom, Cisco, CrowdStrike, Google, JPMorgan, Microsoft, NVIDIA, Palo Alto Networks, etc.). Enterprise customers can now run Mythos 5 vulnerability scans on their codebases, returning findings + suggested patches.
+
+| Aspect | Detail |
+|---|---|
+| Surface | Claude Security (public beta, Claude Enterprise) |
+| What it returns | **Detailed findings + suggested patches** — not raw Mythos 5 model access |
+| Pricing | **Standard token usage** under existing Enterprise plan — **no separate add-on** |
+| Scope limit | Running a Mythos 5 scan does **not** extend Mythos access to any other surface (interactive patching still uses the org's existing Claude Code models) |
+| Mythos 5 direct API | Still **$10/$50 per 1M** (Glasswing partners); **not** opened for general API access |
+
+> 💰 **Defender Advantage Fund (0xDAF):** Anthropic committed **$35 million in Claude credits** for organizations patching live vulnerabilities in widely used open-source projects and building repeatable scanning/patching workflows. Initial recipients to be named in coming weeks.
+
+**Developer action:** Not a general-API change — Mythos 5 is still gated for direct API use. Relevant to security teams on Claude Enterprise: Claude Security scans are now self-serve (no Glasswing approval needed) and billed at standard token rates. The Mythos-class tier remains above [Fable 5](models/anthropic.md) ($10/$50) / [Opus 5](models/anthropic.md) ($5/$25) in capability for cyber work.
+
+Updated: `models/anthropic.md`  
+*Source: [Anthropic — Bringing the cybersecurity capabilities of Claude Mythos 5 to more defenders](https://claude.com/blog/bringing-claude-mythos-5-to-more-defenders) · [Unite.ai](https://www.unite.ai/anthropic-deploys-claude-mythos-5-in-security-tools-35m-open-source-fund/) — verified 2026-08-22*
+
+---
+
+### 📡 xAI: Grok 4.6 now available on Google Cloud Vertex AI (2026-08-21) — same $2/$6 pricing, 500K context
+
+**Provider:** [xAI](models/xai.md)  
+On **2026-08-21**, xAI made [Grok 4.6](models/xai.md) (`grok-4.6`) available on **Google Cloud Vertex AI** (Vertex Model Garden), expanding distribution beyond the SpaceXAI console. Pricing is unchanged from the xAI first-party API and matches the Vertex listing: **$2 / 1M input**, **$0.30 / 1M cached input**, **$6 / 1M output**, with the 500K-token context window and four configurable reasoning levels (low / medium / high / extra high).
+
+| Channel | Status |
+|---|---|
+| SpaceXAI console / API | ✅ GA (since 2026-08-12) |
+| GitHub Copilot | ✅ (since 2026-08-14) |
+| Google Cloud Vertex AI | ✅ **NEW 2026-08-21** |
+| Azure AI Foundry / OCI | ✅ (prior availability for Grok 4.5 line) |
+
+**Developer action:** No pricing or model-ID change. If your workload is already on Google Cloud, Grok 4.6 is now reachable through the Vertex Model Garden console without a separate xAI account. Grok 4.6 remains xAI's recommended flagship "for code and everything else" (knowledge cutoff Feb 1, 2026).
+
+Updated: `models/xai.md`  
+*Source: [Google Cloud — Grok 4.6 on Vertex AI](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models) · [xAI Docs — Models](https://docs.x.ai/developers/models) (last updated 2026-08-21) · [Blockchain.News](https://news.google.com/rss/articles/CBMiX0FVX3lxTFBXOERVv1lETjRwdngzWC14Wk1lbXNSbHNWSlE5NTVMY0dtSGNid2dRQ2JOUy1vUkZON2F0MWplV0hmVFhrbWRnOTk3LU84NTdJc3paTFZ6QUlKbmNPNkFz) — verified 2026-08-22*
+
+---
+
 ## 2026-08-15
 
 ### 🆕 Google: Gemini 3.7 Flash GA (2026-08-13) — new workhorse Flash; intro $0.75/$3.75 through end of 2026

@@ -1,6 +1,6 @@
 # LLM API Comparison Matrix
 
-> **Last updated:** 2026-08-08. Prices per 1M tokens (USD), standard tier unless noted.
+> **Last updated:** 2026-08-22. Prices per 1M tokens (USD), standard tier unless noted.
 
 ---
 
@@ -151,7 +151,7 @@
 | Coding agents (cost-efficient) | GPT-5.3-Codex / Grok Build 0.1 / GPT-5.6 Terra | GPQA 91.5% (Codex); $1.00/$2.00 (Grok Build); $2.50/$15.00 (Terra) |
 | Best value frontier (new) | **GPT-5.6 Terra** | GPT-5.5 performance at half the price ($2.50/$15); GA July 9 |
 | Long documents (>200K tokens) | Llama 4 Scout (10 M) or Gemini 3.1 Pro Preview (1 M) | Largest context windows |
-| Production chatbot (balanced) | Claude Sonnet 5 (intro) / Sonnet 4.6 | Sonnet 5 intro $2/$10 through Aug 31; Sonnet 4.6 $3/$15 |
+| Production chatbot (balanced) | Claude Sonnet 5 / Sonnet 4.6 | Sonnet 5 **$2/$10 (permanent since 2026-08-10)** — Sept 1 step-up to $3/$15 cancelled; Sonnet 4.6 $3/$15 |
 | High-volume cheap tasks | Gemini 3.1 Flash-Lite ($0.125/$0.75) or Mistral Nemo ($0.02/$0.06) | Cheapest current options; Flash-Lite halved in price 2026-07-14 |
 | Cheapest frontier (open weight) | DeepSeek V4 Flash ($0.14/$0.28) | Open weights, 1M context, extremely cheap |
 | Enterprise RAG / retrieval | Cohere Command A | Built-in citation, Rerank/Embed tools |
@@ -160,7 +160,7 @@
 
 ---
 
-## Action Items (As of 2026-07-25)
+## Action Items (As of 2026-08-22)
 
 | Deadline | Action |
 |---|---|
@@ -181,8 +181,13 @@
 | **2026-07-24** ✅ DONE | 🆕 **Claude Opus 5 released** (`claude-opus-5`, $5/$25, Fast Mode $10/$50) — step-change over Opus 4.8 at the same price; near-Fable-5 quality at half the cost; new default on Claude Max. Drop-in upgrade from `claude-opus-4-8`. |
 | **2026-07-24 15:59 UTC** ✅ DONE | ❌ **DeepSeek `deepseek-chat` / `deepseek-reasoner` RETIRED** — hard cutoff reached; calls now return errors (no redirect). Only `deepseek-v4-flash` and `deepseek-v4-pro` remain. Note: `deepseek-reasoner` mapped to V4-Flash, not Pro — switch to `deepseek-v4-pro` if you need stronger reasoning. Peak/off-peak pricing still NOT activated (verified 2026-07-24). |
 | **2026-07-24** ✅ DONE | ✅ **Anthropic Claude Opus 4.7 Fast Mode retired** — migrate to `claude-opus-5` Fast Mode or `claude-opus-4-8` Fast Mode ($10/$50 per 1M). |
-| **2026-07-31** | ⚠️ **6 DAYS** — Mistral retirements: `mistral-small-2506`, `magistral-small-2509`, `devstral-2512`, `open-mistral-nemo-2407` → `mistral-small-2603` or `mistral-medium-3-5` |
-| **2026-08-17** | Imagen 4.0 models retire on Gemini Dev API: `imagen-4.0-*` → `gemini-3.1-flash-image` |
+| **2026-08-10** ✅ DONE | 💲 **Anthropic: Claude Sonnet 5 pricing made PERMANENT at $2/$10** — the Sept 1 step-up to $3/$15 is cancelled. No action needed; lower Q4 budgets by ~33%. |
+| **2026-08-20** ✅ DONE | 🆕 **Anthropic: computer use, browser use tool, Skills API, Files API GA** on Claude Platform (`computer_toolset_20260801`, no beta header; HIPAA-eligible). |
+| **2026-08-21** ✅ DONE | 🆕 **Anthropic: Claude Mythos 5 scans in Claude Security** for all Enterprise customers (billed as standard token usage; no direct API access opened). |
+| **2026-08-21** ✅ DONE | 📡 **xAI: Grok 4.6 on Google Cloud Vertex AI** — same $2/$6 pricing, 500K context. |
+| **2026-08-26** | ⚠️ **4 DAYS** — OpenAI o3 retires from **ChatGPT** (API unaffected). |
+| **2026-07-31** ✅ DONE | ✅ Mistral retirements completed: `mistral-small-2506`, `magistral-small-2509`, `devstral-2512`, `open-mistral-nemo-2407` now return errors → `mistral-small-2603` or `mistral-medium-3-5` |
+| **2026-08-17** ✅ DONE | ✅ Imagen 4.0 models retired on Gemini Dev API: `imagen-4.0-*` → `gemini-3.1-flash-image` (or `gemini-2.5-flash-image`, itself retiring 2026-10-02) |
 | **2026-08-31** | Mistral `mistral-medium-2508` (Medium 3.1) → `mistral-medium-3-5` |
 | **2026-09-24** | OpenAI Sora 2 API shuts down — no announced replacement |
 | **2026-09-30** | Mistral `labs-leanstral-1-5` (Leanstral 1.5) retires — specialized Lean 4 model |

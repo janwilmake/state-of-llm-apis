@@ -1,6 +1,6 @@
 # Anthropic Model Catalog
 
-> **Source:** [Anthropic API Pricing](https://platform.claude.com/docs/en/about-claude/pricing) · [Models Overview](https://platform.claude.com/docs/en/about-claude/models/overview) · [Model deprecations](https://platform.claude.com/docs/en/about-claude/model-deprecations) · **Verified:** 2026-08-01
+> **Source:** [Anthropic API Pricing](https://platform.claude.com/docs/en/about-claude/pricing) · [Models Overview](https://platform.claude.com/docs/en/about-claude/models/overview) · [Model deprecations](https://platform.claude.com/docs/en/about-claude/model-deprecations) · **Verified:** 2026-08-22
 
 ---
 
@@ -42,7 +42,7 @@ Anthropic's most capable widely available model. The first **Mythos-class** mode
 - Safety classifiers trigger `stop_reason: "refusal"` — not billed if refused before any output is generated
 - Optional `fallbacks` parameter: on refusal, re-runs on another Claude model (beta on Claude API and AWS)
 - **Subscription rollout:** Pro, Max, Team, and select Enterprise plans had Fable 5 included for up to 50% of weekly usage limits through **July 12, 2026 at 11:59 PM PT** (now closed). As of July 13, usage credits are required ($10/$50 per 1M). AWS, Google Cloud, and Microsoft Foundry access is restored.
-- Also available: **Claude Mythos 5** (`claude-mythos-5`) — same model without safety classifiers; restricted to **approved U.S. organizations** (Project Glasswing) as of 2026-07-01 restoration
+- Also available: **Claude Mythos 5** (`claude-mythos-5`) — same model without safety classifiers; restricted to **approved U.S. organizations** (Project Glasswing) as of 2026-07-01 restoration. As of **2026-08-21**, Mythos 5 vulnerability scans are available to **all Claude Enterprise customers** via **Claude Security** (public beta), billed as standard token usage — but this returns findings/patches only and does **not** open direct Mythos 5 API access (still $10/$50, Glasswing-gated). See [changelog](../changelog.md).
 
 **Supported features:** `effort` parameter, task budgets, memory tool, context editing, compaction, vision (text, image, file inputs)
 
@@ -54,24 +54,22 @@ Anthropic's most capable widely available model. The first **Mythos-class** mode
 
 Anthropic's most agentic Sonnet model. Closes the gap with Opus 4.8 on agentic tasks at significantly lower cost. Default model for Free and Pro Claude plans as of 2026-06-30.
 
-> ⚠️ **Tokenizer change:** Sonnet 5 uses an updated tokenizer (same type as introduced with Opus 4.7). Input can map to up to 1.35× more tokens vs. Sonnet 4.6 for code, JSON/XML, and non-English text. Introductory pricing is set to make the transition roughly cost-neutral.
+> ⚠️ **Tokenizer change:** Sonnet 5 uses an updated tokenizer (same type as introduced with Opus 4.7). Input can map to up to ~1.3× more tokens vs. Sonnet 4.6 for code, JSON/XML, and non-English text. At the now-permanent $2/$10 (below Sonnet 4.6's $3/$15), it is still cheaper per job for most workloads — but run a token audit on your own traffic before assuming full cost equivalence.
 
-> ⚠️ **Pricing step-up:** Introductory pricing of $2/$10 per 1M tokens is in effect **through August 31, 2026**. Standard pricing of $3/$15 takes effect **September 1, 2026**.
+> ✅ **Pricing made PERMANENT (2026-08-10).** The launch "introductory" rate of $2/$10 per 1M tokens — originally set to step up to $3/$15 on September 1, 2026 — is now the **standard, permanent price**. The September 1 increase **will not occur**.
 
 | Metric | Value |
 |---|---|
 | API name | `claude-sonnet-5` |
 | Context window | 1,000,000 tokens |
 | Max output | 128,000 tokens |
-| Input (intro, through 2026-08-31) | **$2.00 / 1M** |
-| Output (intro, through 2026-08-31) | **$10.00 / 1M** |
-| Input (standard, from 2026-09-01) | $3.00 / 1M |
-| Output (standard, from 2026-09-01) | $15.00 / 1M |
-| 5-min Cache write (intro) | $2.50 / 1M |
-| 1-hr Cache write (intro) | $4.00 / 1M |
-| Cache read (intro) | $0.20 / 1M |
-| Batch input (intro) | $1.00 / 1M |
-| Batch output (intro) | $5.00 / 1M |
+| Input | **$2.00 / 1M** (permanent, from 2026-08-10) |
+| Output | **$10.00 / 1M** (permanent, from 2026-08-10) |
+| 5-min Cache write | $2.50 / 1M |
+| 1-hr Cache write | $4.00 / 1M |
+| Cache read | $0.20 / 1M |
+| Batch input (50% off) | $1.00 / 1M |
+| Batch output (50% off) | $5.00 / 1M |
 
 **Best for:** Agentic workflows, multi-step tool use, coding, browser/terminal tasks, professional deliverables. Near-Opus-4.8 performance at Sonnet pricing.
 
@@ -83,7 +81,7 @@ Anthropic's most agentic Sonnet model. Closes the gap with Opus 4.8 on agentic t
 - Rate limits increased across all tiers on April 26, 2026 (Chat, Cowork, Claude Code, API)
 - Three tiers simplified: Start, Build, Scale
 
-*Source: [Anthropic — Introducing Claude Sonnet 5](https://www.anthropic.com/news/claude-sonnet-5) — 2026-06-30 · [Anthropic API pricing](https://platform.claude.com/docs/en/about-claude/pricing) — verified 2026-07-09*
+*Source: [Anthropic — Introducing Claude Sonnet 5](https://www.anthropic.com/news/claude-sonnet-5) — 2026-06-30 (pricing made permanent via changelog edit 2026-08-10) · [Anthropic API pricing](https://platform.claude.com/docs/en/about-claude/pricing) — verified 2026-08-22*
 
 ---
 
@@ -387,7 +385,15 @@ Anthropic's most capable model to date, described as a "step change" above Claud
 
 ## Claude 5 Roadmap
 
-Anthropic's Claude 5 generation is now substantially shipped. **Claude Opus 5** (`claude-opus-5`) was released **2026-07-24** — fulfilling the previously-anticipated Q3 2026 Opus milestone. **Sonnet 5** was released 2026-06-30 (intro pricing $2/$10 through Aug 31, then $3/$15). Above the Opus tier, the **Mythos-class** tier was introduced with **Claude Fable 5** (GA 2026-06-09, restored globally 2026-07-01). The current frontier is Fable 5 / Mythos 5. Separately, Anthropic's [draft S-1 filing](https://futurumgroup.com/insights/will-anthropics-draft-s-1-ignite-a-new-phase-in-the-ai-platform-race/) (2026-06-02) reported a $965B valuation and ~$30B annualized revenue run rate.
+Anthropic's Claude 5 generation is now substantially shipped. **Claude Opus 5** (`claude-opus-5`) was released **2026-07-24** — fulfilling the previously-anticipated Q3 2026 Opus milestone. **Sonnet 5** was released 2026-06-30 at $2/$10 — originally introductory through Aug 31, **made permanent on 2026-08-10** (the Sept 1 step-up to $3/$15 was cancelled). Above the Opus tier, the **Mythos-class** tier was introduced with **Claude Fable 5** (GA 2026-06-09, restored globally 2026-07-01). The current frontier is Fable 5 / Mythos 5; on **2026-08-21** Mythos 5 scans reached all Claude Enterprise customers via Claude Security. Separately, Anthropic's [draft S-1 filing](https://futurumgroup.com/insights/will-anthropics-draft-s-1-ignite-a-new-phase-in-the-ai-platform-race/) (2026-06-02) reported a $965B valuation and ~$30B annualized revenue run rate.
+
+---
+
+## Platform Tools — GA (2026-08-20)
+
+On **2026-08-20**, Anthropic moved four Claude Platform building blocks to **general availability**: updated **computer use** (`computer_toolset_20260801`, no beta header, multi-action turns, HIPAA-eligible), the new **browser use** tool (page-structure-aware web automation), the **Skills API** (`/v1/skills`, versioned skills in Claude's sandbox), and the **Files API** (upload-once `file_id` reuse, auto-expiration, 5× rate limits, 1 TB/org). Computer use follows standard tool-use pricing; declaring the toolset adds ~4,500 input tokens. Skills API + Files API also on Microsoft Foundry; computer use + browser use coming soon to Vertex AI. See [changelog](../changelog.md).
+
+*Source: [Anthropic — Build production agents with computer use, the Skills API, and the Files API](https://claude.com/blog/computer-use-skills-api-files-api) — verified 2026-08-22*
 
 ---
 
