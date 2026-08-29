@@ -1,6 +1,6 @@
 # Google Gemini Model Catalog
 
-> **Source:** [Gemini API Pricing](https://ai.google.dev/gemini-api/docs/pricing) · [Vertex AI Pricing](https://cloud.google.com/vertex-ai/generative-ai/pricing) · [Gemini Deprecations](https://ai.google.dev/gemini-api/docs/deprecations) · [What's new in Gemini 3.7 Flash](https://ai.google.dev/gemini-api/docs/latest-model) · **Verified:** 2026-08-15
+> **Source:** [Gemini API Pricing](https://ai.google.dev/gemini-api/docs/pricing) · [Vertex AI Pricing](https://cloud.google.com/vertex-ai/generative-ai/pricing) · [Gemini Deprecations](https://ai.google.dev/gemini-api/docs/deprecations) · [What's new in Gemini 3.7 Flash](https://ai.google.dev/gemini-api/docs/latest-model) · [Gemini 3.5 Transcribe docs](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-transcribe) · **Verified:** 2026-08-29
 
 ---
 
@@ -197,6 +197,34 @@ Real-time speech-to-speech translation model. Automatically detects 70+ input la
 **Best for:** Multilingual voice calls, meetings, live translation workflows. Near-real-time with natural-sounding speech and no awkward pauses.
 
 *Source: [Google Blog — Gemini 3.5 Live Translate](https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-live-3-5-translate/) — 2026-06-09 · verified 2026-07-11*
+
+---
+
+### Gemini 3.5 Transcribe (Released 2026-08-26 — public preview) 🆕 NEW
+
+Google's first speech-to-text model sold natively through the Gemini Developer API — **replaces Chirp 3**. Built on Gemini's audio understanding capabilities (DeepMind model card identifies it as based on **Gemini 3 Pro**; no standalone published architecture). Two variants ship in **public preview**, both with a **free tier** (rate-limited).
+
+| Variant | API name | Use case | Audio input | Text output | Effective | Max audio | Free tier |
+|---|---|---|---|---|---|---|---|
+| Transcribe (batch/unary) | `gemini-3.5-transcribe` | Pre-recorded audio files | **$2.00 / 1M** (~$0.003/min) | **$12.00 / 1M** (~$0.002/min) | **~$0.005/min** | Up to 1 hour/request *(30 min w/ diarization or word timestamps)* | ✅ |
+| Transcribe Live (streaming) | `gemini-3.5-transcribe-live` | Real-time streaming STT over WebSockets | **$3.50 / 1M** (~$0.005/min) | **$21.00 / 1M** (~$0.004/min) | **~$0.009/min** | 10 min per session | ✅ |
+
+> 📝 **Pricing math:** billed by tokens (25 audio tokens/sec input; 175 text tokens/min output). Batch token rates ($2.00/$12.00) match **Gemini 3.1 Pro**; Live token rates ($3.50/$21.00) are higher. Per-minute figures are Google's blended estimates.
+
+**Capabilities:**
+- **85+ languages**, automatic utterance-level detection + code-switching
+- **Speaker diarization** (up to 8 speakers — **batch only**; 3+ speakers experimental)
+- **Word-level timestamps** (**batch only**; degrades accuracy)
+- **Custom vocabulary biasing** (up to 1,000 terms; ~100 best)
+- **Smart transcription** (filler-word removal, intent-aware alphanumeric formatting) — both variants
+
+**Not supported** on either variant: function calling, context caching, thinking, Batch/Flex/Priority inference tiers, grounding with Google Search.
+
+**Best for:** meeting analytics, call-center review, interview transcription (batch); live captioning, voice agents (streaming). Framework integrations already live: LangChain, LiveKit, Pipecat, Vercel AI SDK. Already powers Gboard Rambler (Android) and "Speak to Window" (Gemini macOS app).
+
+> ⚠️ **Migration:** this is a speech-to-text model, not a text-generation LLM — it does not change the text-model comparison matrix. If you were on **Chirp 3**, migrate to `gemini-3.5-transcribe` (batch) or `gemini-3.5-transcribe-live` (streaming). Compare per-minute cost vs. self-hosted Whisper (cheaper at high English volume) and Deepgram/AssemblyAI (~competitive).
+
+*Source: [Google Blog — Introducing Gemini 3.5 Transcribe](https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-5-transcribe/) · [Gemini Developer API pricing](https://ai.google.dev/gemini-api/docs/pricing) · [Gemini 3.5 Transcribe model docs](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-transcribe) (last updated 2026-08-26 UTC) · [DeepMind model card — Gemini 3.5 Audio](https://deepmind.google/models/model-cards/gemini-3-5-audio/) — verified 2026-08-29*
 
 ---
 

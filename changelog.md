@@ -4,6 +4,62 @@ Changes tracked by the Model Tracker agent. Most recent entries first.
 
 ---
 
+## 2026-08-29
+
+### 🆕 Google: Gemini 3.5 Transcribe — new speech-to-text model (public preview, 2026-08-26)
+
+**Provider:** [Google](models/google.md)  
+On **2026-08-26**, Google launched **Gemini 3.5 Transcribe**, its first speech-to-text model sold natively through the Gemini Developer API, **replacing Chirp 3**. Two variants ship in **public preview**, both with a **free tier** (rate-limited):
+
+| Variant | API name | Use case | Audio input | Text output | Effective | Limits |
+|---|---|---|---|---|---|---|
+| Transcribe (batch/unary) | `gemini-3.5-transcribe` | Pre-recorded audio files | **$2.00 / 1M** (~$0.003/min) | **$12.00 / 1M** (~$0.002/min) | **~$0.005/min** | Up to 1 hour/request (30 min w/ diarization or word timestamps) |
+| Transcribe Live (streaming) | `gemini-3.5-transcribe-live` | Real-time streaming STT over WebSockets | **$3.50 / 1M** (~$0.005/min) | **$21.00 / 1M** (~$0.004/min) | **~$0.009/min** | 10 min per session |
+
+> 📝 **Pricing math:** billed by audio/text tokens (25 audio tokens/sec input; 175 text tokens/min output). The batch model's $2.00/$12.00 token rates match **Gemini 3.1 Pro**; the Live model's $3.50/$21.00 rates are higher. The DeepMind model card identifies 3.5 Transcribe as **built on Gemini 3 Pro** — there is no standalone published architecture.
+
+**Capabilities:** 85+ languages with automatic utterance-level detection + code-switching; **speaker diarization** (up to 8 speakers, batch only — 3+ is experimental); **word-level timestamps** (batch only, degrades accuracy); **custom vocabulary biasing** (up to 1,000 terms; ~100 best); **Smart transcription** (filler-word removal, intent-aware alphanumeric formatting). **Not supported** on either variant: function calling, context caching, thinking, batch/flex/priority inference tiers, grounding with Google Search.
+
+**Developer action:** This is an audio transcription model, not a text-generation LLM — it does not change the text-model comparison matrix. Framework integrations already live: LangChain, LiveKit, Pipecat, Vercel AI SDK. If you were on **Chirp 3**, migrate to `gemini-3.5-transcribe` (batch) or `gemini-3.5-transcribe-live` (streaming). Compare cost vs. self-hosted Whisper (cheaper at high English volume) and Deepgram/AssemblyAI (~competitive per-minute).
+
+Updated: `models/google.md`  
+*Source: [Google Blog — Introducing Gemini 3.5 Transcribe](https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-5-transcribe/) · [Gemini Developer API pricing](https://ai.google.dev/gemini-api/docs/pricing) · [Gemini 3.5 Transcribe model docs](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-transcribe) (last updated 2026-08-26 UTC) · [DeepMind model card — Gemini 3.5 Audio](https://deepmind.google/models/model-cards/gemini-3-5-audio/) — verified 2026-08-29*
+
+---
+
+### 🆕 DeepSeek: V4 Flash Vision Exp — first multimodal (vision) DeepSeek model + free Files API (2026-08-21)
+
+**Provider:** [DeepSeek](models/deepseek.md)  
+On **2026-08-21**, DeepSeek launched **`deepseek-v4-flash-vision-exp`** — an **experimental multimodal** model that adds visual understanding on top of [V4 Flash](models/deepseek.md) text capabilities. This is **DeepSeek's first vision-capable API model** (DeepSeek previously had no vision/multimodal API offering).
+
+| Spec | Value |
+|---|---|
+| API name | `deepseek-v4-flash-vision-exp` |
+| Model version | `DeepSeek-V4-Flash-Vision-Exp` |
+| Context window | 1,000,000 tokens |
+| Max output | 384,000 tokens |
+| Input (cache miss, off-peak) | **$0.22 / 1M** |
+| Input (cache miss, peak) | $0.44 / 1M |
+| Input (cache hit, off-peak) | $0.007 / 1M |
+| Input (cache hit, peak) | $0.014 / 1M |
+| Output (off-peak) | **$0.66 / 1M** |
+| Output (peak) | $1.32 / 1M |
+| Image billing | Up to **384 tokens/image**, billed as input at V4-Flash rates |
+| Concurrency limit | 2,500 |
+
+> 💲 **Pricing is identical to `deepseek-v4-flash`** (same peak/off-peak schedule: peak hours 01:00–04:00 & 06:00–10:00 UTC Mon–Fri). Vision adds no surcharge — you only pay for the extra image input tokens. Supports **Chat Completions, Messages (Anthropic-compatible), and Responses** API formats; mixed text + image input via base64, external URL, or the new **Files API**. **FIM completion is NOT supported** on Vision Exp.
+
+**Files API (also launched 2026-08-21, free):** upload an image once and reference it by `file_id` across requests to save bandwidth; free to use.
+
+**Capability (DeepSeek-reported):** matches V4-Flash on text (agents, reasoning, world knowledge); on multimodal agent benchmarks makes a "major leap" over V4-Flash and approaches **Claude Opus 4.8** — e.g. ApexBench Pass@1 36.5 (V4-Flash 26.2 / Opus 4.8 39.4), Agents' Last Exam 27.3 (V4-Flash 25.2 / Opus 4.8 25.7), Chartography 64.3 (Opus 4.8 65.0).
+
+**Developer action:** For vision workloads, route to `deepseek-v4-flash-vision-exp` at the same per-token price as text V4-Flash — DeepSeek is now a viable budget multimodal option alongside Gemini 3.5 Flash ($0.75/$4.50) and Mistral Small 4 ($0.15/$0.60). Keep text-only workloads on `deepseek-v4-flash` (Vision Exp is experimental and does not support FIM). DeepSeek Harness 0.1.1 released same day with out-of-the-box support.
+
+Updated: `models/deepseek.md`, `comparison.md`  
+*Source: [DeepSeek API Docs — DeepSeek-V4-Flash-Vision-Exp Release](https://api-docs.deepseek.com/news/news260821/) · [DeepSeek Models & Pricing](https://api-docs.deepseek.com/quick_start/pricing/) · [Vercel AI Gateway — deepseek-v4-flash-vision-exp](https://vercel.com/ai-gateway/models/deepseek-v4-flash-vision-exp) — verified 2026-08-29*
+
+---
+
 ## 2026-08-22
 
 ### 💲 Anthropic: Claude Sonnet 5 intro pricing made PERMANENT at $2/$10 — September 1 step-up to $3/$15 CANCELLED (2026-08-10)

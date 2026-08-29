@@ -1,6 +1,6 @@
 # DeepSeek Model Catalog
 
-> **Source:** [DeepSeek API Docs](https://api-docs.deepseek.com/quick_start/pricing) · [Reuters](https://www.reuters.com/world/china/deepseek-raises-api-pricing-its-v4-models-2026-08-13) · **Verified:** 2026-08-15
+> **Source:** [DeepSeek API Docs](https://api-docs.deepseek.com/quick_start/pricing) · [V4 Flash Vision Exp release](https://api-docs.deepseek.com/news/news260821/) · [Reuters](https://www.reuters.com/world/china/deepseek-raises-api-pricing-its-v4-models-2026-08-13) · **Verified:** 2026-08-29
 
 ---
 
@@ -46,7 +46,44 @@ DeepSeek's latest generation. Two variants with 1M context, both open-weight. Bo
 
 ---
 
-### DeepSeek V3.2 (Legacy Aliases — ❌ RETIRED 2026-07-24)
+### DeepSeek V4 Flash Vision Exp (Released 2026-08-21 — experimental) 🆕 NEW
+
+DeepSeek's **first multimodal (vision) API model** — an experimental checkpoint that adds visual understanding on top of [V4 Flash](#deepseek-v4-released-2026-04-24--new) text capabilities. Matches V4 Flash on text (agents, reasoning, world knowledge) and makes a large jump on multimodal agent benchmarks, approaching **Claude Opus 4.8** (per DeepSeek's own evals).
+
+| Metric | Value |
+|---|---|
+| API name | `deepseek-v4-flash-vision-exp` |
+| Model version | `DeepSeek-V4-Flash-Vision-Exp` |
+| Context window | 1,000,000 tokens |
+| Max output | 384,000 tokens |
+| Input (cache miss, off-peak) | **$0.22 / 1M** |
+| Input (cache miss, peak) | $0.44 / 1M |
+| Input (cache hit, off-peak) | $0.007 / 1M |
+| Input (cache hit, peak) | $0.014 / 1M |
+| Output (off-peak) | **$0.66 / 1M** |
+| Output (peak) | $1.32 / 1M |
+| Image billing | Up to **384 tokens per image**, billed as input at V4-Flash rates |
+| Concurrency limit | 2,500 |
+
+> 💲 **Pricing is identical to `deepseek-v4-flash`** — the peak/off-peak schedule (peak hours 01:00–04:00 & 06:00–10:00 UTC, Mon–Fri) and every per-token rate are the same as the text model. Vision adds **no surcharge**; you only pay for the extra image input tokens (up to 384/image).
+
+**API support:** Chat Completions, **Messages (Anthropic-compatible)**, and **Responses** API formats all supported. Mixed text + image input via base64, external URL, or the new **Files API**.
+
+**Files API (launched same day, free):** upload an image once, then reference it by `file_id` across requests to save request bandwidth. Free to use.
+
+**Multimodal agent benchmarks (DeepSeek-reported, Vision Exp / V4 Flash 0731 / Opus 4.8):**
+- ApexBench (Pass@1): 36.5 / 26.2 / 39.4
+- Agents' Last Exam: 27.3 / 25.2 / 25.7
+- Chartography: 64.3 / n/a / 65.0
+- ZeroBench (Pass@5): 35.0 / n/a / 34.0
+
+> ⚠️ **Limitations:** **Experimental** — no production SLA. **FIM (fill-in-middle) completion is NOT supported** on Vision Exp (it is supported on `deepseek-v4-flash` and `deepseek-v4-pro` in non-thinking mode). Keep text-only workloads on `deepseek-v4-flash`.
+
+**Developer action:** Route vision workloads to `deepseek-v4-flash-vision-exp` — DeepSeek is now a viable budget multimodal option (compare vs. Gemini 3.5 Flash $0.75/$4.50, Mistral Small 4 $0.15/$0.60). DeepSeek Harness 0.1.1 released the same day with out-of-the-box support.
+
+*Source: [DeepSeek API Docs — DeepSeek-V4-Flash-Vision-Exp Release](https://api-docs.deepseek.com/news/news260821/) · [DeepSeek Models & Pricing](https://api-docs.deepseek.com/quick_start/pricing/) · [Vercel AI Gateway](https://vercel.com/ai-gateway/models/deepseek-v4-flash-vision-exp) — verified 2026-08-29*
+
+---
 
 > ❌ **RETIRED.** As of 2026-07-24 15:59 UTC, calls to `deepseek-chat` and `deepseek-reasoner` return errors (no redirect). The only supported IDs are `deepseek-v4-flash` and `deepseek-v4-pro`.
 
@@ -79,9 +116,11 @@ All DeepSeek models are released under permissive open-source licenses:
 
 - `deepseek-v4-flash` = DeepSeek-V4-Flash, non-thinking by default (switch via API param); fast, general-purpose
 - `deepseek-v4-pro` = DeepSeek-V4-Pro, higher capability, thinking by default
+- `deepseek-v4-flash-vision-exp` = DeepSeek-V4-Flash-Vision-Exp 🆕 **2026-08-21** — experimental multimodal (vision) model; **same pricing as V4 Flash**; images billed up to 384 tokens each as input. **FIM not supported**. DeepSeek's first vision-capable API model.
 - `deepseek-chat` = ❌ **RETIRED 2026-07-24** (was V4-Flash non-thinking alias; calls now error)
 - `deepseek-reasoner` = ❌ **RETIRED 2026-07-24** (was V4-Flash thinking alias; calls now error)
-- FIM (fill-in-middle) completion available on `deepseek-v4-flash` (beta; previously on `deepseek-chat`)
+- FIM (fill-in-middle) completion available on `deepseek-v4-flash` and `deepseek-v4-pro` (beta, non-thinking mode only); **NOT available on `deepseek-v4-flash-vision-exp`**
+- **Files API** (free, launched 2026-08-21): upload images once, reference by `file_id` across requests — works with `deepseek-v4-flash-vision-exp`
 - JSON output supported on both modes; function calling on non-thinking mode (if tools param sent to thinking mode, request routes to non-thinking internally)
 - Context caching is automatic
 
