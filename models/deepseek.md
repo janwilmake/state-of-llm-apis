@@ -1,12 +1,51 @@
 # DeepSeek Model Catalog
 
-> **Source:** [DeepSeek API Docs](https://api-docs.deepseek.com/quick_start/pricing) · [V4 Flash Vision Exp release](https://api-docs.deepseek.com/news/news260821/) · [Reuters](https://www.reuters.com/world/china/deepseek-raises-api-pricing-its-v4-models-2026-08-13) · **Verified:** 2026-08-29
+> **Source:** [DeepSeek API Docs](https://api-docs.deepseek.com/quick_start/pricing) · [V4.1-Flash release](https://api-docs.deepseek.com/news/news260910/) · [V4 Flash Vision Exp release](https://api-docs.deepseek.com/news/news260821/) · [Reuters](https://www.reuters.com/world/china/deepseek-raises-api-pricing-its-v4-models-2026-08-13) · **Verified:** 2026-09-12
 
 ---
 
 ## Current Models
 
-### DeepSeek V4 (Released 2026-04-24) 🆕
+### DeepSeek V4.1-Flash (Released 2026-09-10 — GA) 🆕 NEW
+
+DeepSeek's newest model and the smallest in a **new architecture family**. Native multimodal (vision) understanding; new alias **`deepseek-flash`**. **The previous-generation V4-Flash and V4-Flash-Vision-Exp are retired** — their API names temporarily route to V4.1-Flash (see [deprecated.md](../deprecated.md)). **V4-Pro is being phased out** (reroutes to V4.1-Flash on 2026-09-14 — see below).
+
+| Metric | Value |
+|---|---|
+| API name | `deepseek-flash` (model version `DeepSeek-V4.1-Flash`) |
+| Architecture | **552B-parameter MoE**, new **Causal Encoder-Decoder**: 8B active for prefill, 16B active for decode |
+| Context window | 1,000,000 tokens |
+| Max output | 384,000 tokens |
+| Modalities | Input: text + image · Output: text (native vision, not experimental) |
+| License | **MIT** (open weights — [HuggingFace](https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash)) |
+| Reasoning | Thinking on by default; effort continuously controllable **1–100** |
+| Concurrency limit | 2,500 |
+
+**Pricing (per 1M tokens, effective 2026-09-10 04:00 UTC):**
+
+| Token type | Off-peak | Peak (2×) |
+|---|---|---|
+| Input (cache hit) | **$0.003** | $0.006 |
+| Input (cache miss) | **$0.15** | $0.30 |
+| Output | **$0.60** | $1.20 |
+
+> 📝 **Peak hours:** 01:00–04:00 & 06:00–10:00 UTC, **Monday–Friday** (weekends are entirely off-peak). **Cuts vs the outgoing V4-Flash:** cache-hit input **−57%**, cache-miss input **−32%**, output **−9%**. The KV cache needs ~1/4 the HBM and ~1/8 the SSD of V4-Flash (FP4 KV caching) — that funds the $0.003 cache-hit price. For 1M uncached input + 1M output: **$0.75 off-peak / $1.50 peak**.
+
+**API support:** Chat Completions, **Messages (Anthropic-compatible)**, **Responses** API, JSON output, tool calls, native image input. **FIM (fill-in-middle) completion supported** (non-thinking mode only). Thinking mode is **on by default** — reasoning tokens bill at the output rate.
+
+**Benchmarks (DeepSeek-reported, max effort 100):** Terminal-Bench 2.1 **90.6** (vs V4-Flash 82.7, V4-Pro 87.9) · DeepSWE v1.1 **74.2** (vs 54.4, 62.7) · AutomationBench **54.8** (vs 37.7, 43.2).
+
+> ⚠️ **Retirements / routing (effective 2026-09-10):**
+> - ❌ **`deepseek-v4-flash` and `deepseek-v4-flash-vision-exp` are RETIRED.** Old names temporarily route to V4.1-Flash (billed at V4.1-Flash rates) — a compatibility alias, **not** a durable pin. Move configs/allowlists/dashboards to `deepseek-flash`.
+> - ⚠️ **V4-Pro is being phased out.** Starting **2026-09-14 04:00 UTC**, all `deepseek-v4-pro` requests route to V4.1-Flash at **V4.1-Flash rates** (continues until V4.1-Pro launches). DeepSeek cites multi-party tests putting V4.1-Flash ahead of V4-Pro on performance, cost, speed, and total runtime.
+
+**Developer action:** Use **`deepseek-flash`** for all new integrations (text and vision). Migrate `deepseek-v4-flash` / `deepseek-v4-flash-vision-exp` traffic now. If you use `deepseek-v4-pro`, expect it to reroute to V4.1-Flash at cheaper rates on Sept 14 (a V4.1-Pro launch is coming). Schedule flexible batches off-peak to halve cost.
+
+*Source: [DeepSeek API Docs — DeepSeek-V4.1-Flash Release](https://api-docs.deepseek.com/news/news260910/) · [DeepSeek — Introducing V4.1-Flash](https://www.deepseek.com/en/news/deepseek-v4-1-flash/) · [DeepSeek Models & Pricing](https://api-docs.deepseek.com/quick_start/pricing) — verified 2026-09-12*
+
+---
+
+### DeepSeek V4 (Released 2026-04-24) — V4-Flash / V4-Flash-Vision-Exp RETIRED 2026-09-10; V4-Pro rerouting 2026-09-14 ⚠️
 
 DeepSeek's latest generation. Two variants with 1M context, both open-weight. Both support OpenAI-compatible and Anthropic-compatible APIs. Both support thinking mode and non-thinking mode.
 

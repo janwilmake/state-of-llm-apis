@@ -4,6 +4,182 @@ Changes tracked by the Model Tracker agent. Most recent entries first.
 
 ---
 
+## 2026-09-12
+
+### 🆕 OpenAI: GPT-6 Astra — new flagship, $10/$50, 1.05M context (released 2026-09-03, API 2026-09-04)
+
+**Provider:** [OpenAI](models/openai.md)  
+On **2026-09-03**, OpenAI released **GPT-6 Astra** (`gpt-6-astra`) — its new most-capable model, built for the "hardest end-to-end work" (complex reasoning, coding, computer use, research, document creation). API access followed on **2026-09-04**. OpenAI framed the launch as entering the "AGI era"; the model was developed under a new U.S. frontier-model government-review process and is also offered through the **Daybreak** cybersecurity program.
+
+| Spec | Value |
+|---|---|
+| API name | `gpt-6-astra` |
+| Context window | **1,050,000 tokens** (max input 922,000) |
+| Max output | 128,000 tokens |
+| Knowledge cutoff | **2026-04-30** |
+| Input modalities | text, image · Output: text |
+| Reasoning effort | `low`, `medium`, `high`, `xhigh`, `max` |
+
+**Pricing (Standard, per 1M tokens):**
+
+| Tier | Input | Cached input | Cache writes | Output |
+|---|---|---|---|---|
+| Short context (≤272K input) | **$10.00** | $1.00 | $12.50 | **$50.00** |
+| Long context (>272K input) | $20.00 | $2.00 | $25.00 | $75.00 |
+
+> 📝 **Long-context rule:** prompts with **>272K input tokens** are priced at **2× input/cache rates and 1.5× output** for the **full request**. Cache writes bill at **1.25× the uncached input rate**. **Batch/Flex: 50% off Standard.** **Fast mode: 2× the applicable rate.**
+
+**Endpoints:** Chat Completions, Responses, and Batch are **supported**. **Not supported:** Realtime/Live, Assistants, Fine-tuning, Embeddings, Image/Video/Speech generation, Audio transcription/translation.
+
+**Tools (Responses API):** web_search, file_search, image_generation, code_interpreter, hosted_shell, apply_patch, skills, computer_use, mcp, tool_search.
+
+**Benchmarks (OpenAI self-reported, not independently verified):** Terminal-Bench 4.0 57.7% · DeepSWE v1.1 74.1% · Terminal-Bench-Science 0.1 64.6% · GPQA Diamond 96.0% · BrowseComp 91.5% · OSWorld 2.0 72.6% (offline partial) · ARC-AGI-3 99.9% · ExploitBench 100% · Agents' Last Exam 59.3%.
+
+> 💲 **Price context:** Astra's **$10/$50** matches [Claude Fable 5.1](models/anthropic.md) exactly and is **2.5× the GPT-5.6 Sol promotional rate** ($4/$20 — see entry below). Per [Artificial Analysis](https://artificialanalysis.ai), Astra ties Fable 5.1 on the Intelligence Index at ~40% of the cost and on the Coding Agent Index at ~60% of the cost.
+
+**Developer action:** For the hardest agentic/coding/research work, Astra is OpenAI's new top tier at $10/$50. For most production workloads, **GPT-5.6 Sol** ($4/$20 promo) or **Terra** ($2/$12) remain far cheaper at near-frontier quality — only step up to Astra when you need the extra capability. Astra does **not** support fine-tuning or realtime/voice, so keep GPT-5.6 / GPT-Realtime for those paths.
+
+Updated: `models/openai.md`, `comparison.md`  
+*Source: [OpenAI — GPT-6 Astra](https://openai.com/index/gpt-6-astra/) · [OpenAI model page — gpt-6-astra](https://developers.openai.com/api/docs/models/gpt-6-astra) · [OpenAI API pricing](https://developers.openai.com/api/docs/pricing) — verified 2026-09-12*
+
+---
+
+### 🆕 Anthropic: Claude Fable 5.1 + Mythos 5.1 — cache reads cut 75% to $0.25/1M (2026-09-01)
+
+**Provider:** [Anthropic](models/anthropic.md)  
+On **2026-09-01**, Anthropic released **Claude Fable 5.1** and **Claude Mythos 5.1** — Anthropic's most capable generally-available model (Fable 5.1) and its restricted-access sibling (Mythos 5.1). Same specs and headline per-token pricing as [Fable 5](models/anthropic.md)/[Mythos 5](models/anthropic.md); the change is **cache-read pricing**, improved safeguards, and stronger agentic coding/research.
+
+| Spec | Value |
+|---|---|
+| API name | `claude-fable-5-1` (GA) · `claude-mythos-5-1` (restricted) |
+| Context window | 1,000,000 tokens |
+| Max output | 128,000 tokens |
+| Input | **$10.00 / 1M** (unchanged) |
+| Output | **$50.00 / 1M** (unchanged) |
+| 5-min cache write | $12.50 / 1M (unchanged) |
+| 1-hr cache write | $20.00 / 1M (unchanged) |
+| **Cache read (hit)** | **$0.25 / 1M** 🆕 (was $1.00 — **75% cut**, 0.025× base input vs the standard 0.1×) |
+| Batch (50% off) | $5.00 in / $25.00 out |
+
+> 💲 **The whole story is cache reads.** Input, output, and cache-write rates are identical to Fable 5. Only cache reads move: $1.00 → **$0.25/1M**. Anthropic reports this cuts **typical workloads ~25%** and **highly agentic workloads up to ~45%** (agents that re-read a large prefix every turn benefit most). A 200K-token prefix read 100× costs $5 on Fable 5.1 vs $20 on Fable 5.
+
+**Availability:**
+- **Fable 5.1:** Generally available on the Claude API (`claude-fable-5-1`). Anthropic's most capable GA model.
+- **Mythos 5.1:** Restricted to vetted **U.S. organizations** via the **Cyber Verification Program** and **Life Sciences Verification Program** (Project Glasswing). Same underlying model, safeguards lifted per program.
+
+**Other changes vs Fable 5:**
+- **Safeguards:** cyber safeguards now intervene ~60% less per session; biology safeguards ~85% less on harmless questions (fewer false positives).
+- **Enterprise Frontier Safeguards (EFS):** a new customer-controlled storage/monitoring system (gives ZDR-equivalent privacy) — phasing in later this fall. Until EFS ships, **eligible customers can use Fable 5.1 under zero data retention** (Fable 5 required 30-day retention).
+- **Preserved thinking controls:** on the Messages API for Fable 5.1, thinking blocks are now bound to the model + conversation prefix for new API accounts (anti-distillation).
+
+**Benchmarks (Anthropic-reported):** Terminal-Bench-Science 0.1 — **Fable 5.1 52.6%** (vs Fable 5 24.7%); Terminal-Bench 4.0 — Fable 5.1 55.8%, Mythos 5.1 60.9%.
+
+> ⚠️ **Caveat — per-task cost may not drop.** [Artificial Analysis](https://artificialanalysis.ai) measured Fable 5.1 using **~1.7× more output tokens** than Fable 5 to reach comparable intelligence, and at max effort found it ~20% more expensive per task than Opus 5. The cache discount helps cache-heavy loops; for output-heavy or low-cache-hit workloads, run a token audit before assuming savings.
+
+**Developer action:** For long-running agentic/coding loops with high cache reuse, Fable 5.1's $0.25 cache reads make a Fable-class model finally economical — Cognition/Devin moved Opus 5 traffic to Fable 5.1 on launch day for code review. New code should call `claude-fable-5-1`; Fable 5 still works. If you need ZDR, Fable 5.1 is now usable (until EFS, for eligible customers) where Fable 5 was not.
+
+Updated: `models/anthropic.md`, `comparison.md`  
+*Source: [Anthropic — Introducing Claude Fable 5.1 and Claude Mythos 5.1](https://www.anthropic.com/claude-fable-and-mythos-5-1) · [Anthropic API pricing](https://platform.claude.com/docs/en/about-claude/pricing) · [VentureBeat](https://venturebeat.com/technology/anthropics-claude-fable-5-1-and-mythos-5-1-arrive-with-a-75-cost-reduction-for-fable-cache-reads) — verified 2026-09-12*
+
+---
+
+### 🆕 Google: Gemini 3.8 Flash — most intelligent Flash model, intro $0.75/$3.75 (GA 2026-09-02)
+
+**Provider:** [Google](models/google.md)  
+On **2026-09-02** (GA), Google released **Gemini 3.8 Flash** (`gemini-3.8-flash`) — its most intelligent Flash-tier model, engineered for long-horizon software engineering, autonomous agents, and complex enterprise workflows. Built on [Gemini 3.7 Flash](models/google.md); the default model for Managed Agents (the Antigravity agent now uses 3.8 Flash, and the Antigravity SDK defaults to it).
+
+| Spec | Value |
+|---|---|
+| API name | `gemini-3.8-flash` |
+| Context window | 1,048,576 tokens (~1 M) |
+| Max output | 65,536 tokens (64K) |
+| Default thinking level | `medium` (tunable: `low` / `medium` / `high`) |
+| Input (intro, through **2026-12-31**) | **$0.75 / 1M** |
+| Output (intro, incl. thinking, through **2026-12-31**) | **$3.75 / 1M** |
+| Context caching (read, intro) | $0.075 / 1M |
+| Context caching storage (intro) | $1.00 / 1M tokens per hour |
+| Standard pricing (from **2027-01-01**) | $1.50 input / $7.50 output / $0.15 cache read |
+| Input modalities | text, image, video, audio, PDF · Output: text |
+
+> 📝 **Intro pricing is shared** with [Gemini 3.6 Flash](models/google.md) and [Gemini 3.7 Flash](models/google.md) through Dec 31, 2026; all three revert to $1.50/$7.50 on Jan 1, 2027. By design, **3.8 Flash can use more tokens on complex tasks** (smaller reasoning steps, iterative tool calls, self-verification) — lower the thinking level for everyday work to cut token use. **Gemini 3.7 Flash remains fully supported** as the lower-token alternative.
+
+**Capabilities:** same built-in tool suite as 3.7 Flash (caching, code execution, computer use in preview, file search, function calling, Google Maps/Search grounding, structured outputs, URL context, thinking). Live in Google AI Studio, Gemini API, Vertex AI / Gemini Enterprise Agent Platform, Antigravity, OpenRouter, Cursor.
+
+**Benchmarks (Artificial Analysis / public):** GPQA Diamond **95.3%** · Coding Index **76.3%** · Intelligence Index **47.1%**.
+
+**Developer action:** Drop-in from 3.7/3.6 Flash — change the model ID to `gemini-3.8-flash` for the strongest Flash-tier coding/agent work at the same intro price. For the absolute cheapest per-token Gemini work, [Gemini 3.1 Flash-Lite](models/google.md) ($0.125/$0.75) remains lower. **Budget against the standard $1.50/$7.50 rate** — the intro price expires 2026-12-31.
+
+Updated: `models/google.md`, `comparison.md`  
+*Source: [Gemini API — What's new in Gemini 3.8 Flash](https://ai.google.dev/gemini-api/docs/latest-model) (last updated 2026-09-03 UTC) · [Gemini Developer API pricing](https://ai.google.dev/gemini-api/docs/pricing) · [DeepMind model card — Gemini 3.8 Flash](https://deepmind.google/models/model-cards/gemini-3-8-flash) — verified 2026-09-12*
+
+---
+
+### 🆕 DeepSeek: V4.1-Flash — new Causal Encoder-Decoder arch, retires V4-Flash/Vision-Exp, routes V4-Pro (2026-09-10)
+
+**Provider:** [DeepSeek](models/deepseek.md)  
+On **2026-09-10** (API GA at 04:00 UTC; open weights released 2026-09-09), DeepSeek released **DeepSeek-V4.1-Flash** — the smallest model in a new architecture family, with **native multimodal (vision) understanding**. New alias: **`deepseek-flash`**. The previous-generation **V4-Flash and V4-Flash-Vision-Exp are retired**; for compatibility, `deepseek-v4-flash` and `deepseek-v4-flash-vision-exp` temporarily route to V4.1-Flash.
+
+| Spec | Value |
+|---|---|
+| API name | `deepseek-flash` (model version `DeepSeek-V4.1-Flash`) |
+| Architecture | **552B-parameter MoE**, new **Causal Encoder-Decoder**: 8B active for prefill, 16B active for decode |
+| Context window | 1,000,000 tokens |
+| Max output | 384,000 tokens |
+| Modalities | Input: text + image · Output: text (native vision, no longer experimental) |
+| License | **MIT** (open weights — [HuggingFace](https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash)) |
+| Reasoning | Thinking on by default; effort continuously controllable **1–100** |
+| Concurrency limit | 2,500 |
+
+**Pricing (per 1M tokens, effective 2026-09-10 04:00 UTC):**
+
+| Token type | Off-peak | Peak (2×) |
+|---|---|---|
+| Input (cache hit) | **$0.003** | $0.006 |
+| Input (cache miss) | **$0.15** | $0.30 |
+| Output | **$0.60** | $1.20 |
+
+> 📝 **Peak hours:** 01:00–04:00 & 06:00–10:00 UTC, **Monday–Friday** (weekends are entirely off-peak). **Cuts vs the outgoing V4-Flash:** cache-hit input **−57%**, cache-miss input **−32%**, output **−9%**. The KV cache needs ~1/4 the HBM and ~1/8 the SSD of V4-Flash (FP4 KV caching) — that's what funds the $0.003 cache-hit price.
+
+**Retirements / routing changes:**
+- ❌ **`deepseek-v4-flash` and `deepseek-v4-flash-vision-exp` RETIRED.** Old names temporarily route to V4.1-Flash (billed at V4.1-Flash rates) — a compatibility alias, **not** a durable pin. Move configs/allowlists/dashboards to `deepseek-flash`.
+- ⚠️ **V4-Pro is being phased out.** Starting **2026-09-14 04:00 UTC**, all `deepseek-v4-pro` requests route to V4.1-Flash at **V4.1-Flash rates** (continues until V4.1-Pro launches). DeepSeek cites multi-party tests putting V4.1-Flash ahead of V4-Pro on performance, cost, speed, and total runtime.
+
+**API support:** Chat Completions, **Messages (Anthropic-compatible)**, **Responses** API, JSON output, tool calls, native image input. **FIM completion supported** (non-thinking mode). Thinking mode is on by default — **reasoning tokens bill at the output rate**.
+
+**Benchmarks (DeepSeek-reported, max effort 100):** Terminal-Bench 2.1 **90.6** (vs V4-Flash 82.7, V4-Pro 87.9) · DeepSWE v1.1 **74.2** (vs 54.4, 62.7) · AutomationBench **54.8** (vs 37.7, 43.2).
+
+**Developer action:** Use **`deepseek-flash`** for all new integrations (text and vision). Migrate `deepseek-v4-flash` / `deepseek-v4-flash-vision-exp` traffic now — the old names still work but serve V4.1-Flash at V4.1-Flash prices. If you use `deepseek-v4-pro`, expect it to reroute to V4.1-Flash at the cheaper V4.1-Flash rates on Sept 14 (plan around the change; a V4.1-Pro launch is coming). Schedule flexible batches off-peak to halve cost.
+
+Updated: `models/deepseek.md`, `comparison.md`, `deprecated.md`  
+*Source: [DeepSeek API Docs — DeepSeek-V4.1-Flash Release](https://api-docs.deepseek.com/news/news260910/) · [DeepSeek — Introducing V4.1-Flash](https://www.deepseek.com/en/news/deepseek-v4-1-flash/) · [DeepSeek Models & Pricing](https://api-docs.deepseek.com/quick_start/pricing) — verified 2026-09-12*
+
+---
+
+### 💲 OpenAI: GPT-5.6 Sol promotional cut ($5/$30→$4/$20) + Terra/Luna permanent cuts — CATALOG CORRECTION (cuts took effect 2026-07-30 / 2026-08-21)
+
+**Provider:** [OpenAI](models/openai.md)  
+This entry corrects the catalog, which still listed pre-cut GPT-5.6 prices as of the last run. Two price reductions apply to the [GPT-5.6](models/openai.md) family:
+
+1. **2026-07-30 (permanent):** **Terra** cut 20%, **Luna** cut 80%.
+2. **2026-08-21 (promotional, through at least 2026-11-21):** **Sol** cut — input −20%, output −33%. Applies to the API, Codex credits, and eligible ChatGPT Work plans; **subscription (Pro/Plus/Business) prices unchanged**. Also applies to Fast mode, long-context, and Batch/Flex.
+
+| Model | Input — old → new | Cached — old → new | Cache write — old → new | Output — old → new |
+|---|---|---|---|---|
+| GPT-5.6 Sol | $5.00 → **$4.00** | $0.50 → $0.40 | $6.25 → $5.00 | $30.00 → **$20.00** |
+| GPT-5.6 Terra | $2.50 → **$2.00** | $0.25 → $0.20 | $3.125 → $2.50 | $15.00 → **$12.00** |
+| GPT-5.6 Luna | $1.00 → **$0.20** | $0.10 → $0.02 | $1.25 → $0.25 | $6.00 → **$1.20** |
+
+**Long-context (>272K input, 2× input/cache + 1.5× output):** Sol $8/$30 · Terra $4/$18 · Luna $0.40/$1.80 (was $10/$45, $5/$22.50, $2/$9). **Daybreak Blue** Sol now follows the Sol promo: **$4/$20** (Cyber unchanged at $12.50/$75).
+
+> 📝 **Sol is still 20× Luna** on input. With [GPT-6 Astra](models/openai.md) now at $10/$50, Sol's promo $4/$20 is **2.5× cheaper** and remains the right default for most production workloads. Budget against a possible step-up after **2026-11-21** (OpenAI only guarantees the promo "through at least" that date).
+
+**Developer action:** No code change if you call `gpt-5.6-sol`/`-terra`/`-luna` (same IDs) — bills just dropped. Lower Q4 budget estimates accordingly. Re-validate any cost calculators pinned to the old rates.
+
+Updated: `models/openai.md`, `comparison.md` (correcting prior stale GPT-5.6 figures)  
+*Source: [OpenAI — Advancing the price-performance frontier with GPT-5.6 (July 30)](https://openai.com/index/advancing-the-price-performance-frontier-with-gpt-5-6/) · [OpenAI Developer Community — 20% price reduction for GPT-5.6 Sol (Aug 21)](https://community.openai.com/t/20-price-reduction-for-gpt-5-6-sol-api-codex-credits-and-chatgpt-work/1391726) · [OpenAI API pricing](https://developers.openai.com/api/docs/pricing) — verified 2026-09-12*
+
+---
+
 ## 2026-08-29
 
 ### 🆕 Google: Gemini 3.5 Transcribe — new speech-to-text model (public preview, 2026-08-26)

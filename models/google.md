@@ -1,12 +1,45 @@
 # Google Gemini Model Catalog
 
-> **Source:** [Gemini API Pricing](https://ai.google.dev/gemini-api/docs/pricing) · [Vertex AI Pricing](https://cloud.google.com/vertex-ai/generative-ai/pricing) · [Gemini Deprecations](https://ai.google.dev/gemini-api/docs/deprecations) · [What's new in Gemini 3.7 Flash](https://ai.google.dev/gemini-api/docs/latest-model) · [Gemini 3.5 Transcribe docs](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-transcribe) · **Verified:** 2026-08-29
+> **Source:** [Gemini API Pricing](https://ai.google.dev/gemini-api/docs/pricing) · [Vertex AI Pricing](https://cloud.google.com/vertex-ai/generative-ai/pricing) · [Gemini Deprecations](https://ai.google.dev/gemini-api/docs/deprecations) · [What's new in Gemini 3.8 Flash](https://ai.google.dev/gemini-api/docs/latest-model) · [Gemini 3.5 Transcribe docs](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-transcribe) · **Verified:** 2026-09-12
 
 ---
 
-## Current Models (Gemini 3.7 — Latest Generation)
+## Current Models (Gemini 3.8 — Latest Generation)
 
-### Gemini 3.7 Flash (Released 2026-08-13 — GA) 🆕 NEW
+### Gemini 3.8 Flash (Released 2026-09-02 — GA) 🆕 NEW
+
+Google's **most intelligent Flash-tier model**, engineered for long-horizon software engineering, autonomous agents, and complex enterprise workflows. Built on [Gemini 3.7 Flash](#gemini-37-flash-released-2026-08-13--ga--new); the default model for Managed Agents — the Antigravity agent and Antigravity SDK now use Gemini 3.8 Flash by default.
+
+| Metric | Value |
+|---|---|
+| API name | `gemini-3.8-flash` |
+| Context window | 1,048,576 tokens (~1 M) |
+| Max output | 65,536 tokens (64K) |
+| Default thinking level | `medium` (tunable: `low` / `medium` / `high`) |
+| Input (intro, through **2026-12-31**) | **$0.75 / 1M** |
+| Output (intro, incl. thinking, through **2026-12-31**) | **$3.75 / 1M** |
+| Context caching (read, intro) | $0.075 / 1M |
+| Context caching storage (intro) | $1.00 / 1M tokens per hour |
+| Standard pricing (from **2027-01-01**) | $1.50 input / $7.50 output / $0.15 cache read / $1.00 per hour storage |
+| Input modalities | text, image, video, audio, PDF · Output: text |
+| Free tier | Not specified at launch (paid) |
+
+**Key facts:**
+- Released **2026-09-02** (GA, production-ready) — ~3 weeks after 3.7 Flash
+- **Intro pricing ($0.75/$3.75) is shared** with [Gemini 3.6 Flash](#gemini-36-flash-released-2026-07-21--ga) and [Gemini 3.7 Flash](#gemini-37-flash-released-2026-08-13--ga--new) through Dec 31, 2026; all three revert to $1.50/$7.50 on Jan 1, 2027
+- By design, **3.8 Flash can use more tokens on complex tasks** (smaller reasoning steps, iterative tool calls, self-verification) — lower the thinking level for everyday work to cut token use; [Gemini 3.7 Flash](#gemini-37-flash-released-2026-08-13--ga--new) remains fully supported as the lower-token alternative
+- Same built-in tool suite as 3.7 Flash (caching, code execution, computer use in preview, file search, function calling, Google Maps/Search grounding, structured outputs, URL context, thinking); same 2026-07-21 deprecation of `temperature` / `top_p` / `top_k` sampling params applies
+- Live in Google AI Studio, Gemini API, Vertex AI / Gemini Enterprise Agent Platform, Antigravity, OpenRouter, Cursor
+- **Benchmarks (Artificial Analysis / public):** GPQA Diamond **95.3%** · Coding Index **76.3%** · Intelligence Index **47.1%**
+- **Migration:** drop-in from 3.7/3.6 Flash — change the model ID to `gemini-3.8-flash`. For the absolute cheapest per-token Gemini work, [3.1 Flash-Lite](#gemini-31-flash-lite) ($0.125/$0.75) remains lower
+
+> ⚠️ **Budget against the standard rate.** The intro price expires 2026-12-31. Any workload that outlives 2026 should be modeled at **$1.50/$7.50**.
+
+*Source: [Gemini API — What's new in Gemini 3.8 Flash](https://ai.google.dev/gemini-api/docs/latest-model) (last updated 2026-09-03 UTC) · [Gemini Developer API pricing](https://ai.google.dev/gemini-api/docs/pricing) · [DeepMind model card — Gemini 3.8 Flash](https://deepmind.google/models/model-cards/gemini-3-8-flash) — verified 2026-09-12*
+
+---
+
+### Gemini 3.7 Flash (Released 2026-08-13 — GA)
 
 Google's newest and most capable **Flash-tier workhorse** — "our most intelligent workhorse model yet for coding and agents." Same 1M context window, 64K max output, multimodal input, and built-in tool suite as [Gemini 3.6 Flash](#gemini-36-flash-released-2026-07-21--ga--new); the gains are behavioral (large jumps on coding/agentic benchmarks), not spec changes. Ships three weeks after 3.6 Flash. **Gemini 3.5 Pro remains unreleased** (still in development) — Flash is where Google is shipping new engineering first.
 

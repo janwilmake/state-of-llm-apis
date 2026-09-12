@@ -1,12 +1,49 @@
 # Anthropic Model Catalog
 
-> **Source:** [Anthropic API Pricing](https://platform.claude.com/docs/en/about-claude/pricing) · [Models Overview](https://platform.claude.com/docs/en/about-claude/models/overview) · [Model deprecations](https://platform.claude.com/docs/en/about-claude/model-deprecations) · **Verified:** 2026-08-22
+> **Source:** [Anthropic API Pricing](https://platform.claude.com/docs/en/about-claude/pricing) · [Models Overview](https://platform.claude.com/docs/en/about-claude/models/overview) · [Model deprecations](https://platform.claude.com/docs/en/about-claude/model-deprecations) · **Verified:** 2026-09-12
 
 ---
 
-## Current Recommended Models (Fable 5 / Mythos-class)
+## Current Recommended Models (Fable 5.1 / Mythos-class)
 
-### Claude Fable 5 (Released 2026-06-09) ✅ RESTORED 2026-07-01
+### Claude Fable 5.1 (Released 2026-09-01) 🆕 NEW — Most capable GA model
+
+Anthropic's **most capable generally-available model** and the new Mythos-class flagship. Same specs and headline per-token pricing as [Claude Fable 5](#claude-fable-5-released-2026-06-09--restored-2026-07-01); the change is **cache-read pricing** (cut 75%), improved safeguards (fewer false positives), and stronger agentic coding/research. The first Fable-class model that is usable under **zero data retention** (until Enterprise Frontier Safeguards ship).
+
+| Metric | Value |
+|---|---|
+| API name | `claude-fable-5-1` |
+| Context window | 1,000,000 tokens |
+| Max output | 128,000 tokens |
+| Input | **$10.00 / 1M** (unchanged from Fable 5) |
+| Output | **$50.00 / 1M** (unchanged from Fable 5) |
+| 5-min cache write | $12.50 / 1M (unchanged) |
+| 1-hr cache write | $20.00 / 1M (unchanged) |
+| **Cache read (hit)** | **$0.25 / 1M** 🆕 (was $1.00 — **75% cut**; 0.025× base input vs the standard 0.1× on all other Claude models) |
+| Batch input / output (50% off) | $5.00 / $25.00 per 1M |
+| Thinking mode | **Adaptive thinking — always on; cannot be disabled** |
+
+> 💲 **The whole story is cache reads.** Input, output, and cache-write rates are identical to Fable 5. Only cache reads move: $1.00 → **$0.25/1M**. Anthropic reports this cuts **typical workloads ~25%** and **highly agentic workloads up to ~45%** (agents that re-read a large prefix every turn benefit most). A 200K-token prefix read 100× costs $5 on Fable 5.1 vs $20 on Fable 5. US-only inference (`inference_geo: "us"`) adds a 1.1× multiplier.
+
+**Key facts:**
+- Released **2026-09-01** on the Claude API; Anthropic's most capable GA model (supersedes Fable 5 as the recommended top tier; Fable 5 still works).
+- **Zero data retention now available** for eligible customers (Fable 5 required 30-day retention). The permanent privacy path is **Enterprise Frontier Safeguards (EFS)** — customer-controlled storage + automated misuse monitoring, phasing in later this fall.
+- **Safeguards improved:** cyber safeguards now intervene ~60% less per session; biology safeguards ~85% less on harmless questions.
+- **Preserved thinking controls (Messages API):** for new API accounts, thinking blocks are bound to the model + conversation prefix (anti-distillation).
+- **Benchmarks (Anthropic-reported):** Terminal-Bench-Science 0.1 — **52.6%** (vs Fable 5 24.7%); Terminal-Bench 4.0 — 55.8%.
+- **Caveat — per-task cost may not drop:** Artificial Analysis measured Fable 5.1 using **~1.7× more output tokens** than Fable 5 to reach comparable intelligence; at max effort it was ~20% more expensive per task than Opus 5. The cache discount helps cache-heavy loops — for output-heavy / low-cache-hit workloads, run a token audit first.
+
+**Supported features:** `effort` parameter, task budgets, memory tool, context editing, compaction, vision (text, image, file inputs), `fallbacks` on refusal.
+
+> 📝 **Also released 2026-09-01: Claude Mythos 5.1** (`claude-mythos-5-1`) — same underlying model as Fable 5.1 with safeguards lifted per program. **Restricted to vetted U.S. organizations** via the **Cyber Verification Program** (cyberdefense) and the **Life Sciences Verification Program** (life sciences), through Project Glasswing. Anthropic is coordinating with the U.S. government to expand access. Same $10/$50 + $0.25 cache-read pricing. Terminal-Bench 4.0: 60.9%. Not available via public API.
+
+**Developer action:** For long-running agentic/coding loops with high cache reuse, Fable 5.1's $0.25 cache reads make a Fable-class model finally economical (Cognition/Devin moved Opus 5 traffic to Fable 5.1 on launch day for code review). New code should call `claude-fable-5-1`; Fable 5 remains available. If you need ZDR, Fable 5.1 is now usable where Fable 5 was not.
+
+*Source: [Anthropic — Introducing Claude Fable 5.1 and Claude Mythos 5.1](https://www.anthropic.com/claude-fable-and-mythos-5-1) · [Anthropic API pricing](https://platform.claude.com/docs/en/about-claude/pricing) · [VentureBeat](https://venturebeat.com/technology/anthropics-claude-fable-5-1-and-mythos-5-1-arrive-with-a-75-cost-reduction-for-fable-cache-reads) — verified 2026-09-12*
+
+---
+
+### Claude Fable 5 (Released 2026-06-09) ✅ RESTORED 2026-07-01 — superseded as top GA model by Fable 5.1 (2026-09-01)
 
 > ✅ **ACCESS RESTORED 2026-07-01.** Export controls on Fable 5 were lifted on June 30, 2026. Fable 5 returned globally on July 1 across Claude Platform, claude.ai, Claude Code, and Claude Cowork. AWS, Google Cloud, and Microsoft Foundry access is being restored as quickly as possible.
 >
@@ -385,7 +422,7 @@ Anthropic's most capable model to date, described as a "step change" above Claud
 
 ## Claude 5 Roadmap
 
-Anthropic's Claude 5 generation is now substantially shipped. **Claude Opus 5** (`claude-opus-5`) was released **2026-07-24** — fulfilling the previously-anticipated Q3 2026 Opus milestone. **Sonnet 5** was released 2026-06-30 at $2/$10 — originally introductory through Aug 31, **made permanent on 2026-08-10** (the Sept 1 step-up to $3/$15 was cancelled). Above the Opus tier, the **Mythos-class** tier was introduced with **Claude Fable 5** (GA 2026-06-09, restored globally 2026-07-01). The current frontier is Fable 5 / Mythos 5; on **2026-08-21** Mythos 5 scans reached all Claude Enterprise customers via Claude Security. Separately, Anthropic's [draft S-1 filing](https://futurumgroup.com/insights/will-anthropics-draft-s-1-ignite-a-new-phase-in-the-ai-platform-race/) (2026-06-02) reported a $965B valuation and ~$30B annualized revenue run rate.
+Anthropic's Claude 5 generation is now substantially shipped. **Claude Opus 5** (`claude-opus-5`) was released **2026-07-24** — fulfilling the previously-anticipated Q3 2026 Opus milestone. **Sonnet 5** was released 2026-06-30 at $2/$10 — originally introductory through Aug 31, **made permanent on 2026-08-10** (the Sept 1 step-up to $3/$15 was cancelled). Above the Opus tier, the **Mythos-class** tier was introduced with **Claude Fable 5** (GA 2026-06-09, restored globally 2026-07-01). The current frontier is **Fable 5.1 / Mythos 5.1** (released **2026-09-01**) — same $10/$50 pricing with **cache reads cut to $0.25/1M**, Fable 5.1 GA and Mythos 5.1 restricted to vetted U.S. organizations. Previously, on **2026-08-21** Mythos 5 scans reached all Claude Enterprise customers via Claude Security. Separately, Anthropic's [draft S-1 filing](https://futurumgroup.com/insights/will-anthropics-draft-s-1-ignite-a-new-phase-in-the-ai-platform-race/) (2026-06-02) reported a $965B valuation and ~$30B annualized revenue run rate.
 
 ---
 
